@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VYRO — Wear Your VYRO.</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#111;background:#fff}
+nav{height:72px;background:#080808;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:5}
+.logo{font-size:32px;font-weight:900;letter-spacing:-2px}nav a{color:#fff;text-decoration:none;margin-left:25px;font-size:12px;font-weight:bold}
+.hero{min-height:680px;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.12)),url('hero.jpg') center/cover;display:flex;align-items:center;padding:7%;color:#fff}
+.hero h1{font-size:clamp(58px,9vw,100px);line-height:.9;margin:0 0 25px;letter-spacing:-5px}.hero p{letter-spacing:2px}.btn{display:inline-block;background:#fff;color:#111;padding:16px 25px;text-decoration:none;font-weight:bold;margin-top:15px}
+section{padding:75px 6%}.center{text-align:center}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px;margin:40px auto}
+.card{border:1px solid #eee}.card img{width:100%;height:280px;object-fit:cover}.card div{padding:15px}.price{font-weight:bold;margin:10px 0}.order{display:block;background:#111;color:#fff;text-align:center;padding:12px;text-decoration:none}
+.dark{background:#090909;color:#fff}.about{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about img{width:100%}
+.social a{display:inline-block;color:#fff;border:1px solid #777;padding:14px 25px;margin:15px 7px;text-decoration:none}
+footer{background:#050505;color:#aaa;padding:45px 6%;text-align:center}
+@media(max-width:750px){nav a{display:none}.grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{min-height:600px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">VYRO</div><div><a href="#collection">COLLECTION</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div></nav>
+<section class="hero"><div><h1>WEAR<br>YOUR<br>VYRO.</h1><p>NEW COLLECTION · SUMMER '26</p><a class="btn" href="#collection">SHOP NOW →</a></div></section>
+<section id="collection">
+<div class="center"><p>NEW COLLECTION</p><h2>LATEST DROP</h2></div>
+<div class="grid">
+<div class="card"><img src="hero.jpg"><div><b>VYRO OVERSIZE TEE</b><p class="price">EGP 450</p><a class="order" href="https://wa.me/2010012514567">ORDER NOW</a></div></div>
+<div class="card"><img src="hero.jpg"><div><b>VYRO ESSENTIAL TEE</b><p class="price">EGP 400</p><a class="order" href="https://wa.me/2010012514567">ORDER NOW</a></div></div>
+<div class="card"><img src="hero.jpg"><div><b>VYRO MINIMAL TEE</b><p class="price">EGP 450</p><a class="order" href="https://wa.me/2010012514567">ORDER NOW</a></div></div>
+<div class="card"><img src="hero.jpg"><div><b>VYRO HOODIE</b><p class="price">EGP 750</p><a class="order" href="https://wa.me/2010012514567">ORDER NOW</a></div></div>
+</div>
+</section>
+<section class="dark" id="about"><div class="about"><img src="hero.jpg"><div><p>ABOUT</p><h2>ABOUT VYRO</h2><p>VYRO is a modern local clothing brand created for those who believe that style is more than just what you wear.</p><p>Minimal design. Premium quality. Made for everyday life.</p></div></div></section>
+<section class="center social" id="contact"><h2>FOLLOW VYRO</h2><a href="https://instagram.com/">INSTAGRAM</a><a href="https://wa.me/2010012514567">WHATSAPP</a><a href="https://facebook.com/">FACEBOOK</a></section>
+<footer>© 2026 VYRO — All Rights Reserved</footer>
+</body></html>

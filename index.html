@@ -119,19 +119,24 @@
       margin: auto;
       padding: 10px 20px 50px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
       gap: 25px;
     }
     .product {
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
-      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
     }
     .product:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,.12);
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.12);
     }
     .product-image {
       height: 300px;
@@ -147,7 +152,8 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform .4s ease;
+      transition:
+        transform .4s ease;
     }
     .product:hover .product-image img {
       transform: scale(1.05);
@@ -171,7 +177,7 @@
       border-radius: 6px;
       background: white;
     }
-    /* BUTTONS */
+    /* PRODUCT BUTTONS */
     .product-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -220,7 +226,8 @@
       overflow: hidden;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      box-shadow: 0 15px 50px rgba(0,0,0,.3);
+      box-shadow:
+        0 15px 50px rgba(0,0,0,.3);
     }
     .product-modal-box img {
       width: 100%;
@@ -426,6 +433,7 @@
       .product-buttons {
         grid-template-columns: 1fr;
       }
+      /* MOBILE PRODUCT MODAL */
       .product-modal {
         padding: 10px;
       }
@@ -442,10 +450,6 @@
       .product-modal-info h2 {
         font-size: 24px;
       }
-      .top-bar {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
     }
   </style>
 </head>
@@ -460,37 +464,60 @@
   <a href="#products">Shop</a>
   <a href="#about">About</a>
 </div>
-<button class="nav-cart" onclick="openCart()">
-  🛒 <span id="navCartCount">0</span>
+<button
+  class="nav-cart"
+  onclick="openCart()">
+  🛒
+  <span id="navCartCount">0</span>
 </button>
   </nav>
   <!-- HERO -->
-  <section class="hero" id="home">
+  <section
+    class="hero"
+    id="home">
 <div class="hero-content">
   <h1>VYRO</h1>
   <p>WEAR YOUR VISION</p>
-  <a href="#products" class="hero-btn">
+  <a
+    href="#products"
+    class="hero-btn">
     SHOP NOW
   </a>
 </div>
   </section>
   <!-- PRODUCTS TITLE -->
   <div class="top-bar">
-<h2>Products</h2>
-<button class="cart-button" onclick="openCart()">
-  🛒 Cart (<span id="cartCount">0</span>)
+<h2>
+  Products
+</h2>
+<button
+  class="cart-button"
+  onclick="openCart()">
+  🛒 Cart
+  (<span id="cartCount">0</span>)
 </button>
   </div>
   <!-- PRODUCTS -->
-  <section class="products" id="products">
+  <section
+    class="products"
+    id="products">
 <!-- PRODUCT 1 -->
 <div class="product">
-  <div class="product-image"
-    onclick="openProduct('VYRO Essential T-Shirt',499,'IMG_8035.jpeg')">
-    <img src="IMG_8035.jpeg" alt="VYRO Essential T-Shirt">
+  <div
+    class="product-image"
+    onclick="openProduct(
+      'VYRO Essential T-Shirt',
+      499,
+      'IMG_8035.jpeg'
+    )">
+    <img
+      src="IMG_8035.jpeg"
+      alt="VYRO Essential T-Shirt">
   </div>
   <div class="product-info">
-    <h3>VYRO Essential T-Shirt</h3>
+    <h3>
+      VYRO Essential T-Shirt
+    </h3>
     <div class="price">
       499 EGP
     </div>
@@ -508,12 +535,22 @@
     <div class="product-buttons">
       <button
         class="add-btn"
-        onclick="addToCart('VYRO Essential T-Shirt',499,'color1','size1')">
+        onclick="addToCart(
+          'VYRO Essential T-Shirt',
+          499,
+          'color1',
+          'size1'
+        )">
         Add to Cart
       </button>
       <button
         class="buy-btn"
-        onclick="buyNow('VYRO Essential T-Shirt',499,'color1','size1')">
+        onclick="buyNow(
+          'VYRO Essential T-Shirt',
+          499,
+          'color1',
+          'size1'
+        )">
         Buy Now ⚡
       </button>
     </div>
@@ -521,12 +558,21 @@
 </div>
 <!-- PRODUCT 2 -->
 <div class="product">
-  <div class="product-image"
-    onclick="openProduct('VYRO Oversized T-Shirt',599,'IMG_8036.jpeg')">
-    <img src="IMG_8036.jpeg" alt="VYRO Oversized T-Shirt">
+  <div
+    class="product-image"
+    onclick="openProduct(
+      'VYRO Oversized T-Shirt',
+      599,
+      'IMG_8036.jpeg'
+    )">
+    <img
+      src="IMG_8036.jpeg"
+      alt="VYRO Oversized T-Shirt">
   </div>
   <div class="product-info">
-    <h3>VYRO Oversized T-Shirt</h3>
+    <h3>
+      VYRO Oversized T-Shirt
+    </h3>
     <div class="price">
       599 EGP
     </div>
@@ -544,12 +590,22 @@
     <div class="product-buttons">
       <button
         class="add-btn"
-        onclick="addToCart('VYRO Oversized T-Shirt',599,'color2','size2')">
+        onclick="addToCart(
+          'VYRO Oversized T-Shirt',
+          599,
+          'color2',
+          'size2'
+        )">
         Add to Cart
       </button>
       <button
         class="buy-btn"
-        onclick="buyNow('VYRO Oversized T-Shirt',599,'color2','size2')">
+        onclick="buyNow(
+          'VYRO Oversized T-Shirt',
+          599,
+          'color2',
+          'size2'
+        )">
         Buy Now ⚡
       </button>
     </div>
@@ -557,12 +613,21 @@
 </div>
 <!-- PRODUCT 3 -->
 <div class="product">
-  <div class="product-image"
-    onclick="openProduct('VYRO Hoodie',899,'IMG_8037.jpeg')">
-    <img src="IMG_8037.jpeg" alt="VYRO Hoodie">
+  <div
+    class="product-image"
+    onclick="openProduct(
+      'VYRO Hoodie',
+      899,
+      'IMG_8037.jpeg'
+    )">
+    <img
+      src="IMG_8037.jpeg"
+      alt="VYRO Hoodie">
   </div>
   <div class="product-info">
-    <h3>VYRO Hoodie</h3>
+    <h3>
+      VYRO Hoodie
+    </h3>
     <div class="price">
       899 EGP
     </div>
@@ -580,12 +645,22 @@
     <div class="product-buttons">
       <button
         class="add-btn"
-        onclick="addToCart('VYRO Hoodie',899,'color3','size3')">
+        onclick="addToCart(
+          'VYRO Hoodie',
+          899,
+          'color3',
+          'size3'
+        )">
         Add to Cart
       </button>
       <button
         class="buy-btn"
-        onclick="buyNow('VYRO Hoodie',899,'color3','size3')">
+        onclick="buyNow(
+          'VYRO Hoodie',
+          899,
+          'color3',
+          'size3'
+        )">
         Buy Now ⚡
       </button>
     </div>
@@ -593,12 +668,21 @@
 </div>
 <!-- PRODUCT 4 -->
 <div class="product">
-  <div class="product-image"
-    onclick="openProduct('VYRO Cargo Pants',799,'IMG_8038.jpeg')">
-    <img src="IMG_8038.jpeg" alt="VYRO Cargo Pants">
+  <div
+    class="product-image"
+    onclick="openProduct(
+      'VYRO Cargo Pants',
+      799,
+      'IMG_8038.jpeg'
+    )">
+    <img
+      src="IMG_8038.jpeg"
+      alt="VYRO Cargo Pants">
   </div>
   <div class="product-info">
-    <h3>VYRO Cargo Pants</h3>
+    <h3>
+      VYRO Cargo Pants
+    </h3>
     <div class="price">
       799 EGP
     </div>
@@ -616,12 +700,22 @@
     <div class="product-buttons">
       <button
         class="add-btn"
-        onclick="addToCart('VYRO Cargo Pants',799,'color4','size4')">
+        onclick="addToCart(
+          'VYRO Cargo Pants',
+          799,
+          'color4',
+          'size4'
+        )">
         Add to Cart
       </button>
       <button
         class="buy-btn"
-        onclick="buyNow('VYRO Cargo Pants',799,'color4','size4')">
+        onclick="buyNow(
+          'VYRO Cargo Pants',
+          799,
+          'color4',
+          'size4'
+        )">
         Buy Now ⚡
       </button>
     </div>
@@ -629,7 +723,9 @@
 </div>
   </section>
   <!-- ABOUT -->
-  <section class="about" id="about">
+  <section
+    class="about"
+    id="about">
 <h2>
   About VYRO
 </h2>
@@ -639,7 +735,9 @@
 </p>
   </section>
   <!-- PRODUCT DETAILS -->
-  <div class="product-modal" id="productModal">
+  <div
+    class="product-modal"
+    id="productModal">
 <div class="product-modal-box">
   <button
     class="product-modal-close"
@@ -655,7 +753,10 @@
       VYRO Product
     </h2>
     <div class="product-modal-price">
-      <span id="productModalPrice">0</span> EGP
+      <span id="productModalPrice">
+        0
+      </span>
+      EGP
     </div>
     <p>
       Premium VYRO piece designed to wear your vision.
@@ -669,10 +770,14 @@
 </div>
   </div>
   <!-- CART -->
-  <div class="cart" id="cart">
+  <div
+    class="cart"
+    id="cart">
 <div class="cart-box">
   <div class="cart-header">
-    <h2>Your Cart</h2>
+    <h2>
+      Your Cart
+    </h2>
     <button
       class="close"
       onclick="closeCart()">
@@ -698,22 +803,28 @@
   </div>
   <!-- FOOTER -->
   <footer>
-    © VYRO — All rights reserved.
+© VYRO — All rights reserved.
   </footer>
   <!-- JAVASCRIPT -->
   <script>
     let cart = [];
     /* ADD TO CART */
-    function addToCart(name, price, colorId, sizeId) {
+    function addToCart(
+      name,
+      price,
+      colorId,
+      sizeId
+    ) {
       const color =
         document.getElementById(colorId).value;
       const size =
         document.getElementById(sizeId).value;
-      const existingItem = cart.find(item =>
-        item.name === name &&
-        item.color === color &&
-        item.size === size
-      );
+      const existingItem =
+        cart.find(item =>
+          item.name === name &&
+          item.color === color &&
+          item.size === size
+        );
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -726,19 +837,28 @@
         });
       }
       updateCart();
-      alert(name + " added to cart!");
+      alert(
+        name +
+        " added to cart!"
+      );
     }
     /* BUY NOW */
-    function buyNow(name, price, colorId, sizeId) {
+    function buyNow(
+      name,
+      price,
+      colorId,
+      sizeId
+    ) {
       const color =
         document.getElementById(colorId).value;
       const size =
         document.getElementById(sizeId).value;
-      const existingItem = cart.find(item =>
-        item.name === name &&
-        item.color === color &&
-        item.size === size
-      );
+      const existingItem =
+        cart.find(item =>
+          item.name === name &&
+          item.color === color &&
+          item.size === size
+        );
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -754,201 +874,241 @@
       openCart();
     }
     /* PRODUCT DETAILS */
-    function openProduct(name, price, image) {
-      document.getElementById("productModalName").innerText =
-        name;
-      document.getElementById("productModalPrice").innerText =
-        price;
-      document.getElementById("productModalImage").src =
-        image;
-      document.getElementById("modalBuyBtn").onclick =
-        function() {
-          buyProductFromModal(name, price);
+    function openProduct(
+      name,
+      price,
+      image
+    ) {
+      document.getElementById(
+        "productModalName"
+      ).innerText = name;
+      document.getElementById(
+        "productModalPrice"
+      ).innerText = price;
+      document.getElementById(
+        "productModalImage"
+      ).src = image;
+      document.getElementById(
+        "modalBuyBtn"
+      ).onclick = function() {
+        const productMap = {
+          "VYRO Essential T-Shirt":
+            ["color1", "size1"],
+          "VYRO Oversized T-Shirt":
+            ["color2", "size2"],
+          "VYRO Hoodie":
+            ["color3", "size3"],
+          "VYRO Cargo Pants":
+            ["color4", "size4"]
         };
-      document.getElementById("productModal").style.display =
-        "block";
+        const ids =
+          productMap[name];
+        addToCart(
+          name,
+          price,
+          ids[0],
+          ids[1]
+        );
+        closeProduct();
+        openCart();
+      };
+      document.getElementById(
+        "productModal"
+      ).style.display = "block";
     }
+    /* CLOSE PRODUCT */
     function closeProduct() {
-      document.getElementById("productModal").style.display =
-        "none";
-    }
-    function buyProductFromModal(name, price) {
-      const existingItem = cart.find(item =>
-        item.name === name &&
-        item.color === "Not selected" &&
-        item.size === "Not selected"
-      );
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({
-          name: name,
-          price: price,
-          color: "Not selected",
-          size: "Not selected",
-          quantity: 1
-        });
-      }
-      updateCart();
-      closeProduct();
-      openCart();
+      document.getElementById(
+        "productModal"
+      ).style.display = "none";
     }
     /* UPDATE CART */
     function updateCart() {
       const cartItems =
-        document.getElementById("cartItems");
+        document.getElementById(
+          "cartItems"
+        );
       const cartCount =
-        document.getElementById("cartCount");
+        document.getElementById(
+          "cartCount"
+        );
       const cartTotal =
-        document.getElementById("cartTotal");
+        document.getElementById(
+          "cartTotal"
+        );
       const navCartCount =
-        document.getElementById("navCartCount");
+        document.getElementById(
+          "navCartCount"
+        );
       let total = 0;
       let totalQuantity = 0;
       cart.forEach(item => {
-        total += item.price * item.quantity;
-        totalQuantity += item.quantity;
+        total +=
+          item.price *
+          item.quantity;
+        totalQuantity +=
+          item.quantity;
       });
-      cartCount.innerText = totalQuantity;
-      navCartCount.innerText = totalQuantity;
+      cartCount.innerText =
+        totalQuantity;
+      navCartCount.innerText =
+        totalQuantity;
       if (cart.length === 0) {
         cartItems.innerHTML =
           "Your cart is empty.";
-        cartTotal.innerText = "0";
-        document.getElementById("whatsappBtn").href = "#";
+        cartTotal.innerText =
+          "0";
+        document.getElementById(
+          "whatsappBtn"
+        ).href = "#";
         return;
       }
       let html = "";
-      cart.forEach((item, index) => {
-        const itemTotal =
-          item.price * item.quantity;
-        html += `
-          <div class="cart-item">
-            <strong>
-              ${item.name}
-            </strong>
-            <div class="cart-details">
-              Color:
-              ${item.color}
+      cart.forEach(
+        (item, index) => {
+          const itemTotal =
+            item.price *
+            item.quantity;
+          html += `
+            <div class="cart-item">
+              <strong>
+                ${item.name}
+              </strong>
+              <div class="cart-details">
+                Color:
+                ${item.color}
+                <br>
+                Size:
+                ${item.size}
+                <br>
+                Price:
+                ${item.price} EGP
+              </div>
+              <div class="quantity-box">
+                <button
+                  onclick="decreaseQuantity(${index})">
+                  −
+                </button>
+                <span>
+                  ${item.quantity}
+                </span>
+                <button
+                  onclick="increaseQuantity(${index})">
+                  +
+                </button>
+              </div>
+              <div class="item-total">
+                Item Total:
+                ${itemTotal}
+                EGP
+              </div>
               <br>
-              Size:
-              ${item.size}
-              <br>
-              Price:
-              ${item.price} EGP
-            </div>
-            <div class="quantity-box">
               <button
-                onclick="decreaseQuantity(${index})">
-                −
-              </button>
-              <span>
-                ${item.quantity}
-              </span>
-              <button
-                onclick="increaseQuantity(${index})">
-                +
+                class="remove-btn"
+                onclick="removeItem(${index})">
+                Remove
               </button>
             </div>
-            <div class="item-total">
-              Item Total: ${itemTotal} EGP
-            </div>
-            <br>
-            <button
-              class="remove-btn"
-              onclick="removeItem(${index})">
-              Remove
-            </button>
-          </div>
-        `;
-      });
-      cartItems.innerHTML = html;
-      cartTotal.innerText = total;
+          `;
+        }
+      );
+      cartItems.innerHTML =
+        html;
+      cartTotal.innerText =
+        total;
       updateWhatsApp(total);
     }
-    /* INCREASE QUANTITY */
+    /* INCREASE */
     function increaseQuantity(index) {
       cart[index].quantity += 1;
       updateCart();
     }
-    /* DECREASE QUANTITY */
+    /* DECREASE */
     function decreaseQuantity(index) {
-      if (cart[index].quantity > 1) {
+      if (
+        cart[index].quantity > 1
+      ) {
         cart[index].quantity -= 1;
       } else {
         cart.splice(index, 1);
       }
       updateCart();
     }
-    /* REMOVE ITEM */
+    /* REMOVE */
     function removeItem(index) {
       cart.splice(index, 1);
       updateCart();
     }
     /* OPEN CART */
     function openCart() {
-      document.getElementById("cart")
-        .style.display = "block";
+      document.getElementById(
+        "cart"
+      ).style.display = "block";
     }
     /* CLOSE CART */
     function closeCart() {
-      document.getElementById("cart")
-        .style.display = "none";
+      document.getElementById(
+        "cart"
+      ).style.display = "none";
     }
     /* WHATSAPP */
     function updateWhatsApp(total) {
       let message =
         "Hello VYRO! I would like to order:\n\n";
-      cart.forEach((item, index) => {
-        const itemTotal =
-          item.price * item.quantity;
-        message +=
-          (index + 1) +
-          ". " +
-          item.name +
-          "\n" +
-          "Color: " +
-          item.color +
-          "\n" +
-          "Size: " +
-          item.size +
-          "\n" +
-          "Quantity: " +
-          item.quantity +
-          "\n" +
-          "Unit Price: " +
-          item.price +
-          " EGP\n" +
-          "Item Total: " +
-          itemTotal +
-          " EGP\n\n";
-      });
+      cart.forEach(
+        (item, index) => {
+          const itemTotal =
+            item.price *
+            item.quantity;
+          message +=
+            (index + 1) +
+            ". " +
+            item.name +
+            "\n" +
+            "Color: " +
+            item.color +
+            "\n" +
+            "Size: " +
+            item.size +
+            "\n" +
+            "Quantity: " +
+            item.quantity +
+            "\n" +
+            "Unit Price: " +
+            item.price +
+            " EGP\n" +
+            "Item Total: " +
+            itemTotal +
+            " EGP\n\n";
+        }
+      );
       message +=
         "Total: " +
         total +
         " EGP";
       const phone =
         "201129327133";
-      document.getElementById("whatsappBtn").href =
+      document.getElementById(
+        "whatsappBtn"
+      ).href =
         "https://wa.me/" +
         phone +
         "?text=" +
         encodeURIComponent(message);
     }
     /* CLOSE MODAL WHEN CLICKING OUTSIDE */
-    document.getElementById("productModal")
-      .addEventListener("click", function(event) {
-        if (event.target === this) {
+    document.getElementById(
+      "productModal"
+    ).addEventListener(
+      "click",
+      function(event) {
+        if (
+          event.target === this
+        ) {
           closeProduct();
         }
-      });
-    /* CLOSE CART WHEN CLICKING OUTSIDE */
-    document.getElementById("cart")
-      .addEventListener("click", function(event) {
-        if (event.target === this) {
-          closeCart();
-        }
-      });
+      }
+    );
   </script>
 </body>
 </html>

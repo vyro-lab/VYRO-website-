@@ -197,7 +197,7 @@
       background: white;
     }
 
-    /* BUTTONS */
+    /* PRODUCT BUTTONS */
     .product-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -267,27 +267,69 @@
 
     .cart-item {
       border-bottom: 1px solid #ddd;
-      padding: 12px 0;
+      padding: 15px 0;
     }
 
     .cart-item strong {
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 7px;
+      font-size: 16px;
     }
 
-    .cart-item button {
+    .cart-details {
+      color: #555;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* QUANTITY */
+    .quantity-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+      margin-bottom: 10px;
+    }
+
+    .quantity-box button {
+      width: 32px;
+      height: 32px;
+      border: none;
       background: #111;
       color: white;
+      border-radius: 6px;
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .quantity-box span {
+      min-width: 25px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .remove-btn {
+      background: #eee;
+      color: #111;
       border: none;
       padding: 7px 12px;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 13px;
+    }
+
+    .item-total {
+      font-weight: bold;
+      margin-top: 5px;
     }
 
     .cart-total {
       font-size: 20px;
       font-weight: bold;
       margin: 20px 0;
+      padding-top: 5px;
     }
 
     .whatsapp {
@@ -690,6 +732,8 @@
     let cart = [];
 
 
+    /* ADD TO CART */
+
     function addToCart(name, price, colorId, sizeId) {
 
       const color =
@@ -698,18 +742,38 @@
       const size =
         document.getElementById(sizeId).value;
 
-      cart.push({
-        name: name,
-        price: price,
-        color: color,
-        size: size
-      });
+
+      const existingItem = cart.find(item =>
+        item.name === name &&
+        item.color === color &&
+        item.size === size
+      );
+
+
+      if (existingItem) {
+
+        existingItem.quantity += 1;
+
+      } else {
+
+        cart.push({
+          name: name,
+          price: price,
+          color: color,
+          size: size,
+          quantity: 1
+        });
+
+      }
+
 
       updateCart();
 
       alert(name + " added to cart!");
     }
 
+
+    /* BUY NOW */
 
     function buyNow(name, price, colorId, sizeId) {
 
@@ -719,18 +783,38 @@
       const size =
         document.getElementById(sizeId).value;
 
-      cart.push({
-        name: name,
-        price: price,
-        color: color,
-        size: size
-      });
+
+      const existingItem = cart.find(item =>
+        item.name === name &&
+        item.color === color &&
+        item.size === size
+      );
+
+
+      if (existingItem) {
+
+        existingItem.quantity += 1;
+
+      } else {
+
+        cart.push({
+          name: name,
+          price: price,
+          color: color,
+          size: size,
+          quantity: 1
+        });
+
+      }
+
 
       updateCart();
 
       openCart();
     }
 
+
+    /* UPDATE CART */
 
     function updateCart() {
 
@@ -747,9 +831,22 @@
         document.getElementById("navCartCount");
 
 
-      cartCount.innerText = cart.length;
+      let total = 0;
+      let totalQuantity = 0;
 
-      navCartCount.innerText = cart.length;
+
+      cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+        totalQuantity += item.quantity;
+
+      });
+
+
+      cartCount.innerText = totalQuantity;
+
+      navCartCount.innerText = totalQuantity;
 
 
       if (cart.length === 0) {
@@ -759,18 +856,20 @@
 
         cartTotal.innerText = "0";
 
+        document.getElementById("whatsappBtn").href = "#";
+
         return;
       }
 
 
       let html = "";
 
-      let total = 0;
-
 
       cart.forEach((item, index) => {
 
-        total += item.price;
+        const itemTotal =
+          item.price * item.quantity;
+
 
         html += `
 
@@ -780,22 +879,52 @@
               ${item.name}
             </strong>
 
-            Color:
-            ${item.color}
+            <div class="cart-details">
+
+              Color:
+              ${item.color}
+
+              <br>
+
+              Size:
+              ${item.size}
+
+              <br>
+
+              Price:
+              ${item.price} EGP
+
+            </div>
+
+
+            <div class="quantity-box">
+
+              <button
+                onclick="decreaseQuantity(${index})">
+                −
+              </button>
+
+              <span>
+                ${item.quantity}
+              </span>
+
+              <button
+                onclick="increaseQuantity(${index})">
+                +
+              </button>
+
+            </div>
+
+
+            <div class="item-total">
+              Item Total: ${itemTotal} EGP
+            </div>
+
 
             <br>
-
-            Size:
-            ${item.size}
-
-            <br>
-
-            Price:
-            ${item.price} EGP
-
-            <br><br>
 
             <button
+              class="remove-btn"
               onclick="removeItem(${index})">
               Remove
             </button>
@@ -815,6 +944,37 @@
     }
 
 
+    /* INCREASE QUANTITY */
+
+    function increaseQuantity(index) {
+
+      cart[index].quantity += 1;
+
+      updateCart();
+    }
+
+
+    /* DECREASE QUANTITY */
+
+    function decreaseQuantity(index) {
+
+      if (cart[index].quantity > 1) {
+
+        cart[index].quantity -= 1;
+
+      } else {
+
+        cart.splice(index, 1);
+
+      }
+
+
+      updateCart();
+    }
+
+
+    /* REMOVE ITEM */
+
     function removeItem(index) {
 
       cart.splice(index, 1);
@@ -823,6 +983,8 @@
     }
 
 
+    /* OPEN CART */
+
     function openCart() {
 
       document.getElementById("cart")
@@ -830,12 +992,16 @@
     }
 
 
+    /* CLOSE CART */
+
     function closeCart() {
 
       document.getElementById("cart")
         .style.display = "none";
     }
 
+
+    /* WHATSAPP */
 
     function updateWhatsApp(total) {
 
@@ -845,15 +1011,35 @@
 
       cart.forEach((item, index) => {
 
+        const itemTotal =
+          item.price * item.quantity;
+
+
         message +=
-          (index + 1) + ". " +
-          item.name + "\n" +
+
+          (index + 1) +
+          ". " +
+          item.name +
+          "\n" +
+
           "Color: " +
-          item.color + "\n" +
+          item.color +
+          "\n" +
+
           "Size: " +
-          item.size + "\n" +
-          "Price: " +
+          item.size +
+          "\n" +
+
+          "Quantity: " +
+          item.quantity +
+          "\n" +
+
+          "Unit Price: " +
           item.price +
+          " EGP\n" +
+
+          "Item Total: " +
+          itemTotal +
           " EGP\n\n";
 
       });

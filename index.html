@@ -7,7 +7,6 @@
   <title>VYRO — Wear Your Vision</title>
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -71,7 +70,6 @@
 
     .hero {
       min-height: 520px;
-
       background:
         linear-gradient(
           rgba(0,0,0,.45),
@@ -82,10 +80,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       text-align: center;
       color: white;
-
       padding: 40px 20px;
     }
 
@@ -103,17 +99,12 @@
 
     .hero-btn {
       display: inline-block;
-
       background: white;
       color: #111;
-
       padding: 14px 30px;
-
       border-radius: 7px;
-
       text-decoration: none;
       font-weight: bold;
-
       transition: .2s;
     }
 
@@ -128,10 +119,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       max-width: 1200px;
       margin: auto;
-
       padding: 35px 20px 20px;
     }
 
@@ -142,15 +131,10 @@
     .cart-button {
       background: #111;
       color: white;
-
       border: none;
-
       padding: 12px 18px;
-
       border-radius: 8px;
-
       cursor: pointer;
-
       font-size: 15px;
     }
 
@@ -159,11 +143,9 @@
     .products {
       max-width: 1200px;
       margin: auto;
-
       padding: 10px 20px 50px;
 
       display: grid;
-
       grid-template-columns:
         repeat(auto-fit, minmax(230px, 1fr));
 
@@ -172,9 +154,7 @@
 
     .product {
       background: white;
-
       border-radius: 12px;
-
       overflow: hidden;
 
       box-shadow:
@@ -194,7 +174,6 @@
 
     .product-image {
       height: 300px;
-
       background: #f2f2f2;
 
       display: flex;
@@ -202,16 +181,13 @@
       justify-content: center;
 
       overflow: hidden;
-
       cursor: pointer;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
-
       display: block;
 
       transition:
@@ -238,42 +214,33 @@
 
     select {
       width: 100%;
-
       padding: 10px;
-
       margin-bottom: 10px;
 
       border: 1px solid #ddd;
-
       border-radius: 6px;
-
       background: white;
     }
 
-    /* ================= PRODUCT BUTTONS ================= */
+    /* ================= BUTTONS ================= */
 
     .product-buttons {
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 8px;
     }
 
     .add-btn,
     .buy-btn {
       width: 100%;
-
       padding: 12px 8px;
 
       border: none;
-
       border-radius: 7px;
 
       cursor: pointer;
 
       font-size: 14px;
-
       font-weight: bold;
 
       transition: .2s;
@@ -296,13 +263,12 @@
       opacity: .82;
     }
 
-    /* ================= PRODUCT DETAILS ================= */
+    /* ================= PRODUCT MODAL ================= */
 
     .product-modal {
       display: none;
 
       position: fixed;
-
       inset: 0;
 
       background: rgba(0,0,0,.75);
@@ -337,11 +303,8 @@
 
     .product-modal-box img {
       width: 100%;
-
       height: 520px;
-
       object-fit: cover;
-
       display: block;
     }
 
@@ -349,31 +312,24 @@
       padding: 45px 35px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: center;
     }
 
     .product-modal-info h2 {
       font-size: 30px;
-
       margin-bottom: 15px;
     }
 
     .product-modal-price {
       font-size: 24px;
-
       font-weight: bold;
-
       margin-bottom: 20px;
     }
 
     .product-modal-info p {
       color: #666;
-
       line-height: 1.7;
-
       margin-bottom: 30px;
     }
 
@@ -387,7 +343,6 @@
       height: 40px;
 
       border: none;
-
       border-radius: 50%;
 
       background: rgba(0,0,0,.75);
@@ -403,26 +358,18 @@
 
     .modal-buy {
       width: 100%;
-
       padding: 14px;
 
       border: none;
-
       border-radius: 8px;
 
       background: #25D366;
-
       color: white;
 
       font-size: 16px;
-
       font-weight: bold;
 
       cursor: pointer;
-    }
-
-    .modal-buy:hover {
-      opacity: .85;
     }
 
     /* ================= CART ================= */
@@ -431,37 +378,37 @@
       display: none;
 
       position: fixed;
-
       inset: 0;
 
       background: rgba(0,0,0,.6);
 
-      z-index: 1000;
+      z-index: 3000;
 
-      padding: 1px;
+      padding: 10px;
     }
 
     .cart-box {
       background: white;
 
-      width: min(500px, 92%);
+      width: min(500px, 95%);
 
-      max-height: 85vh;
+      max-height: 88vh;
 
       overflow-y: auto;
 
-      margin: 7vh auto;
+      margin: 6vh auto;
 
-      border-radius: 12px;
+      border-radius: 14px;
 
       padding: 25px;
+
+      box-shadow:
+        0 15px 50px rgba(0,0,0,.3);
     }
 
     .cart-header {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
 
       margin-bottom: 20px;
@@ -469,33 +416,27 @@
 
     .close {
       border: none;
-
       background: none;
 
-      font-size: 28px;
+      font-size: 30px;
 
       cursor: pointer;
     }
 
     .cart-item {
       border-bottom: 1px solid #ddd;
-
       padding: 15px 0;
     }
 
     .cart-item strong {
       display: block;
-
       margin-bottom: 7px;
-
       font-size: 16px;
     }
 
     .cart-details {
       color: #555;
-
       line-height: 1.7;
-
       font-size: 14px;
     }
 
@@ -503,13 +444,11 @@
 
     .quantity-box {
       display: flex;
-
       align-items: center;
 
       gap: 12px;
 
       margin-top: 12px;
-
       margin-bottom: 10px;
     }
 
@@ -520,7 +459,6 @@
       border: none;
 
       background: #111;
-
       color: white;
 
       border-radius: 6px;
@@ -528,8 +466,6 @@
       font-size: 20px;
 
       cursor: pointer;
-
-      line-height: 1;
     }
 
     .quantity-box span {
@@ -560,19 +496,19 @@
 
     .item-total {
       font-weight: bold;
-
       margin-top: 5px;
     }
 
     .cart-total {
       font-size: 20px;
-
       font-weight: bold;
 
       margin: 20px 0;
 
       padding-top: 5px;
     }
+
+    /* ================= WHATSAPP ================= */
 
     .whatsapp {
       display: block;
@@ -594,13 +530,17 @@
       font-weight: bold;
 
       cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .whatsapp:hover {
+      opacity: .85;
     }
 
     .whatsapp.disabled {
       background: #aaa;
-
       cursor: not-allowed;
-
       pointer-events: none;
     }
 
@@ -622,7 +562,6 @@
 
     .about p {
       line-height: 1.8;
-
       color: #555;
     }
 
@@ -664,13 +603,11 @@
 
       .hero-content h1 {
         font-size: 42px;
-
         letter-spacing: 6px;
       }
 
       .hero-content p {
         font-size: 14px;
-
         letter-spacing: 3px;
       }
 
@@ -682,15 +619,12 @@
         grid-template-columns: 1fr;
       }
 
-      /* MOBILE PRODUCT MODAL */
-
       .product-modal {
         padding: 10px;
       }
 
       .product-modal-box {
         grid-template-columns: 1fr;
-
         margin: 20px auto;
       }
 
@@ -706,8 +640,11 @@
         font-size: 24px;
       }
 
+      .cart-box {
+        width: 96%;
+        margin: 4vh auto;
+      }
     }
-
   </style>
 </head>
 
@@ -723,17 +660,11 @@
 
     <div class="nav-links">
 
-      <a href="#home">
-        Home
-      </a>
+      <a href="#home">Home</a>
 
-      <a href="#products">
-        Shop
-      </a>
+      <a href="#products">Shop</a>
 
-      <a href="#about">
-        About
-      </a>
+      <a href="#about">About</a>
 
     </div>
 
@@ -743,9 +674,7 @@
 
       🛒
 
-      <span id="navCartCount">
-        0
-      </span>
+      <span id="navCartCount">0</span>
 
     </button>
 
@@ -760,13 +689,9 @@
 
     <div class="hero-content">
 
-      <h1>
-        VYRO
-      </h1>
+      <h1>VYRO</h1>
 
-      <p>
-        WEAR YOUR VISION
-      </p>
+      <p>WEAR YOUR VISION</p>
 
       <a
         href="#products"
@@ -838,39 +763,16 @@
         </div>
 
         <select id="color1">
-
-          <option>
-            Black
-          </option>
-
-          <option>
-            White
-          </option>
-
-          <option>
-            Grey
-          </option>
-
+          <option>Black</option>
+          <option>White</option>
+          <option>Grey</option>
         </select>
 
         <select id="size1">
-
-          <option>
-            M
-          </option>
-
-          <option>
-            L
-          </option>
-
-          <option>
-            XL
-          </option>
-
-          <option>
-            XXL
-          </option>
-
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
         <div class="product-buttons">
@@ -937,39 +839,16 @@
         </div>
 
         <select id="color2">
-
-          <option>
-            Black
-          </option>
-
-          <option>
-            White
-          </option>
-
-          <option>
-            Beige
-          </option>
-
+          <option>Black</option>
+          <option>White</option>
+          <option>Beige</option>
         </select>
 
         <select id="size2">
-
-          <option>
-            M
-          </option>
-
-          <option>
-            L
-          </option>
-
-          <option>
-            XL
-          </option>
-
-          <option>
-            XXL
-          </option>
-
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
         <div class="product-buttons">
@@ -1036,39 +915,16 @@
         </div>
 
         <select id="color3">
-
-          <option>
-            Black
-          </option>
-
-          <option>
-            Grey
-          </option>
-
-          <option>
-            Off White
-          </option>
-
+          <option>Black</option>
+          <option>Grey</option>
+          <option>Off White</option>
         </select>
 
         <select id="size3">
-
-          <option>
-            M
-          </option>
-
-          <option>
-            L
-          </option>
-
-          <option>
-            XL
-          </option>
-
-          <option>
-            XXL
-          </option>
-
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
         <div class="product-buttons">
@@ -1135,39 +991,16 @@
         </div>
 
         <select id="color4">
-
-          <option>
-            Black
-          </option>
-
-          <option>
-            Olive
-          </option>
-
-          <option>
-            Beige
-          </option>
-
+          <option>Black</option>
+          <option>Olive</option>
+          <option>Beige</option>
         </select>
 
         <select id="size4">
-
-          <option>
-            M
-          </option>
-
-          <option>
-            L
-          </option>
-
-          <option>
-            XL
-          </option>
-
-          <option>
-            XXL
-          </option>
-
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
         <div class="product-buttons">
@@ -1225,7 +1058,7 @@
   </section>
 
 
-  <!-- ================= PRODUCT DETAILS ================= -->
+  <!-- ================= PRODUCT MODAL ================= -->
 
   <div
     class="product-modal"
@@ -1384,17 +1217,11 @@
       } else {
 
         cart.push({
-
           name: name,
-
           price: price,
-
           color: color,
-
           size: size,
-
           quantity: 1
-
         });
 
       }
@@ -1403,8 +1230,7 @@
       updateCart();
 
       alert(
-        name +
-        " added to cart!"
+        name + " added to cart!"
       );
 
     }
@@ -1441,17 +1267,11 @@
       } else {
 
         cart.push({
-
           name: name,
-
           price: price,
-
           color: color,
-
           size: size,
-
           quantity: 1
-
         });
 
       }
@@ -1487,30 +1307,29 @@
       ).src = image;
 
 
+      const productMap = {
+
+        "VYRO Essential T-Shirt":
+          ["color1", "size1"],
+
+        "VYRO Oversized T-Shirt":
+          ["color2", "size2"],
+
+        "VYRO Hoodie":
+          ["color3", "size3"],
+
+        "VYRO Cargo Pants":
+          ["color4", "size4"]
+
+      };
+
+
       document.getElementById(
         "modalBuyBtn"
       ).onclick = function() {
 
-        const productMap = {
-
-          "VYRO Essential T-Shirt":
-            ["color1", "size1"],
-
-          "VYRO Oversized T-Shirt":
-            ["color2", "size2"],
-
-          "VYRO Hoodie":
-            ["color3", "size3"],
-
-          "VYRO Cargo Pants":
-            ["color4", "size4"]
-
-        };
-
-
         const ids =
           productMap[name];
-
 
         addToCart(
           name,
@@ -1518,7 +1337,6 @@
           ids[0],
           ids[1]
         );
-
 
         closeProduct();
 
@@ -1550,27 +1368,19 @@
     function updateCart() {
 
       const cartItems =
-        document.getElementById(
-          "cartItems"
-        );
-
+        document.getElementById("cartItems");
 
       const cartCount =
-        document.getElementById(
-          "cartCount"
-        );
-
+        document.getElementById("cartCount");
 
       const cartTotal =
-        document.getElementById(
-          "cartTotal"
-        );
-
+        document.getElementById("cartTotal");
 
       const navCartCount =
-        document.getElementById(
-          "navCartCount"
-        );
+        document.getElementById("navCartCount");
+
+      const whatsappBtn =
+        document.getElementById("whatsappBtn");
 
 
       let total = 0;
@@ -1581,8 +1391,7 @@
       cart.forEach(item => {
 
         total +=
-          item.price *
-          item.quantity;
+          item.price * item.quantity;
 
         totalQuantity +=
           item.quantity;
@@ -1592,7 +1401,6 @@
 
       cartCount.innerText =
         totalQuantity;
-
 
       navCartCount.innerText =
         totalQuantity;
@@ -1605,23 +1413,14 @@
         cartItems.innerHTML =
           "Your cart is empty.";
 
-
         cartTotal.innerText =
           "0";
-
-
-        const whatsappBtn =
-          document.getElementById(
-            "whatsappBtn"
-          );
-
 
         whatsappBtn.href = "#";
 
         whatsappBtn.classList.add(
           "disabled"
         );
-
 
         return;
 
@@ -1637,8 +1436,7 @@
         (item, index) => {
 
           const itemTotal =
-            item.price *
-            item.quantity;
+            item.price * item.quantity;
 
 
           html += `
@@ -1661,11 +1459,10 @@
 
                 <br>
 
-                Price:
+                Unit Price:
                 ${item.price} EGP
 
               </div>
-
 
               <div class="quantity-box">
 
@@ -1689,7 +1486,6 @@
 
               </div>
 
-
               <div class="item-total">
 
                 Item Total:
@@ -1698,9 +1494,7 @@
 
               </div>
 
-
               <br>
-
 
               <button
                 class="remove-btn"
@@ -1735,6 +1529,8 @@
 
     function increaseQuantity(index) {
 
+      if (!cart[index]) return;
+
       cart[index].quantity += 1;
 
       updateCart();
@@ -1745,6 +1541,9 @@
     /* ================= DECREASE ================= */
 
     function decreaseQuantity(index) {
+
+      if (!cart[index]) return;
+
 
       if (
         cart[index].quantity > 1
@@ -1767,6 +1566,8 @@
     /* ================= REMOVE ================= */
 
     function removeItem(index) {
+
+      if (!cart[index]) return;
 
       cart.splice(index, 1);
 
@@ -1826,30 +1627,25 @@
             item.name +
             "\n";
 
-
           message +=
             "Color: " +
             item.color +
             "\n";
-
 
           message +=
             "Size: " +
             item.size +
             "\n";
 
-
           message +=
             "Quantity: " +
             item.quantity +
             "\n";
 
-
           message +=
             "Unit Price: " +
             item.price +
             " EGP\n";
-
 
           message +=
             "Item Total: " +
@@ -1863,12 +1659,10 @@
       message +=
         "--------------------\n";
 
-
       message +=
         "Total: " +
         total +
         " EGP\n\n";
-
 
       message +=
         "Thank you, VYRO!";
@@ -1896,7 +1690,7 @@
     }
 
 
-    /* ================= CLOSE MODAL OUTSIDE ================= */
+    /* ================= CLOSE PRODUCT OUTSIDE ================= */
 
     document.getElementById(
       "productModal"
@@ -1928,6 +1722,23 @@
           event.target === this
         ) {
 
+          closeCart();
+
+        }
+
+      }
+    );
+
+
+    /* ================= ESC KEY ================= */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeProduct();
           closeCart();
 
         }

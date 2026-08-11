@@ -6,6 +6,7 @@
   <title>VYRO — Wear Your Vision</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -19,6 +20,7 @@
     }
 
     /* NAVBAR */
+
     .navbar {
       position: sticky;
       top: 0;
@@ -65,15 +67,18 @@
     }
 
     /* HERO */
+
     .hero {
       min-height: 520px;
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url("hero.jpg") center/cover no-repeat;
+
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+
       color: white;
       padding: 40px 20px;
     }
@@ -107,12 +112,15 @@
     }
 
     /* PRODUCTS HEADER */
+
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       max-width: 1200px;
       margin: auto;
+
       padding: 35px 20px 20px;
     }
 
@@ -131,10 +139,13 @@
     }
 
     /* PRODUCTS */
+
     .products {
       max-width: 1200px;
       margin: auto;
+
       padding: 10px 20px 50px;
+
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 25px;
@@ -144,8 +155,12 @@
       background: white;
       border-radius: 12px;
       overflow: hidden;
+
       box-shadow: 0 4px 18px rgba(0,0,0,.08);
-      transition: transform .25s ease, box-shadow .25s ease;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
     .product:hover {
@@ -156,9 +171,11 @@
     .product-image {
       height: 300px;
       background: #f2f2f2;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       overflow: hidden;
       cursor: pointer;
     }
@@ -166,8 +183,10 @@
     .product-image img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
       display: block;
+
       transition: transform .4s ease;
     }
 
@@ -193,12 +212,15 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
+
       border: 1px solid #ddd;
       border-radius: 6px;
+
       background: white;
     }
 
     /* PRODUCT BUTTONS */
+
     .product-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -209,11 +231,15 @@
     .buy-btn {
       width: 100%;
       padding: 12px 8px;
+
       border: none;
       border-radius: 7px;
+
       cursor: pointer;
+
       font-size: 14px;
       font-weight: bold;
+
       transition: .2s;
     }
 
@@ -233,39 +259,54 @@
       opacity: .82;
     }
 
-    /* PRODUCT DETAILS */
+    /* PRODUCT DETAILS MODAL */
 
     .product-modal {
       display: none;
+
       position: fixed;
       inset: 0;
+
       background: rgba(0,0,0,.75);
+
       z-index: 2000;
+
       padding: 20px;
+
       overflow-y: auto;
     }
 
     .product-modal-box {
       position: relative;
+
       background: white;
+
       width: min(850px, 100%);
+
       margin: 5vh auto;
+
       border-radius: 16px;
+
       overflow: hidden;
+
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       box-shadow: 0 15px 50px rgba(0,0,0,.3);
     }
 
     .product-modal-box img {
       width: 100%;
       height: 520px;
+
       object-fit: cover;
+
       display: block;
     }
 
     .product-modal-info {
       padding: 45px 35px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -290,28 +331,42 @@
 
     .product-modal-close {
       position: absolute;
+
       top: 12px;
       right: 15px;
+
       width: 40px;
       height: 40px;
+
       border: none;
       border-radius: 50%;
+
       background: rgba(0,0,0,.75);
+
       color: white;
+
       font-size: 27px;
+
       cursor: pointer;
+
       z-index: 5;
     }
 
     .modal-buy {
       width: 100%;
+
       padding: 14px;
+
       border: none;
       border-radius: 8px;
+
       background: #25D366;
+
       color: white;
+
       font-size: 16px;
       font-weight: bold;
+
       cursor: pointer;
     }
 
@@ -323,19 +378,28 @@
 
     .cart {
       display: none;
+
       position: fixed;
       inset: 0;
+
       background: rgba(0,0,0,.6);
+
       z-index: 1000;
     }
 
     .cart-box {
       background: white;
+
       width: min(500px, 92%);
+
       max-height: 85vh;
+
       overflow-y: auto;
+
       margin: 7vh auto;
+
       border-radius: 12px;
+
       padding: 25px;
     }
 
@@ -343,30 +407,38 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       margin-bottom: 20px;
     }
 
     .close {
       border: none;
       background: none;
+
       font-size: 28px;
+
       cursor: pointer;
     }
 
     .cart-item {
       border-bottom: 1px solid #ddd;
+
       padding: 15px 0;
     }
 
     .cart-item strong {
       display: block;
+
       margin-bottom: 7px;
+
       font-size: 16px;
     }
 
     .cart-details {
       color: #555;
+
       line-height: 1.7;
+
       font-size: 14px;
     }
 
@@ -374,62 +446,94 @@
 
     .quantity-box {
       display: flex;
+
       align-items: center;
+
       gap: 12px;
+
       margin-top: 12px;
+
       margin-bottom: 10px;
     }
 
     .quantity-box button {
       width: 32px;
       height: 32px;
+
       border: none;
+
       background: #111;
+
       color: white;
+
       border-radius: 6px;
+
       font-size: 20px;
+
       cursor: pointer;
+
       line-height: 1;
     }
 
     .quantity-box span {
       min-width: 25px;
+
       text-align: center;
+
       font-weight: bold;
+
       font-size: 16px;
     }
 
     .remove-btn {
       background: #eee;
+
       color: #111;
+
       border: none;
+
       padding: 7px 12px;
+
       border-radius: 5px;
+
       cursor: pointer;
+
       font-size: 13px;
     }
 
     .item-total {
       font-weight: bold;
+
       margin-top: 5px;
     }
 
     .cart-total {
       font-size: 20px;
+
       font-weight: bold;
+
       margin: 20px 0;
+
       padding-top: 5px;
     }
 
     .whatsapp {
       display: block;
+
       width: 100%;
+
       text-align: center;
+
       background: #25D366;
+
       color: white;
+
       text-decoration: none;
+
       padding: 14px;
+
       border-radius: 8px;
+
       font-weight: bold;
     }
 
@@ -437,8 +541,11 @@
 
     .about {
       max-width: 900px;
+
       margin: 20px auto 60px;
+
       padding: 40px 25px;
+
       text-align: center;
     }
 
@@ -448,6 +555,7 @@
 
     .about p {
       line-height: 1.8;
+
       color: #555;
     }
 
@@ -455,35 +563,17 @@
 
     footer {
       text-align: center;
+
       padding: 25px;
+
       background: #111;
+
       color: #aaa;
     }
 
     /* MOBILE */
 
     @media (max-width: 600px) {
-
-      .product-modal {
-        padding: 10px;
-      }
-
-      .product-modal-box {
-        grid-template-columns: 1fr;
-        margin: 20px auto;
-      }
-
-      .product-modal-box img {
-        height: 350px;
-      }
-
-      .product-modal-info {
-        padding: 25px 20px;
-      }
-
-      .product-modal-info h2 {
-        font-size: 24px;
-      }
 
       .navbar {
         padding: 0 15px;
@@ -507,11 +597,13 @@
 
       .hero-content h1 {
         font-size: 42px;
+
         letter-spacing: 6px;
       }
 
       .hero-content p {
         font-size: 14px;
+
         letter-spacing: 3px;
       }
 
@@ -522,8 +614,35 @@
       .product-buttons {
         grid-template-columns: 1fr;
       }
+
+      /* MOBILE PRODUCT MODAL */
+
+      .product-modal {
+        padding: 10px;
+      }
+
+      .product-modal-box {
+        grid-template-columns: 1fr;
+
+        margin: 20px auto;
+      }
+
+      .product-modal-box img {
+        height: 350px;
+      }
+
+      .product-modal-info {
+        padding: 25px 20px;
+      }
+
+      .product-modal-info h2 {
+        font-size: 24px;
+      }
+
     }
+
   </style>
+
 </head>
 
 <body>
@@ -537,13 +656,22 @@
     </div>
 
     <div class="nav-links">
+
       <a href="#home">Home</a>
+
       <a href="#products">Shop</a>
+
       <a href="#about">About</a>
+
     </div>
 
-    <button class="nav-cart" onclick="openCart()">
-      🛒 <span id="navCartCount">0</span>
+    <button
+      class="nav-cart"
+      onclick="openCart()">
+
+      🛒
+      <span id="navCartCount">0</span>
+
     </button>
 
   </nav>
@@ -551,16 +679,24 @@
 
   <!-- HERO -->
 
-  <section class="hero" id="home">
+  <section
+    class="hero"
+    id="home">
 
     <div class="hero-content">
 
       <h1>VYRO</h1>
 
-      <p>WEAR YOUR VISION</p>
+      <p>
+        WEAR YOUR VISION
+      </p>
 
-      <a href="#products" class="hero-btn">
+      <a
+        href="#products"
+        class="hero-btn">
+
         SHOP NOW
+
       </a>
 
     </div>
@@ -572,10 +708,17 @@
 
   <div class="top-bar">
 
-    <h2>Products</h2>
+    <h2>
+      Products
+    </h2>
 
-    <button class="cart-button" onclick="openCart()">
-      🛒 Cart (<span id="cartCount">0</span>)
+    <button
+      class="cart-button"
+      onclick="openCart()">
+
+      🛒 Cart
+      (<span id="cartCount">0</span>)
+
     </button>
 
   </div>
@@ -583,7 +726,9 @@
 
   <!-- PRODUCTS -->
 
-  <section class="products" id="products">
+  <section
+    class="products"
+    id="products">
 
 
     <!-- PRODUCT 1 -->
@@ -592,7 +737,11 @@
 
       <div
         class="product-image"
-        onclick="openProduct('VYRO Essential T-Shirt',499,'IMG_8035.jpeg')">
+        onclick="openProduct(
+          'VYRO Essential T-Shirt',
+          499,
+          'IMG_8035.jpeg'
+        )">
 
         <img
           src="IMG_8035.jpeg"
@@ -602,37 +751,57 @@
 
       <div class="product-info">
 
-        <h3>VYRO Essential T-Shirt</h3>
+        <h3>
+          VYRO Essential T-Shirt
+        </h3>
 
         <div class="price">
           499 EGP
         </div>
 
         <select id="color1">
+
           <option>Black</option>
           <option>White</option>
           <option>Grey</option>
+
         </select>
 
         <select id="size1">
+
           <option>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>
+
         </select>
 
         <div class="product-buttons">
 
           <button
             class="add-btn"
-            onclick="addToCart('VYRO Essential T-Shirt',499,'color1','size1')">
+            onclick="addToCart(
+              'VYRO Essential T-Shirt',
+              499,
+              'color1',
+              'size1'
+            )">
+
             Add to Cart
+
           </button>
 
           <button
             class="buy-btn"
-            onclick="buyNow('VYRO Essential T-Shirt',499,'color1','size1')">
+            onclick="buyNow(
+              'VYRO Essential T-Shirt',
+              499,
+              'color1',
+              'size1'
+            )">
+
             Buy Now ⚡
+
           </button>
 
         </div>
@@ -648,7 +817,11 @@
 
       <div
         class="product-image"
-        onclick="openProduct('VYRO Oversized T-Shirt',599,'IMG_8036.jpeg')">
+        onclick="openProduct(
+          'VYRO Oversized T-Shirt',
+          599,
+          'IMG_8036.jpeg'
+        )">
 
         <img
           src="IMG_8036.jpeg"
@@ -658,37 +831,57 @@
 
       <div class="product-info">
 
-        <h3>VYRO Oversized T-Shirt</h3>
+        <h3>
+          VYRO Oversized T-Shirt
+        </h3>
 
         <div class="price">
           599 EGP
         </div>
 
         <select id="color2">
+
           <option>Black</option>
           <option>White</option>
           <option>Beige</option>
+
         </select>
 
         <select id="size2">
+
           <option>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>
+
         </select>
 
         <div class="product-buttons">
 
           <button
             class="add-btn"
-            onclick="addToCart('VYRO Oversized T-Shirt',599,'color2','size2')">
+            onclick="addToCart(
+              'VYRO Oversized T-Shirt',
+              599,
+              'color2',
+              'size2'
+            )">
+
             Add to Cart
+
           </button>
 
           <button
             class="buy-btn"
-            onclick="buyNow('VYRO Oversized T-Shirt',599,'color2','size2')">
+            onclick="buyNow(
+              'VYRO Oversized T-Shirt',
+              599,
+              'color2',
+              'size2'
+            )">
+
             Buy Now ⚡
+
           </button>
 
         </div>
@@ -704,7 +897,11 @@
 
       <div
         class="product-image"
-        onclick="openProduct('VYRO Hoodie',899,'IMG_8037.jpeg')">
+        onclick="openProduct(
+          'VYRO Hoodie',
+          899,
+          'IMG_8037.jpeg'
+        )">
 
         <img
           src="IMG_8037.jpeg"
@@ -714,37 +911,57 @@
 
       <div class="product-info">
 
-        <h3>VYRO Hoodie</h3>
+        <h3>
+          VYRO Hoodie
+        </h3>
 
         <div class="price">
           899 EGP
         </div>
 
         <select id="color3">
+
           <option>Black</option>
           <option>Grey</option>
           <option>Off White</option>
+
         </select>
 
         <select id="size3">
+
           <option>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>
+
         </select>
 
         <div class="product-buttons">
 
           <button
             class="add-btn"
-            onclick="addToCart('VYRO Hoodie',899,'color3','size3')">
+            onclick="addToCart(
+              'VYRO Hoodie',
+              899,
+              'color3',
+              'size3'
+            )">
+
             Add to Cart
+
           </button>
 
           <button
             class="buy-btn"
-            onclick="buyNow('VYRO Hoodie',899,'color3','size3')">
+            onclick="buyNow(
+              'VYRO Hoodie',
+              899,
+              'color3',
+              'size3'
+            )">
+
             Buy Now ⚡
+
           </button>
 
         </div>
@@ -760,7 +977,11 @@
 
       <div
         class="product-image"
-        onclick="openProduct('VYRO Cargo Pants',799,'IMG_8038.jpeg')">
+        onclick="openProduct(
+          'VYRO Cargo Pants',
+          799,
+          'IMG_8038.jpeg'
+        )">
 
         <img
           src="IMG_8038.jpeg"
@@ -770,37 +991,57 @@
 
       <div class="product-info">
 
-        <h3>VYRO Cargo Pants</h3>
+        <h3>
+          VYRO Cargo Pants
+        </h3>
 
         <div class="price">
           799 EGP
         </div>
 
         <select id="color4">
+
           <option>Black</option>
           <option>Olive</option>
           <option>Beige</option>
+
         </select>
 
         <select id="size4">
+
           <option>M</option>
           <option>L</option>
           <option>XL</option>
           <option>XXL</option>
+
         </select>
 
         <div class="product-buttons">
 
           <button
             class="add-btn"
-            onclick="addToCart('VYRO Cargo Pants',799,'color4','size4')">
+            onclick="addToCart(
+              'VYRO Cargo Pants',
+              799,
+              'color4',
+              'size4'
+            )">
+
             Add to Cart
+
           </button>
 
           <button
             class="buy-btn"
-            onclick="buyNow('VYRO Cargo Pants',799,'color4','size4')">
+            onclick="buyNow(
+              'VYRO Cargo Pants',
+              799,
+              'color4',
+              'size4'
+            )">
+
             Buy Now ⚡
+
           </button>
 
         </div>
@@ -814,7 +1055,9 @@
 
   <!-- ABOUT -->
 
-  <section class="about" id="about">
+  <section
+    class="about"
+    id="about">
 
     <h2>
       About VYRO
@@ -830,14 +1073,18 @@
 
   <!-- PRODUCT DETAILS -->
 
-  <div class="product-modal" id="productModal">
+  <div
+    class="product-modal"
+    id="productModal">
 
     <div class="product-modal-box">
 
       <button
         class="product-modal-close"
         onclick="closeProduct()">
+
         ×
+
       </button>
 
       <img
@@ -852,17 +1099,26 @@
         </h2>
 
         <div class="product-modal-price">
-          <span id="productModalPrice">0</span> EGP
+
+          <span id="productModalPrice">
+            0
+          </span>
+
+          EGP
+
         </div>
 
         <p>
-          Premium VYRO piece designed to wear your vision.
+          Premium VYRO piece designed
+          to wear your vision.
         </p>
 
         <button
           class="modal-buy"
           id="modalBuyBtn">
+
           Buy Now ⚡
+
         </button>
 
       </div>
@@ -874,30 +1130,44 @@
 
   <!-- CART -->
 
-  <div class="cart" id="cart">
+  <div
+    class="cart"
+    id="cart">
 
     <div class="cart-box">
 
       <div class="cart-header">
 
-        <h2>Your Cart</h2>
+        <h2>
+          Your Cart
+        </h2>
 
         <button
           class="close"
           onclick="closeCart()">
+
           ×
+
         </button>
 
       </div>
 
       <div id="cartItems">
+
         Your cart is empty.
+
       </div>
 
       <div class="cart-total">
+
         Total:
-        <span id="cartTotal">0</span>
+
+        <span id="cartTotal">
+          0
+        </span>
+
         EGP
+
       </div>
 
       <a
@@ -905,7 +1175,9 @@
         class="whatsapp"
         href="#"
         target="_blank">
+
         Order via WhatsApp
+
       </a>
 
     </div>
@@ -916,7 +1188,9 @@
   <!-- FOOTER -->
 
   <footer>
+
     © VYRO — All rights reserved.
+
   </footer>
 
 
@@ -927,42 +1201,14 @@
     let cart = [];
 
 
-    /* PRODUCT DETAILS */
-
-    function openProduct(name, price, image) {
-
-      document.getElementById("productModalName").innerText = name;
-
-      document.getElementById("productModalPrice").innerText = price;
-
-      document.getElementById("productModalImage").src = image;
-
-      document.getElementById("productModal").style.display = "flex";
-
-      document.getElementById("modalBuyBtn").onclick = function() {
-
-        closeProduct();
-
-        alert(
-          name +
-          " selected! Please choose your size and color, then use Buy Now."
-        );
-
-      };
-
-    }
-
-
-    function closeProduct() {
-
-      document.getElementById("productModal").style.display = "none";
-
-    }
-
-
     /* ADD TO CART */
 
-    function addToCart(name, price, colorId, sizeId) {
+    function addToCart(
+      name,
+      price,
+      colorId,
+      sizeId
+    ) {
 
       const color =
         document.getElementById(colorId).value;
@@ -971,11 +1217,12 @@
         document.getElementById(sizeId).value;
 
 
-      const existingItem = cart.find(item =>
-        item.name === name &&
-        item.color === color &&
-        item.size === size
-      );
+      const existingItem =
+        cart.find(item =>
+          item.name === name &&
+          item.color === color &&
+          item.size === size
+        );
 
 
       if (existingItem) {
@@ -985,11 +1232,13 @@
       } else {
 
         cart.push({
+
           name: name,
           price: price,
           color: color,
           size: size,
           quantity: 1
+
         });
 
       }
@@ -997,14 +1246,22 @@
 
       updateCart();
 
-      alert(name + " added to cart!");
+      alert(
+        name +
+        " added to cart!"
+      );
 
     }
 
 
     /* BUY NOW */
 
-    function buyNow(name, price, colorId, sizeId) {
+    function buyNow(
+      name,
+      price,
+      colorId,
+      sizeId
+    ) {
 
       const color =
         document.getElementById(colorId).value;
@@ -1013,11 +1270,12 @@
         document.getElementById(sizeId).value;
 
 
-      const existingItem = cart.find(item =>
-        item.name === name &&
-        item.color === color &&
-        item.size === size
-      );
+      const existingItem =
+        cart.find(item =>
+          item.name === name &&
+          item.color === color &&
+          item.size === size
+        );
 
 
       if (existingItem) {
@@ -1027,11 +1285,13 @@
       } else {
 
         cart.push({
+
           name: name,
           price: price,
           color: color,
           size: size,
           quantity: 1
+
         });
 
       }
@@ -1044,21 +1304,121 @@
     }
 
 
+    /* PRODUCT DETAILS */
+
+    function openProduct(
+      name,
+      price,
+      image
+    ) {
+
+      document.getElementById(
+        "productModalName"
+      ).innerText = name;
+
+
+      document.getElementById(
+        "productModalPrice"
+      ).innerText = price;
+
+
+      document.getElementById(
+        "productModalImage"
+      ).src = image;
+
+
+      document.getElementById(
+        "modalBuyBtn"
+      ).onclick = function() {
+
+        buyProductFromModal(
+          name,
+          price
+        );
+
+      };
+
+
+      document.getElementById(
+        "productModal"
+      ).style.display = "block";
+
+    }
+
+
+    function closeProduct() {
+
+      document.getElementById(
+        "productModal"
+      ).style.display = "none";
+
+    }
+
+
+    function buyProductFromModal(
+      name,
+      price
+    ) {
+
+      const existingItem =
+        cart.find(item =>
+          item.name === name &&
+          item.color === "Default" &&
+          item.size === "Default"
+        );
+
+
+      if (existingItem) {
+
+        existingItem.quantity += 1;
+
+      } else {
+
+        cart.push({
+
+          name: name,
+          price: price,
+          color: "Default",
+          size: "Default",
+          quantity: 1
+
+        });
+
+      }
+
+
+      updateCart();
+
+      closeProduct();
+
+      openCart();
+
+    }
+
+
     /* UPDATE CART */
 
     function updateCart() {
 
       const cartItems =
-        document.getElementById("cartItems");
+        document.getElementById(
+          "cartItems"
+        );
 
       const cartCount =
-        document.getElementById("cartCount");
+        document.getElementById(
+          "cartCount"
+        );
 
       const cartTotal =
-        document.getElementById("cartTotal");
+        document.getElementById(
+          "cartTotal"
+        );
 
       const navCartCount =
-        document.getElementById("navCartCount");
+        document.getElementById(
+          "navCartCount"
+        );
 
 
       let total = 0;
@@ -1068,16 +1428,21 @@
 
       cart.forEach(item => {
 
-        total += item.price * item.quantity;
+        total +=
+          item.price *
+          item.quantity;
 
-        totalQuantity += item.quantity;
+        totalQuantity +=
+          item.quantity;
 
       });
 
 
-      cartCount.innerText = totalQuantity;
+      cartCount.innerText =
+        totalQuantity;
 
-      navCartCount.innerText = totalQuantity;
+      navCartCount.innerText =
+        totalQuantity;
 
 
       if (cart.length === 0) {
@@ -1085,9 +1450,12 @@
         cartItems.innerHTML =
           "Your cart is empty.";
 
-        cartTotal.innerText = "0";
+        cartTotal.innerText =
+          "0";
 
-        document.getElementById("whatsappBtn").href = "#";
+        document.getElementById(
+          "whatsappBtn"
+        ).href = "#";
 
         return;
 
@@ -1097,86 +1465,105 @@
       let html = "";
 
 
-      cart.forEach((item, index) => {
+      cart.forEach(
+        (item, index) => {
 
-        const itemTotal =
-          item.price * item.quantity;
+          const itemTotal =
+            item.price *
+            item.quantity;
 
 
-        html += `
+          html += `
 
-          <div class="cart-item">
+            <div class="cart-item">
 
-            <strong>
-              ${item.name}
-            </strong>
+              <strong>
+                ${item.name}
+              </strong>
 
-            <div class="cart-details">
+              <div class="cart-details">
 
-              Color:
-              ${item.color}
+                Color:
+                ${item.color}
+
+                <br>
+
+                Size:
+                ${item.size}
+
+                <br>
+
+                Price:
+                ${item.price} EGP
+
+              </div>
+
+              <div class="quantity-box">
+
+                <button
+                  onclick="decreaseQuantity(${index})">
+
+                  −
+
+                </button>
+
+                <span>
+                  ${item.quantity}
+                </span>
+
+                <button
+                  onclick="increaseQuantity(${index})">
+
+                  +
+
+                </button>
+
+              </div>
+
+              <div class="item-total">
+
+                Item Total:
+                ${itemTotal}
+                EGP
+
+              </div>
 
               <br>
 
-              Size:
-              ${item.size}
-
-              <br>
-
-              Price:
-              ${item.price} EGP
-
-            </div>
-
-            <div class="quantity-box">
-
               <button
-                onclick="decreaseQuantity(${index})">
-                −
-              </button>
+                class="remove-btn"
+                onclick="removeItem(${index})">
 
-              <span>
-                ${item.quantity}
-              </span>
+                Remove
 
-              <button
-                onclick="increaseQuantity(${index})">
-                +
               </button>
 
             </div>
 
-            <div class="item-total">
-              Item Total: ${itemTotal} EGP
-            </div>
+          `;
 
-            <br>
-
-            <button
-              class="remove-btn"
-              onclick="removeItem(${index})">
-              Remove
-            </button>
-
-          </div>
-
-        `;
-
-      });
+        }
+      );
 
 
-      cartItems.innerHTML = html;
+      cartItems.innerHTML =
+        html;
 
-      cartTotal.innerText = total;
+      cartTotal.innerText =
+        total;
 
-      updateWhatsApp(total);
+      updateWhatsApp(
+        total
+      );
 
     }
 
 
-    /* INCREASE QUANTITY */
+    /* INCREASE */
 
-    function increaseQuantity(index) {
+    function increaseQuantity(
+      index
+    ) {
 
       cart[index].quantity += 1;
 
@@ -1185,17 +1572,24 @@
     }
 
 
-    /* DECREASE QUANTITY */
+    /* DECREASE */
 
-    function decreaseQuantity(index) {
+    function decreaseQuantity(
+      index
+    ) {
 
-      if (cart[index].quantity > 1) {
+      if (
+        cart[index].quantity > 1
+      ) {
 
         cart[index].quantity -= 1;
 
       } else {
 
-        cart.splice(index, 1);
+        cart.splice(
+          index,
+          1
+        );
 
       }
 
@@ -1205,11 +1599,16 @@
     }
 
 
-    /* REMOVE ITEM */
+    /* REMOVE */
 
-    function removeItem(index) {
+    function removeItem(
+      index
+    ) {
 
-      cart.splice(index, 1);
+      cart.splice(
+        index,
+        1
+      );
 
       updateCart();
 
@@ -1220,8 +1619,10 @@
 
     function openCart() {
 
-      document.getElementById("cart")
-        .style.display = "block";
+      document.getElementById(
+        "cart"
+      ).style.display =
+        "block";
 
     }
 
@@ -1230,54 +1631,61 @@
 
     function closeCart() {
 
-      document.getElementById("cart")
-        .style.display = "none";
+      document.getElementById(
+        "cart"
+      ).style.display =
+        "none";
 
     }
 
 
     /* WHATSAPP */
 
-    function updateWhatsApp(total) {
+    function updateWhatsApp(
+      total
+    ) {
 
       let message =
         "Hello VYRO! I would like to order:\n\n";
 
 
-      cart.forEach((item, index) => {
+      cart.forEach(
+        (item, index) => {
 
-        const itemTotal =
-          item.price * item.quantity;
+          const itemTotal =
+            item.price *
+            item.quantity;
 
 
-        message +=
+          message +=
 
-          (index + 1) +
-          ". " +
-          item.name +
-          "\n" +
+            (index + 1) +
+            ". " +
+            item.name +
+            "\n" +
 
-          "Color: " +
-          item.color +
-          "\n" +
+            "Color: " +
+            item.color +
+            "\n" +
 
-          "Size: " +
-          item.size +
-          "\n" +
+            "Size: " +
+            item.size +
+            "\n" +
 
-          "Quantity: " +
-          item.quantity +
-          "\n" +
+            "Quantity: " +
+            item.quantity +
+            "\n" +
 
-          "Unit Price: " +
-          item.price +
-          " EGP\n" +
+            "Unit Price: " +
+            item.price +
+            " EGP\n" +
 
-          "Item Total: " +
-          itemTotal +
-          " EGP\n\n";
+            "Item Total: " +
+            itemTotal +
+            " EGP\n\n";
 
-      });
+        }
+      );
 
 
       message +=
@@ -1290,13 +1698,39 @@
         "201129327133";
 
 
-      document.getElementById("whatsappBtn").href =
+      document.getElementById(
+        "whatsappBtn"
+      ).href =
+
         "https://wa.me/" +
         phone +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+          message
+        );
 
     }
+
+
+    /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+    window.onclick =
+      function(event) {
+
+        const modal =
+          document.getElementById(
+            "productModal"
+          );
+
+        if (
+          event.target === modal
+        ) {
+
+          closeProduct();
+
+        }
+
+      };
 
   </script>
 

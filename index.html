@@ -8,8 +8,6 @@
 
 <style>
 
-/* ================= RESET ================= */
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -81,11 +79,6 @@ font-size:10px;
 font-weight:bold;
 letter-spacing:2px;
 text-transform:uppercase;
-transition:.2s;
-}
-
-.nav-links a:hover{
-opacity:.5;
 }
 
 .nav-actions{
@@ -100,7 +93,6 @@ border:0;
 cursor:pointer;
 font-size:11px;
 font-weight:bold;
-transition:.2s;
 }
 
 .nav-cart{
@@ -113,14 +105,6 @@ padding:11px 15px;
 background:#222;
 color:#fff;
 padding:11px 13px;
-}
-
-.nav-cart:hover{
-background:#ddd;
-}
-
-.nav-wishlist:hover{
-background:#333;
 }
 
 /* ================= HERO ================= */
@@ -184,23 +168,12 @@ padding:17px 28px;
 font-size:10px;
 font-weight:bold;
 letter-spacing:2px;
-transition:.25s;
-}
-
-.hero-btn:hover{
-background:#111;
-color:#fff;
 }
 
 .hero-btn.dark{
 background:transparent;
 color:#fff;
 border:1px solid rgba(255,255,255,.7);
-}
-
-.hero-btn.dark:hover{
-background:#fff;
-color:#111;
 }
 
 /* ================= INTRO ================= */
@@ -333,11 +306,6 @@ border-radius:50%;
 background:rgba(255,255,255,.95);
 font-size:18px;
 cursor:pointer;
-transition:.2s;
-}
-
-.wishlist-btn:hover{
-transform:scale(1.08);
 }
 
 .wishlist-btn.active{
@@ -392,8 +360,6 @@ letter-spacing:1px;
 margin-bottom:16px;
 }
 
-/* ================= OPTIONS ================= */
-
 .option-title{
 font-size:8px;
 font-weight:bold;
@@ -415,11 +381,6 @@ border:1px solid #ddd;
 background:#fff;
 font-size:9px;
 cursor:pointer;
-transition:.2s;
-}
-
-.color-btn:hover{
-border-color:#111;
 }
 
 .color-btn.selected{
@@ -442,11 +403,6 @@ border:1px solid #ddd;
 background:#fff;
 font-size:9px;
 cursor:pointer;
-transition:.2s;
-}
-
-.size-btn:hover{
-border-color:#111;
 }
 
 .size-btn.selected{
@@ -495,7 +451,6 @@ font-size:9px;
 font-weight:bold;
 letter-spacing:1px;
 cursor:pointer;
-transition:.2s;
 }
 
 .add-btn{
@@ -503,17 +458,9 @@ background:#111;
 color:#fff;
 }
 
-.add-btn:hover{
-background:#333;
-}
-
 .buy-btn{
 background:#25D366;
 color:#fff;
-}
-
-.buy-btn:hover{
-background:#1ebe5d;
 }
 
 /* ================= STATEMENT ================= */
@@ -789,10 +736,6 @@ color:#777;
 text-decoration:none;
 font-size:10px;
 margin-bottom:11px;
-}
-
-.footer-col a:hover{
-color:#fff;
 }
 
 .footer-bottom{
@@ -1103,11 +1046,6 @@ font-size:14px;
 outline:none;
 }
 
-.checkout input:focus,
-.checkout textarea:focus{
-border-color:#111;
-}
-
 .checkout textarea{
 height:85px;
 resize:none;
@@ -1124,11 +1062,6 @@ padding:16px;
 font-size:11px;
 font-weight:bold;
 letter-spacing:1px;
-transition:.2s;
-}
-
-.whatsapp:hover{
-background:#1ebe5d;
 }
 
 .whatsapp.disabled{
@@ -1136,7 +1069,7 @@ background:#aaa;
 pointer-events:none;
 }
 
-/* ================= WISHLIST MODAL ================= */
+/* ================= WISHLIST ================= */
 
 .wishlist-panel{
 display:none;
@@ -1224,11 +1157,6 @@ gap:13px;
 .nav-links a{
 font-size:8px;
 letter-spacing:1px;
-}
-
-.nav-cart,
-.nav-wishlist{
-padding:9px 10px;
 }
 
 .hero{
@@ -1456,8 +1384,6 @@ text-align:center;
 
 }
 
-/* ================= ANIMATION ================= */
-
 @keyframes fadeUp{
 
 from{
@@ -1477,14 +1403,9 @@ transform:translateY(0);
 
 <body>
 
-<!-- ================= TOP BAR ================= -->
-
 <div class="top-bar">
 FREE DELIVERY ON SELECTED ORDERS • VYRO DROP 01
 </div>
-
-
-<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
@@ -1493,16 +1414,15 @@ VYRO
 </div>
 
 <div class="nav-links">
-
 <a href="#home">Home</a>
 <a href="#drop">Shop</a>
 <a href="#about">About</a>
-
 </div>
 
 <div class="nav-actions">
 
 <button
+type="button"
 class="nav-wishlist"
 onclick="openWishlist()">
 
@@ -1511,6 +1431,7 @@ onclick="openWishlist()">
 </button>
 
 <button
+type="button"
 class="nav-cart"
 onclick="openCart()">
 
@@ -1521,9 +1442,6 @@ CART · <span id="navCartCount">0</span>
 </div>
 
 </nav>
-
-
-<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
@@ -1555,9 +1473,6 @@ EXPLORE VYRO
 
 </section>
 
-
-<!-- ================= INTRO ================= -->
-
 <section class="intro">
 
 <div class="eyebrow">
@@ -1575,9 +1490,6 @@ for people who wear their vision.
 </p>
 
 </section>
-
-
-<!-- ================= PRODUCTS ================= -->
 
 <section class="drop" id="drop">
 
@@ -1601,9 +1513,7 @@ SHOP ALL
 
 </div>
 
-
 <div class="products">
-
 
 <!-- PRODUCT 1 -->
 
@@ -1617,6 +1527,7 @@ NEW
 </div>
 
 <button
+type="button"
 class="wishlist-btn"
 id="wishBtn0"
 onclick="event.stopPropagation();toggleWishlist(0)">
@@ -1630,6 +1541,7 @@ src="IMG_8035.jpeg"
 alt="VYRO Essential T-Shirt">
 
 <button
+type="button"
 class="quick-view"
 onclick="event.stopPropagation();openProduct(0)">
 
@@ -1659,23 +1571,14 @@ COLOR
 
 <div class="color-options">
 
-<button
-class="color-btn selected"
-onclick="selectColor(0,this,'Black')">
-Black
-</button>
+<button type="button" class="color-btn selected"
+onclick="selectColor(0,this,'Black')">Black</button>
 
-<button
-class="color-btn"
-onclick="selectColor(0,this,'White')">
-White
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(0,this,'White')">White</button>
 
-<button
-class="color-btn"
-onclick="selectColor(0,this,'Grey')">
-Grey
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(0,this,'Grey')">Grey</button>
 
 </div>
 
@@ -1685,66 +1588,53 @@ SIZE
 
 <div class="size-options">
 
-<button
-class="size-btn selected"
-onclick="selectSize(0,this,'S')">
-S
-</button>
+<button type="button" class="size-btn selected"
+onclick="selectSize(0,this,'S')">S</button>
 
-<button
-class="size-btn"
-onclick="selectSize(0,this,'M')">
-M
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(0,this,'M')">M</button>
 
-<button
-class="size-btn"
-onclick="selectSize(0,this,'L')">
-L
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(0,this,'L')">L</button>
 
-<button
-class="size-btn"
-onclick="selectSize(0,this,'XL')">
-XL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(0,this,'XL')">XL</button>
 
-<button
-class="size-btn"
-onclick="selectSize(0,this,'XXL')">
-XXL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(0,this,'XXL')">XXL</button>
 
 </div>
 
 <div class="product-quantity">
 
-<button onclick="changeProductQuantity(0,-1)">
-−
-</button>
+<button type="button"
+onclick="changeProductQuantity(0,-1)">−</button>
 
-<span id="qty0">
-1
-</span>
+<span id="qty0">1</span>
 
-<button onclick="changeProductQuantity(0,1)">
-+
-</button>
+<button type="button"
+onclick="changeProductQuantity(0,1)">+</button>
 
 </div>
 
 <div class="product-buttons">
 
 <button
+type="button"
 class="add-btn"
 onclick="addSelectedToCart(0)">
+
 ADD TO CART
+
 </button>
 
 <button
+type="button"
 class="buy-btn"
 onclick="buySelectedNow(0)">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -1766,6 +1656,7 @@ NEW
 </div>
 
 <button
+type="button"
 class="wishlist-btn"
 id="wishBtn1"
 onclick="event.stopPropagation();toggleWishlist(1)">
@@ -1779,6 +1670,7 @@ src="IMG_8036.jpeg"
 alt="VYRO Oversized T-Shirt">
 
 <button
+type="button"
 class="quick-view"
 onclick="event.stopPropagation();openProduct(1)">
 
@@ -1808,23 +1700,14 @@ COLOR
 
 <div class="color-options">
 
-<button
-class="color-btn selected"
-onclick="selectColor(1,this,'Black')">
-Black
-</button>
+<button type="button" class="color-btn selected"
+onclick="selectColor(1,this,'Black')">Black</button>
 
-<button
-class="color-btn"
-onclick="selectColor(1,this,'White')">
-White
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(1,this,'White')">White</button>
 
-<button
-class="color-btn"
-onclick="selectColor(1,this,'Beige')">
-Beige
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(1,this,'Beige')">Beige</button>
 
 </div>
 
@@ -1834,66 +1717,53 @@ SIZE
 
 <div class="size-options">
 
-<button
-class="size-btn selected"
-onclick="selectSize(1,this,'S')">
-S
-</button>
+<button type="button" class="size-btn selected"
+onclick="selectSize(1,this,'S')">S</button>
 
-<button
-class="size-btn"
-onclick="selectSize(1,this,'M')">
-M
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(1,this,'M')">M</button>
 
-<button
-class="size-btn"
-onclick="selectSize(1,this,'L')">
-L
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(1,this,'L')">L</button>
 
-<button
-class="size-btn"
-onclick="selectSize(1,this,'XL')">
-XL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(1,this,'XL')">XL</button>
 
-<button
-class="size-btn"
-onclick="selectSize(1,this,'XXL')">
-XXL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(1,this,'XXL')">XXL</button>
 
 </div>
 
 <div class="product-quantity">
 
-<button onclick="changeProductQuantity(1,-1)">
-−
-</button>
+<button type="button"
+onclick="changeProductQuantity(1,-1)">−</button>
 
-<span id="qty1">
-1
-</span>
+<span id="qty1">1</span>
 
-<button onclick="changeProductQuantity(1,1)">
-+
-</button>
+<button type="button"
+onclick="changeProductQuantity(1,1)">+</button>
 
 </div>
 
 <div class="product-buttons">
 
 <button
+type="button"
 class="add-btn"
 onclick="addSelectedToCart(1)">
+
 ADD TO CART
+
 </button>
 
 <button
+type="button"
 class="buy-btn"
 onclick="buySelectedNow(1)">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -1915,6 +1785,7 @@ NEW
 </div>
 
 <button
+type="button"
 class="wishlist-btn"
 id="wishBtn2"
 onclick="event.stopPropagation();toggleWishlist(2)">
@@ -1928,6 +1799,7 @@ src="IMG_8037.jpeg"
 alt="VYRO Minimal Tee">
 
 <button
+type="button"
 class="quick-view"
 onclick="event.stopPropagation();openProduct(2)">
 
@@ -1957,23 +1829,14 @@ COLOR
 
 <div class="color-options">
 
-<button
-class="color-btn selected"
-onclick="selectColor(2,this,'Black')">
-Black
-</button>
+<button type="button" class="color-btn selected"
+onclick="selectColor(2,this,'Black')">Black</button>
 
-<button
-class="color-btn"
-onclick="selectColor(2,this,'Grey')">
-Grey
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(2,this,'Grey')">Grey</button>
 
-<button
-class="color-btn"
-onclick="selectColor(2,this,'Off White')">
-Off White
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(2,this,'Off White')">Off White</button>
 
 </div>
 
@@ -1983,66 +1846,53 @@ SIZE
 
 <div class="size-options">
 
-<button
-class="size-btn selected"
-onclick="selectSize(2,this,'S')">
-S
-</button>
+<button type="button" class="size-btn selected"
+onclick="selectSize(2,this,'S')">S</button>
 
-<button
-class="size-btn"
-onclick="selectSize(2,this,'M')">
-M
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(2,this,'M')">M</button>
 
-<button
-class="size-btn"
-onclick="selectSize(2,this,'L')">
-L
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(2,this,'L')">L</button>
 
-<button
-class="size-btn"
-onclick="selectSize(2,this,'XL')">
-XL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(2,this,'XL')">XL</button>
 
-<button
-class="size-btn"
-onclick="selectSize(2,this,'XXL')">
-XXL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(2,this,'XXL')">XXL</button>
 
 </div>
 
 <div class="product-quantity">
 
-<button onclick="changeProductQuantity(2,-1)">
-−
-</button>
+<button type="button"
+onclick="changeProductQuantity(2,-1)">−</button>
 
-<span id="qty2">
-1
-</span>
+<span id="qty2">1</span>
 
-<button onclick="changeProductQuantity(2,1)">
-+
-</button>
+<button type="button"
+onclick="changeProductQuantity(2,1)">+</button>
 
 </div>
 
 <div class="product-buttons">
 
 <button
+type="button"
 class="add-btn"
 onclick="addSelectedToCart(2)">
+
 ADD TO CART
+
 </button>
 
 <button
+type="button"
 class="buy-btn"
 onclick="buySelectedNow(2)">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -2064,6 +1914,7 @@ NEW
 </div>
 
 <button
+type="button"
 class="wishlist-btn"
 id="wishBtn3"
 onclick="event.stopPropagation();toggleWishlist(3)">
@@ -2077,6 +1928,7 @@ src="IMG_8038.jpeg"
 alt="VYRO Hoodie">
 
 <button
+type="button"
 class="quick-view"
 onclick="event.stopPropagation();openProduct(3)">
 
@@ -2106,23 +1958,14 @@ COLOR
 
 <div class="color-options">
 
-<button
-class="color-btn selected"
-onclick="selectColor(3,this,'Black')">
-Black
-</button>
+<button type="button" class="color-btn selected"
+onclick="selectColor(3,this,'Black')">Black</button>
 
-<button
-class="color-btn"
-onclick="selectColor(3,this,'Grey')">
-Grey
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(3,this,'Grey')">Grey</button>
 
-<button
-class="color-btn"
-onclick="selectColor(3,this,'Off White')">
-Off White
-</button>
+<button type="button" class="color-btn"
+onclick="selectColor(3,this,'Off White')">Off White</button>
 
 </div>
 
@@ -2132,66 +1975,53 @@ SIZE
 
 <div class="size-options">
 
-<button
-class="size-btn selected"
-onclick="selectSize(3,this,'S')">
-S
-</button>
+<button type="button" class="size-btn selected"
+onclick="selectSize(3,this,'S')">S</button>
 
-<button
-class="size-btn"
-onclick="selectSize(3,this,'M')">
-M
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(3,this,'M')">M</button>
 
-<button
-class="size-btn"
-onclick="selectSize(3,this,'L')">
-L
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(3,this,'L')">L</button>
 
-<button
-class="size-btn"
-onclick="selectSize(3,this,'XL')">
-XL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(3,this,'XL')">XL</button>
 
-<button
-class="size-btn"
-onclick="selectSize(3,this,'XXL')">
-XXL
-</button>
+<button type="button" class="size-btn"
+onclick="selectSize(3,this,'XXL')">XXL</button>
 
 </div>
 
 <div class="product-quantity">
 
-<button onclick="changeProductQuantity(3,-1)">
-−
-</button>
+<button type="button"
+onclick="changeProductQuantity(3,-1)">−</button>
 
-<span id="qty3">
-1
-</span>
+<span id="qty3">1</span>
 
-<button onclick="changeProductQuantity(3,1)">
-+
-</button>
+<button type="button"
+onclick="changeProductQuantity(3,1)">+</button>
 
 </div>
 
 <div class="product-buttons">
 
 <button
+type="button"
 class="add-btn"
 onclick="addSelectedToCart(3)">
+
 ADD TO CART
+
 </button>
 
 <button
+type="button"
 class="buy-btn"
 onclick="buySelectedNow(3)">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -2204,8 +2034,6 @@ ORDER NOW
 
 </section>
 
-
-<!-- ================= STATEMENT ================= -->
 
 <section class="statement">
 
@@ -2222,78 +2050,38 @@ WEAR YOURS.
 </section>
 
 
-<!-- ================= TRUST ================= -->
-
 <section class="trust">
 
 <div class="trust-grid">
 
 <div class="trust-item">
-
 <div class="trust-icon">✦</div>
-
-<h3>
-QUALITY FIRST
-</h3>
-
-<p>
-Selected materials and attention
-to the details that matter.
-</p>
-
+<h3>QUALITY FIRST</h3>
+<p>Selected materials and attention to the details that matter.</p>
 </div>
 
 <div class="trust-item">
-
 <div class="trust-icon">↗</div>
-
-<h3>
-FAST DELIVERY
-</h3>
-
-<p>
-Simple ordering and delivery
-across Egypt.
-</p>
-
+<h3>FAST DELIVERY</h3>
+<p>Simple ordering and delivery across Egypt.</p>
 </div>
 
 <div class="trust-item">
-
 <div class="trust-icon">↻</div>
-
-<h3>
-EASY EXCHANGE
-</h3>
-
-<p>
-We want you to feel right
-in every VYRO piece.
-</p>
-
+<h3>EASY EXCHANGE</h3>
+<p>We want you to feel right in every VYRO piece.</p>
 </div>
 
 <div class="trust-item">
-
 <div class="trust-icon">◆</div>
-
-<h3>
-LOCAL BRAND
-</h3>
-
-<p>
-Built locally with a modern
-vision and strong identity.
-</p>
-
+<h3>LOCAL BRAND</h3>
+<p>Built locally with a modern vision and strong identity.</p>
 </div>
 
 </div>
 
 </section>
 
-
-<!-- ================= STORY ================= -->
 
 <section class="story">
 
@@ -2313,8 +2101,7 @@ VISION.
 
 <p>
 VYRO was created around one simple idea:
-clothing should feel like an extension
-of your identity.
+clothing should feel like an extension of your identity.
 
 Minimal design.
 Strong presence.
@@ -2330,65 +2117,28 @@ DISCOVER VYRO
 </section>
 
 
-<!-- ================= VALUES ================= -->
-
 <section class="values">
 
-<h2>
-WHY VYRO?
-</h2>
+<h2>WHY VYRO?</h2>
 
 <div class="value-grid">
 
 <div class="value">
-
-<div class="value-number">
-01
-</div>
-
-<h3>
-MINIMAL DESIGN
-</h3>
-
-<p>
-Clean silhouettes and timeless pieces
-made for everyday wear.
-</p>
-
+<div class="value-number">01</div>
+<h3>MINIMAL DESIGN</h3>
+<p>Clean silhouettes and timeless pieces made for everyday wear.</p>
 </div>
 
 <div class="value">
-
-<div class="value-number">
-02
-</div>
-
-<h3>
-PREMIUM FEEL
-</h3>
-
-<p>
-Focused on comfort, quality and details
-that actually matter.
-</p>
-
+<div class="value-number">02</div>
+<h3>PREMIUM FEEL</h3>
+<p>Focused on comfort, quality and details that actually matter.</p>
 </div>
 
 <div class="value">
-
-<div class="value-number">
-03
-</div>
-
-<h3>
-YOUR IDENTITY
-</h3>
-
-<p>
-VYRO isn't about following everyone.
-It's about wearing your own vision.
-</p>
-
+<div class="value-number">03</div>
+<h3>YOUR IDENTITY</h3>
+<p>VYRO isn't about following everyone. It's about wearing your own vision.</p>
 </div>
 
 </div>
@@ -2396,21 +2146,15 @@ It's about wearing your own vision.
 </section>
 
 
-<!-- ================= SIZE GUIDE ================= -->
-
 <section class="size-section">
 
 <div class="eyebrow">
 FIND YOUR FIT
 </div>
 
-<h2>
-SIZE GUIDE
-</h2>
+<h2>SIZE GUIDE</h2>
 
-<p>
-Use this guide as a simple reference before ordering.
-</p>
+<p>Use this guide as a simple reference before ordering.</p>
 
 <table class="size-table">
 
@@ -2461,8 +2205,6 @@ Use this guide as a simple reference before ordering.
 </section>
 
 
-<!-- ================= ABOUT ================= -->
-
 <section class="about" id="about">
 
 <div class="eyebrow">
@@ -2493,6 +2235,7 @@ Everyday pieces.
 <div class="modal-box">
 
 <button
+type="button"
 class="modal-close"
 onclick="closeProduct()">
 ×
@@ -2535,17 +2278,14 @@ VYRO Product
 
 <div class="modal-price">
 
-<span id="productModalPrice">
-0
-</span>
+<span id="productModalPrice">0</span>
 EGP
 
 </div>
 
 <p>
-A VYRO piece designed with a clean
-silhouette, everyday comfort and
-our signature identity.
+A VYRO piece designed with a clean silhouette,
+everyday comfort and our signature identity.
 </p>
 
 <div class="modal-option">
@@ -2580,15 +2320,15 @@ QUANTITY
 
 <div class="modal-quantity">
 
-<button onclick="changeModalQuantity(-1)">
+<button type="button"
+onclick="changeModalQuantity(-1)">
 −
 </button>
 
-<span id="modalQty">
-1
-</span>
+<span id="modalQty">1</span>
 
-<button onclick="changeModalQuantity(1)">
+<button type="button"
+onclick="changeModalQuantity(1)">
 +
 </button>
 
@@ -2597,15 +2337,21 @@ QUANTITY
 <div class="modal-actions">
 
 <button
+type="button"
 class="modal-add"
 onclick="addModalToCart()">
+
 ADD TO CART
+
 </button>
 
 <button
+type="button"
 class="modal-buy"
 onclick="buyModalNow()">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -2625,11 +2371,10 @@ ORDER NOW
 
 <div class="cart-header">
 
-<h2>
-Your Cart
-</h2>
+<h2>Your Cart</h2>
 
 <button
+type="button"
 class="close"
 onclick="closeCart()">
 ×
@@ -2644,9 +2389,7 @@ Your cart is empty.
 <div class="cart-total">
 
 TOTAL:
-<span id="cartTotal">
-0
-</span>
+<span id="cartTotal">0</span>
 EGP
 
 </div>
@@ -2702,11 +2445,10 @@ id="wishlistPanel">
 
 <div class="wishlist-header">
 
-<h2>
-Your Wishlist
-</h2>
+<h2>Your Wishlist</h2>
 
 <button
+type="button"
 class="close"
 onclick="closeWishlist()">
 ×
@@ -2722,8 +2464,6 @@ Your wishlist is empty.
 
 </div>
 
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2746,33 +2486,18 @@ Wear your vision.
 
 <div class="footer-col">
 
-<h3>
-SHOP
-</h3>
+<h3>SHOP</h3>
 
-<a href="#drop">
-Latest Drop
-</a>
-
-<a href="#drop">
-T-Shirts
-</a>
-
-<a href="#drop">
-Hoodies
-</a>
-
-<a href="#about">
-About VYRO
-</a>
+<a href="#drop">Latest Drop</a>
+<a href="#drop">T-Shirts</a>
+<a href="#drop">Hoodies</a>
+<a href="#about">About VYRO</a>
 
 </div>
 
 <div class="footer-col">
 
-<h3>
-CONTACT
-</h3>
+<h3>CONTACT</h3>
 
 <a
 href="https://wa.me/201129327133"
@@ -2781,13 +2506,8 @@ rel="noopener noreferrer">
 WhatsApp
 </a>
 
-<a href="#about">
-About Us
-</a>
-
-<a href="#drop">
-Shop
-</a>
+<a href="#about">About Us</a>
+<a href="#drop">Shop</a>
 
 </div>
 
@@ -2814,13 +2534,9 @@ WEAR YOUR VISION
    VYRO STORE SYSTEM
 ===================================================== */
 
-
-/* ================= SETTINGS ================= */
-
 const WHATSAPP_NUMBER = "201129327133";
 
 let cart = [];
-
 let wishlist = [];
 
 let productState = [
@@ -2905,41 +2621,52 @@ sizes:["S","M","L","XL","XXL"]
 ];
 
 
-/* ================= ADD SELECTED TO CART ================= */
+/* =====================================================
+   ADD TO CART
+===================================================== */
 
 function addSelectedToCart(index){
 
+try{
+
 const product = products[index];
+
+if(!product){
+console.error("Product not found:",index);
+return;
+}
+
 const state = productState[index];
+
+let quantity = parseInt(state.quantity) || 1;
+
+if(quantity < 1){
+quantity = 1;
+}
 
 addProductToCart(
 product,
 state.color,
 state.size,
-state.quantity
+quantity
 );
+
+openCart();
+
+}catch(error){
+
+console.error("ADD TO CART ERROR:",error);
+
+alert("Something went wrong. Please try again.");
+
+}
 
 }
 
 
-/* ================= BUY SELECTED NOW ================= */
-
-function buySelectedNow(index){
-
-const product = products[index];
-const state = productState[index];
-
-buyDirect(
-product,
-state.color,
-state.size,
-state.quantity
-);
-
-}
-
-
-/* ================= CART ADD ================= */
+/* =====================================================
+   ADD PRODUCT
+===================================================== */
 
 function addProductToCart(
 product,
@@ -2947,10 +2674,6 @@ color,
 size,
 quantity
 ){
-
-if(quantity < 1){
-quantity = 1;
-}
 
 const existing =
 cart.find(item =>
@@ -2982,7 +2705,28 @@ updateCart();
 }
 
 
-/* ================= DIRECT BUY ================= */
+/* =====================================================
+   BUY NOW
+===================================================== */
+
+function buySelectedNow(index){
+
+const product = products[index];
+const state = productState[index];
+
+buyDirect(
+product,
+state.color,
+state.size,
+state.quantity
+);
+
+}
+
+
+/* =====================================================
+   DIRECT BUY
+===================================================== */
 
 function buyDirect(
 product,
@@ -3036,13 +2780,14 @@ message +=
 message +=
 "Thank you, VYRO! 🖤";
 
-
 openWhatsApp(message);
 
 }
 
 
-/* ================= WHATSAPP ================= */
+/* =====================================================
+   WHATSAPP
+===================================================== */
 
 function openWhatsApp(message){
 
@@ -3054,14 +2799,15 @@ encodeURIComponent(message);
 
 window.open(
 url,
-"_blank",
-"noopener,noreferrer"
+"_blank"
 );
 
 }
 
 
-/* ================= SELECT COLOR ================= */
+/* =====================================================
+   COLOR
+===================================================== */
 
 function selectColor(
 index,
@@ -3069,13 +2815,14 @@ button,
 color
 ){
 
-productState[index].color =
-color;
+if(!productState[index]){
+return;
+}
+
+productState[index].color = color;
 
 const buttons =
-button.parentElement.querySelectorAll(
-".color-btn"
-);
+button.parentElement.querySelectorAll(".color-btn");
 
 buttons.forEach(btn =>
 btn.classList.remove("selected")
@@ -3086,7 +2833,9 @@ button.classList.add("selected");
 }
 
 
-/* ================= SELECT SIZE ================= */
+/* =====================================================
+   SIZE
+===================================================== */
 
 function selectSize(
 index,
@@ -3094,13 +2843,14 @@ button,
 size
 ){
 
-productState[index].size =
-size;
+if(!productState[index]){
+return;
+}
+
+productState[index].size = size;
 
 const buttons =
-button.parentElement.querySelectorAll(
-".size-btn"
-);
+button.parentElement.querySelectorAll(".size-btn");
 
 buttons.forEach(btn =>
 btn.classList.remove("selected")
@@ -3111,7 +2861,9 @@ button.classList.add("selected");
 }
 
 
-/* ================= PRODUCT QUANTITY ================= */
+/* =====================================================
+   PRODUCT QUANTITY
+===================================================== */
 
 function changeProductQuantity(
 index,
@@ -3119,7 +2871,7 @@ amount
 ){
 
 let quantity =
-productState[index].quantity;
+parseInt(productState[index].quantity) || 1;
 
 quantity += amount;
 
@@ -3131,111 +2883,76 @@ if(quantity > 20){
 quantity = 20;
 }
 
-productState[index].quantity =
-quantity;
+productState[index].quantity = quantity;
 
-const quantityElement =
-document.getElementById(
-"qty" + index
-);
+const element =
+document.getElementById("qty" + index);
 
-if(quantityElement){
-quantityElement.innerText =
-quantity;
+if(element){
+element.innerText = quantity;
 }
 
 }
 
 
-/* ================= PRODUCT MODAL ================= */
+/* =====================================================
+   PRODUCT MODAL
+===================================================== */
 
 let currentProductIndex = 0;
-
 let modalColor = "Black";
-
 let modalSize = "S";
-
 let modalQuantity = 1;
 
 
 function openProduct(index){
 
-currentProductIndex =
-index;
+currentProductIndex = index;
 
-const product =
-products[index];
+const product = products[index];
 
-modalColor =
-product.colors[0];
+modalColor = product.colors[0];
+modalSize = product.sizes[0];
+modalQuantity = 1;
 
-modalSize =
-product.sizes[0];
-
-modalQuantity =
-1;
-
-document.getElementById(
-"productModalName"
-).innerText =
+document.getElementById("productModalName").innerText =
 product.name;
 
-document.getElementById(
-"productModalPrice"
-).innerText =
+document.getElementById("productModalPrice").innerText =
 product.price;
 
-document.getElementById(
-"productModalImage"
-).src =
+document.getElementById("productModalImage").src =
 product.images[0];
 
-document.getElementById(
-"thumb1"
-).src =
+document.getElementById("thumb1").src =
 product.images[0];
 
-document.getElementById(
-"thumb2"
-).src =
-product.images[1] ||
-product.images[0];
+document.getElementById("thumb2").src =
+product.images[1] || product.images[0];
 
-document.getElementById(
-"modalQty"
-).innerText =
-"1";
+document.getElementById("modalQty").innerText = "1";
 
-
-/* ================= COLORS ================= */
 
 const colors =
-document.getElementById(
-"modalColors"
-);
+document.getElementById("modalColors");
 
 colors.innerHTML = "";
 
-product.colors.forEach(
-(color,index)=>{
+product.colors.forEach((color,index)=>{
 
 const button =
 document.createElement("button");
 
 button.type = "button";
-
-button.innerText =
-color;
+button.innerText = color;
 
 if(index === 0){
 button.classList.add("selected");
 }
 
-button.onclick =
-function(){
+button.onclick = function(){
 
-modalColor =
-color;
+modalColor = color;
 
 colors
 .querySelectorAll("button")
@@ -3252,35 +2969,26 @@ colors.appendChild(button);
 });
 
 
-/* ================= SIZES ================= */
-
 const sizes =
-document.getElementById(
-"modalSizes"
-);
+document.getElementById("modalSizes");
 
 sizes.innerHTML = "";
 
-product.sizes.forEach(
-(size,index)=>{
+product.sizes.forEach((size,index)=>{
 
 const button =
 document.createElement("button");
 
 button.type = "button";
-
-button.innerText =
-size;
+button.innerText = size;
 
 if(index === 0){
 button.classList.add("selected");
 }
 
-button.onclick =
-function(){
+button.onclick = function(){
 
-modalSize =
-size;
+modalSize = size;
 
 sizes
 .querySelectorAll("button")
@@ -3297,48 +3005,35 @@ sizes.appendChild(button);
 });
 
 
-/* ================= OPEN ================= */
-
-document.getElementById(
-"productModal"
-).style.display =
+document.getElementById("productModal").style.display =
 "block";
 
-document.body.style.overflow =
-"hidden";
+document.body.style.overflow = "hidden";
 
 }
 
 
 function closeProduct(){
 
-document.getElementById(
-"productModal"
-).style.display =
+document.getElementById("productModal").style.display =
 "none";
 
-document.body.style.overflow =
-"";
+document.body.style.overflow = "";
 
 }
 
 
-/* ================= MODAL IMAGE ================= */
+/* =====================================================
+   MODAL IMAGE
+===================================================== */
 
-function changeModalImage(
-src,
-thumb
-){
+function changeModalImage(src,thumb){
 
-document.getElementById(
-"productModalImage"
-).src =
+document.getElementById("productModalImage").src =
 src;
 
-document.querySelectorAll(
-".gallery-thumb"
-).forEach(
-item =>
+document.querySelectorAll(".gallery-thumb")
+.forEach(item =>
 item.classList.remove("active")
 );
 
@@ -3349,11 +3044,11 @@ thumb.classList.add("active");
 }
 
 
-/* ================= MODAL QUANTITY ================= */
+/* =====================================================
+   MODAL QUANTITY
+===================================================== */
 
-function changeModalQuantity(
-amount
-){
+function changeModalQuantity(amount){
 
 modalQuantity += amount;
 
@@ -3365,15 +3060,15 @@ if(modalQuantity > 20){
 modalQuantity = 20;
 }
 
-document.getElementById(
-"modalQty"
-).innerText =
+document.getElementById("modalQty").innerText =
 modalQuantity;
 
 }
 
 
-/* ================= MODAL CART ================= */
+/* =====================================================
+   MODAL ADD TO CART
+===================================================== */
 
 function addModalToCart(){
 
@@ -3394,7 +3089,9 @@ openCart();
 }
 
 
-/* ================= MODAL BUY ================= */
+/* =====================================================
+   MODAL BUY
+===================================================== */
 
 function buyModalNow(){
 
@@ -3411,47 +3108,36 @@ modalQuantity
 }
 
 
-/* ================= CART ================= */
+/* =====================================================
+   CART UPDATE
+===================================================== */
 
 function updateCart(){
 
 const cartItems =
-document.getElementById(
-"cartItems"
-);
+document.getElementById("cartItems");
 
 const cartTotal =
-document.getElementById(
-"cartTotal"
-);
+document.getElementById("cartTotal");
 
 const cartCount =
-document.getElementById(
-"navCartCount"
-);
+document.getElementById("navCartCount");
 
 let total = 0;
-
 let quantity = 0;
 
 
 cart.forEach(item=>{
 
-total +=
-item.price *
-item.quantity;
+total += item.price * item.quantity;
 
-quantity +=
-item.quantity;
+quantity += item.quantity;
 
 });
 
 
-cartCount.innerText =
-quantity;
-
-cartTotal.innerText =
-total;
+cartCount.innerText = quantity;
+cartTotal.innerText = total;
 
 
 if(cart.length === 0){
@@ -3469,12 +3155,10 @@ return;
 let html = "";
 
 
-cart.forEach(
-(item,index)=>{
+cart.forEach((item,index)=>{
 
 const itemTotal =
-item.price *
-item.quantity;
+item.price * item.quantity;
 
 
 html += `
@@ -3542,23 +3226,26 @@ Remove
 });
 
 
-cartItems.innerHTML =
-html;
+cartItems.innerHTML = html;
 
 updateWhatsApp();
 
 }
 
 
-/* ================= CART QUANTITY ================= */
+/* =====================================================
+   CART QUANTITY
+===================================================== */
 
 function increaseQuantity(index){
 
-if(!cart[index])
+if(!cart[index]){
 return;
+}
 
-if(cart[index].quantity >= 20)
+if(cart[index].quantity >= 20){
 return;
+}
 
 cart[index].quantity++;
 
@@ -3569,8 +3256,9 @@ updateCart();
 
 function decreaseQuantity(index){
 
-if(!cart[index])
+if(!cart[index]){
 return;
+}
 
 if(cart[index].quantity > 1){
 
@@ -3589,8 +3277,9 @@ updateCart();
 
 function removeItem(index){
 
-if(!cart[index])
+if(!cart[index]){
 return;
+}
 
 cart.splice(index,1);
 
@@ -3599,57 +3288,57 @@ updateCart();
 }
 
 
-/* ================= CART OPEN/CLOSE ================= */
+/* =====================================================
+   CART OPEN
+===================================================== */
 
 function openCart(){
 
-document.getElementById(
-"cart"
-).style.display =
-"block";
+const cartElement =
+document.getElementById("cart");
 
-document.body.style.overflow =
-"hidden";
+cartElement.style.display = "block";
 
-updateWhatsApp();
+document.body.style.overflow = "hidden";
+
+updateCart();
 
 }
 
+
+/* =====================================================
+   CART CLOSE
+===================================================== */
 
 function closeCart(){
 
-document.getElementById(
-"cart"
-).style.display =
+document.getElementById("cart").style.display =
 "none";
 
-document.body.style.overflow =
-"";
+document.body.style.overflow = "";
 
 }
 
 
-/* ================= CHECKOUT WHATSAPP ================= */
+/* =====================================================
+   WHATSAPP CHECKOUT
+===================================================== */
 
 function updateWhatsApp(){
 
 const btn =
-document.getElementById(
-"whatsappBtn"
-);
+document.getElementById("whatsappBtn");
 
-
-if(!btn)
+if(!btn){
 return;
+}
 
 
 if(cart.length === 0){
 
 btn.href = "#";
 
-btn.classList.add(
-"disabled"
-);
+btn.classList.add("disabled");
 
 return;
 
@@ -3657,37 +3346,28 @@ return;
 
 
 const name =
-document.getElementById(
-"customerName"
-).value.trim();
+document.getElementById("customerName")
+.value.trim();
 
 const phone =
-document.getElementById(
-"customerPhone"
-).value.trim();
+document.getElementById("customerPhone")
+.value.trim();
 
 const address =
-document.getElementById(
-"customerAddress"
-).value.trim();
+document.getElementById("customerAddress")
+.value.trim();
 
-
-/* ================= VALIDATION ================= */
 
 if(!name || !phone || !address){
 
 btn.href = "#";
 
-btn.classList.add(
-"disabled"
-);
+btn.classList.add("disabled");
 
 return;
 
 }
 
-
-/* ================= BUILD ORDER ================= */
 
 let total = 0;
 
@@ -3722,16 +3402,12 @@ message +=
 "====================\n\n";
 
 
-cart.forEach(
-(item,index)=>{
+cart.forEach((item,index)=>{
 
 const itemTotal =
-item.price *
-item.quantity;
+item.price * item.quantity;
 
-total +=
-itemTotal;
-
+total += itemTotal;
 
 message +=
 (index + 1) +
@@ -3782,26 +3458,22 @@ message +=
 "Thank you, VYRO! 🖤";
 
 
-/* ================= CREATE WHATSAPP URL ================= */
-
 const url =
 "https://wa.me/" +
 WHATSAPP_NUMBER +
 "?text=" +
 encodeURIComponent(message);
 
+btn.href = url;
 
-btn.href =
-url;
-
-btn.classList.remove(
-"disabled"
-);
+btn.classList.remove("disabled");
 
 }
 
 
-/* ================= WISHLIST ================= */
+/* =====================================================
+   WISHLIST
+===================================================== */
 
 function toggleWishlist(index){
 
@@ -3810,8 +3482,7 @@ products[index];
 
 const exists =
 wishlist.findIndex(
-item =>
-item.name === product.name
+item => item.name === product.name
 );
 
 const button =
@@ -3821,28 +3492,19 @@ document.getElementById(
 
 if(exists >= 0){
 
-wishlist.splice(
-exists,
-1
-);
+wishlist.splice(exists,1);
 
-button.classList.remove(
-"active"
-);
+button.classList.remove("active");
 
-button.innerText =
-"♡";
+button.innerText = "♡";
 
 }else{
 
 wishlist.push(product);
 
-button.classList.add(
-"active"
-);
+button.classList.add("active");
 
-button.innerText =
-"♥";
+button.innerText = "♥";
 
 }
 
@@ -3853,15 +3515,11 @@ updateWishlist();
 
 function updateWishlist(){
 
-document.getElementById(
-"wishlistCount"
-).innerText =
+document.getElementById("wishlistCount").innerText =
 wishlist.length;
 
 const container =
-document.getElementById(
-"wishlistItems"
-);
+document.getElementById("wishlistItems");
 
 if(wishlist.length === 0){
 
@@ -3876,13 +3534,11 @@ return;
 let html = "";
 
 
-wishlist.forEach(
-(product,index)=>{
+wishlist.forEach((product,index)=>{
 
 const originalIndex =
 products.findIndex(
-item =>
-item.name === product.name
+item => item.name === product.name
 );
 
 html += `
@@ -3921,21 +3577,14 @@ Remove
 });
 
 
-container.innerHTML =
-html;
+container.innerHTML = html;
 
 }
 
 
-function removeWishlist(
-index,
-productIndex
-){
+function removeWishlist(index,productIndex){
 
-wishlist.splice(
-index,
-1
-);
+wishlist.splice(index,1);
 
 const button =
 document.getElementById(
@@ -3944,12 +3593,9 @@ document.getElementById(
 
 if(button){
 
-button.classList.remove(
-"active"
-);
+button.classList.remove("active");
 
-button.innerText =
-"♡";
+button.innerText = "♡";
 
 }
 
@@ -3960,61 +3606,44 @@ updateWishlist();
 
 function openWishlist(){
 
-document.getElementById(
-"wishlistPanel"
-).style.display =
+document.getElementById("wishlistPanel").style.display =
 "block";
 
-document.body.style.overflow =
-"hidden";
+document.body.style.overflow = "hidden";
 
 }
 
 
 function closeWishlist(){
 
-document.getElementById(
-"wishlistPanel"
-).style.display =
+document.getElementById("wishlistPanel").style.display =
 "none";
 
-document.body.style.overflow =
-"";
+document.body.style.overflow = "";
 
 }
 
 
-/* ================= LIVE CHECKOUT ================= */
+/* =====================================================
+   LIVE CHECKOUT
+===================================================== */
 
-document.getElementById(
-"customerName"
-).addEventListener(
-"input",
-updateWhatsApp
-);
+document.getElementById("customerName")
+.addEventListener("input",updateWhatsApp);
 
-document.getElementById(
-"customerPhone"
-).addEventListener(
-"input",
-updateWhatsApp
-);
+document.getElementById("customerPhone")
+.addEventListener("input",updateWhatsApp);
 
-document.getElementById(
-"customerAddress"
-).addEventListener(
-"input",
-updateWhatsApp
-);
+document.getElementById("customerAddress")
+.addEventListener("input",updateWhatsApp);
 
 
-/* ================= CLOSE MODALS ================= */
+/* =====================================================
+   CLOSE MODALS
+===================================================== */
 
-document.getElementById(
-"productModal"
-).addEventListener(
-"click",
-function(event){
+document.getElementById("productModal")
+.addEventListener("click",function(event){
 
 if(event.target === this){
 
@@ -4025,11 +3654,8 @@ closeProduct();
 });
 
 
-document.getElementById(
-"cart"
-).addEventListener(
-"click",
-function(event){
+document.getElementById("cart")
+.addEventListener("click",function(event){
 
 if(event.target === this){
 
@@ -4040,11 +3666,8 @@ closeCart();
 });
 
 
-document.getElementById(
-"wishlistPanel"
-).addEventListener(
-"click",
-function(event){
+document.getElementById("wishlistPanel")
+.addEventListener("click",function(event){
 
 if(event.target === this){
 
@@ -4055,11 +3678,11 @@ closeWishlist();
 });
 
 
-/* ================= ESCAPE KEY ================= */
+/* =====================================================
+   ESCAPE
+===================================================== */
 
-document.addEventListener(
-"keydown",
-function(event){
+document.addEventListener("keydown",function(event){
 
 if(event.key === "Escape"){
 
@@ -4072,13 +3695,20 @@ closeWishlist();
 });
 
 
-/* ================= INITIAL ================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+document.addEventListener("DOMContentLoaded",function(){
 
 updateCart();
 
 updateWishlist();
 
 updateWhatsApp();
+
+});
+
 
 </script>
 

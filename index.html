@@ -2145,7 +2145,24 @@ WEAR YOUR VISION
 
 const WHATSAPP_NUMBER = "201129327133";
 
-let cart = [];
+/* ================= SAVED CART ================= */
+
+let cart =
+JSON.parse(
+localStorage.getItem("vyroCart")
+) || [];
+
+
+/* ================= SAVE CART ================= */
+
+function saveCart(){
+
+localStorage.setItem(
+"vyroCart",
+JSON.stringify(cart)
+);
+
+}
 
 
 /* ================= ADD TO CART ================= */
@@ -2321,6 +2338,11 @@ document.getElementById(
 
 function updateCart(){
 
+/* SAVE CART EVERY TIME IT CHANGES */
+
+saveCart();
+
+
 const cartItems =
 document.getElementById(
 "cartItems"
@@ -2493,7 +2515,7 @@ updateCart();
 }
 
 
-/* ================= CART ================= */
+/* ================= CART OPEN/CLOSE ================= */
 
 function openCart(){
 

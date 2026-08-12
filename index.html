@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -911,6 +912,92 @@ background:#aaa;
 pointer-events:none;
 }
 
+/* ================= WHATSAPP FLOAT ================= */
+
+.whatsapp-float{
+position:fixed;
+right:20px;
+bottom:20px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25D366;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:27px;
+z-index:5000;
+box-shadow:0 8px 25px rgba(0,0,0,.22);
+transition:.25s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.08);
+background:#1ebe5d;
+}
+
+.whatsapp-pulse{
+position:absolute;
+inset:0;
+border-radius:50%;
+border:2px solid #25D366;
+animation:pulse 2s infinite;
+}
+
+/* ================= CART NOTIFICATION ================= */
+
+.cart-notification{
+position:fixed;
+right:20px;
+bottom:90px;
+z-index:6000;
+background:#111;
+color:#fff;
+padding:15px 17px;
+width:290px;
+display:none;
+box-shadow:0 12px 35px rgba(0,0,0,.25);
+animation:notificationIn .3s ease;
+}
+
+.notification-title{
+font-size:11px;
+font-weight:bold;
+letter-spacing:1px;
+margin-bottom:5px;
+}
+
+.notification-text{
+font-size:10px;
+color:#aaa;
+margin-bottom:12px;
+}
+
+.notification-actions{
+display:flex;
+gap:7px;
+}
+
+.notification-actions button{
+border:0;
+padding:9px 12px;
+font-size:9px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.notification-cart{
+background:#fff;
+color:#111;
+}
+
+.notification-close{
+background:#333;
+color:#fff;
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
@@ -1127,6 +1214,21 @@ flex-direction:column;
 text-align:center;
 }
 
+.whatsapp-float{
+width:52px;
+height:52px;
+right:15px;
+bottom:15px;
+font-size:24px;
+}
+
+.cart-notification{
+right:15px;
+left:15px;
+bottom:78px;
+width:auto;
+}
+
 }
 
 /* ================= ANIMATION ================= */
@@ -1145,7 +1247,41 @@ transform:translateY(0);
 
 }
 
+@keyframes notificationIn{
+
+from{
+opacity:0;
+transform:translateY(15px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+opacity:.8;
+}
+
+70%{
+transform:scale(1.35);
+opacity:0;
+}
+
+100%{
+transform:scale(1.35);
+opacity:0;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -1166,9 +1302,19 @@ VYRO
 </div>
 
 <div class="nav-links">
-<a href="#home">Home</a>
-<a href="#drop">Shop</a>
-<a href="#about">About</a>
+
+<a href="#home">
+Home
+</a>
+
+<a href="#drop">
+Shop
+</a>
+
+<a href="#about">
+About
+</a>
+
 </div>
 
 <div class="nav-actions">
@@ -1192,7 +1338,9 @@ CART · <span id="navCartCount">0</span>
 VYRO / SUMMER '26
 </div>
 
-<h1>VYRO</h1>
+<h1>
+VYRO
+</h1>
 
 <div class="hero-sub">
 WEAR YOUR VISION
@@ -1327,24 +1475,30 @@ ESSENTIAL / REGULAR FIT
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Essential T-Shirt',
 400,
 'color1',
 'size1'
 )">
+
 ADD TO CART
+
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Essential T-Shirt',
 400,
 'color1',
 'size1'
 )">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -1417,24 +1571,30 @@ OVERSIZED / RELAXED FIT
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Oversized T-Shirt',
 450,
 'color2',
 'size2'
 )">
+
 ADD TO CART
+
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Oversized T-Shirt',
 450,
 'color2',
 'size2'
 )">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -1507,24 +1667,30 @@ MINIMAL / EVERYDAY FIT
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Minimal Tee',
 450,
 'color3',
 'size3'
 )">
+
 ADD TO CART
+
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Minimal Tee',
 450,
 'color3',
 'size3'
 )">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -1597,24 +1763,30 @@ HEAVYWEIGHT / RELAXED FIT
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Hoodie',
 750,
 'color4',
 'size4'
 )">
+
 ADD TO CART
+
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Hoodie',
 750,
 'color4',
 'size4'
 )">
+
 ORDER NOW
+
 </button>
 
 </div>
@@ -2052,6 +2224,63 @@ ORDER VIA WHATSAPP
 </div>
 
 
+<!-- CART NOTIFICATION -->
+
+<div
+class="cart-notification"
+id="cartNotification">
+
+<div class="notification-title">
+✓ ADDED TO CART
+</div>
+
+<div
+class="notification-text"
+id="notificationText">
+
+Product added successfully.
+
+</div>
+
+<div class="notification-actions">
+
+<button
+class="notification-cart"
+onclick="openCart();closeNotification()">
+
+VIEW CART
+
+</button>
+
+<button
+class="notification-close"
+onclick="closeNotification()">
+
+CONTINUE
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- WHATSAPP FLOAT -->
+
+<a
+class="whatsapp-float"
+href="https://wa.me/201129327133"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Contact VYRO on WhatsApp">
+
+<span class="whatsapp-pulse"></span>
+
+💬
+
+</a>
+
+
 <!-- FOOTER -->
 
 <footer>
@@ -2108,7 +2337,9 @@ CONTACT
 <a
 href="https://wa.me/201129327133"
 target="_blank">
+
 WhatsApp
+
 </a>
 
 <a href="#about">
@@ -2145,22 +2376,45 @@ WEAR YOUR VISION
 
 const WHATSAPP_NUMBER = "201129327133";
 
-/* ================= SAVED CART ================= */
+let cart = [];
 
-let cart =
-JSON.parse(
-localStorage.getItem("vyroCart")
-) || [];
+
+/* ================= LOAD SAVED CART ================= */
+
+try{
+
+const savedCart =
+localStorage.getItem("vyroCart");
+
+if(savedCart){
+
+cart = JSON.parse(savedCart);
+
+}
+
+}catch(error){
+
+cart = [];
+
+}
 
 
 /* ================= SAVE CART ================= */
 
 function saveCart(){
 
+try{
+
 localStorage.setItem(
 "vyroCart",
 JSON.stringify(cart)
 );
+
+}catch(error){
+
+console.log("Cart storage unavailable");
+
+}
 
 }
 
@@ -2189,16 +2443,70 @@ existing.quantity += 1;
 }else{
 
 cart.push({
+
 name:name,
 price:price,
 color:color,
 size:size,
 quantity:1
+
 });
 
 }
 
+saveCart();
+
 updateCart();
+
+showNotification(
+name + " • " + color + " • " + size
+);
+
+}
+
+
+/* ================= NOTIFICATION ================= */
+
+let notificationTimer;
+
+function showNotification(text){
+
+const notification =
+document.getElementById(
+"cartNotification"
+);
+
+const notificationText =
+document.getElementById(
+"notificationText"
+);
+
+notificationText.innerText =
+text;
+
+notification.style.display =
+"block";
+
+clearTimeout(notificationTimer);
+
+notificationTimer =
+setTimeout(
+closeNotification,
+4000
+);
+
+}
+
+
+function closeNotification(){
+
+const notification =
+document.getElementById(
+"cartNotification"
+);
+
+notification.style.display =
+"none";
 
 }
 
@@ -2338,11 +2646,6 @@ document.getElementById(
 
 function updateCart(){
 
-/* SAVE CART EVERY TIME IT CHANGES */
-
-saveCart();
-
-
 const cartItems =
 document.getElementById(
 "cartItems"
@@ -2359,6 +2662,7 @@ document.getElementById(
 );
 
 let total = 0;
+
 let quantity = 0;
 
 
@@ -2387,6 +2691,8 @@ cartItems.innerHTML =
 "Your cart is empty.";
 
 updateWhatsApp();
+
+saveCart();
 
 return;
 
@@ -2425,7 +2731,9 @@ Unit Price: ${item.price} EGP
 
 <button
 onclick="decreaseQuantity(${index})">
+
 −
+
 </button>
 
 <span>
@@ -2434,7 +2742,9 @@ ${item.quantity}
 
 <button
 onclick="increaseQuantity(${index})">
+
 +
+
 </button>
 
 </div>
@@ -2466,6 +2776,8 @@ html;
 
 updateWhatsApp();
 
+saveCart();
+
 }
 
 
@@ -2477,6 +2789,8 @@ if(!cart[index])
 return;
 
 cart[index].quantity++;
+
+saveCart();
 
 updateCart();
 
@@ -2498,6 +2812,8 @@ cart.splice(index,1);
 
 }
 
+saveCart();
+
 updateCart();
 
 }
@@ -2509,6 +2825,8 @@ if(!cart[index])
 return;
 
 cart.splice(index,1);
+
+saveCart();
 
 updateCart();
 
@@ -2523,6 +2841,8 @@ document.getElementById(
 "cart"
 ).style.display =
 "block";
+
+closeNotification();
 
 }
 
@@ -2624,6 +2944,7 @@ item.price *
 item.quantity;
 
 total += itemTotal;
+
 
 message +=
 (index + 1) +
@@ -2740,6 +3061,25 @@ function(event){
 if(event.target === this){
 
 closeCart();
+
+}
+
+});
+
+
+/* ================= ESC KEY ================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeProduct();
+
+closeCart();
+
+closeNotification();
 
 }
 

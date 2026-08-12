@@ -1103,6 +1103,11 @@ font-size:14px;
 outline:none;
 }
 
+.checkout input:focus,
+.checkout textarea:focus{
+border-color:#111;
+}
+
 .checkout textarea{
 height:85px;
 resize:none;
@@ -1119,6 +1124,11 @@ padding:16px;
 font-size:11px;
 font-weight:bold;
 letter-spacing:1px;
+transition:.2s;
+}
+
+.whatsapp:hover{
+background:#1ebe5d;
 }
 
 .whatsapp.disabled{
@@ -2468,13 +2478,13 @@ alt="VYRO Product">
 class="gallery-thumb active"
 id="thumb1"
 src=""
-onclick="changeModalImage(this.src)">
+onclick="changeModalImage(this.src,this)">
 
 <img
 class="gallery-thumb"
 id="thumb2"
 src=""
-onclick="changeModalImage(this.src)">
+onclick="changeModalImage(this.src,this)">
 
 </div>
 
@@ -2617,16 +2627,19 @@ Complete Your Order
 <input
 id="customerName"
 type="text"
-placeholder="Full Name">
+placeholder="Full Name"
+autocomplete="name">
 
 <input
 id="customerPhone"
 type="tel"
-placeholder="Phone Number">
+placeholder="Phone Number"
+autocomplete="tel">
 
 <textarea
 id="customerAddress"
-placeholder="Delivery Address"></textarea>
+placeholder="Delivery Address"
+autocomplete="street-address"></textarea>
 
 <a
 id="whatsappBtn"
@@ -2730,7 +2743,8 @@ CONTACT
 
 <a
 href="https://wa.me/201129327133"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 WhatsApp
 </a>
 
@@ -2862,11 +2876,8 @@ sizes:["S","M","L","XL","XXL"]
 
 function addSelectedToCart(index){
 
-const product =
-products[index];
-
-const state =
-productState[index];
+const product = products[index];
+const state = productState[index];
 
 addProductToCart(
 product,
@@ -2882,11 +2893,8 @@ state.quantity
 
 function buySelectedNow(index){
 
-const product =
-products[index];
-
-const state =
-productState[index];
+const product = products[index];
+const state = productState[index];
 
 buyDirect(
 product,
@@ -2906,6 +2914,10 @@ color,
 size,
 quantity
 ){
+
+if(quantity < 1){
+quantity = 1;
+}
 
 const existing =
 cart.find(item =>
@@ -2953,6 +2965,9 @@ message +=
 "I would like to place an order:\n\n";
 
 message +=
+"PRODUCT DETAILS\n\n";
+
+message +=
 "Product: " +
 product.name +
 "\n";
@@ -2973,7 +2988,12 @@ quantity +
 "\n";
 
 message +=
-"Price: " +
+"Unit Price: " +
+product.price +
+" EGP\n";
+
+message +=
+"Total: " +
 (product.price * quantity) +
 " EGP\n\n";
 
@@ -3001,7 +3021,8 @@ encodeURIComponent(message);
 
 window.open(
 url,
-"_blank"
+"_blank",
+"noopener,noreferrer"
 );
 
 }
@@ -3080,10 +3101,15 @@ quantity = 20;
 productState[index].quantity =
 quantity;
 
+const quantityElement =
 document.getElementById(
 "qty" + index
-).innerText =
+);
+
+if(quantityElement){
+quantityElement.innerText =
 quantity;
+}
 
 }
 
@@ -3145,10 +3171,10 @@ product.images[0];
 document.getElementById(
 "modalQty"
 ).innerText =
-1;
+"1";
 
 
-/* COLORS */
+/* ================= COLORS ================= */
 
 const colors =
 document.getElementById(
@@ -3162,6 +3188,8 @@ product.colors.forEach(
 
 const button =
 document.createElement("button");
+
+button.type = "button";
 
 button.innerText =
 color;
@@ -3191,7 +3219,7 @@ colors.appendChild(button);
 });
 
 
-/* SIZES */
+/* ================= SIZES ================= */
 
 const sizes =
 document.getElementById(
@@ -3205,6 +3233,8 @@ product.sizes.forEach(
 
 const button =
 document.createElement("button");
+
+button.type = "button";
 
 button.innerText =
 size;
@@ -3234,10 +3264,15 @@ sizes.appendChild(button);
 });
 
 
+/* ================= OPEN ================= */
+
 document.getElementById(
 "productModal"
 ).style.display =
 "block";
+
+document.body.style.overflow =
+"hidden";
 
 }
 
@@ -3249,12 +3284,18 @@ document.getElementById(
 ).style.display =
 "none";
 
+document.body.style.overflow =
+"";
+
 }
 
 
 /* ================= MODAL IMAGE ================= */
 
-function changeModalImage(src){
+function changeModalImage(
+src,
+thumb
+){
 
 document.getElementById(
 "productModalImage"
@@ -3264,13 +3305,13 @@ src;
 document.querySelectorAll(
 ".gallery-thumb"
 ).forEach(
-thumb =>
-thumb.classList.remove("active")
+item =>
+item.classList.remove("active")
 );
 
-event.currentTarget.classList.add(
-"active"
-);
+if(thumb){
+thumb.classList.add("active");
+}
 
 }
 
@@ -3424,6 +3465,7 @@ Unit Price: ${item.price} EGP
 <div class="quantity-box">
 
 <button
+type="button"
 onclick="decreaseQuantity(${index})">
 
 −
@@ -3435,6 +3477,7 @@ ${item.quantity}
 </span>
 
 <button
+type="button"
 onclick="increaseQuantity(${index})">
 
 +
@@ -3452,6 +3495,7 @@ ${itemTotal} EGP
 
 <button
 class="remove-btn"
+type="button"
 onclick="removeItem(${index})">
 
 Remove
@@ -3473,11 +3517,14 @@ updateWhatsApp();
 }
 
 
-/* ================= QUANTITY ================= */
+/* ================= CART QUANTITY ================= */
 
 function increaseQuantity(index){
 
 if(!cart[index])
+return;
+
+if(cart[index].quantity >= 20)
 return;
 
 cart[index].quantity++;
@@ -3528,6 +3575,11 @@ document.getElementById(
 ).style.display =
 "block";
 
+document.body.style.overflow =
+"hidden";
+
+updateWhatsApp();
+
 }
 
 
@@ -3537,6 +3589,9 @@ document.getElementById(
 "cart"
 ).style.display =
 "none";
+
+document.body.style.overflow =
+"";
 
 }
 
@@ -3549,6 +3604,10 @@ const btn =
 document.getElementById(
 "whatsappBtn"
 );
+
+
+if(!btn)
+return;
 
 
 if(cart.length === 0){
@@ -3580,6 +3639,8 @@ document.getElementById(
 ).value.trim();
 
 
+/* ================= VALIDATION ================= */
+
 if(!name || !phone || !address){
 
 btn.href = "#";
@@ -3593,13 +3654,18 @@ return;
 }
 
 
+/* ================= BUILD ORDER ================= */
+
 let total = 0;
 
 let message =
 "Hello VYRO! 👋\n\n";
 
 message +=
-"NEW ORDER\n\n";
+"NEW ORDER\n";
+
+message +=
+"====================\n\n";
 
 message +=
 "Customer Name: " +
@@ -3617,7 +3683,10 @@ address +
 "\n\n";
 
 message +=
-"ORDER DETAILS:\n\n";
+"ORDER DETAILS\n";
+
+message +=
+"====================\n\n";
 
 
 cart.forEach(
@@ -3627,7 +3696,8 @@ const itemTotal =
 item.price *
 item.quantity;
 
-total += itemTotal;
+total +=
+itemTotal;
 
 
 message +=
@@ -3665,7 +3735,7 @@ itemTotal +
 
 
 message +=
-"--------------------\n";
+"====================\n";
 
 message +=
 "TOTAL: " +
@@ -3678,6 +3748,8 @@ message +=
 message +=
 "Thank you, VYRO! 🖤";
 
+
+/* ================= CREATE WHATSAPP URL ================= */
 
 const url =
 "https://wa.me/" +
@@ -3802,6 +3874,7 @@ ${product.price} EGP
 
 <button
 class="wishlist-remove"
+type="button"
 onclick="removeWishlist(${index},${originalIndex})">
 
 Remove
@@ -3859,6 +3932,9 @@ document.getElementById(
 ).style.display =
 "block";
 
+document.body.style.overflow =
+"hidden";
+
 }
 
 
@@ -3868,6 +3944,9 @@ document.getElementById(
 "wishlistPanel"
 ).style.display =
 "none";
+
+document.body.style.overflow =
+"";
 
 }
 
@@ -3943,11 +4022,30 @@ closeWishlist();
 });
 
 
+/* ================= ESCAPE KEY ================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeProduct();
+closeCart();
+closeWishlist();
+
+}
+
+});
+
+
 /* ================= INITIAL ================= */
 
 updateCart();
 
 updateWishlist();
+
+updateWhatsApp();
 
 </script>
 

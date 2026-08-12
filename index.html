@@ -8,6 +8,8 @@
 
 <style>
 
+/* ================= RESET ================= */
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -20,9 +22,21 @@ scroll-behavior:smooth;
 
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#f4f4f1;
+background:#f5f5f2;
 color:#111;
 }
+
+button,
+input,
+textarea,
+select{
+font-family:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
 
 /* ================= NAVBAR ================= */
 
@@ -30,91 +44,101 @@ color:#111;
 position:sticky;
 top:0;
 z-index:999;
-height:70px;
-background:#0d0d0d;
+height:72px;
+background:#0b0b0b;
+color:#fff;
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 5%;
-color:white;
+border-bottom:1px solid #222;
 }
 
 .logo{
 font-size:25px;
 font-weight:900;
-letter-spacing:7px;
+letter-spacing:8px;
 }
 
 .nav-links{
 display:flex;
-gap:30px;
+align-items:center;
+gap:32px;
 }
 
 .nav-links a{
-color:white;
+color:#fff;
 text-decoration:none;
-font-size:11px;
+font-size:10px;
 font-weight:bold;
 letter-spacing:2px;
 text-transform:uppercase;
+transition:.2s;
 }
 
 .nav-links a:hover{
-opacity:.55;
+opacity:.45;
 }
 
 .nav-cart{
-background:white;
+border:1px solid #fff;
+background:#fff;
 color:#111;
-border:0;
-padding:10px 15px;
-border-radius:3px;
+padding:11px 15px;
+font-size:11px;
 font-weight:bold;
-cursor:pointer;
+transition:.2s;
 }
+
+.nav-cart:hover{
+background:#111;
+color:#fff;
+}
+
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:680px;
+min-height:calc(100vh - 72px);
 position:relative;
-background:
-linear-gradient(
-90deg,
-rgba(0,0,0,.72),
-rgba(0,0,0,.2)
-),
-url("hero.jpg") center/cover no-repeat;
-
 display:flex;
 align-items:flex-end;
 padding:0 7% 75px;
-color:white;
+color:#fff;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,.78),
+rgba(0,0,0,.25)
+),
+url("hero.jpg") center/cover no-repeat;
 }
 
 .hero-content{
-max-width:750px;
+max-width:850px;
 animation:fadeUp .9s ease;
 }
 
 .hero-label{
-font-size:11px;
+font-size:10px;
 font-weight:bold;
 letter-spacing:5px;
 margin-bottom:22px;
 }
 
 .hero h1{
-font-size:clamp(65px,11vw,125px);
+font-size:clamp(70px,12vw,150px);
 font-weight:900;
-letter-spacing:15px;
-line-height:.82;
-margin-bottom:25px;
+letter-spacing:17px;
+line-height:.78;
+margin-left:-10px;
+margin-bottom:28px;
 }
 
 .hero-sub{
-font-size:16px;
-letter-spacing:6px;
+font-size:15px;
+letter-spacing:7px;
 margin-bottom:35px;
 }
 
@@ -122,11 +146,11 @@ margin-bottom:35px;
 display:inline-flex;
 align-items:center;
 gap:18px;
-background:white;
+background:#fff;
 color:#111;
+padding:17px 28px;
 text-decoration:none;
-padding:17px 27px;
-font-size:11px;
+font-size:10px;
 font-weight:bold;
 letter-spacing:2px;
 transition:.25s;
@@ -134,44 +158,71 @@ transition:.25s;
 
 .hero-btn:hover{
 background:#111;
-color:white;
+color:#fff;
 }
 
-/* ================= BRAND INTRO ================= */
+
+/* ================= MARQUEE ================= */
+
+.marquee{
+background:#111;
+color:#fff;
+overflow:hidden;
+white-space:nowrap;
+border-bottom:1px solid #222;
+}
+
+.marquee-track{
+display:inline-block;
+padding:16px 0;
+font-size:10px;
+font-weight:bold;
+letter-spacing:4px;
+animation:marquee 18s linear infinite;
+}
+
+.marquee-track span{
+margin:0 30px;
+color:#777;
+}
+
+
+/* ================= INTRO ================= */
 
 .intro{
-padding:90px 25px 75px;
+padding:100px 25px 85px;
 text-align:center;
-background:#f4f4f1;
+background:#f5f5f2;
 }
 
 .eyebrow{
 font-size:10px;
 font-weight:bold;
 letter-spacing:4px;
-margin-bottom:15px;
+margin-bottom:16px;
 }
 
 .intro h2{
-font-size:clamp(35px,6vw,60px);
+font-size:clamp(38px,6vw,65px);
 letter-spacing:1px;
-margin-bottom:20px;
+margin-bottom:22px;
 }
 
 .intro p{
 max-width:650px;
 margin:auto;
-color:#666;
 font-size:14px;
 line-height:1.9;
+color:#666;
 }
 
-/* ================= DROP ================= */
+
+/* ================= SECTION HEAD ================= */
 
 .drop{
-max-width:1250px;
+max-width:1280px;
 margin:auto;
-padding:20px 25px 100px;
+padding:20px 25px 110px;
 }
 
 .section-head{
@@ -185,22 +236,24 @@ margin-bottom:30px;
 font-size:10px;
 font-weight:bold;
 letter-spacing:4px;
-margin-bottom:8px;
+margin-bottom:9px;
 }
 
 .section-head h2{
-font-size:38px;
+font-size:40px;
+letter-spacing:-1px;
 }
 
 .view-all{
-font-size:11px;
-font-weight:bold;
 color:#111;
 text-decoration:none;
+font-size:10px;
+font-weight:bold;
 letter-spacing:2px;
 border-bottom:1px solid #111;
 padding-bottom:5px;
 }
+
 
 /* ================= PRODUCTS ================= */
 
@@ -211,21 +264,22 @@ gap:14px;
 }
 
 .product{
-background:white;
-overflow:hidden;
+background:#fff;
 position:relative;
-transition:.25s;
+overflow:hidden;
+transition:.3s;
 }
 
 .product:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
 
 .product-image{
-height:400px;
+height:420px;
 background:#ddd;
-overflow:hidden;
 position:relative;
+overflow:hidden;
 cursor:pointer;
 }
 
@@ -234,28 +288,28 @@ width:100%;
 height:100%;
 object-fit:cover;
 display:block;
-transition:.5s;
+transition:transform .6s ease;
 }
 
 .product:hover .product-image img{
-transform:scale(1.05);
+transform:scale(1.055);
 }
 
 .badge{
 position:absolute;
-top:12px;
-left:12px;
+top:13px;
+left:13px;
 z-index:5;
 background:#111;
-color:white;
+color:#fff;
+padding:7px 10px;
 font-size:8px;
 font-weight:bold;
 letter-spacing:2px;
-padding:7px 9px;
 }
 
 .product-info{
-padding:17px 15px 20px;
+padding:18px 15px 20px;
 }
 
 .product-name{
@@ -268,7 +322,7 @@ margin-bottom:8px;
 .price{
 font-size:14px;
 font-weight:bold;
-margin-bottom:14px;
+margin-bottom:15px;
 }
 
 .selects{
@@ -279,10 +333,10 @@ gap:6px;
 
 select{
 width:100%;
-padding:9px;
+padding:10px 8px;
 border:1px solid #ddd;
-background:white;
-font-size:11px;
+background:#fff;
+font-size:10px;
 outline:none;
 }
 
@@ -299,44 +353,55 @@ padding:12px 5px;
 font-size:9px;
 font-weight:bold;
 letter-spacing:1px;
-cursor:pointer;
+transition:.2s;
 }
 
 .add-btn{
 background:#111;
-color:white;
+color:#fff;
+}
+
+.add-btn:hover{
+background:#333;
 }
 
 .buy-btn{
 background:#25D366;
-color:white;
+color:#fff;
 }
 
-/* ================= BRAND STATEMENT ================= */
+.buy-btn:hover{
+background:#1ebe5d;
+}
+
+
+/* ================= STATEMENT ================= */
 
 .statement{
 background:#111;
-color:white;
-padding:100px 25px;
+color:#fff;
+padding:110px 25px;
 text-align:center;
 }
 
 .statement-small{
 font-size:10px;
+font-weight:bold;
 letter-spacing:5px;
-margin-bottom:25px;
-color:#aaa;
+color:#777;
+margin-bottom:28px;
 }
 
 .statement h2{
-font-size:clamp(40px,8vw,90px);
-line-height:.9;
-letter-spacing:4px;
+font-size:clamp(42px,8vw,100px);
+line-height:.88;
+letter-spacing:3px;
 }
 
 .statement h2 span{
-color:#777;
+color:#555;
 }
+
 
 /* ================= STORY ================= */
 
@@ -344,13 +409,16 @@ color:#777;
 display:grid;
 grid-template-columns:1fr 1fr;
 background:#111;
-color:white;
+color:#fff;
 }
 
 .story-image{
-min-height:580px;
+min-height:620px;
 background:
-linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+linear-gradient(
+rgba(0,0,0,.12),
+rgba(0,0,0,.12)
+),
 url("IMG_8037.jpeg") center/cover no-repeat;
 }
 
@@ -358,53 +426,100 @@ url("IMG_8037.jpeg") center/cover no-repeat;
 display:flex;
 flex-direction:column;
 justify-content:center;
-padding:70px;
+padding:75px;
 }
 
 .story-tag{
 font-size:10px;
 letter-spacing:4px;
-color:#aaa;
-margin-bottom:20px;
+color:#777;
+margin-bottom:22px;
 }
 
 .story h2{
-font-size:clamp(42px,6vw,70px);
-line-height:.9;
-margin-bottom:28px;
+font-size:clamp(45px,6vw,75px);
+line-height:.88;
+margin-bottom:30px;
 }
 
 .story p{
-max-width:470px;
+max-width:480px;
 font-size:14px;
 line-height:1.9;
-color:#aaa;
+color:#999;
 }
 
 .story-btn{
 display:inline-block;
 width:max-content;
-margin-top:30px;
-background:white;
+margin-top:32px;
+background:#fff;
 color:#111;
-padding:15px 24px;
+padding:15px 25px;
+text-decoration:none;
 font-size:10px;
 font-weight:bold;
 letter-spacing:2px;
-text-decoration:none;
+transition:.2s;
 }
+
+.story-btn:hover{
+background:#ddd;
+}
+
+
+/* ================= BENEFITS ================= */
+
+.benefits{
+background:#fff;
+padding:75px 25px;
+border-bottom:1px solid #eee;
+}
+
+.benefit-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.benefit{
+text-align:center;
+padding:20px;
+}
+
+.benefit-number{
+font-size:10px;
+font-weight:bold;
+letter-spacing:3px;
+margin-bottom:18px;
+}
+
+.benefit h3{
+font-size:12px;
+letter-spacing:1px;
+margin-bottom:10px;
+}
+
+.benefit p{
+font-size:11px;
+color:#777;
+line-height:1.7;
+}
+
 
 /* ================= VALUES ================= */
 
 .values{
-background:white;
-padding:90px 25px;
+background:#f5f5f2;
+padding:100px 25px;
 text-align:center;
 }
 
 .values h2{
-font-size:38px;
-margin-bottom:50px;
+font-size:40px;
+margin-bottom:55px;
 }
 
 .value-grid{
@@ -416,11 +531,11 @@ gap:30px;
 }
 
 .value{
-padding:20px;
+padding:25px;
 }
 
 .value-number{
-font-size:12px;
+font-size:11px;
 font-weight:bold;
 letter-spacing:3px;
 margin-bottom:20px;
@@ -429,63 +544,81 @@ margin-bottom:20px;
 .value h3{
 font-size:13px;
 letter-spacing:2px;
-margin-bottom:12px;
+margin-bottom:13px;
 }
 
 .value p{
 font-size:12px;
-line-height:1.8;
 color:#777;
+line-height:1.8;
 }
+
 
 /* ================= ABOUT ================= */
 
 .about{
-padding:100px 25px;
+padding:110px 25px;
+background:#fff;
 text-align:center;
-background:#f4f4f1;
 }
 
 .about h2{
-font-size:clamp(35px,6vw,58px);
+font-size:clamp(38px,6vw,62px);
 margin-bottom:25px;
 }
 
 .about p{
-max-width:650px;
+max-width:680px;
 margin:auto;
-color:#666;
 font-size:14px;
 line-height:1.9;
+color:#666;
 }
+
 
 /* ================= FOOTER ================= */
 
 footer{
-background:#0d0d0d;
+background:#0b0b0b;
 color:#777;
-padding:50px 20px;
+padding:60px 20px 35px;
 text-align:center;
 }
 
 .footer-logo{
-color:white;
-font-size:27px;
+color:#fff;
+font-size:29px;
 font-weight:900;
-letter-spacing:8px;
-margin-bottom:12px;
+letter-spacing:9px;
+margin-bottom:13px;
 }
 
 .footer-tag{
 font-size:10px;
 letter-spacing:4px;
-margin-bottom:30px;
+margin-bottom:35px;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-bottom:35px;
+}
+
+.footer-links a{
+color:#aaa;
+text-decoration:none;
+font-size:9px;
+letter-spacing:2px;
 }
 
 .footer-copy{
-font-size:10px;
+font-size:9px;
 letter-spacing:1px;
+color:#555;
 }
+
 
 /* ================= MODAL ================= */
 
@@ -494,15 +627,15 @@ display:none;
 position:fixed;
 inset:0;
 z-index:3000;
-background:rgba(0,0,0,.82);
+background:rgba(0,0,0,.85);
 padding:20px;
 overflow:auto;
 }
 
 .modal-box{
-max-width:850px;
+max-width:900px;
 margin:5vh auto;
-background:white;
+background:#fff;
 display:grid;
 grid-template-columns:1fr 1fr;
 position:relative;
@@ -510,42 +643,43 @@ position:relative;
 
 .modal-box img{
 width:100%;
-height:520px;
+height:540px;
 object-fit:cover;
 }
 
 .modal-info{
-padding:45px;
+padding:50px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 }
 
 .modal-info h2{
-font-size:30px;
+font-size:31px;
 margin-bottom:15px;
 }
 
 .modal-price{
 font-size:22px;
 font-weight:bold;
-margin-bottom:20px;
+margin-bottom:22px;
 }
 
 .modal-info p{
-color:#666;
-line-height:1.8;
 font-size:14px;
-margin-bottom:25px;
+line-height:1.8;
+color:#666;
+margin-bottom:28px;
 }
 
 .modal-buy{
 border:0;
 background:#25D366;
-color:white;
-padding:15px;
+color:#fff;
+padding:16px;
+font-size:11px;
 font-weight:bold;
-cursor:pointer;
+letter-spacing:1px;
 }
 
 .modal-close{
@@ -558,10 +692,10 @@ height:40px;
 border:0;
 border-radius:50%;
 background:#111;
-color:white;
-font-size:25px;
-cursor:pointer;
+color:#fff;
+font-size:24px;
 }
+
 
 /* ================= CART ================= */
 
@@ -570,52 +704,51 @@ display:none;
 position:fixed;
 inset:0;
 z-index:4000;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.72);
 padding:15px;
 }
 
 .cart-box{
-background:white;
-max-width:500px;
+background:#fff;
+max-width:520px;
 max-height:90vh;
 overflow:auto;
 margin:5vh auto;
-padding:25px;
-border-radius:4px;
+padding:27px;
 }
 
 .cart-header{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 margin-bottom:20px;
 }
 
 .cart-header h2{
-font-size:24px;
+font-size:25px;
 }
 
 .close{
 border:0;
 background:none;
 font-size:30px;
-cursor:pointer;
 }
 
 .cart-item{
 border-bottom:1px solid #ddd;
-padding:15px 0;
+padding:16px 0;
 }
 
 .cart-item strong{
 display:block;
+font-size:14px;
 margin-bottom:8px;
 }
 
 .cart-details{
-font-size:13px;
-color:#666;
-line-height:1.7;
+font-size:12px;
+color:#777;
+line-height:1.8;
 }
 
 .quantity-box{
@@ -630,8 +763,7 @@ width:30px;
 height:30px;
 border:0;
 background:#111;
-color:white;
-cursor:pointer;
+color:#fff;
 }
 
 .quantity-box span{
@@ -639,7 +771,7 @@ font-weight:bold;
 }
 
 .item-total{
-font-size:14px;
+font-size:13px;
 font-weight:bold;
 }
 
@@ -648,16 +780,14 @@ margin-top:10px;
 border:0;
 background:#eee;
 padding:7px 12px;
-cursor:pointer;
+font-size:11px;
 }
 
 .cart-total{
-font-size:20px;
+font-size:21px;
 font-weight:bold;
-margin:22px 0;
+margin:23px 0;
 }
-
-/* ================= CHECKOUT ================= */
 
 .checkout{
 border-top:1px solid #ddd;
@@ -672,11 +802,10 @@ margin-bottom:15px;
 .checkout input,
 .checkout textarea{
 width:100%;
-padding:12px;
+padding:13px;
 border:1px solid #ddd;
 margin-bottom:10px;
-font-family:inherit;
-font-size:14px;
+font-size:13px;
 outline:none;
 }
 
@@ -689,11 +818,11 @@ resize:none;
 display:block;
 width:100%;
 background:#25D366;
-color:white;
+color:#fff;
 text-align:center;
 text-decoration:none;
-padding:15px;
-font-size:12px;
+padding:16px;
+font-size:11px;
 font-weight:bold;
 letter-spacing:1px;
 }
@@ -703,55 +832,54 @@ background:#aaa;
 pointer-events:none;
 }
 
+
 /* ================= MOBILE ================= */
 
-@media(max-width:850px){
+@media(max-width:900px){
 
 .navbar{
-height:64px;
-padding:0 15px;
+height:65px;
+padding:0 16px;
 }
 
 .logo{
 font-size:20px;
-letter-spacing:5px;
+letter-spacing:6px;
 }
 
 .nav-links{
-gap:13px;
+gap:14px;
 }
 
 .nav-links a{
-font-size:9px;
+font-size:8px;
 letter-spacing:1px;
 }
 
 .nav-cart{
 padding:9px 11px;
-font-size:12px;
+font-size:10px;
 }
 
 .hero{
-min-height:560px;
-padding:0 24px 55px;
+min-height:600px;
+padding:0 25px 55px;
 }
 
 .hero h1{
-letter-spacing:8px;
-}
-
-.hero-sub{
-font-size:12px;
-letter-spacing:3px;
+letter-spacing:9px;
 }
 
 .products{
 grid-template-columns:repeat(2,1fr);
-gap:10px;
 }
 
 .product-image{
-height:290px;
+height:310px;
+}
+
+.benefit-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
 .story{
@@ -759,16 +887,15 @@ grid-template-columns:1fr;
 }
 
 .story-image{
-min-height:400px;
+min-height:450px;
 }
 
 .story-content{
-padding:60px 30px;
+padding:65px 30px;
 }
 
 .value-grid{
 grid-template-columns:1fr;
-gap:10px;
 }
 
 }
@@ -776,20 +903,28 @@ gap:10px;
 @media(max-width:500px){
 
 .nav-links{
-gap:10px;
+gap:9px;
 }
 
 .nav-links a{
-font-size:8px;
+font-size:7px;
+letter-spacing:.7px;
 }
 
 .hero{
-min-height:520px;
+min-height:540px;
+padding:0 20px 45px;
 }
 
 .hero h1{
-font-size:54px;
+font-size:55px;
 letter-spacing:7px;
+margin-left:-4px;
+}
+
+.hero-sub{
+font-size:11px;
+letter-spacing:4px;
 }
 
 .hero-btn{
@@ -797,11 +932,16 @@ padding:15px 20px;
 }
 
 .intro{
-padding:65px 20px 50px;
+padding:70px 20px 55px;
 }
 
 .intro h2{
 font-size:34px;
+}
+
+.drop{
+padding-left:12px;
+padding-right:12px;
 }
 
 .section-head h2{
@@ -810,6 +950,7 @@ font-size:27px;
 
 .products{
 grid-template-columns:1fr 1fr;
+gap:8px;
 }
 
 .product-image{
@@ -817,11 +958,11 @@ height:245px;
 }
 
 .product-info{
-padding:12px 9px 15px;
+padding:12px 9px 14px;
 }
 
 .product-name{
-font-size:10px;
+font-size:9px;
 }
 
 .price{
@@ -836,12 +977,24 @@ grid-template-columns:1fr;
 padding:10px;
 }
 
+.benefit-grid{
+grid-template-columns:1fr;
+}
+
+.statement{
+padding:80px 18px;
+}
+
+.statement h2{
+font-size:43px;
+}
+
 .story-image{
 min-height:330px;
 }
 
 .story-content{
-padding:50px 25px;
+padding:55px 25px;
 }
 
 .modal-box{
@@ -854,12 +1007,18 @@ height:350px;
 }
 
 .modal-info{
-padding:25px;
+padding:27px;
+}
+
+.footer-links{
+gap:16px;
+flex-wrap:wrap;
 }
 
 }
 
-/* ================= ANIMATION ================= */
+
+/* ================= ANIMATIONS ================= */
 
 @keyframes fadeUp{
 
@@ -875,10 +1034,24 @@ transform:translateY(0);
 
 }
 
+@keyframes marquee{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- ================= NAVBAR ================= -->
 
@@ -897,7 +1070,7 @@ VYRO
 </div>
 
 <button class="nav-cart" onclick="openCart()">
-🛒 <span id="navCartCount">0</span>
+CART · <span id="navCartCount">0</span>
 </button>
 
 </nav>
@@ -913,7 +1086,9 @@ VYRO
 VYRO / SUMMER '26
 </div>
 
-<h1>VYRO</h1>
+<h1>
+VYRO
+</h1>
 
 <div class="hero-sub">
 WEAR YOUR VISION
@@ -928,15 +1103,38 @@ SHOP THE DROP →
 </section>
 
 
+<!-- ================= MARQUEE ================= -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+VYRO <span>✦</span>
+WEAR YOUR VISION <span>✦</span>
+DROP 01 <span>✦</span>
+VYRO <span>✦</span>
+WEAR YOUR VISION <span>✦</span>
+DROP 01 <span>✦</span>
+VYRO <span>✦</span>
+WEAR YOUR VISION <span>✦</span>
+DROP 01
+
+</div>
+
+</div>
+
+
 <!-- ================= INTRO ================= -->
 
 <section class="intro">
 
 <div class="eyebrow">
-NEW COLLECTION
+VYRO / DROP 01
 </div>
 
-<h2>THE LATEST DROP</h2>
+<h2>
+THE LATEST DROP
+</h2>
 
 <p>
 Minimal pieces. Strong identity.
@@ -956,10 +1154,12 @@ for people who wear their vision.
 <div>
 
 <div class="section-label">
-VYRO / DROP 01
+VYRO / COLLECTION 01
 </div>
 
-<h2>Latest Drop</h2>
+<h2>
+Latest Drop
+</h2>
 
 </div>
 
@@ -1024,7 +1224,8 @@ VYRO ESSENTIAL TEE
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Essential T-Shirt',
 400,
@@ -1034,7 +1235,8 @@ onclick="addToCart(
 ADD TO CART
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Essential T-Shirt',
 400,
@@ -1047,6 +1249,7 @@ ORDER NOW
 </div>
 
 </div>
+
 </div>
 
 
@@ -1101,7 +1304,8 @@ VYRO OVERSIZE TEE
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Oversized T-Shirt',
 450,
@@ -1111,7 +1315,8 @@ onclick="addToCart(
 ADD TO CART
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Oversized T-Shirt',
 450,
@@ -1124,6 +1329,7 @@ ORDER NOW
 </div>
 
 </div>
+
 </div>
 
 
@@ -1178,7 +1384,8 @@ VYRO MINIMAL TEE
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Minimal Tee',
 450,
@@ -1188,7 +1395,8 @@ onclick="addToCart(
 ADD TO CART
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Minimal Tee',
 450,
@@ -1201,6 +1409,7 @@ ORDER NOW
 </div>
 
 </div>
+
 </div>
 
 
@@ -1255,7 +1464,8 @@ VYRO HOODIE
 
 <div class="product-buttons">
 
-<button class="add-btn"
+<button
+class="add-btn"
 onclick="addToCart(
 'VYRO Hoodie',
 750,
@@ -1265,7 +1475,8 @@ onclick="addToCart(
 ADD TO CART
 </button>
 
-<button class="buy-btn"
+<button
+class="buy-btn"
 onclick="buyNow(
 'VYRO Hoodie',
 750,
@@ -1278,6 +1489,7 @@ ORDER NOW
 </div>
 
 </div>
+
 </div>
 
 </div>
@@ -1339,11 +1551,95 @@ DISCOVER VYRO
 </section>
 
 
+<!-- ================= BENEFITS ================= -->
+
+<section class="benefits">
+
+<div class="benefit-grid">
+
+<div class="benefit">
+
+<div class="benefit-number">
+01
+</div>
+
+<h3>
+QUALITY FIRST
+</h3>
+
+<p>
+Selected pieces focused on comfort,
+fit and everyday wear.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+02
+</div>
+
+<h3>
+EASY ORDERING
+</h3>
+
+<p>
+Choose your piece, size and color
+and order directly through WhatsApp.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+03
+</div>
+
+<h3>
+LOCAL BRAND
+</h3>
+
+<p>
+Built locally with a vision to grow
+into something bigger.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+04
+</div>
+
+<h3>
+REAL IDENTITY
+</h3>
+
+<p>
+No unnecessary noise.
+Just pieces with presence.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- ================= VALUES ================= -->
 
 <section class="values">
 
-<h2>WHY VYRO?</h2>
+<h2>
+WHY VYRO?
+</h2>
 
 <div class="value-grid">
 
@@ -1436,7 +1732,8 @@ Everyday pieces.
 
 <div class="modal-box">
 
-<button class="modal-close"
+<button
+class="modal-close"
 onclick="closeProduct()">
 ×
 </button>
@@ -1471,9 +1768,7 @@ our signature identity.
 <button
 class="modal-buy"
 id="modalBuyBtn">
-
 ORDER NOW
-
 </button>
 
 </div>
@@ -1495,7 +1790,8 @@ ORDER NOW
 Your Cart
 </h2>
 
-<button class="close"
+<button
+class="close"
 onclick="closeCart()">
 ×
 </button>
@@ -1567,6 +1863,22 @@ VYRO
 WEAR YOUR VISION
 </div>
 
+<div class="footer-links">
+
+<a href="#home">
+HOME
+</a>
+
+<a href="#drop">
+SHOP
+</a>
+
+<a href="#about">
+ABOUT
+</a>
+
+</div>
+
 <div class="footer-copy">
 © VYRO — ALL RIGHTS RESERVED.
 </div>
@@ -1602,23 +1914,23 @@ item.size === size
 
 if(existing){
 
-existing.quantity += 1;
+existing.quantity++;
 
 }else{
 
 cart.push({
-
 name:name,
 price:price,
 color:color,
 size:size,
 quantity:1
-
 });
 
 }
 
 updateCart();
+
+openCart();
 
 }
 
@@ -1668,18 +1980,13 @@ message +=
 message +=
 "Thank you, VYRO! 🖤";
 
-
 const url =
 "https://wa.me/" +
 WHATSAPP_NUMBER +
 "?text=" +
 encodeURIComponent(message);
 
-
-window.open(
-url,
-"_blank"
-);
+window.open(url,"_blank");
 
 }
 
@@ -1736,7 +2043,6 @@ ids[1]
 
 };
 
-
 document.getElementById(
 "productModal"
 ).style.display =
@@ -1760,24 +2066,16 @@ document.getElementById(
 function updateCart(){
 
 const cartItems =
-document.getElementById(
-"cartItems"
-);
+document.getElementById("cartItems");
 
 const cartTotal =
-document.getElementById(
-"cartTotal"
-);
+document.getElementById("cartTotal");
 
 const cartCount =
-document.getElementById(
-"navCartCount"
-);
-
+document.getElementById("navCartCount");
 
 let total = 0;
 let quantity = 0;
-
 
 cart.forEach(item=>{
 
@@ -1789,7 +2087,6 @@ quantity +=
 item.quantity;
 
 });
-
 
 cartCount.innerText =
 quantity;
@@ -1813,13 +2110,11 @@ return;
 let html = "";
 
 
-cart.forEach(
-(item,index)=>{
+cart.forEach((item,index)=>{
 
 const itemTotal =
 item.price *
 item.quantity;
-
 
 html += `
 
@@ -1843,9 +2138,7 @@ Unit Price: ${item.price} EGP
 
 <button
 onclick="decreaseQuantity(${index})">
-
 −
-
 </button>
 
 <span>
@@ -1854,9 +2147,7 @@ ${item.quantity}
 
 <button
 onclick="increaseQuantity(${index})">
-
 +
-
 </button>
 
 </div>
@@ -1881,7 +2172,6 @@ Remove
 `;
 
 });
-
 
 cartItems.innerHTML =
 html;
@@ -1973,9 +2263,7 @@ if(cart.length === 0){
 
 btn.href = "#";
 
-btn.classList.add(
-"disabled"
-);
+btn.classList.add("disabled");
 
 return;
 
@@ -2002,9 +2290,7 @@ if(!name || !phone || !address){
 
 btn.href = "#";
 
-btn.classList.add(
-"disabled"
-);
+btn.classList.add("disabled");
 
 return;
 
@@ -2038,8 +2324,7 @@ message +=
 "ORDER DETAILS:\n\n";
 
 
-cart.forEach(
-(item,index)=>{
+cart.forEach((item,index)=>{
 
 const itemTotal =
 item.price *
@@ -2047,9 +2332,8 @@ item.quantity;
 
 total += itemTotal;
 
-
 message +=
-(index + 1) +
+(index+1) +
 ". " +
 item.name +
 "\n";
@@ -2103,12 +2387,9 @@ WHATSAPP_NUMBER +
 "?text=" +
 encodeURIComponent(message);
 
-
 btn.href = url;
 
-btn.classList.remove(
-"disabled"
-);
+btn.classList.remove("disabled");
 
 }
 

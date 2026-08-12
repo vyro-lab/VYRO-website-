@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -912,92 +911,6 @@ background:#aaa;
 pointer-events:none;
 }
 
-/* ================= WHATSAPP FLOAT ================= */
-
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:58px;
-height:58px;
-border-radius:50%;
-background:#25D366;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-font-size:27px;
-z-index:5000;
-box-shadow:0 8px 25px rgba(0,0,0,.22);
-transition:.25s;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.08);
-background:#1ebe5d;
-}
-
-.whatsapp-pulse{
-position:absolute;
-inset:0;
-border-radius:50%;
-border:2px solid #25D366;
-animation:pulse 2s infinite;
-}
-
-/* ================= CART NOTIFICATION ================= */
-
-.cart-notification{
-position:fixed;
-right:20px;
-bottom:90px;
-z-index:6000;
-background:#111;
-color:#fff;
-padding:15px 17px;
-width:290px;
-display:none;
-box-shadow:0 12px 35px rgba(0,0,0,.25);
-animation:notificationIn .3s ease;
-}
-
-.notification-title{
-font-size:11px;
-font-weight:bold;
-letter-spacing:1px;
-margin-bottom:5px;
-}
-
-.notification-text{
-font-size:10px;
-color:#aaa;
-margin-bottom:12px;
-}
-
-.notification-actions{
-display:flex;
-gap:7px;
-}
-
-.notification-actions button{
-border:0;
-padding:9px 12px;
-font-size:9px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.notification-cart{
-background:#fff;
-color:#111;
-}
-
-.notification-close{
-background:#333;
-color:#fff;
-}
-
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
@@ -1214,21 +1127,6 @@ flex-direction:column;
 text-align:center;
 }
 
-.whatsapp-float{
-width:52px;
-height:52px;
-right:15px;
-bottom:15px;
-font-size:24px;
-}
-
-.cart-notification{
-right:15px;
-left:15px;
-bottom:78px;
-width:auto;
-}
-
 }
 
 /* ================= ANIMATION ================= */
@@ -1247,53 +1145,14 @@ transform:translateY(0);
 
 }
 
-@keyframes notificationIn{
-
-from{
-opacity:0;
-transform:translateY(15px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-opacity:.8;
-}
-
-70%{
-transform:scale(1.35);
-opacity:0;
-}
-
-100%{
-transform:scale(1.35);
-opacity:0;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="top-bar">
 FREE DELIVERY ON SELECTED ORDERS • VYRO DROP 01
 </div>
-
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -1302,19 +1161,9 @@ VYRO
 </div>
 
 <div class="nav-links">
-
-<a href="#home">
-Home
-</a>
-
-<a href="#drop">
-Shop
-</a>
-
-<a href="#about">
-About
-</a>
-
+<a href="#home">Home</a>
+<a href="#drop">Shop</a>
+<a href="#about">About</a>
 </div>
 
 <div class="nav-actions">
@@ -1327,9 +1176,6 @@ CART · <span id="navCartCount">0</span>
 
 </nav>
 
-
-<!-- HERO -->
-
 <section class="hero" id="home">
 
 <div class="hero-content">
@@ -1338,9 +1184,7 @@ CART · <span id="navCartCount">0</span>
 VYRO / SUMMER '26
 </div>
 
-<h1>
-VYRO
-</h1>
+<h1>VYRO</h1>
 
 <div class="hero-sub">
 WEAR YOUR VISION
@@ -1362,9 +1206,6 @@ EXPLORE VYRO
 
 </section>
 
-
-<!-- INTRO -->
-
 <section class="intro">
 
 <div class="eyebrow">
@@ -1382,9 +1223,6 @@ for people who wear their vision.
 </p>
 
 </section>
-
-
-<!-- PRODUCTS -->
 
 <section class="drop" id="drop">
 
@@ -1408,9 +1246,7 @@ SHOP ALL
 
 </div>
 
-
 <div class="products">
-
 
 <!-- PRODUCT 1 -->
 
@@ -1475,30 +1311,24 @@ ESSENTIAL / REGULAR FIT
 
 <div class="product-buttons">
 
-<button
-class="add-btn"
+<button class="add-btn"
 onclick="addToCart(
 'VYRO Essential T-Shirt',
 400,
 'color1',
 'size1'
 )">
-
 ADD TO CART
-
 </button>
 
-<button
-class="buy-btn"
+<button class="buy-btn"
 onclick="buyNow(
 'VYRO Essential T-Shirt',
 400,
 'color1',
 'size1'
 )">
-
 ORDER NOW
-
 </button>
 
 </div>
@@ -1506,7 +1336,6 @@ ORDER NOW
 </div>
 
 </div>
-
 
 <!-- PRODUCT 2 -->
 
@@ -1571,30 +1400,24 @@ OVERSIZED / RELAXED FIT
 
 <div class="product-buttons">
 
-<button
-class="add-btn"
+<button class="add-btn"
 onclick="addToCart(
 'VYRO Oversized T-Shirt',
 450,
 'color2',
 'size2'
 )">
-
 ADD TO CART
-
 </button>
 
-<button
-class="buy-btn"
+<button class="buy-btn"
 onclick="buyNow(
 'VYRO Oversized T-Shirt',
 450,
 'color2',
 'size2'
 )">
-
 ORDER NOW
-
 </button>
 
 </div>
@@ -1602,7 +1425,6 @@ ORDER NOW
 </div>
 
 </div>
-
 
 <!-- PRODUCT 3 -->
 
@@ -1667,30 +1489,24 @@ MINIMAL / EVERYDAY FIT
 
 <div class="product-buttons">
 
-<button
-class="add-btn"
+<button class="add-btn"
 onclick="addToCart(
 'VYRO Minimal Tee',
 450,
 'color3',
 'size3'
 )">
-
 ADD TO CART
-
 </button>
 
-<button
-class="buy-btn"
+<button class="buy-btn"
 onclick="buyNow(
 'VYRO Minimal Tee',
 450,
 'color3',
 'size3'
 )">
-
 ORDER NOW
-
 </button>
 
 </div>
@@ -1698,7 +1514,6 @@ ORDER NOW
 </div>
 
 </div>
-
 
 <!-- PRODUCT 4 -->
 
@@ -1763,30 +1578,24 @@ HEAVYWEIGHT / RELAXED FIT
 
 <div class="product-buttons">
 
-<button
-class="add-btn"
+<button class="add-btn"
 onclick="addToCart(
 'VYRO Hoodie',
 750,
 'color4',
 'size4'
 )">
-
 ADD TO CART
-
 </button>
 
-<button
-class="buy-btn"
+<button class="buy-btn"
 onclick="buyNow(
 'VYRO Hoodie',
 750,
 'color4',
 'size4'
 )">
-
 ORDER NOW
-
 </button>
 
 </div>
@@ -1798,9 +1607,6 @@ ORDER NOW
 </div>
 
 </section>
-
-
-<!-- STATEMENT -->
 
 <section class="statement">
 
@@ -1816,90 +1622,49 @@ WEAR YOURS.
 
 </section>
 
-
-<!-- TRUST -->
-
 <section class="trust">
 
 <div class="trust-grid">
 
 <div class="trust-item">
-
-<div class="trust-icon">
-✦
-</div>
-
-<h3>
-QUALITY FIRST
-</h3>
-
+<div class="trust-icon">✦</div>
+<h3>QUALITY FIRST</h3>
 <p>
 Selected materials and attention
 to the details that matter.
 </p>
-
 </div>
-
 
 <div class="trust-item">
-
-<div class="trust-icon">
-↗
-</div>
-
-<h3>
-FAST DELIVERY
-</h3>
-
+<div class="trust-icon">↗</div>
+<h3>FAST DELIVERY</h3>
 <p>
 Simple ordering and delivery
 across Egypt.
 </p>
-
 </div>
-
 
 <div class="trust-item">
-
-<div class="trust-icon">
-↻
-</div>
-
-<h3>
-EASY EXCHANGE
-</h3>
-
+<div class="trust-icon">↻</div>
+<h3>EASY EXCHANGE</h3>
 <p>
 We want you to feel right
 in every VYRO piece.
 </p>
-
 </div>
-
 
 <div class="trust-item">
-
-<div class="trust-icon">
-◆
-</div>
-
-<h3>
-LOCAL BRAND
-</h3>
-
+<div class="trust-icon">◆</div>
+<h3>LOCAL BRAND</h3>
 <p>
 Built locally with a modern
 vision and strong identity.
 </p>
-
 </div>
 
 </div>
 
 </section>
-
-
-<!-- STORY -->
 
 <section class="story">
 
@@ -1935,9 +1700,6 @@ DISCOVER VYRO
 
 </section>
 
-
-<!-- VALUES -->
-
 <section class="values">
 
 <h2>
@@ -1963,7 +1725,6 @@ made for everyday wear.
 
 </div>
 
-
 <div class="value">
 
 <div class="value-number">
@@ -1980,7 +1741,6 @@ that actually matter.
 </p>
 
 </div>
-
 
 <div class="value">
 
@@ -2002,9 +1762,6 @@ It's about wearing your own vision.
 </div>
 
 </section>
-
-
-<!-- SIZE GUIDE -->
 
 <section class="size-section">
 
@@ -2068,9 +1825,6 @@ Use this guide as a simple reference before ordering.
 
 </section>
 
-
-<!-- ABOUT -->
-
 <section class="about" id="about">
 
 <div class="eyebrow">
@@ -2092,9 +1846,6 @@ Everyday pieces.
 </p>
 
 </section>
-
-
-<!-- PRODUCT MODAL -->
 
 <div class="product-modal" id="productModal">
 
@@ -2150,9 +1901,6 @@ ORDER NOW
 </div>
 
 </div>
-
-
-<!-- CART -->
 
 <div class="cart" id="cart">
 
@@ -2223,66 +1971,6 @@ ORDER VIA WHATSAPP
 
 </div>
 
-
-<!-- CART NOTIFICATION -->
-
-<div
-class="cart-notification"
-id="cartNotification">
-
-<div class="notification-title">
-✓ ADDED TO CART
-</div>
-
-<div
-class="notification-text"
-id="notificationText">
-
-Product added successfully.
-
-</div>
-
-<div class="notification-actions">
-
-<button
-class="notification-cart"
-onclick="openCart();closeNotification()">
-
-VIEW CART
-
-</button>
-
-<button
-class="notification-close"
-onclick="closeNotification()">
-
-CONTINUE
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- WHATSAPP FLOAT -->
-
-<a
-class="whatsapp-float"
-href="https://wa.me/201129327133"
-target="_blank"
-rel="noopener noreferrer"
-aria-label="Contact VYRO on WhatsApp">
-
-<span class="whatsapp-pulse"></span>
-
-💬
-
-</a>
-
-
-<!-- FOOTER -->
-
 <footer>
 
 <div class="footer-inner">
@@ -2301,7 +1989,6 @@ Wear your vision.
 </p>
 
 </div>
-
 
 <div class="footer-col">
 
@@ -2327,7 +2014,6 @@ About VYRO
 
 </div>
 
-
 <div class="footer-col">
 
 <h3>
@@ -2337,9 +2023,7 @@ CONTACT
 <a
 href="https://wa.me/201129327133"
 target="_blank">
-
 WhatsApp
-
 </a>
 
 <a href="#about">
@@ -2353,7 +2037,6 @@ Shop
 </div>
 
 </div>
-
 
 <div class="footer-bottom">
 
@@ -2369,52 +2052,25 @@ WEAR YOUR VISION
 
 </footer>
 
-
 <script>
 
 /* ================= SETTINGS ================= */
 
 const WHATSAPP_NUMBER = "201129327133";
 
-let cart = [];
-
-
-/* ================= LOAD SAVED CART ================= */
-
-try{
-
-const savedCart =
-localStorage.getItem("vyroCart");
-
-if(savedCart){
-
-cart = JSON.parse(savedCart);
-
-}
-
-}catch(error){
-
-cart = [];
-
-}
+let cart = JSON.parse(
+localStorage.getItem("vyroCart") || "[]"
+);
 
 
 /* ================= SAVE CART ================= */
 
 function saveCart(){
 
-try{
-
 localStorage.setItem(
 "vyroCart",
 JSON.stringify(cart)
 );
-
-}catch(error){
-
-console.log("Cart storage unavailable");
-
-}
 
 }
 
@@ -2443,13 +2099,11 @@ existing.quantity += 1;
 }else{
 
 cart.push({
-
 name:name,
 price:price,
 color:color,
 size:size,
 quantity:1
-
 });
 
 }
@@ -2457,56 +2111,6 @@ quantity:1
 saveCart();
 
 updateCart();
-
-showNotification(
-name + " • " + color + " • " + size
-);
-
-}
-
-
-/* ================= NOTIFICATION ================= */
-
-let notificationTimer;
-
-function showNotification(text){
-
-const notification =
-document.getElementById(
-"cartNotification"
-);
-
-const notificationText =
-document.getElementById(
-"notificationText"
-);
-
-notificationText.innerText =
-text;
-
-notification.style.display =
-"block";
-
-clearTimeout(notificationTimer);
-
-notificationTimer =
-setTimeout(
-closeNotification,
-4000
-);
-
-}
-
-
-function closeNotification(){
-
-const notification =
-document.getElementById(
-"cartNotification"
-);
-
-notification.style.display =
-"none";
 
 }
 
@@ -2642,24 +2246,18 @@ document.getElementById(
 }
 
 
-/* ================= CART ================= */
+/* ================= UPDATE CART ================= */
 
 function updateCart(){
 
 const cartItems =
-document.getElementById(
-"cartItems"
-);
+document.getElementById("cartItems");
 
 const cartTotal =
-document.getElementById(
-"cartTotal"
-);
+document.getElementById("cartTotal");
 
 const cartCount =
-document.getElementById(
-"navCartCount"
-);
+document.getElementById("navCartCount");
 
 let total = 0;
 
@@ -2687,12 +2285,21 @@ total;
 
 if(cart.length === 0){
 
-cartItems.innerHTML =
-"Your cart is empty.";
+cartItems.innerHTML = `
+
+<div style="
+text-align:center;
+padding:30px 10px;
+color:#777;
+">
+
+Your cart is empty.
+
+</div>
+
+`;
 
 updateWhatsApp();
-
-saveCart();
 
 return;
 
@@ -2771,12 +2378,33 @@ Remove
 });
 
 
+html += `
+
+<button
+onclick="clearCart()"
+style="
+width:100%;
+margin-top:20px;
+padding:13px;
+border:0;
+background:#111;
+color:#fff;
+font-size:10px;
+font-weight:bold;
+letter-spacing:2px;
+cursor:pointer;
+">
+
+CLEAR CART
+
+</button>
+
+`;
+
 cartItems.innerHTML =
 html;
 
 updateWhatsApp();
-
-saveCart();
 
 }
 
@@ -2819,6 +2447,8 @@ updateCart();
 }
 
 
+/* ================= REMOVE ================= */
+
 function removeItem(index){
 
 if(!cart[index])
@@ -2833,7 +2463,31 @@ updateCart();
 }
 
 
-/* ================= CART OPEN/CLOSE ================= */
+/* ================= CLEAR CART ================= */
+
+function clearCart(){
+
+if(cart.length === 0)
+return;
+
+const confirmClear =
+confirm(
+"Are you sure you want to clear your cart?"
+);
+
+if(!confirmClear)
+return;
+
+cart = [];
+
+saveCart();
+
+updateCart();
+
+}
+
+
+/* ================= OPEN CART ================= */
 
 function openCart(){
 
@@ -2842,10 +2496,12 @@ document.getElementById(
 ).style.display =
 "block";
 
-closeNotification();
+updateCart();
 
 }
 
+
+/* ================= CLOSE CART ================= */
 
 function closeCart(){
 
@@ -3035,7 +2691,67 @@ updateWhatsApp
 );
 
 
-/* ================= CLOSE MODALS ================= */
+/* ================= CONFIRM ORDER ================= */
+
+document.getElementById(
+"whatsappBtn"
+).addEventListener(
+"click",
+function(event){
+
+if(cart.length === 0){
+
+event.preventDefault();
+
+return;
+
+}
+
+
+const name =
+document.getElementById(
+"customerName"
+).value.trim();
+
+const phone =
+document.getElementById(
+"customerPhone"
+).value.trim();
+
+const address =
+document.getElementById(
+"customerAddress"
+).value.trim();
+
+
+if(!name || !phone || !address){
+
+event.preventDefault();
+
+alert(
+"Please complete your name, phone number and address."
+);
+
+return;
+
+}
+
+
+const confirmed =
+confirm(
+"Confirm your VYRO order and send it via WhatsApp?"
+);
+
+if(!confirmed){
+
+event.preventDefault();
+
+}
+
+});
+
+
+/* ================= CLOSE PRODUCT ================= */
 
 document.getElementById(
 "productModal"
@@ -3052,6 +2768,8 @@ closeProduct();
 });
 
 
+/* ================= CLOSE CART ================= */
+
 document.getElementById(
 "cart"
 ).addEventListener(
@@ -3061,25 +2779,6 @@ function(event){
 if(event.target === this){
 
 closeCart();
-
-}
-
-});
-
-
-/* ================= ESC KEY ================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(event.key === "Escape"){
-
-closeProduct();
-
-closeCart();
-
-closeNotification();
 
 }
 

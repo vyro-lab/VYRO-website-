@@ -6,1380 +6,1759 @@
 
 <title>VYRO — Wear Your Vision</title>
 
+<meta name="description" content="VYRO — Modern local clothing. Minimal design. Strong identity. Wear your vision.">
+
 <style>
 
+/* =========================================================
+   VYRO V2 — PREMIUM STREETWEAR STORE
+========================================================= */
+
+:root{
+  --black:#0b0b0b;
+  --dark:#111;
+  --white:#fff;
+  --cream:#f5f4f0;
+  --gray:#777;
+  --light:#e8e8e5;
+  --green:#25D366;
+  --transition:.35s cubic-bezier(.2,.7,.2,1);
+}
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f4f4f1;
-color:#111;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--black);
+  overflow-x:hidden;
+}
+
+body.no-scroll{
+  overflow:hidden;
 }
 
 button,
-select,
 input,
 textarea{
-font-family:inherit;
+  font:inherit;
 }
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
 
 .top-bar{
-height:32px;
-background:#111;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:9px;
-font-weight:bold;
-letter-spacing:2px;
-text-transform:uppercase;
+  height:31px;
+  background:var(--black);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
 }
 
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 .navbar{
-position:sticky;
-top:0;
-z-index:999;
-height:72px;
-background:rgba(13,13,13,.97);
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 5%;
-color:#fff;
+  height:76px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(10,10,10,.96);
+  backdrop-filter:blur(14px);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-font-size:26px;
-font-weight:900;
-letter-spacing:8px;
+  color:#fff;
+  text-decoration:none;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:8px;
 }
 
 .nav-links{
-display:flex;
-gap:34px;
+  display:flex;
+  align-items:center;
+  gap:35px;
 }
 
 .nav-links a{
-color:#fff;
-text-decoration:none;
-font-size:10px;
-font-weight:bold;
-letter-spacing:2px;
-text-transform:uppercase;
+  color:#fff;
+  text-decoration:none;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  position:relative;
+}
+
+.nav-links a:after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:1px;
+  background:#fff;
+  transition:var(--transition);
+}
+
+.nav-links a:hover:after{
+  width:100%;
 }
 
 .nav-actions{
-display:flex;
-align-items:center;
-gap:8px;
+  display:flex;
+  gap:7px;
+  align-items:center;
 }
 
-.nav-cart,
-.nav-wishlist{
-border:0;
-cursor:pointer;
-font-size:11px;
-font-weight:bold;
+.nav-icon{
+  min-width:43px;
+  height:40px;
+  border:1px solid #333;
+  background:#151515;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font-size:10px;
+  transition:var(--transition);
 }
 
-.nav-cart{
-background:#fff;
-color:#111;
-padding:11px 15px;
+.nav-icon:hover{
+  background:#fff;
+  color:#111;
 }
 
-.nav-wishlist{
-background:#222;
-color:#fff;
-padding:11px 13px;
+.mobile-menu-btn{
+  display:none;
 }
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-min-height:700px;
-position:relative;
-background:
-linear-gradient(
-90deg,
-rgba(0,0,0,.78),
-rgba(0,0,0,.18)
-),
-url("hero.jpg") center/cover no-repeat;
-display:flex;
-align-items:flex-end;
-padding:0 7% 75px;
-color:#fff;
+  min-height:calc(100vh - 107px);
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.18)),
+    url("hero.jpg") center/cover no-repeat;
+  color:#fff;
+  display:flex;
+  align-items:flex-end;
+  padding:0 7% 8%;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:170px;
+  background:linear-gradient(transparent,rgba(0,0,0,.35));
+  pointer-events:none;
 }
 
 .hero-content{
-max-width:780px;
-animation:fadeUp .9s ease;
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  animation:heroIn 1s ease forwards;
 }
 
-.hero-label{
-font-size:10px;
-font-weight:bold;
-letter-spacing:5px;
-margin-bottom:22px;
+.hero-kicker{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:9px;
+  letter-spacing:4px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+.hero-kicker span{
+  width:35px;
+  height:1px;
+  background:#fff;
 }
 
 .hero h1{
-font-size:clamp(70px,12vw,140px);
-font-weight:900;
-letter-spacing:16px;
-line-height:.8;
-margin-bottom:28px;
+  font-size:clamp(75px,14vw,175px);
+  line-height:.78;
+  letter-spacing:14px;
+  font-weight:900;
+  margin-left:-9px;
 }
 
-.hero-sub{
-font-size:15px;
-letter-spacing:7px;
-margin-bottom:36px;
+.hero-subtitle{
+  margin-top:30px;
+  font-size:12px;
+  letter-spacing:7px;
+  font-weight:700;
 }
 
-.hero-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+.hero-actions{
+  margin-top:38px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
 }
 
 .hero-btn{
-display:inline-flex;
-align-items:center;
-gap:15px;
-background:#fff;
-color:#111;
-text-decoration:none;
-padding:17px 28px;
-font-size:10px;
-font-weight:bold;
-letter-spacing:2px;
+  min-width:190px;
+  padding:17px 25px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  transition:var(--transition);
 }
 
-.hero-btn.dark{
-background:transparent;
-color:#fff;
-border:1px solid rgba(255,255,255,.7);
+.hero-btn.primary{
+  background:#fff;
+  color:#111;
 }
+
+.hero-btn.primary:hover{
+  background:#ddd;
+  transform:translateY(-3px);
+}
+
+.hero-btn.outline{
+  border:1px solid rgba(255,255,255,.65);
+  color:#fff;
+}
+
+.hero-btn.outline:hover{
+  background:#fff;
+  color:#111;
+}
+
+.hero-scroll{
+  position:absolute;
+  right:5%;
+  bottom:45px;
+  z-index:3;
+  writing-mode:vertical-rl;
+  font-size:8px;
+  letter-spacing:3px;
+  opacity:.7;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
 
 .intro{
-padding:100px 25px 80px;
-text-align:center;
-background:#f4f4f1;
+  padding:120px 25px 95px;
+  text-align:center;
+  background:var(--cream);
 }
 
 .eyebrow{
-font-size:10px;
-font-weight:bold;
-letter-spacing:4px;
-margin-bottom:16px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:17px;
+  color:#777;
 }
 
 .intro h2{
-font-size:clamp(36px,6vw,62px);
-letter-spacing:1px;
-margin-bottom:20px;
+  font-size:clamp(42px,6vw,70px);
+  letter-spacing:-2px;
+  margin-bottom:24px;
 }
 
 .intro p{
-max-width:650px;
-margin:auto;
-color:#666;
-font-size:14px;
-line-height:1.9;
+  max-width:650px;
+  margin:auto;
+  color:#777;
+  font-size:13px;
+  line-height:2;
 }
 
+/* =========================================================
+   DROP
+========================================================= */
+
 .drop{
-max-width:1300px;
-margin:auto;
-padding:20px 25px 100px;
+  max-width:1400px;
+  margin:auto;
+  padding:20px 25px 110px;
 }
 
 .section-head{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-bottom:30px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:35px;
 }
 
 .section-label{
-font-size:10px;
-font-weight:bold;
-letter-spacing:4px;
-margin-bottom:8px;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:4px;
+  color:#777;
+  margin-bottom:9px;
 }
 
 .section-head h2{
-font-size:40px;
+  font-size:clamp(32px,4vw,48px);
+  letter-spacing:-1px;
 }
 
 .view-all{
-font-size:10px;
-font-weight:bold;
-color:#111;
-text-decoration:none;
-letter-spacing:2px;
-border-bottom:1px solid #111;
-padding-bottom:5px;
+  color:#111;
+  text-decoration:none;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  border-bottom:1px solid #111;
+  padding-bottom:6px;
 }
 
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
 .products{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
 
 .product{
-background:#fff;
-overflow:hidden;
-position:relative;
-transition:.3s;
+  background:#fff;
+  position:relative;
+  overflow:hidden;
+  transition:var(--transition);
 }
 
 .product:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(0,0,0,.08);
+  transform:translateY(-7px);
+  box-shadow:0 20px 50px rgba(0,0,0,.09);
 }
 
 .product-image{
-height:410px;
-background:#ddd;
-overflow:hidden;
-position:relative;
-cursor:pointer;
+  height:460px;
+  position:relative;
+  overflow:hidden;
+  background:#ddd;
+  cursor:pointer;
 }
 
 .product-image img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.6s;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.7s cubic-bezier(.2,.7,.2,1);
 }
 
-.product:hover .product-image img{
-transform:scale(1.06);
+.product-image .second-image{
+  position:absolute;
+  inset:0;
+  opacity:0;
+}
+
+.product:hover .product-image .main-image{
+  opacity:0;
+}
+
+.product:hover .product-image .second-image{
+  opacity:1;
 }
 
 .badge{
-position:absolute;
-top:13px;
-left:13px;
-z-index:5;
-background:#111;
-color:#fff;
-font-size:8px;
-font-weight:bold;
-letter-spacing:2px;
-padding:7px 10px;
+  position:absolute;
+  left:14px;
+  top:14px;
+  z-index:8;
+  background:#111;
+  color:#fff;
+  padding:8px 11px;
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 .wishlist-btn{
-position:absolute;
-top:12px;
-right:12px;
-z-index:10;
-width:38px;
-height:38px;
-border:0;
-border-radius:50%;
-background:rgba(255,255,255,.95);
-font-size:18px;
-cursor:pointer;
+  position:absolute;
+  right:13px;
+  top:13px;
+  z-index:9;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  font-size:17px;
+  transition:var(--transition);
+}
+
+.wishlist-btn:hover{
+  transform:scale(1.08);
 }
 
 .wishlist-btn.active{
-color:#e11;
+  color:#e22;
 }
 
-.quick-view{
-position:absolute;
-bottom:12px;
-left:12px;
-right:12px;
-z-index:5;
-background:rgba(255,255,255,.95);
-color:#111;
-border:0;
-padding:13px;
-font-size:9px;
-font-weight:bold;
-letter-spacing:2px;
-cursor:pointer;
-opacity:0;
-transform:translateY(8px);
-transition:.25s;
+.quick-add{
+  position:absolute;
+  left:13px;
+  right:13px;
+  bottom:13px;
+  z-index:8;
+  height:44px;
+  border:0;
+  background:#fff;
+  color:#111;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:2px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:var(--transition);
 }
 
-.product:hover .quick-view{
-opacity:1;
-transform:translateY(0);
+.product:hover .quick-add{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .product-info{
-padding:18px 15px 20px;
+  padding:20px 16px 18px;
+}
+
+.product-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
 }
 
 .product-name{
-font-size:12px;
-font-weight:bold;
-letter-spacing:1px;
-margin-bottom:8px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:7px;
+}
+
+.product-type{
+  color:#999;
+  font-size:8px;
+  letter-spacing:1px;
 }
 
 .price{
-font-size:14px;
-font-weight:bold;
-margin-bottom:8px;
-}
-
-.product-meta{
-font-size:9px;
-color:#888;
-letter-spacing:1px;
-margin-bottom:16px;
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
 }
 
 .option-title{
-font-size:8px;
-font-weight:bold;
-letter-spacing:1.5px;
-margin-bottom:7px;
-color:#666;
+  margin-top:17px;
+  margin-bottom:8px;
+  color:#777;
+  font-size:7px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
-.color-options{
-display:flex;
-gap:6px;
-margin-bottom:13px;
+.color-options,
+.size-options{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+}
+
+.color-btn,
+.size-btn{
+  border:1px solid #ddd;
+  background:#fff;
+  color:#111;
+  transition:var(--transition);
 }
 
 .color-btn{
-min-width:52px;
-padding:8px 7px;
-border:1px solid #ddd;
-background:#fff;
-font-size:9px;
-cursor:pointer;
-}
-
-.color-btn.selected{
-background:#111;
-color:#fff;
-border-color:#111;
-}
-
-.size-options{
-display:flex;
-gap:5px;
-flex-wrap:wrap;
-margin-bottom:13px;
+  padding:8px 10px;
+  font-size:8px;
 }
 
 .size-btn{
-width:39px;
-height:34px;
-border:1px solid #ddd;
-background:#fff;
-font-size:9px;
-cursor:pointer;
+  width:34px;
+  height:31px;
+  font-size:8px;
 }
 
+.color-btn:hover,
+.size-btn:hover{
+  border-color:#111;
+}
+
+.color-btn.selected,
 .size-btn.selected{
-background:#111;
-color:#fff;
-border-color:#111;
+  background:#111;
+  color:#fff;
+  border-color:#111;
 }
 
-.product-quantity{
-display:flex;
-align-items:center;
-justify-content:space-between;
-border:1px solid #ddd;
-height:38px;
-margin-bottom:8px;
+.quantity-row{
+  height:39px;
+  border:1px solid #ddd;
+  margin-top:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.product-quantity button{
-width:38px;
-height:100%;
-border:0;
-background:#f4f4f4;
-cursor:pointer;
-font-size:16px;
+.quantity-row button{
+  border:0;
+  background:#f4f4f4;
+  width:38px;
+  height:100%;
+  font-size:16px;
 }
 
-.product-quantity span{
-font-size:11px;
-font-weight:bold;
+.quantity-row span{
+  font-size:10px;
+  font-weight:700;
 }
 
-.product-buttons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:6px;
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:7px;
 }
 
-.product-buttons button{
-border:0;
-padding:12px 5px;
-font-size:9px;
-font-weight:bold;
-letter-spacing:1px;
-cursor:pointer;
+.product-actions button{
+  border:0;
+  min-height:43px;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  transition:var(--transition);
 }
 
 .add-btn{
-background:#111;
-color:#fff;
+  background:#111;
+  color:#fff;
 }
 
-.buy-btn{
-background:#25D366;
-color:#fff;
+.add-btn:hover{
+  background:#333;
 }
+
+.order-btn{
+  background:var(--green);
+  color:#fff;
+}
+
+.order-btn:hover{
+  filter:brightness(.9);
+}
+
+/* =========================================================
+   STATEMENT
+========================================================= */
 
 .statement{
-background:#111;
-color:#fff;
-padding:110px 25px;
-text-align:center;
+  min-height:650px;
+  background:#0b0b0b;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 25px;
 }
 
 .statement-small{
-font-size:10px;
-letter-spacing:5px;
-margin-bottom:28px;
-color:#888;
+  color:#777;
+  font-size:9px;
+  letter-spacing:5px;
+  margin-bottom:30px;
 }
 
 .statement h2{
-font-size:clamp(42px,8vw,95px);
-line-height:.9;
-letter-spacing:3px;
+  font-size:clamp(45px,8vw,110px);
+  line-height:.88;
+  letter-spacing:-3px;
 }
 
 .statement h2 span{
-color:#666;
+  color:#444;
 }
 
+/* =========================================================
+   TRUST
+========================================================= */
+
 .trust{
-background:#fff;
-padding:65px 25px;
-border-bottom:1px solid #eee;
+  background:#fff;
+  padding:75px 25px;
 }
 
 .trust-grid{
-max-width:1100px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
 }
 
 .trust-item{
-text-align:center;
-padding:15px;
+  padding:20px 30px;
+  text-align:center;
+  border-right:1px solid #e5e5e5;
+}
+
+.trust-item:last-child{
+  border-right:0;
 }
 
 .trust-icon{
-font-size:22px;
-margin-bottom:13px;
+  font-size:20px;
+  margin-bottom:15px;
 }
 
 .trust-item h3{
-font-size:11px;
-letter-spacing:1.5px;
-margin-bottom:8px;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:9px;
 }
 
 .trust-item p{
-font-size:10px;
-line-height:1.7;
-color:#777;
+  color:#888;
+  font-size:9px;
+  line-height:1.8;
 }
 
+/* =========================================================
+   STORY
+========================================================= */
+
 .story{
-display:grid;
-grid-template-columns:1fr 1fr;
-background:#111;
-color:#fff;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  background:#111;
+  color:#fff;
 }
 
 .story-image{
-min-height:580px;
-background:
-linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
-url("IMG_8037.jpeg") center/cover no-repeat;
+  min-height:650px;
+  background:
+    linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.35)),
+    url("IMG_8037.jpeg") center/cover no-repeat;
 }
 
 .story-content{
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding:75px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:80px;
 }
 
 .story-tag{
-font-size:10px;
-letter-spacing:4px;
-color:#888;
-margin-bottom:22px;
+  color:#777;
+  font-size:9px;
+  letter-spacing:4px;
+  margin-bottom:25px;
 }
 
 .story h2{
-font-size:clamp(42px,6vw,72px);
-line-height:.9;
-margin-bottom:28px;
+  font-size:clamp(45px,6vw,80px);
+  line-height:.87;
+  letter-spacing:-2px;
+  margin-bottom:30px;
 }
 
 .story p{
-max-width:470px;
-font-size:14px;
-line-height:1.9;
-color:#aaa;
+  color:#aaa;
+  max-width:450px;
+  font-size:13px;
+  line-height:2;
 }
 
 .story-btn{
-display:inline-block;
-width:max-content;
-margin-top:32px;
-background:#fff;
-color:#111;
-padding:15px 25px;
-font-size:10px;
-font-weight:bold;
-letter-spacing:2px;
-text-decoration:none;
+  width:max-content;
+  margin-top:35px;
+  padding:16px 25px;
+  background:#fff;
+  color:#111;
+  text-decoration:none;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
+/* =========================================================
+   VALUES
+========================================================= */
+
 .values{
-background:#fff;
-padding:100px 25px;
-text-align:center;
+  background:#fff;
+  padding:115px 25px;
+  text-align:center;
 }
 
 .values h2{
-font-size:40px;
-margin-bottom:55px;
+  font-size:clamp(38px,5vw,58px);
+  margin-bottom:60px;
 }
 
 .value-grid{
-max-width:1050px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .value{
-padding:25px;
-border-top:1px solid #ddd;
+  text-align:left;
+  border-top:1px solid #ddd;
+  padding:28px 20px;
 }
 
 .value-number{
-font-size:11px;
-font-weight:bold;
-letter-spacing:3px;
-margin-bottom:20px;
-color:#888;
+  color:#999;
+  font-size:9px;
+  letter-spacing:3px;
+  margin-bottom:23px;
 }
 
 .value h3{
-font-size:13px;
-letter-spacing:2px;
-margin-bottom:12px;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:13px;
 }
 
 .value p{
-font-size:12px;
-line-height:1.8;
-color:#777;
+  color:#777;
+  font-size:11px;
+  line-height:1.9;
 }
 
+/* =========================================================
+   SIZE
+========================================================= */
+
 .size-section{
-padding:90px 25px;
-background:#f4f4f1;
-text-align:center;
+  padding:105px 20px;
+  background:var(--cream);
+  text-align:center;
 }
 
 .size-section h2{
-font-size:38px;
-margin-bottom:12px;
+  font-size:45px;
+  margin-bottom:12px;
 }
 
-.size-section>p{
-font-size:13px;
-color:#777;
-margin-bottom:35px;
+.size-section > p{
+  color:#777;
+  font-size:12px;
+  margin-bottom:35px;
 }
 
 .size-table{
-max-width:700px;
-margin:auto;
-border-collapse:collapse;
-width:100%;
-background:#fff;
+  width:100%;
+  max-width:720px;
+  margin:auto;
+  border-collapse:collapse;
+  background:#fff;
 }
 
 .size-table th,
 .size-table td{
-padding:15px;
-border:1px solid #ddd;
-font-size:11px;
+  border:1px solid #ddd;
+  padding:15px;
+  font-size:10px;
 }
 
 .size-table th{
-background:#111;
-color:#fff;
-letter-spacing:1px;
+  background:#111;
+  color:#fff;
+  letter-spacing:1px;
 }
 
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+  background:#fff;
+  padding:105px 25px;
+}
+
+.faq-inner{
+  max-width:850px;
+  margin:auto;
+}
+
+.faq-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.faq-title h2{
+  font-size:45px;
+}
+
+.faq-item{
+  border-top:1px solid #ddd;
+}
+
+.faq-question{
+  width:100%;
+  padding:22px 0;
+  border:0;
+  background:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-align:left;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.faq-question span{
+  font-size:18px;
+  font-weight:400;
+}
+
+.faq-answer{
+  display:none;
+  color:#777;
+  font-size:11px;
+  line-height:1.9;
+  padding:0 0 22px;
+}
+
+.faq-item.open .faq-answer{
+  display:block;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
 .about{
-padding:100px 25px;
-text-align:center;
-background:#fff;
+  padding:110px 25px;
+  text-align:center;
+  background:#f4f4f1;
 }
 
 .about h2{
-font-size:clamp(35px,6vw,58px);
-margin-bottom:25px;
+  font-size:clamp(40px,6vw,70px);
+  letter-spacing:-2px;
+  margin-bottom:25px;
 }
 
 .about p{
-max-width:650px;
-margin:auto;
-color:#666;
-font-size:14px;
-line-height:1.9;
+  max-width:650px;
+  margin:auto;
+  color:#777;
+  font-size:13px;
+  line-height:2;
 }
 
+/* =========================================================
+   FOOTER
+========================================================= */
+
 footer{
-background:#0d0d0d;
-color:#777;
-padding:60px 25px 35px;
+  background:#0b0b0b;
+  color:#777;
+  padding:70px 25px 35px;
 }
 
 .footer-inner{
-max-width:1100px;
-margin:auto;
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:50px;
-padding-bottom:45px;
-border-bottom:1px solid #292929;
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+  padding-bottom:50px;
+  border-bottom:1px solid #292929;
 }
 
 .footer-logo{
-color:#fff;
-font-size:28px;
-font-weight:900;
-letter-spacing:8px;
-margin-bottom:15px;
+  color:#fff;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:8px;
+  margin-bottom:17px;
 }
 
 .footer-brand p{
-font-size:11px;
-line-height:1.8;
-max-width:300px;
+  max-width:300px;
+  font-size:10px;
+  line-height:1.9;
 }
 
 .footer-col h3{
-color:#fff;
-font-size:10px;
-letter-spacing:2px;
-margin-bottom:18px;
+  color:#fff;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:20px;
 }
 
 .footer-col a{
-display:block;
-color:#777;
-text-decoration:none;
-font-size:10px;
-margin-bottom:11px;
+  display:block;
+  color:#777;
+  text-decoration:none;
+  font-size:9px;
+  margin-bottom:12px;
+}
+
+.footer-col a:hover{
+  color:#fff;
 }
 
 .footer-bottom{
-max-width:1100px;
-margin:25px auto 0;
-display:flex;
-justify-content:space-between;
-gap:20px;
-font-size:9px;
-letter-spacing:1px;
+  max-width:1150px;
+  margin:25px auto 0;
+  display:flex;
+  justify-content:space-between;
+  font-size:8px;
+  letter-spacing:1.5px;
 }
 
+/* =========================================================
+   MODALS
+========================================================= */
 
-/* ================= MODAL ================= */
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(0,0,0,.78);
+  padding:20px;
+  overflow:auto;
+}
 
-.product-modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:3000;
-background:rgba(0,0,0,.86);
-padding:20px;
-overflow:auto;
+.overlay.active{
+  display:block;
 }
 
 .modal-box{
-max-width:950px;
-margin:5vh auto;
-background:#fff;
-display:grid;
-grid-template-columns:1fr 1fr;
-position:relative;
-}
-
-.modal-gallery{
-background:#eee;
-position:relative;
-}
-
-.modal-gallery img{
-width:100%;
-height:560px;
-object-fit:cover;
-display:block;
-}
-
-.gallery-thumbs{
-display:flex;
-gap:7px;
-padding:8px;
-background:#fff;
-overflow:auto;
-}
-
-.gallery-thumb{
-width:70px;
-height:70px;
-object-fit:cover;
-cursor:pointer;
-border:2px solid transparent;
-}
-
-.gallery-thumb.active{
-border-color:#111;
-}
-
-.modal-info{
-padding:50px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
-
-.modal-label{
-font-size:9px;
-letter-spacing:3px;
-color:#888;
-margin-bottom:12px;
-}
-
-.modal-info h2{
-font-size:31px;
-margin-bottom:15px;
-}
-
-.modal-price{
-font-size:22px;
-font-weight:bold;
-margin-bottom:20px;
-}
-
-.modal-info p{
-color:#666;
-line-height:1.8;
-font-size:14px;
-margin-bottom:25px;
-}
-
-.modal-option{
-margin-bottom:17px;
-}
-
-.modal-option-title{
-font-size:9px;
-font-weight:bold;
-letter-spacing:2px;
-margin-bottom:8px;
-}
-
-.modal-color-options,
-.modal-size-options{
-display:flex;
-gap:6px;
-flex-wrap:wrap;
-}
-
-.modal-option button{
-padding:10px 13px;
-border:1px solid #ddd;
-background:#fff;
-font-size:10px;
-cursor:pointer;
-}
-
-.modal-option button.selected{
-background:#111;
-color:#fff;
-border-color:#111;
-}
-
-.modal-quantity{
-display:flex;
-align-items:center;
-border:1px solid #ddd;
-width:130px;
-height:42px;
-margin-bottom:18px;
-}
-
-.modal-quantity button{
-width:40px;
-height:100%;
-border:0;
-background:#f5f5f5;
-cursor:pointer;
-}
-
-.modal-quantity span{
-flex:1;
-text-align:center;
-font-size:12px;
-font-weight:bold;
-}
-
-.modal-actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px;
-}
-
-.modal-add{
-border:0;
-background:#111;
-color:#fff;
-padding:15px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.modal-buy{
-border:0;
-background:#25D366;
-color:#fff;
-padding:15px;
-font-weight:bold;
-cursor:pointer;
+  max-width:1000px;
+  margin:4vh auto;
+  background:#fff;
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
 }
 
 .modal-close{
-position:absolute;
-right:12px;
-top:12px;
-z-index:20;
-width:40px;
-height:40px;
-border:0;
-border-radius:50%;
-background:#111;
-color:#fff;
-font-size:25px;
-cursor:pointer;
+  position:absolute;
+  right:14px;
+  top:14px;
+  z-index:20;
+  width:39px;
+  height:39px;
+  border:0;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
+  font-size:24px;
 }
 
-
-/* ================= CART ================= */
-
-.cart{
-display:none;
-position:fixed;
-inset:0;
-z-index:4000;
-background:rgba(0,0,0,.72);
-padding:15px;
+.modal-gallery{
+  background:#eee;
 }
+
+.modal-main-image{
+  width:100%;
+  height:590px;
+  object-fit:cover;
+  display:block;
+}
+
+.gallery-thumbs{
+  background:#fff;
+  display:flex;
+  gap:7px;
+  padding:8px;
+  overflow:auto;
+}
+
+.gallery-thumb{
+  width:65px;
+  height:70px;
+  object-fit:cover;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.gallery-thumb.active{
+  border-color:#111;
+}
+
+.modal-info{
+  padding:60px 50px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.modal-label{
+  color:#888;
+  font-size:8px;
+  letter-spacing:3px;
+  margin-bottom:13px;
+}
+
+.modal-info h2{
+  font-size:34px;
+  margin-bottom:13px;
+}
+
+.modal-price{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:23px;
+}
+
+.modal-description{
+  color:#777;
+  font-size:12px;
+  line-height:1.9;
+  margin-bottom:25px;
+}
+
+.modal-option{
+  margin-bottom:17px;
+}
+
+.modal-option-title{
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+.modal-option button{
+  padding:10px 13px;
+  background:#fff;
+  border:1px solid #ddd;
+  font-size:9px;
+}
+
+.modal-option button.selected{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.modal-quantity{
+  width:135px;
+  height:42px;
+  border:1px solid #ddd;
+  display:flex;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.modal-quantity button{
+  width:40px;
+  height:100%;
+  border:0;
+  background:#f4f4f4;
+}
+
+.modal-quantity span{
+  flex:1;
+  text-align:center;
+  font-size:11px;
+  font-weight:700;
+}
+
+.modal-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.modal-actions button{
+  min-height:48px;
+  border:0;
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:1.5px;
+}
+
+.modal-add{
+  background:#111;
+  color:#fff;
+}
+
+.modal-buy{
+  background:#25D366;
+  color:#fff;
+}
+
+/* =========================================================
+   CART
+========================================================= */
 
 .cart-box{
-background:#fff;
-max-width:520px;
-max-height:92vh;
-overflow:auto;
-margin:4vh auto;
-padding:27px;
-border-radius:4px;
+  max-width:560px;
+  margin:5vh auto;
+  background:#fff;
+  padding:30px;
+  position:relative;
 }
 
 .cart-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  padding-bottom:18px;
+  margin-bottom:5px;
 }
 
 .cart-header h2{
-font-size:25px;
+  font-size:25px;
 }
 
-.close{
-border:0;
-background:none;
-font-size:30px;
-cursor:pointer;
+.close-btn{
+  border:0;
+  background:none;
+  font-size:30px;
+}
+
+.cart-empty{
+  text-align:center;
+  padding:45px 10px;
+  color:#888;
+  font-size:12px;
 }
 
 .cart-item{
-border-bottom:1px solid #ddd;
-padding:17px 0;
+  padding:18px 0;
+  border-bottom:1px solid #ddd;
 }
 
-.cart-item strong{
-display:block;
-font-size:13px;
-margin-bottom:8px;
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
 }
 
-.cart-details{
-font-size:12px;
-color:#666;
-line-height:1.8;
+.cart-item-name{
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.cart-item-details{
+  color:#777;
+  font-size:10px;
+  line-height:1.8;
+}
+
+.cart-item-price{
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.cart-controls{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:12px;
 }
 
 .quantity-box{
-display:flex;
-align-items:center;
-gap:12px;
-margin:12px 0;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .quantity-box button{
-width:30px;
-height:30px;
-border:0;
-background:#111;
-color:#fff;
-cursor:pointer;
+  width:29px;
+  height:29px;
+  border:0;
+  background:#111;
+  color:#fff;
 }
 
 .quantity-box span{
-font-weight:bold;
-}
-
-.item-total{
-font-size:13px;
-font-weight:bold;
+  min-width:15px;
+  text-align:center;
+  font-size:11px;
+  font-weight:700;
 }
 
 .remove-btn{
-margin-top:10px;
-border:0;
-background:#eee;
-padding:7px 12px;
-cursor:pointer;
+  border:0;
+  background:#eee;
+  padding:7px 10px;
+  font-size:8px;
+  letter-spacing:1px;
 }
 
-.cart-total{
-font-size:21px;
-font-weight:bold;
-margin:23px 0;
+.cart-summary{
+  padding:23px 0;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:9px;
+  font-size:11px;
+}
+
+.summary-row.total{
+  font-size:18px;
+  font-weight:700;
+  padding-top:12px;
+  border-top:1px solid #ddd;
 }
 
 .checkout{
-border-top:1px solid #ddd;
-padding-top:20px;
+  border-top:1px solid #ddd;
+  padding-top:22px;
 }
 
 .checkout h3{
-font-size:17px;
-margin-bottom:15px;
+  font-size:15px;
+  margin-bottom:14px;
 }
 
 .checkout input,
 .checkout textarea{
-width:100%;
-padding:12px;
-border:1px solid #ddd;
-margin-bottom:10px;
-font-family:inherit;
-font-size:14px;
-outline:none;
+  width:100%;
+  border:1px solid #ddd;
+  outline:none;
+  padding:13px;
+  margin-bottom:9px;
+  font-size:12px;
+}
+
+.checkout input:focus,
+.checkout textarea:focus{
+  border-color:#111;
 }
 
 .checkout textarea{
-height:85px;
-resize:none;
+  height:85px;
+  resize:none;
 }
 
-.whatsapp{
-display:block;
-width:100%;
-background:#25D366;
-color:#fff;
-text-align:center;
-text-decoration:none;
-padding:16px;
-font-size:11px;
-font-weight:bold;
-letter-spacing:1px;
-cursor:pointer;
-transition:.2s;
+.whatsapp-btn{
+  width:100%;
+  min-height:50px;
+  border:0;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  margin-top:5px;
+  transition:var(--transition);
 }
 
-.whatsapp:hover{
-background:#1fbd5b;
+.whatsapp-btn:hover{
+  filter:brightness(.92);
 }
 
-.whatsapp.disabled{
-background:#999;
-cursor:pointer;
-opacity:.7;
+.whatsapp-btn.disabled{
+  background:#aaa;
+  cursor:not-allowed;
 }
 
-
-/* ================= WISHLIST ================= */
-
-.wishlist-panel{
-display:none;
-position:fixed;
-inset:0;
-z-index:4500;
-background:rgba(0,0,0,.7);
-padding:15px;
+.checkout-note{
+  text-align:center;
+  color:#999;
+  font-size:8px;
+  margin-top:8px;
 }
+
+/* =========================================================
+   WISHLIST
+========================================================= */
 
 .wishlist-box{
-background:#fff;
-max-width:500px;
-max-height:85vh;
-overflow:auto;
-margin:7vh auto;
-padding:25px;
+  max-width:520px;
+  margin:7vh auto;
+  background:#fff;
+  padding:28px;
+  position:relative;
 }
 
 .wishlist-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:18px;
+  border-bottom:1px solid #ddd;
 }
 
 .wishlist-header h2{
-font-size:23px;
+  font-size:23px;
 }
 
 .wishlist-item{
-display:flex;
-gap:15px;
-padding:12px 0;
-border-bottom:1px solid #ddd;
-align-items:center;
+  display:flex;
+  gap:13px;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #ddd;
 }
 
 .wishlist-item img{
-width:65px;
-height:75px;
-object-fit:cover;
+  width:60px;
+  height:70px;
+  object-fit:cover;
 }
 
 .wishlist-item-info{
-flex:1;
+  flex:1;
 }
 
 .wishlist-item-info strong{
-font-size:12px;
-display:block;
-margin-bottom:5px;
+  display:block;
+  font-size:11px;
+  margin-bottom:5px;
 }
 
 .wishlist-item-info span{
-font-size:11px;
-color:#777;
+  color:#777;
+  font-size:10px;
 }
 
 .wishlist-remove{
-border:0;
-background:#eee;
-padding:8px;
-cursor:pointer;
+  border:0;
+  background:#eee;
+  padding:8px;
+  font-size:8px;
 }
 
+/* =========================================================
+   NOTIFICATION
+========================================================= */
 
-/* ================= MOBILE ================= */
-
-@media(max-width:900px){
-
-.navbar{
-height:64px;
-padding:0 15px;
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(20px);
+  background:#111;
+  color:#fff;
+  padding:14px 22px;
+  z-index:99999;
+  font-size:10px;
+  font-weight:700;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
 }
 
-.logo{
-font-size:20px;
-letter-spacing:5px;
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
-.nav-links{
-gap:13px;
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:#0b0b0b;
+  color:#fff;
+  padding:100px 30px 30px;
 }
 
-.nav-links a{
-font-size:8px;
-letter-spacing:1px;
+.mobile-menu.active{
+  display:block;
 }
 
-.nav-cart,
-.nav-wishlist{
-padding:9px 10px;
+.mobile-menu a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:25px;
 }
 
-.hero{
-min-height:570px;
-padding:0 24px 55px;
+.mobile-menu-close{
+  position:absolute;
+  right:22px;
+  top:20px;
+  width:42px;
+  height:42px;
+  border:1px solid #444;
+  background:#111;
+  color:#fff;
+  font-size:25px;
 }
 
-.products{
-grid-template-columns:repeat(2,1fr);
-gap:10px;
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-.product-image{
-height:300px;
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-image{
+    height:400px;
+  }
+
+  .trust-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust-item:nth-child(2){
+    border-right:0;
+  }
+
+  .trust-item{
+    border-bottom:1px solid #e5e5e5;
+  }
+
+  .story{
+    grid-template-columns:1fr;
+  }
+
+  .story-image{
+    min-height:500px;
+  }
+
+  .story-content{
+    padding:70px 40px;
+  }
+
+  .modal-box{
+    grid-template-columns:1fr;
+    max-width:650px;
+  }
+
+  .modal-main-image{
+    height:500px;
+  }
 }
 
-.quick-view{
-display:none;
+@media(max-width:700px){
+
+  .top-bar{
+    font-size:6px;
+    letter-spacing:1.5px;
+  }
+
+  .navbar{
+    height:64px;
+    padding:0 14px;
+  }
+
+  .logo{
+    font-size:20px;
+    letter-spacing:5px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .mobile-menu-btn{
+    display:flex;
+    width:39px;
+    height:39px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #333;
+    background:#151515;
+    color:#fff;
+    font-size:18px;
+    order:-1;
+  }
+
+  .nav-actions{
+    margin-left:auto;
+  }
+
+  .nav-icon{
+    min-width:38px;
+    height:38px;
+    font-size:9px;
+  }
+
+  .hero{
+    min-height:650px;
+    padding:0 22px 60px;
+    background-position:center;
+  }
+
+  .hero h1{
+    font-size:65px;
+    letter-spacing:7px;
+  }
+
+  .hero-subtitle{
+    font-size:9px;
+    letter-spacing:4px;
+  }
+
+  .hero-scroll{
+    display:none;
+  }
+
+  .hero-btn{
+    width:100%;
+  }
+
+  .intro{
+    padding:75px 20px 60px;
+  }
+
+  .intro h2{
+    font-size:35px;
+  }
+
+  .drop{
+    padding:15px 10px 75px;
+  }
+
+  .section-head{
+    padding:0 10px;
+  }
+
+  .section-head h2{
+    font-size:28px;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+
+  .product-image{
+    height:245px;
+  }
+
+  .quick-add{
+    display:none;
+  }
+
+  .product-info{
+    padding:13px 9px 12px;
+  }
+
+  .product-name{
+    font-size:9px;
+  }
+
+  .product-type{
+    font-size:7px;
+  }
+
+  .price{
+    font-size:11px;
+  }
+
+  .color-btn{
+    padding:6px 6px;
+    font-size:7px;
+  }
+
+  .size-btn{
+    width:28px;
+    height:28px;
+    font-size:7px;
+  }
+
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+
+  .product-actions button{
+    min-height:39px;
+  }
+
+  .statement{
+    min-height:520px;
+  }
+
+  .statement h2{
+    font-size:42px;
+  }
+
+  .trust-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item{
+    padding:18px 10px;
+  }
+
+  .story-image{
+    min-height:350px;
+  }
+
+  .story-content{
+    padding:55px 25px;
+  }
+
+  .value-grid{
+    grid-template-columns:1fr;
+  }
+
+  .values{
+    padding:75px 20px;
+  }
+
+  .size-section{
+    padding:75px 12px;
+    overflow-x:auto;
+  }
+
+  .size-table{
+    min-width:540px;
+  }
+
+  .faq{
+    padding:75px 20px;
+  }
+
+  .faq-title h2{
+    font-size:35px;
+  }
+
+  .about{
+    padding:80px 20px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+  }
+
+  .footer-brand{
+    grid-column:1/-1;
+  }
+
+  .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+    gap:10px;
+  }
+
+  .modal-info{
+    padding:30px 22px;
+  }
+
+  .modal-main-image{
+    height:390px;
+  }
+
+  .modal-actions{
+    grid-template-columns:1fr;
+  }
+
+  .cart-box,
+  .wishlist-box{
+    margin:15px auto;
+    padding:22px;
+  }
 }
 
-.trust-grid{
-grid-template-columns:repeat(2,1fr);
-}
+@media(max-width:400px){
 
-.story{
-grid-template-columns:1fr;
-}
+  .nav-icon{
+    min-width:34px;
+    padding:0 6px;
+  }
 
-.story-image{
-min-height:400px;
-}
+  .hero h1{
+    font-size:55px;
+  }
 
-.story-content{
-padding:60px 30px;
-}
+  .products{
+    gap:5px;
+  }
 
-.value-grid{
-grid-template-columns:1fr;
-gap:10px;
-}
+  .product-image{
+    height:220px;
+  }
 
-.footer-inner{
-grid-template-columns:1fr 1fr;
-}
+  .product-info{
+    padding:11px 7px;
+  }
 
-.footer-brand{
-grid-column:1/-1;
-}
-
-.modal-box{
-grid-template-columns:1fr;
-margin:20px auto;
-}
-
-.modal-gallery img{
-height:430px;
-}
-
-}
-
-
-@media(max-width:500px){
-
-.top-bar{
-font-size:7px;
-letter-spacing:1.5px;
-}
-
-.navbar{
-padding:0 10px;
-}
-
-.nav-links{
-gap:8px;
-}
-
-.nav-links a{
-font-size:7px;
-}
-
-.nav-actions{
-gap:4px;
-}
-
-.nav-cart,
-.nav-wishlist{
-font-size:9px;
-padding:8px;
-}
-
-.hero{
-min-height:520px;
-}
-
-.hero h1{
-font-size:55px;
-letter-spacing:7px;
-}
-
-.hero-sub{
-font-size:11px;
-letter-spacing:3px;
-}
-
-.hero-buttons{
-display:grid;
-grid-template-columns:1fr;
-max-width:220px;
-}
-
-.hero-btn{
-justify-content:center;
-}
-
-.intro{
-padding:65px 20px 50px;
-}
-
-.intro h2{
-font-size:34px;
-}
-
-.section-head h2{
-font-size:28px;
-}
-
-.products{
-grid-template-columns:1fr 1fr;
-}
-
-.product-image{
-height:245px;
-}
-
-.product-info{
-padding:12px 9px 15px;
-}
-
-.product-name{
-font-size:10px;
-}
-
-.price{
-font-size:12px;
-}
-
-.product-meta{
-font-size:8px;
-}
-
-.color-btn{
-min-width:42px;
-font-size:8px;
-padding:7px 4px;
-}
-
-.size-btn{
-width:31px;
-height:30px;
-font-size:8px;
-}
-
-.product-buttons{
-grid-template-columns:1fr;
-}
-
-.product-buttons button{
-padding:10px;
-}
-
-.statement{
-padding:80px 20px;
-}
-
-.statement h2{
-font-size:40px;
-}
-
-.trust-grid{
-grid-template-columns:1fr 1fr;
-gap:5px;
-}
-
-.trust-item{
-padding:12px 5px;
-}
-
-.story-image{
-min-height:330px;
-}
-
-.story-content{
-padding:50px 25px;
-}
-
-.size-section{
-padding:70px 15px;
-overflow:auto;
-}
-
-.size-table{
-min-width:500px;
-}
-
-.modal-gallery img{
-height:350px;
-}
-
-.modal-info{
-padding:25px;
-}
-
-.modal-actions{
-grid-template-columns:1fr;
-}
-
-.footer-inner{
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
-.footer-bottom{
-flex-direction:column;
-text-align:center;
-}
-
-}
-
-
-@keyframes fadeUp{
-
-from{
-opacity:0;
-transform:translateY(25px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+  .wishlist-btn{
+    width:33px;
+    height:33px;
+    font-size:15px;
+  }
 
 }
 
@@ -1388,62 +1767,106 @@ transform:translateY(0);
 
 <body>
 
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
 <div class="top-bar">
 FREE DELIVERY ON SELECTED ORDERS • VYRO DROP 01
 </div>
 
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
 <nav class="navbar">
 
-<div class="logo">VYRO</div>
+<button
+  class="mobile-menu-btn"
+  type="button"
+  onclick="openMobileMenu()">
+☰
+</button>
+
+<a href="#home" class="logo">VYRO</a>
 
 <div class="nav-links">
 <a href="#home">Home</a>
 <a href="#drop">Shop</a>
+<a href="#story">Story</a>
 <a href="#about">About</a>
 </div>
 
 <div class="nav-actions">
 
 <button
-class="nav-wishlist"
-type="button"
-onclick="openWishlist()">
+  class="nav-icon"
+  type="button"
+  onclick="openWishlist()">
 ♡ <span id="wishlistCount">0</span>
 </button>
 
 <button
-class="nav-cart"
-type="button"
-onclick="openCart()">
-CART · <span id="navCartCount">0</span>
+  class="nav-icon"
+  type="button"
+  onclick="openCart()">
+🛒 <span id="navCartCount">0</span>
 </button>
 
 </div>
 
 </nav>
 
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<button
+  class="mobile-menu-close"
+  type="button"
+  onclick="closeMobileMenu()">
+×
+</button>
+
+<a href="#home" onclick="closeMobileMenu()">HOME</a>
+<a href="#drop" onclick="closeMobileMenu()">SHOP</a>
+<a href="#story" onclick="closeMobileMenu()">STORY</a>
+<a href="#about" onclick="closeMobileMenu()">ABOUT</a>
+
+</div>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
 <div class="hero-content">
 
-<div class="hero-label">
+<div class="hero-kicker">
+<span></span>
 VYRO / SUMMER '26
 </div>
 
 <h1>VYRO</h1>
 
-<div class="hero-sub">
+<div class="hero-subtitle">
 WEAR YOUR VISION
 </div>
 
-<div class="hero-buttons">
+<div class="hero-actions">
 
-<a href="#drop" class="hero-btn">
+<a
+  href="#drop"
+  class="hero-btn primary">
 SHOP THE DROP →
 </a>
 
-<a href="#about" class="hero-btn dark">
+<a
+  href="#story"
+  class="hero-btn outline">
 EXPLORE VYRO
 </a>
 
@@ -1451,8 +1874,15 @@ EXPLORE VYRO
 
 </div>
 
+<div class="hero-scroll">
+SCROLL TO DISCOVER
+</div>
+
 </section>
 
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
 <section class="intro">
 
@@ -1460,9 +1890,7 @@ EXPLORE VYRO
 NEW COLLECTION
 </div>
 
-<h2>
-THE LATEST DROP
-</h2>
+<h2>THE LATEST DROP</h2>
 
 <p>
 Minimal pieces. Strong identity.
@@ -1472,21 +1900,20 @@ for people who wear their vision.
 
 </section>
 
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
 <section class="drop" id="drop">
 
 <div class="section-head">
 
 <div>
-
 <div class="section-label">
 VYRO / DROP 01
 </div>
 
-<h2>
-Latest Drop
-</h2>
-
+<h2>Latest Drop</h2>
 </div>
 
 <a href="#drop" class="view-all">
@@ -1495,32 +1922,40 @@ SHOP ALL
 
 </div>
 
-
 <div class="products">
 
-
-<!-- PRODUCT 1 -->
+<!-- PRODUCT 0 -->
 
 <div class="product">
 
-<div class="product-image" onclick="openProduct(0)">
+<div
+  class="product-image"
+  onclick="openProduct(0)">
 
 <div class="badge">NEW</div>
 
 <button
-type="button"
-class="wishlist-btn"
-id="wishBtn0"
-onclick="event.stopPropagation();toggleWishlist(0)">
+  class="wishlist-btn"
+  id="wishBtn0"
+  type="button"
+  onclick="event.stopPropagation();toggleWishlist(0)">
 ♡
 </button>
 
-<img src="IMG_8035.jpeg" alt="VYRO Essential T-Shirt">
+<img
+  class="main-image"
+  src="IMG_8035.jpeg"
+  alt="VYRO Essential T-Shirt">
+
+<img
+  class="second-image"
+  src="IMG_8036.jpeg"
+  alt="VYRO Essential T-Shirt">
 
 <button
-type="button"
-class="quick-view"
-onclick="event.stopPropagation();openProduct(0)">
+  class="quick-add"
+  type="button"
+  onclick="event.stopPropagation();openProduct(0)">
 QUICK VIEW
 </button>
 
@@ -1528,34 +1963,46 @@ QUICK VIEW
 
 <div class="product-info">
 
+<div class="product-top">
+
+<div>
 <div class="product-name">
 VYRO ESSENTIAL TEE
+</div>
+
+<div class="product-type">
+ESSENTIAL / REGULAR FIT
+</div>
 </div>
 
 <div class="price">
 400 EGP
 </div>
 
-<div class="product-meta">
-ESSENTIAL / REGULAR FIT
 </div>
 
 <div class="option-title">COLOR</div>
 
 <div class="color-options">
 
-<button type="button" class="color-btn selected"
-onclick="selectColor(0,this,'Black')">
+<button
+  class="color-btn selected"
+  type="button"
+  onclick="selectColor(0,this,'Black')">
 Black
 </button>
 
-<button type="button" class="color-btn"
-onclick="selectColor(0,this,'White')">
+<button
+  class="color-btn"
+  type="button"
+  onclick="selectColor(0,this,'White')">
 White
 </button>
 
-<button type="button" class="color-btn"
-onclick="selectColor(0,this,'Grey')">
+<button
+  class="color-btn"
+  type="button"
+  onclick="selectColor(0,this,'Grey')">
 Grey
 </button>
 
@@ -1565,52 +2012,143 @@ Grey
 
 <div class="size-options">
 
-<button type="button" class="size-btn selected"
-onclick="selectSize(0,this,'S')">S</button>
-
-<button type="button" class="size-btn"
-onclick="selectSize(0,this,'M')">M</button>
-
-<button type="button" class="size-btn"
-onclick="selectSize(0,this,'L')">L</button>
-
-<button type="button" class="size-btn"
-onclick="selectSize(0,this,'XL')">XL</button>
-
-<button type="button" class="size-btn"
-onclick="selectSize(0,this,'XXL')">XXL</button>
+<button class="size-btn selected" type="button" onclick="selectSize(0,this,'S')">S</button>
+<button class="size-btn" type="button" onclick="selectSize(0,this,'M')">M</button>
+<button class="size-btn" type="button" onclick="selectSize(0,this,'L')">L</button>
+<button class="size-btn" type="button" onclick="selectSize(0,this,'XL')">XL</button>
+<button class="size-btn" type="button" onclick="selectSize(0,this,'XXL')">XXL</button>
 
 </div>
 
-<div class="product-quantity">
+<div class="quantity-row">
 
-<button type="button"
-onclick="changeProductQuantity(0,-1)">
-−
-</button>
+<button type="button" onclick="changeProductQuantity(0,-1)">−</button>
 
 <span id="qty0">1</span>
 
-<button type="button"
-onclick="changeProductQuantity(0,1)">
-+
-</button>
+<button type="button" onclick="changeProductQuantity(0,1)">+</button>
 
 </div>
 
-<div class="product-buttons">
+<div class="product-actions">
 
 <button
-type="button"
-class="add-btn"
-onclick="addSelectedToCart(0)">
+  class="add-btn"
+  type="button"
+  onclick="addSelectedToCart(0)">
 ADD TO CART
 </button>
 
 <button
-type="button"
-class="buy-btn"
-onclick="buySelectedNow(0)">
+  class="order-btn"
+  type="button"
+  onclick="buySelectedNow(0)">
+ORDER NOW
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product">
+
+<div
+  class="product-image"
+  onclick="openProduct(1)">
+
+<div class="badge">NEW</div>
+
+<button
+  class="wishlist-btn"
+  id="wishBtn1"
+  type="button"
+  onclick="event.stopPropagation();toggleWishlist(1)">
+♡
+</button>
+
+<img
+  class="main-image"
+  src="IMG_8036.jpeg"
+  alt="VYRO Oversized T-Shirt">
+
+<img
+  class="second-image"
+  src="IMG_8035.jpeg"
+  alt="VYRO Oversized T-Shirt">
+
+<button
+  class="quick-add"
+  type="button"
+  onclick="event.stopPropagation();openProduct(1)">
+QUICK VIEW
+</button>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-top">
+
+<div>
+<div class="product-name">
+VYRO OVERSIZE TEE
+</div>
+
+<div class="product-type">
+OVERSIZED / RELAXED FIT
+</div>
+</div>
+
+<div class="price">
+450 EGP
+</div>
+
+</div>
+
+<div class="option-title">COLOR</div>
+
+<div class="color-options">
+
+<button class="color-btn selected" type="button" onclick="selectColor(1,this,'Black')">Black</button>
+<button class="color-btn" type="button" onclick="selectColor(1,this,'White')">White</button>
+<button class="color-btn" type="button" onclick="selectColor(1,this,'Beige')">Beige</button>
+
+</div>
+
+<div class="option-title">SIZE</div>
+
+<div class="size-options">
+
+<button class="size-btn selected" type="button" onclick="selectSize(1,this,'S')">S</button>
+<button class="size-btn" type="button" onclick="selectSize(1,this,'M')">M</button>
+<button class="size-btn" type="button" onclick="selectSize(1,this,'L')">L</button>
+<button class="size-btn" type="button" onclick="selectSize(1,this,'XL')">XL</button>
+<button class="size-btn" type="button" onclick="selectSize(1,this,'XXL')">XXL</button>
+
+</div>
+
+<div class="quantity-row">
+
+<button type="button" onclick="changeProductQuantity(1,-1)">−</button>
+
+<span id="qty1">1</span>
+
+<button type="button" onclick="changeProductQuantity(1,1)">+</button>
+
+</div>
+
+<div class="product-actions">
+
+<button class="add-btn" type="button" onclick="addSelectedToCart(1)">
+ADD TO CART
+</button>
+
+<button class="order-btn" type="button" onclick="buySelectedNow(1)">
 ORDER NOW
 </button>
 
@@ -1625,24 +2163,34 @@ ORDER NOW
 
 <div class="product">
 
-<div class="product-image" onclick="openProduct(1)">
+<div
+  class="product-image"
+  onclick="openProduct(2)">
 
 <div class="badge">NEW</div>
 
 <button
-type="button"
-class="wishlist-btn"
-id="wishBtn1"
-onclick="event.stopPropagation();toggleWishlist(1)">
+  class="wishlist-btn"
+  id="wishBtn2"
+  type="button"
+  onclick="event.stopPropagation();toggleWishlist(2)">
 ♡
 </button>
 
-<img src="IMG_8036.jpeg" alt="VYRO Oversized T-Shirt">
+<img
+  class="main-image"
+  src="IMG_8037.jpeg"
+  alt="VYRO Minimal Tee">
+
+<img
+  class="second-image"
+  src="IMG_8035.jpeg"
+  alt="VYRO Minimal Tee">
 
 <button
-type="button"
-class="quick-view"
-onclick="event.stopPropagation();openProduct(1)">
+  class="quick-add"
+  type="button"
+  onclick="event.stopPropagation();openProduct(2)">
 QUICK VIEW
 </button>
 
@@ -1650,39 +2198,31 @@ QUICK VIEW
 
 <div class="product-info">
 
+<div class="product-top">
+
+<div>
 <div class="product-name">
-VYRO OVERSIZE TEE
+VYRO MINIMAL TEE
+</div>
+
+<div class="product-type">
+MINIMAL / EVERYDAY FIT
+</div>
 </div>
 
 <div class="price">
 450 EGP
 </div>
 
-<div class="product-meta">
-OVERSIZED / RELAXED FIT
 </div>
 
 <div class="option-title">COLOR</div>
 
 <div class="color-options">
 
-<button type="button"
-class="color-btn selected"
-onclick="selectColor(1,this,'Black')">
-Black
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(1,this,'White')">
-White
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(1,this,'Beige')">
-Beige
-</button>
+<button class="color-btn selected" type="button" onclick="selectColor(2,this,'Black')">Black</button>
+<button class="color-btn" type="button" onclick="selectColor(2,this,'Grey')">Grey</button>
+<button class="color-btn" type="button" onclick="selectColor(2,this,'Off White')">Off White</button>
 
 </div>
 
@@ -1690,67 +2230,31 @@ Beige
 
 <div class="size-options">
 
-<button type="button"
-class="size-btn selected"
-onclick="selectSize(1,this,'S')">
-S
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(1,this,'M')">
-M
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(1,this,'L')">
-L
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(1,this,'XL')">
-XL
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(1,this,'XXL')">
-XXL
-</button>
+<button class="size-btn selected" type="button" onclick="selectSize(2,this,'S')">S</button>
+<button class="size-btn" type="button" onclick="selectSize(2,this,'M')">M</button>
+<button class="size-btn" type="button" onclick="selectSize(2,this,'L')">L</button>
+<button class="size-btn" type="button" onclick="selectSize(2,this,'XL')">XL</button>
+<button class="size-btn" type="button" onclick="selectSize(2,this,'XXL')">XXL</button>
 
 </div>
 
-<div class="product-quantity">
+<div class="quantity-row">
 
-<button type="button"
-onclick="changeProductQuantity(1,-1)">
-−
-</button>
+<button type="button" onclick="changeProductQuantity(2,-1)">−</button>
 
-<span id="qty1">1</span>
+<span id="qty2">1</span>
 
-<button type="button"
-onclick="changeProductQuantity(1,1)">
-+
-</button>
+<button type="button" onclick="changeProductQuantity(2,1)">+</button>
 
 </div>
 
-<div class="product-buttons">
+<div class="product-actions">
 
-<button
-type="button"
-class="add-btn"
-onclick="addSelectedToCart(1)">
+<button class="add-btn" type="button" onclick="addSelectedToCart(2)">
 ADD TO CART
 </button>
 
-<button
-type="button"
-class="buy-btn"
-onclick="buySelectedNow(1)">
+<button class="order-btn" type="button" onclick="buySelectedNow(2)">
 ORDER NOW
 </button>
 
@@ -1765,24 +2269,34 @@ ORDER NOW
 
 <div class="product">
 
-<div class="product-image" onclick="openProduct(2)">
+<div
+  class="product-image"
+  onclick="openProduct(3)">
 
 <div class="badge">NEW</div>
 
 <button
-type="button"
-class="wishlist-btn"
-id="wishBtn2"
-onclick="event.stopPropagation();toggleWishlist(2)">
+  class="wishlist-btn"
+  id="wishBtn3"
+  type="button"
+  onclick="event.stopPropagation();toggleWishlist(3)">
 ♡
 </button>
 
-<img src="IMG_8037.jpeg" alt="VYRO Minimal Tee">
+<img
+  class="main-image"
+  src="IMG_8038.jpeg"
+  alt="VYRO Hoodie">
+
+<img
+  class="second-image"
+  src="IMG_8037.jpeg"
+  alt="VYRO Hoodie">
 
 <button
-type="button"
-class="quick-view"
-onclick="event.stopPropagation();openProduct(2)">
+  class="quick-add"
+  type="button"
+  onclick="event.stopPropagation();openProduct(3)">
 QUICK VIEW
 </button>
 
@@ -1790,179 +2304,31 @@ QUICK VIEW
 
 <div class="product-info">
 
-<div class="product-name">
-VYRO MINIMAL TEE
-</div>
+<div class="product-top">
 
-<div class="price">
-450 EGP
-</div>
-
-<div class="product-meta">
-MINIMAL / EVERYDAY FIT
-</div>
-
-<div class="option-title">COLOR</div>
-
-<div class="color-options">
-
-<button type="button"
-class="color-btn selected"
-onclick="selectColor(2,this,'Black')">
-Black
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(2,this,'Grey')">
-Grey
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(2,this,'Off White')">
-Off White
-</button>
-
-</div>
-
-<div class="option-title">SIZE</div>
-
-<div class="size-options">
-
-<button type="button"
-class="size-btn selected"
-onclick="selectSize(2,this,'S')">
-S
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(2,this,'M')">
-M
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(2,this,'L')">
-L
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(2,this,'XL')">
-XL
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(2,this,'XXL')">
-XXL
-</button>
-
-</div>
-
-<div class="product-quantity">
-
-<button type="button"
-onclick="changeProductQuantity(2,-1)">
-−
-</button>
-
-<span id="qty2">1</span>
-
-<button type="button"
-onclick="changeProductQuantity(2,1)">
-+
-</button>
-
-</div>
-
-<div class="product-buttons">
-
-<button
-type="button"
-class="add-btn"
-onclick="addSelectedToCart(2)">
-ADD TO CART
-</button>
-
-<button
-type="button"
-class="buy-btn"
-onclick="buySelectedNow(2)">
-ORDER NOW
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- PRODUCT 4 -->
-
-<div class="product">
-
-<div class="product-image" onclick="openProduct(3)">
-
-<div class="badge">NEW</div>
-
-<button
-type="button"
-class="wishlist-btn"
-id="wishBtn3"
-onclick="event.stopPropagation();toggleWishlist(3)">
-♡
-</button>
-
-<img src="IMG_8038.jpeg" alt="VYRO Hoodie">
-
-<button
-type="button"
-class="quick-view"
-onclick="event.stopPropagation();openProduct(3)">
-QUICK VIEW
-</button>
-
-</div>
-
-<div class="product-info">
-
+<div>
 <div class="product-name">
 VYRO HOODIE
+</div>
+
+<div class="product-type">
+HEAVYWEIGHT / RELAXED FIT
+</div>
 </div>
 
 <div class="price">
 750 EGP
 </div>
 
-<div class="product-meta">
-HEAVYWEIGHT / RELAXED FIT
 </div>
 
 <div class="option-title">COLOR</div>
 
 <div class="color-options">
 
-<button type="button"
-class="color-btn selected"
-onclick="selectColor(3,this,'Black')">
-Black
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(3,this,'Grey')">
-Grey
-</button>
-
-<button type="button"
-class="color-btn"
-onclick="selectColor(3,this,'Off White')">
-Off White
-</button>
+<button class="color-btn selected" type="button" onclick="selectColor(3,this,'Black')">Black</button>
+<button class="color-btn" type="button" onclick="selectColor(3,this,'Grey')">Grey</button>
+<button class="color-btn" type="button" onclick="selectColor(3,this,'Off White')">Off White</button>
 
 </div>
 
@@ -1970,67 +2336,31 @@ Off White
 
 <div class="size-options">
 
-<button type="button"
-class="size-btn selected"
-onclick="selectSize(3,this,'S')">
-S
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(3,this,'M')">
-M
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(3,this,'L')">
-L
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(3,this,'XL')">
-XL
-</button>
-
-<button type="button"
-class="size-btn"
-onclick="selectSize(3,this,'XXL')">
-XXL
-</button>
+<button class="size-btn selected" type="button" onclick="selectSize(3,this,'S')">S</button>
+<button class="size-btn" type="button" onclick="selectSize(3,this,'M')">M</button>
+<button class="size-btn" type="button" onclick="selectSize(3,this,'L')">L</button>
+<button class="size-btn" type="button" onclick="selectSize(3,this,'XL')">XL</button>
+<button class="size-btn" type="button" onclick="selectSize(3,this,'XXL')">XXL</button>
 
 </div>
 
-<div class="product-quantity">
+<div class="quantity-row">
 
-<button type="button"
-onclick="changeProductQuantity(3,-1)">
-−
-</button>
+<button type="button" onclick="changeProductQuantity(3,-1)">−</button>
 
 <span id="qty3">1</span>
 
-<button type="button"
-onclick="changeProductQuantity(3,1)">
-+
-</button>
+<button type="button" onclick="changeProductQuantity(3,1)">+</button>
 
 </div>
 
-<div class="product-buttons">
+<div class="product-actions">
 
-<button
-type="button"
-class="add-btn"
-onclick="addSelectedToCart(3)">
+<button class="add-btn" type="button" onclick="addSelectedToCart(3)">
 ADD TO CART
 </button>
 
-<button
-type="button"
-class="buy-btn"
-onclick="buySelectedNow(3)">
+<button class="order-btn" type="button" onclick="buySelectedNow(3)">
 ORDER NOW
 </button>
 
@@ -2044,6 +2374,9 @@ ORDER NOW
 
 </section>
 
+<!-- =====================================================
+     STATEMENT
+===================================================== -->
 
 <section class="statement">
 
@@ -2059,6 +2392,9 @@ WEAR YOURS.
 
 </section>
 
+<!-- =====================================================
+     TRUST
+===================================================== -->
 
 <section class="trust">
 
@@ -2104,8 +2440,11 @@ vision and strong identity.
 
 </section>
 
+<!-- =====================================================
+     STORY
+===================================================== -->
 
-<section class="story">
+<section class="story" id="story">
 
 <div class="story-image"></div>
 
@@ -2139,12 +2478,13 @@ DISCOVER VYRO
 
 </section>
 
+<!-- =====================================================
+     VALUES
+===================================================== -->
 
 <section class="values">
 
-<h2>
-WHY VYRO?
-</h2>
+<h2>WHY VYRO?</h2>
 
 <div class="value-grid">
 
@@ -2179,6 +2519,9 @@ It's about wearing your own vision.
 
 </section>
 
+<!-- =====================================================
+     SIZE GUIDE
+===================================================== -->
 
 <section class="size-section">
 
@@ -2240,6 +2583,89 @@ Use this guide as a simple reference before ordering.
 
 </section>
 
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="faq">
+
+<div class="faq-inner">
+
+<div class="faq-title">
+
+<div class="eyebrow">
+NEED TO KNOW
+</div>
+
+<h2>FAQ</h2>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+HOW DO I ORDER?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Choose your product, select your preferred color and size,
+then click ORDER NOW or add the item to your cart and
+complete your details. Your order will be sent directly
+to VYRO through WhatsApp.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+DO YOU DELIVER ACROSS EGYPT?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Yes. VYRO delivers across Egypt. Delivery details can be
+confirmed with you through WhatsApp after placing the order.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+CAN I EXCHANGE MY ORDER?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+Yes. Exchange requests can be discussed with the VYRO team
+through WhatsApp so we can help you with the next steps.
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question" type="button">
+HOW CAN I CONTACT VYRO?
+<span>+</span>
+</button>
+
+<div class="faq-answer">
+You can contact VYRO directly through the WhatsApp button
+or the WhatsApp contact in the footer.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
 <section class="about" id="about">
 
@@ -2263,42 +2689,46 @@ Everyday pieces.
 
 </section>
 
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
 
-<!-- PRODUCT MODAL -->
-
-<div class="product-modal" id="productModal">
+<div
+  class="overlay"
+  id="productModal">
 
 <div class="modal-box">
 
 <button
-type="button"
-class="modal-close"
-onclick="closeProduct()">
+  class="modal-close"
+  type="button"
+  onclick="closeProduct()">
 ×
 </button>
 
 <div class="modal-gallery">
 
 <img
-id="productModalImage"
-src=""
-alt="VYRO Product">
+  class="modal-main-image"
+  id="productModalImage"
+  src=""
+  alt="VYRO Product">
 
 <div class="gallery-thumbs">
 
 <img
-class="gallery-thumb active"
-id="thumb1"
-src=""
-onclick="changeModalImage(this.src,this)"
-alt="">
+  class="gallery-thumb active"
+  id="thumb1"
+  src=""
+  onclick="changeModalImage(this.src,this)"
+  alt="">
 
 <img
-class="gallery-thumb"
-id="thumb2"
-src=""
-onclick="changeModalImage(this.src,this)"
-alt="">
+  class="gallery-thumb"
+  id="thumb2"
+  src=""
+  onclick="changeModalImage(this.src,this)"
+  alt="">
 
 </div>
 
@@ -2311,20 +2741,16 @@ VYRO / PRODUCT
 </div>
 
 <h2 id="productModalName">
-VYRO Product
+VYRO PRODUCT
 </h2>
 
 <div class="modal-price">
-
-<span id="productModalPrice">0</span>
-EGP
-
+<span id="productModalPrice">0</span> EGP
 </div>
 
-<p>
-A VYRO piece designed with a clean
-silhouette, everyday comfort and
-our signature identity.
+<p class="modal-description">
+A VYRO piece designed with a clean silhouette,
+everyday comfort and our signature identity.
 </p>
 
 <div class="modal-option">
@@ -2334,8 +2760,8 @@ COLOR
 </div>
 
 <div
-class="modal-color-options"
-id="modalColors">
+  class="color-options"
+  id="modalColors">
 </div>
 
 </div>
@@ -2347,8 +2773,8 @@ SIZE
 </div>
 
 <div
-class="modal-size-options"
-id="modalSizes">
+  class="size-options"
+  id="modalSizes">
 </div>
 
 </div>
@@ -2359,35 +2785,32 @@ QUANTITY
 
 <div class="modal-quantity">
 
-<button
-type="button"
-onclick="changeModalQuantity(-1)">
+<button type="button" onclick="changeModalQuantity(-1)">
 −
 </button>
 
 <span id="modalQty">1</span>
 
-<button
-type="button"
-onclick="changeModalQuantity(1)">
-+</button>
+<button type="button" onclick="changeModalQuantity(1)">
++
+</button>
 
 </div>
 
 <div class="modal-actions">
 
 <button
-type="button"
-class="modal-add"
-onclick="addModalToCart()">
+  class="modal-add"
+  type="button"
+  onclick="addModalToCart()">
 ADD TO CART
 </button>
 
 <button
-type="button"
-class="modal-buy"
-onclick="buyModalNow()">
-ORDER NOW
+  class="modal-buy"
+  type="button"
+  onclick="buyModalNow()">
+ORDER VIA WHATSAPP
 </button>
 
 </div>
@@ -2398,10 +2821,13 @@ ORDER NOW
 
 </div>
 
+<!-- =====================================================
+     CART
+===================================================== -->
 
-<!-- CART -->
-
-<div class="cart" id="cart">
+<div
+  class="overlay"
+  id="cart">
 
 <div class="cart-box">
 
@@ -2410,73 +2836,83 @@ ORDER NOW
 <h2>Your Cart</h2>
 
 <button
-type="button"
-class="close"
-onclick="closeCart()">
+  class="close-btn"
+  type="button"
+  onclick="closeCart()">
 ×
 </button>
 
 </div>
 
-<div id="cartItems">
-Your cart is empty.
+<div id="cartItems"></div>
+
+<div class="cart-summary">
+
+<div class="summary-row">
+<span>SUBTOTAL</span>
+<strong><span id="cartSubtotal">0</span> EGP</strong>
 </div>
 
-<div class="cart-total">
+<div class="summary-row">
+<span>DELIVERY</span>
+<strong>CONFIRM VIA WHATSAPP</strong>
+</div>
 
-TOTAL:
-<span id="cartTotal">0</span>
-EGP
+<div class="summary-row total">
+<span>TOTAL</span>
+<strong><span id="cartTotal">0</span> EGP</strong>
+</div>
 
 </div>
 
 <div class="checkout">
 
 <h3>
-Complete Your Order
+COMPLETE YOUR ORDER
 </h3>
 
 <input
-id="customerName"
-type="text"
-placeholder="Full Name"
-autocomplete="name">
+  id="customerName"
+  type="text"
+  placeholder="Full Name"
+  autocomplete="name">
 
 <input
-id="customerPhone"
-type="tel"
-placeholder="Phone Number"
-autocomplete="tel">
+  id="customerPhone"
+  type="tel"
+  placeholder="Phone Number"
+  autocomplete="tel">
 
 <textarea
-id="customerAddress"
-placeholder="Delivery Address"
-autocomplete="street-address"></textarea>
+  id="customerAddress"
+  placeholder="Delivery Address"
+  autocomplete="street-address"></textarea>
 
 <a
-id="whatsappBtn"
-class="whatsapp"
-href="javascript:void(0)"
-target="_blank"
-rel="noopener noreferrer"
-onclick="sendCartToWhatsApp(event)">
-
+  id="whatsappBtn"
+  class="whatsapp-btn disabled"
+  href="#"
+  onclick="return handleWhatsAppClick(event)">
 ORDER VIA WHATSAPP
-
 </a>
 
+<div class="checkout-note">
+Your order details will be sent directly to VYRO on WhatsApp.
 </div>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- WISHLIST -->
+<!-- =====================================================
+     WISHLIST
+===================================================== -->
 
 <div
-class="wishlist-panel"
-id="wishlistPanel">
+  class="overlay"
+  id="wishlistPanel">
 
 <div class="wishlist-box">
 
@@ -2485,22 +2921,32 @@ id="wishlistPanel">
 <h2>Your Wishlist</h2>
 
 <button
-type="button"
-class="close"
-onclick="closeWishlist()">
+  class="close-btn"
+  type="button"
+  onclick="closeWishlist()">
 ×
 </button>
 
 </div>
 
-<div id="wishlistItems">
-Your wishlist is empty.
-</div>
+<div id="wishlistItems"></div>
 
 </div>
 
 </div>
 
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -2537,9 +2983,9 @@ Wear your vision.
 <h3>CONTACT</h3>
 
 <a
-href="https://wa.me/201129327133"
-target="_blank"
-rel="noopener noreferrer">
+  href="https://wa.me/201129327133"
+  target="_blank"
+  rel="noopener noreferrer">
 WhatsApp
 </a>
 
@@ -2564,12 +3010,11 @@ WEAR YOUR VISION
 
 </footer>
 
-
 <script>
 
-/* =====================================================
-   VYRO STORE SYSTEM
-===================================================== */
+/* =========================================================
+   VYRO V2 JAVASCRIPT
+========================================================= */
 
 const WHATSAPP_NUMBER = "201129327133";
 
@@ -2577,1418 +3022,1107 @@ let cart = [];
 let wishlist = [];
 
 let productState = [
-
-{
-color:"Black",
-size:"S",
-quantity:1
-},
-
-{
-color:"Black",
-size:"S",
-quantity:1
-},
-
-{
-color:"Black",
-size:"S",
-quantity:1
-},
-
-{
-color:"Black",
-size:"S",
-quantity:1
-}
-
+  {color:"Black",size:"S",quantity:1},
+  {color:"Black",size:"S",quantity:1},
+  {color:"Black",size:"S",quantity:1},
+  {color:"Black",size:"S",quantity:1}
 ];
 
 const products = [
 
 {
-name:"VYRO Essential T-Shirt",
-price:400,
-image:"IMG_8035.jpeg",
-images:[
-"IMG_8035.jpeg",
-"IMG_8036.jpeg"
-],
-colors:["Black","White","Grey"],
-sizes:["S","M","L","XL","XXL"]
+  name:"VYRO Essential T-Shirt",
+  price:400,
+  image:"IMG_8035.jpeg",
+  images:["IMG_8035.jpeg","IMG_8036.jpeg"],
+  colors:["Black","White","Grey"],
+  sizes:["S","M","L","XL","XXL"]
 },
 
 {
-name:"VYRO Oversized T-Shirt",
-price:450,
-image:"IMG_8036.jpeg",
-images:[
-"IMG_8036.jpeg",
-"IMG_8035.jpeg"
-],
-colors:["Black","White","Beige"],
-sizes:["S","M","L","XL","XXL"]
+  name:"VYRO Oversized T-Shirt",
+  price:450,
+  image:"IMG_8036.jpeg",
+  images:["IMG_8036.jpeg","IMG_8035.jpeg"],
+  colors:["Black","White","Beige"],
+  sizes:["S","M","L","XL","XXL"]
 },
 
 {
-name:"VYRO Minimal Tee",
-price:450,
-image:"IMG_8037.jpeg",
-images:[
-"IMG_8037.jpeg",
-"IMG_8035.jpeg"
-],
-colors:["Black","Grey","Off White"],
-sizes:["S","M","L","XL","XXL"]
+  name:"VYRO Minimal Tee",
+  price:450,
+  image:"IMG_8037.jpeg",
+  images:["IMG_8037.jpeg","IMG_8035.jpeg"],
+  colors:["Black","Grey","Off White"],
+  sizes:["S","M","L","XL","XXL"]
 },
 
 {
-name:"VYRO Hoodie",
-price:750,
-image:"IMG_8038.jpeg",
-images:[
-"IMG_8038.jpeg",
-"IMG_8037.jpeg"
-],
-colors:["Black","Grey","Off White"],
-sizes:["S","M","L","XL","XXL"]
+  name:"VYRO Hoodie",
+  price:750,
+  image:"IMG_8038.jpeg",
+  images:["IMG_8038.jpeg","IMG_8037.jpeg"],
+  colors:["Black","Grey","Off White"],
+  sizes:["S","M","L","XL","XXL"]
 }
 
 ];
 
+/* =========================================================
+   TOAST
+========================================================= */
 
-/* ================= ADD TO CART ================= */
+function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer = setTimeout(function(){
+
+    toast.classList.remove("show");
+
+  },2000);
+
+}
+
+/* =========================================================
+   PRODUCT COLOR
+========================================================= */
+
+function selectColor(index,button,color){
+
+  productState[index].color = color;
+
+  const parent = button.parentElement;
+
+  parent.querySelectorAll(".color-btn").forEach(function(btn){
+    btn.classList.remove("selected");
+  });
+
+  button.classList.add("selected");
+
+}
+
+/* =========================================================
+   PRODUCT SIZE
+========================================================= */
+
+function selectSize(index,button,size){
+
+  productState[index].size = size;
+
+  const parent = button.parentElement;
+
+  parent.querySelectorAll(".size-btn").forEach(function(btn){
+    btn.classList.remove("selected");
+  });
+
+  button.classList.add("selected");
+
+}
+
+/* =========================================================
+   PRODUCT QUANTITY
+========================================================= */
+
+function changeProductQuantity(index,amount){
+
+  let quantity = Number(productState[index].quantity) || 1;
+
+  quantity += amount;
+
+  if(quantity < 1) quantity = 1;
+  if(quantity > 20) quantity = 20;
+
+  productState[index].quantity = quantity;
+
+  const element = document.getElementById("qty" + index);
+
+  if(element){
+    element.innerText = quantity;
+  }
+
+}
+
+/* =========================================================
+   ADD SELECTED
+========================================================= */
 
 function addSelectedToCart(index){
 
-const product = products[index];
-const state = productState[index];
+  const product = products[index];
 
-addProductToCart(
-product,
-state.color,
-state.size,
-state.quantity
-);
+  const state = productState[index];
+
+  addProductToCart(
+    product,
+    state.color,
+    state.size,
+    state.quantity
+  );
 
 }
 
+/* =========================================================
+   ADD TO CART
+========================================================= */
 
-/* ================= BUY NOW ================= */
+function addProductToCart(product,color,size,quantity){
+
+  quantity = Number(quantity) || 1;
+
+  if(quantity < 1){
+    quantity = 1;
+  }
+
+  const existing = cart.find(function(item){
+
+    return (
+      item.name === product.name &&
+      item.color === color &&
+      item.size === size
+    );
+
+  });
+
+  if(existing){
+
+    existing.quantity += quantity;
+
+    if(existing.quantity > 20){
+      existing.quantity = 20;
+    }
+
+  }else{
+
+    cart.push({
+      name:product.name,
+      price:product.price,
+      image:product.image,
+      color:color,
+      size:size,
+      quantity:quantity
+    });
+
+  }
+
+  updateCart();
+
+  showToast(product.name + " added to cart ✓");
+
+}
+
+/* =========================================================
+   BUY NOW
+========================================================= */
 
 function buySelectedNow(index){
 
-const product = products[index];
-const state = productState[index];
+  const product = products[index];
 
-buyDirect(
-product,
-state.color,
-state.size,
-state.quantity
-);
+  const state = productState[index];
 
-}
-
-
-/* ================= ADD PRODUCT ================= */
-
-function addProductToCart(
-product,
-color,
-size,
-quantity
-){
-
-quantity = Number(quantity) || 1;
-
-if(quantity < 1){
-quantity = 1;
-}
-
-const existing = cart.find(item =>
-item.name === product.name &&
-item.color === color &&
-item.size === size
-);
-
-if(existing){
-
-existing.quantity += quantity;
-
-if(existing.quantity > 20){
-existing.quantity = 20;
-}
-
-}else{
-
-cart.push({
-
-name:product.name,
-price:product.price,
-color:color,
-size:size,
-quantity:quantity
-
-});
+  buyDirect(
+    product,
+    state.color,
+    state.size,
+    state.quantity
+  );
 
 }
 
-updateCart();
+/* =========================================================
+   DIRECT WHATSAPP
+========================================================= */
 
-showCartNotification(product.name);
+function buyDirect(product,color,size,quantity){
 
-}
+  const total =
+    Number(product.price) *
+    Number(quantity);
 
+  const message =
+`Hello VYRO! 👋
 
-/* ================= NOTIFICATION ================= */
+I would like to order:
 
-function showCartNotification(name){
+PRODUCT
+--------------------
+Product: ${product.name}
+Color: ${color}
+Size: ${size}
+Quantity: ${quantity}
+Unit Price: ${product.price} EGP
+Total: ${total} EGP
 
-const old =
-document.getElementById("cartNotification");
+Please confirm my order.
 
-if(old){
-old.remove();
-}
+Thank you, VYRO! 🖤`;
 
-const notification =
-document.createElement("div");
-
-notification.id =
-"cartNotification";
-
-notification.innerText =
-name + " added to cart ✓";
-
-notification.style.position =
-"fixed";
-
-notification.style.left =
-"50%";
-
-notification.style.bottom =
-"25px";
-
-notification.style.transform =
-"translateX(-50%)";
-
-notification.style.background =
-"#111";
-
-notification.style.color =
-"#fff";
-
-notification.style.padding =
-"14px 22px";
-
-notification.style.zIndex =
-"99999";
-
-notification.style.fontSize =
-"12px";
-
-notification.style.fontWeight =
-"bold";
-
-notification.style.borderRadius =
-"3px";
-
-document.body.appendChild(notification);
-
-setTimeout(function(){
-
-notification.remove();
-
-},1800);
+  openWhatsApp(message);
 
 }
 
-
-/* ================= BUY DIRECT ================= */
-
-function buyDirect(
-product,
-color,
-size,
-quantity
-){
-
-const message =
-"Hello VYRO! 👋\n\n" +
-
-"I would like to place an order:\n\n" +
-
-"PRODUCT DETAILS\n" +
-
-"--------------------\n" +
-
-"Product: " +
-product.name +
-"\n" +
-
-"Color: " +
-color +
-"\n" +
-
-"Size: " +
-size +
-"\n" +
-
-"Quantity: " +
-quantity +
-"\n" +
-
-"Unit Price: " +
-product.price +
-" EGP\n" +
-
-"Total: " +
-(product.price * quantity) +
-" EGP\n\n" +
-
-"Please confirm my order.\n\n" +
-
-"Thank you, VYRO! 🖤";
-
-openWhatsApp(message);
-
-}
-
-
-/* ================= DIRECT WHATSAPP ================= */
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
 function openWhatsApp(message){
 
-const url =
-"https://wa.me/" +
-WHATSAPP_NUMBER +
-"?text=" +
-encodeURIComponent(message);
+  const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
 
-/*
-   location.href works reliably
-   on iPhone and mobile browsers.
-*/
-
-window.location.href = url;
+  window.location.href = url;
 
 }
 
-
-/* ================= SELECT COLOR ================= */
-
-function selectColor(
-index,
-button,
-color
-){
-
-productState[index].color = color;
-
-const buttons =
-button.parentElement.querySelectorAll(".color-btn");
-
-buttons.forEach(function(btn){
-
-btn.classList.remove("selected");
-
-});
-
-button.classList.add("selected");
-
-}
-
-
-/* ================= SELECT SIZE ================= */
-
-function selectSize(
-index,
-button,
-size
-){
-
-productState[index].size = size;
-
-const buttons =
-button.parentElement.querySelectorAll(".size-btn");
-
-buttons.forEach(function(btn){
-
-btn.classList.remove("selected");
-
-});
-
-button.classList.add("selected");
-
-}
-
-
-/* ================= PRODUCT QUANTITY ================= */
-
-function changeProductQuantity(
-index,
-amount
-){
-
-let quantity =
-Number(productState[index].quantity) || 1;
-
-quantity += amount;
-
-if(quantity < 1){
-quantity = 1;
-}
-
-if(quantity > 20){
-quantity = 20;
-}
-
-productState[index].quantity =
-quantity;
-
-const element =
-document.getElementById("qty" + index);
-
-if(element){
-element.innerText =
-quantity;
-}
-
-}
-
-
-/* ================= PRODUCT MODAL ================= */
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
 
 let currentProductIndex = 0;
 let modalColor = "Black";
 let modalSize = "S";
 let modalQuantity = 1;
 
-
 function openProduct(index){
 
-const product =
-products[index];
+  const product = products[index];
 
-currentProductIndex =
-index;
+  currentProductIndex = index;
 
-modalColor =
-product.colors[0];
+  modalColor = product.colors[0];
+  modalSize = product.sizes[0];
+  modalQuantity = 1;
 
-modalSize =
-product.sizes[0];
+  document.getElementById("productModalName").innerText =
+    product.name;
 
-modalQuantity =
-1;
+  document.getElementById("productModalPrice").innerText =
+    product.price;
 
-document.getElementById(
-"productModalName"
-).innerText =
-product.name;
+  document.getElementById("productModalImage").src =
+    product.images[0];
 
-document.getElementById(
-"productModalPrice"
-).innerText =
-product.price;
+  document.getElementById("thumb1").src =
+    product.images[0];
 
-document.getElementById(
-"productModalImage"
-).src =
-product.images[0];
+  document.getElementById("thumb2").src =
+    product.images[1] || product.images[0];
 
-document.getElementById(
-"thumb1"
-).src =
-product.images[0];
+  document.getElementById("modalQty").innerText = "1";
 
-document.getElementById(
-"thumb2"
-).src =
-product.images[1] ||
-product.images[0];
+  const colors =
+    document.getElementById("modalColors");
 
-document.getElementById(
-"modalQty"
-).innerText =
-"1";
+  colors.innerHTML = "";
 
+  product.colors.forEach(function(color,index){
 
-const colors =
-document.getElementById("modalColors");
+    const button = document.createElement("button");
 
-colors.innerHTML = "";
+    button.type = "button";
+    button.innerText = color;
 
-product.colors.forEach(function(color,index){
+    if(index === 0){
+      button.classList.add("selected");
+    }
 
-const button =
-document.createElement("button");
+    button.onclick = function(){
 
-button.type = "button";
+      modalColor = color;
 
-button.innerText =
-color;
+      colors.querySelectorAll("button").forEach(function(btn){
+        btn.classList.remove("selected");
+      });
 
-if(index === 0){
-button.classList.add("selected");
-}
+      button.classList.add("selected");
 
-button.onclick =
-function(){
+    };
 
-modalColor =
-color;
+    colors.appendChild(button);
 
-colors.querySelectorAll("button")
-.forEach(function(btn){
+  });
 
-btn.classList.remove("selected");
+  const sizes =
+    document.getElementById("modalSizes");
 
-});
+  sizes.innerHTML = "";
 
-button.classList.add("selected");
+  product.sizes.forEach(function(size,index){
 
-};
+    const button = document.createElement("button");
 
-colors.appendChild(button);
+    button.type = "button";
+    button.innerText = size;
 
-});
+    if(index === 0){
+      button.classList.add("selected");
+    }
 
+    button.onclick = function(){
 
-const sizes =
-document.getElementById("modalSizes");
+      modalSize = size;
 
-sizes.innerHTML = "";
+      sizes.querySelectorAll("button").forEach(function(btn){
+        btn.classList.remove("selected");
+      });
 
-product.sizes.forEach(function(size,index){
+      button.classList.add("selected");
 
-const button =
-document.createElement("button");
+    };
 
-button.type = "button";
+    sizes.appendChild(button);
 
-button.innerText =
-size;
+  });
 
-if(index === 0){
-button.classList.add("selected");
-}
+  document
+    .getElementById("productModal")
+    .classList.add("active");
 
-button.onclick =
-function(){
-
-modalSize =
-size;
-
-sizes.querySelectorAll("button")
-.forEach(function(btn){
-
-btn.classList.remove("selected");
-
-});
-
-button.classList.add("selected");
-
-};
-
-sizes.appendChild(button);
-
-});
-
-
-document.getElementById(
-"productModal"
-).style.display =
-"block";
-
-document.body.style.overflow =
-"hidden";
+  document.body.classList.add("no-scroll");
 
 }
 
+/* =========================================================
+   CLOSE PRODUCT
+========================================================= */
 
 function closeProduct(){
 
-document.getElementById(
-"productModal"
-).style.display =
-"none";
+  document
+    .getElementById("productModal")
+    .classList.remove("active");
 
-document.body.style.overflow =
-"";
+  document.body.classList.remove("no-scroll");
 
 }
 
+/* =========================================================
+   MODAL IMAGE
+========================================================= */
 
-/* ================= MODAL IMAGE ================= */
+function changeModalImage(src,thumb){
 
-function changeModalImage(
-src,
-thumb
-){
+  document.getElementById("productModalImage").src = src;
 
-document.getElementById(
-"productModalImage"
-).src =
-src;
+  document.querySelectorAll(".gallery-thumb").forEach(function(item){
+    item.classList.remove("active");
+  });
 
-document.querySelectorAll(
-".gallery-thumb"
-).forEach(function(item){
-
-item.classList.remove("active");
-
-});
-
-if(thumb){
-thumb.classList.add("active");
-}
+  if(thumb){
+    thumb.classList.add("active");
+  }
 
 }
 
+/* =========================================================
+   MODAL QUANTITY
+========================================================= */
 
-/* ================= MODAL QUANTITY ================= */
+function changeModalQuantity(amount){
 
-function changeModalQuantity(
-amount
-){
+  modalQuantity += amount;
 
-modalQuantity += amount;
+  if(modalQuantity < 1){
+    modalQuantity = 1;
+  }
 
-if(modalQuantity < 1){
-modalQuantity = 1;
-}
+  if(modalQuantity > 20){
+    modalQuantity = 20;
+  }
 
-if(modalQuantity > 20){
-modalQuantity = 20;
-}
-
-document.getElementById(
-"modalQty"
-).innerText =
-modalQuantity;
+  document.getElementById("modalQty").innerText =
+    modalQuantity;
 
 }
 
-
-/* ================= MODAL ADD ================= */
+/* =========================================================
+   MODAL ADD
+========================================================= */
 
 function addModalToCart(){
 
-const product =
-products[currentProductIndex];
+  const product = products[currentProductIndex];
 
-addProductToCart(
-product,
-modalColor,
-modalSize,
-modalQuantity
-);
+  addProductToCart(
+    product,
+    modalColor,
+    modalSize,
+    modalQuantity
+  );
 
-closeProduct();
+  closeProduct();
 
-openCart();
+  openCart();
 
 }
 
-
-/* ================= MODAL BUY ================= */
+/* =========================================================
+   MODAL BUY
+========================================================= */
 
 function buyModalNow(){
 
-const product =
-products[currentProductIndex];
+  const product = products[currentProductIndex];
 
-buyDirect(
-product,
-modalColor,
-modalSize,
-modalQuantity
-);
+  buyDirect(
+    product,
+    modalColor,
+    modalSize,
+    modalQuantity
+  );
 
 }
 
-
-/* ================= UPDATE CART ================= */
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
-const cartItems =
-document.getElementById("cartItems");
+  const cartItems =
+    document.getElementById("cartItems");
 
-const cartTotal =
-document.getElementById("cartTotal");
+  const cartTotal =
+    document.getElementById("cartTotal");
 
-const cartCount =
-document.getElementById("navCartCount");
+  const cartSubtotal =
+    document.getElementById("cartSubtotal");
 
-let total = 0;
-let quantity = 0;
+  const cartCount =
+    document.getElementById("navCartCount");
 
-cart.forEach(function(item){
+  let total = 0;
+  let quantity = 0;
 
-total +=
-Number(item.price) *
-Number(item.quantity);
+  cart.forEach(function(item){
 
-quantity +=
-Number(item.quantity);
+    total +=
+      Number(item.price) *
+      Number(item.quantity);
 
-});
+    quantity +=
+      Number(item.quantity);
 
-cartCount.innerText =
-quantity;
+  });
 
-cartTotal.innerText =
-total;
+  cartCount.innerText = quantity;
 
+  cartTotal.innerText = total;
 
-if(cart.length === 0){
+  cartSubtotal.innerText = total;
 
-cartItems.innerHTML =
-"Your cart is empty.";
+  if(cart.length === 0){
 
-updateWhatsApp();
+    cartItems.innerHTML = `
+      <div class="cart-empty">
+        Your cart is empty.
+        <br><br>
+        Add something from the VYRO drop.
+      </div>
+    `;
 
-return;
+    updateWhatsApp();
+
+    return;
+
+  }
+
+  let html = "";
+
+  cart.forEach(function(item,index){
+
+    const itemTotal =
+      Number(item.price) *
+      Number(item.quantity);
+
+    html += `
+
+      <div class="cart-item">
+
+        <div class="cart-item-top">
+
+          <div>
+
+            <div class="cart-item-name">
+              ${item.name}
+            </div>
+
+            <div class="cart-item-details">
+
+              Color: ${item.color}<br>
+
+              Size: ${item.size}<br>
+
+              Unit Price: ${item.price} EGP
+
+            </div>
+
+          </div>
+
+          <div class="cart-item-price">
+            ${itemTotal} EGP
+          </div>
+
+        </div>
+
+        <div class="cart-controls">
+
+          <div class="quantity-box">
+
+            <button
+              type="button"
+              onclick="decreaseQuantity(${index})">
+              −
+            </button>
+
+            <span>
+              ${item.quantity}
+            </span>
+
+            <button
+              type="button"
+              onclick="increaseQuantity(${index})">
+              +
+            </button>
+
+          </div>
+
+          <button
+            class="remove-btn"
+            type="button"
+            onclick="removeItem(${index})">
+            REMOVE
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  cartItems.innerHTML = html;
+
+  updateWhatsApp();
 
 }
 
-
-let html = "";
-
-cart.forEach(function(item,index){
-
-const itemTotal =
-Number(item.price) *
-Number(item.quantity);
-
-html += `
-
-<div class="cart-item">
-
-<strong>
-${item.name}
-</strong>
-
-<div class="cart-details">
-
-Color: ${item.color}<br>
-
-Size: ${item.size}<br>
-
-Unit Price: ${item.price} EGP
-
-</div>
-
-<div class="quantity-box">
-
-<button
-type="button"
-onclick="decreaseQuantity(${index})">
-−
-</button>
-
-<span>
-${item.quantity}
-</span>
-
-<button
-type="button"
-onclick="increaseQuantity(${index})">
-+
-</button>
-
-</div>
-
-<div class="item-total">
-
-Item Total:
-${itemTotal} EGP
-
-</div>
-
-<button
-class="remove-btn"
-type="button"
-onclick="removeItem(${index})">
-
-Remove
-
-</button>
-
-</div>
-
-`;
-
-});
-
-cartItems.innerHTML =
-html;
-
-updateWhatsApp();
-
-}
-
-
-/* ================= CART QUANTITY ================= */
+/* =========================================================
+   CART QUANTITY
+========================================================= */
 
 function increaseQuantity(index){
 
-if(!cart[index]){
-return;
-}
+  if(!cart[index]) return;
 
-if(cart[index].quantity >= 20){
-return;
-}
+  if(cart[index].quantity >= 20) return;
 
-cart[index].quantity++;
+  cart[index].quantity++;
 
-updateCart();
+  updateCart();
 
 }
-
 
 function decreaseQuantity(index){
 
-if(!cart[index]){
-return;
-}
+  if(!cart[index]) return;
 
-if(cart[index].quantity > 1){
+  if(cart[index].quantity > 1){
 
-cart[index].quantity--;
+    cart[index].quantity--;
 
-}else{
+  }else{
 
-cart.splice(index,1);
+    cart.splice(index,1);
 
-}
+  }
 
-updateCart();
+  updateCart();
 
 }
-
 
 function removeItem(index){
 
-if(!cart[index]){
-return;
-}
+  if(!cart[index]) return;
 
-cart.splice(index,1);
+  cart.splice(index,1);
 
-updateCart();
+  updateCart();
 
 }
 
-
-/* ================= OPEN CART ================= */
+/* =========================================================
+   OPEN CART
+========================================================= */
 
 function openCart(){
 
-document.getElementById(
-"cart"
-).style.display =
-"block";
+  document
+    .getElementById("cart")
+    .classList.add("active");
 
-document.body.style.overflow =
-"hidden";
+  document.body.classList.add("no-scroll");
 
-updateCart();
+  updateCart();
 
 }
 
-
-/* ================= CLOSE CART ================= */
+/* =========================================================
+   CLOSE CART
+========================================================= */
 
 function closeCart(){
 
-document.getElementById(
-"cart"
-).style.display =
-"none";
+  document
+    .getElementById("cart")
+    .classList.remove("active");
 
-document.body.style.overflow =
-"";
+  document.body.classList.remove("no-scroll");
 
 }
 
-
-/* =====================================================
-   WHATSAPP CART
-   FIXED VERSION
-===================================================== */
+/* =========================================================
+   UPDATE WHATSAPP
+========================================================= */
 
 function updateWhatsApp(){
 
-const btn =
-document.getElementById("whatsappBtn");
+  const btn =
+    document.getElementById("whatsappBtn");
 
-if(!btn){
-return;
-}
+  if(!btn) return;
 
-if(cart.length === 0){
+  if(cart.length === 0){
 
-btn.href =
-"javascript:void(0)";
+    btn.classList.add("disabled");
+    btn.href = "#";
 
-btn.classList.add("disabled");
+    return;
 
-btn.dataset.ready =
-"false";
+  }
 
-return;
+  const name =
+    document.getElementById("customerName").value.trim();
 
-}
+  const phone =
+    document.getElementById("customerPhone").value.trim();
 
-const name =
-document.getElementById(
-"customerName"
-).value.trim();
+  const address =
+    document.getElementById("customerAddress").value.trim();
 
-const phone =
-document.getElementById(
-"customerPhone"
-).value.trim();
+  if(!name || !phone || !address){
 
-const address =
-document.getElementById(
-"customerAddress"
-).value.trim();
+    btn.classList.add("disabled");
+    btn.href = "#";
 
+    return;
 
-/*
-   The button remains clickable.
-   If information is missing,
-   sendCartToWhatsApp() will tell
-   the customer exactly what is missing.
-*/
+  }
 
-if(!name || !phone || !address){
+  let total = 0;
 
-btn.href =
-"javascript:void(0)";
+  let message =
+`Hello VYRO! 👋
 
-btn.classList.add("disabled");
+NEW ORDER
+====================
 
-btn.dataset.ready =
-"false";
+CUSTOMER DETAILS
 
-return;
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
 
-}
-
-
-let total = 0;
-
-let message =
-"Hello VYRO! 👋\n\n";
-
-message +=
-"NEW ORDER\n";
-
-message +=
-"====================\n\n";
-
-message +=
-"Customer Name: " +
-name +
-"\n";
-
-message +=
-"Phone: " +
-phone +
-"\n";
-
-message +=
-"Delivery Address: " +
-address +
-"\n\n";
-
-message +=
-"ORDER DETAILS\n";
-
-message +=
-"====================\n\n";
-
-
-cart.forEach(function(item,index){
-
-const itemTotal =
-Number(item.price) *
-Number(item.quantity);
-
-total +=
-itemTotal;
-
-message +=
-(index + 1) +
-". " +
-item.name +
-"\n";
-
-message +=
-"Color: " +
-item.color +
-"\n";
-
-message +=
-"Size: " +
-item.size +
-"\n";
-
-message +=
-"Quantity: " +
-item.quantity +
-"\n";
-
-message +=
-"Unit Price: " +
-item.price +
-" EGP\n";
-
-message +=
-"Item Total: " +
-itemTotal +
-" EGP\n\n";
-
-});
-
-
-message +=
-"====================\n";
-
-message +=
-"TOTAL: " +
-total +
-" EGP\n\n";
-
-message +=
-"Please confirm my order.\n\n";
-
-message +=
-"Thank you, VYRO! 🖤";
-
-
-const url =
-"https://wa.me/" +
-WHATSAPP_NUMBER +
-"?text=" +
-encodeURIComponent(message);
-
-
-btn.href =
-url;
-
-btn.target =
-"_blank";
-
-btn.classList.remove("disabled");
-
-btn.dataset.ready =
-"true";
-
-}
-
-
-/* =====================================================
-   SEND CART TO WHATSAPP
-===================================================== */
-
-function sendCartToWhatsApp(event){
-
-event.preventDefault();
-
-
-/* CART EMPTY */
-
-if(cart.length === 0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-
-/* CUSTOMER NAME */
-
-const name =
-document.getElementById(
-"customerName"
-).value.trim();
-
-if(!name){
-
-alert(
-"Please enter your full name."
-);
-
-document.getElementById(
-"customerName"
-).focus();
-
-return;
-
-}
-
-
-/* PHONE */
-
-const phone =
-document.getElementById(
-"customerPhone"
-).value.trim();
-
-if(!phone){
-
-alert(
-"Please enter your phone number."
-);
-
-document.getElementById(
-"customerPhone"
-).focus();
-
-return;
-
-}
-
-
-/* ADDRESS */
-
-const address =
-document.getElementById(
-"customerAddress"
-).value.trim();
-
-if(!address){
-
-alert(
-"Please enter your delivery address."
-);
-
-document.getElementById(
-"customerAddress"
-).focus();
-
-return;
-
-}
-
-
-/*
-   Rebuild the WhatsApp message
-   with the latest customer information.
-*/
-
-updateWhatsApp();
-
-
-const btn =
-document.getElementById(
-"whatsappBtn"
-);
-
-const url =
-btn.href;
-
-
-if(
-!url ||
-url === "javascript:void(0)"
-){
-
-alert(
-"Something went wrong. Please try again."
-);
-
-return;
-
-}
-
-
-/*
-   IMPORTANT:
-   location.href is more reliable
-   than window.open on iPhone.
-*/
-
-window.location.href =
-url;
-
-}
-
-
-/* ================= WISHLIST ================= */
-
-function toggleWishlist(index){
-
-const product =
-products[index];
-
-const exists =
-wishlist.findIndex(function(item){
-
-return item.name === product.name;
-
-});
-
-const button =
-document.getElementById(
-"wishBtn" + index
-);
-
-if(exists >= 0){
-
-wishlist.splice(exists,1);
-
-button.classList.remove("active");
-
-button.innerText =
-"♡";
-
-}else{
-
-wishlist.push(product);
-
-button.classList.add("active");
-
-button.innerText =
-"♥";
-
-}
-
-updateWishlist();
-
-}
-
-
-function updateWishlist(){
-
-document.getElementById(
-"wishlistCount"
-).innerText =
-wishlist.length;
-
-const container =
-document.getElementById(
-"wishlistItems"
-);
-
-if(wishlist.length === 0){
-
-container.innerHTML =
-"Your wishlist is empty.";
-
-return;
-
-}
-
-let html = "";
-
-wishlist.forEach(function(product,index){
-
-const originalIndex =
-products.findIndex(function(item){
-
-return item.name === product.name;
-
-});
-
-html += `
-
-<div class="wishlist-item">
-
-<img
-src="${product.image}"
-alt="${product.name}">
-
-<div class="wishlist-item-info">
-
-<strong>
-${product.name}
-</strong>
-
-<span>
-${product.price} EGP
-</span>
-
-</div>
-
-<button
-class="wishlist-remove"
-type="button"
-onclick="removeWishlist(${index},${originalIndex})">
-
-Remove
-
-</button>
-
-</div>
+ORDER DETAILS
+====================
 
 `;
 
-});
+  cart.forEach(function(item,index){
 
-container.innerHTML =
-html;
+    const itemTotal =
+      Number(item.price) *
+      Number(item.quantity);
+
+    total += itemTotal;
+
+    message +=
+`${index + 1}. ${item.name}
+Color: ${item.color}
+Size: ${item.size}
+Quantity: ${item.quantity}
+Unit Price: ${item.price} EGP
+Item Total: ${itemTotal} EGP
+
+`;
+
+  });
+
+  message +=
+`====================
+
+TOTAL: ${total} EGP
+
+Please confirm my order.
+
+Thank you, VYRO! 🖤`;
+
+  const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
+
+  btn.href = url;
+
+  btn.classList.remove("disabled");
 
 }
 
+/* =========================================================
+   WHATSAPP BUTTON SAFETY
+========================================================= */
 
-function removeWishlist(
-index,
-productIndex
-){
+function handleWhatsAppClick(event){
 
-wishlist.splice(index,1);
+  if(
+    cart.length === 0 ||
+    document
+      .getElementById("whatsappBtn")
+      .classList.contains("disabled")
+  ){
 
-const button =
-document.getElementById(
-"wishBtn" + productIndex
-);
+    event.preventDefault();
 
-if(button){
+    if(cart.length === 0){
 
-button.classList.remove("active");
+      showToast("Your cart is empty.");
 
-button.innerText =
-"♡";
+    }else{
+
+      showToast("Please complete your details first.");
+
+    }
+
+    return false;
+
+  }
+
+  return true;
 
 }
 
-updateWishlist();
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(index){
+
+  const product = products[index];
+
+  const exists =
+    wishlist.findIndex(function(item){
+      return item.name === product.name;
+    });
+
+  const button =
+    document.getElementById("wishBtn" + index);
+
+  if(exists >= 0){
+
+    wishlist.splice(exists,1);
+
+    button.classList.remove("active");
+    button.innerText = "♡";
+
+    showToast("Removed from wishlist.");
+
+  }else{
+
+    wishlist.push(product);
+
+    button.classList.add("active");
+    button.innerText = "♥";
+
+    showToast("Added to wishlist ♥");
+
+  }
+
+  updateWishlist();
 
 }
 
+/* =========================================================
+   UPDATE WISHLIST
+========================================================= */
+
+function updateWishlist(){
+
+  document.getElementById("wishlistCount").innerText =
+    wishlist.length;
+
+  const container =
+    document.getElementById("wishlistItems");
+
+  if(wishlist.length === 0){
+
+    container.innerHTML = `
+      <div class="cart-empty">
+        Your wishlist is empty.
+      </div>
+    `;
+
+    return;
+
+  }
+
+  let html = "";
+
+  wishlist.forEach(function(product,index){
+
+    const originalIndex =
+      products.findIndex(function(item){
+        return item.name === product.name;
+      });
+
+    html += `
+
+      <div class="wishlist-item">
+
+        <img
+          src="${product.image}"
+          alt="${product.name}">
+
+        <div class="wishlist-item-info">
+
+          <strong>
+            ${product.name}
+          </strong>
+
+          <span>
+            ${product.price} EGP
+          </span>
+
+        </div>
+
+        <button
+          class="wishlist-remove"
+          type="button"
+          onclick="removeWishlist(${index},${originalIndex})">
+          REMOVE
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+  container.innerHTML = html;
+
+}
+
+/* =========================================================
+   REMOVE WISHLIST
+========================================================= */
+
+function removeWishlist(index,productIndex){
+
+  wishlist.splice(index,1);
+
+  const button =
+    document.getElementById(
+      "wishBtn" + productIndex
+    );
+
+  if(button){
+
+    button.classList.remove("active");
+    button.innerText = "♡";
+
+  }
+
+  updateWishlist();
+
+}
+
+/* =========================================================
+   OPEN WISHLIST
+========================================================= */
 
 function openWishlist(){
 
-document.getElementById(
-"wishlistPanel"
-).style.display =
-"block";
+  document
+    .getElementById("wishlistPanel")
+    .classList.add("active");
 
-document.body.style.overflow =
-"hidden";
+  document.body.classList.add("no-scroll");
+
+  updateWishlist();
 
 }
 
+/* =========================================================
+   CLOSE WISHLIST
+========================================================= */
 
 function closeWishlist(){
 
-document.getElementById(
-"wishlistPanel"
-).style.display =
-"none";
+  document
+    .getElementById("wishlistPanel")
+    .classList.remove("active");
 
-document.body.style.overflow =
-"";
+  document.body.classList.remove("no-scroll");
 
 }
 
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-/* ================= CHECKOUT LIVE ================= */
+function openMobileMenu(){
 
-document.getElementById(
-"customerName"
-).addEventListener(
-"input",
-updateWhatsApp
-);
+  document
+    .getElementById("mobileMenu")
+    .classList.add("active");
 
-document.getElementById(
-"customerPhone"
-).addEventListener(
-"input",
-updateWhatsApp
-);
-
-document.getElementById(
-"customerAddress"
-).addEventListener(
-"input",
-updateWhatsApp
-);
-
-
-/* ================= MODAL CLICKS ================= */
-
-document.getElementById(
-"productModal"
-).addEventListener(
-"click",
-function(event){
-
-if(event.target === this){
-
-closeProduct();
+  document.body.classList.add("no-scroll");
 
 }
+
+function closeMobileMenu(){
+
+  document
+    .getElementById("mobileMenu")
+    .classList.remove("active");
+
+  document.body.classList.remove("no-scroll");
+
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-question").forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    const item =
+      button.parentElement;
+
+    const isOpen =
+      item.classList.contains("open");
+
+    document.querySelectorAll(".faq-item").forEach(function(other){
+
+      other.classList.remove("open");
+
+      const icon =
+        other.querySelector(".faq-question span");
+
+      if(icon){
+        icon.innerText = "+";
+      }
+
+    });
+
+    if(!isOpen){
+
+      item.classList.add("open");
+
+      button.querySelector("span").innerText = "−";
+
+    }
+
+  });
 
 });
 
+/* =========================================================
+   CHECKOUT LIVE
+========================================================= */
 
-document.getElementById(
-"cart"
-).addEventListener(
-"click",
-function(event){
+document
+  .getElementById("customerName")
+  .addEventListener("input",updateWhatsApp);
 
-if(event.target === this){
+document
+  .getElementById("customerPhone")
+  .addEventListener("input",updateWhatsApp);
 
-closeCart();
+document
+  .getElementById("customerAddress")
+  .addEventListener("input",updateWhatsApp);
 
-}
+/* =========================================================
+   OVERLAY CLICKS
+========================================================= */
+
+document
+  .getElementById("productModal")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+      closeProduct();
+    }
+
+  });
+
+document
+  .getElementById("cart")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+      closeCart();
+    }
+
+  });
+
+document
+  .getElementById("wishlistPanel")
+  .addEventListener("click",function(event){
+
+    if(event.target === this){
+      closeWishlist();
+    }
+
+  });
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+
+    closeProduct();
+    closeCart();
+    closeWishlist();
+    closeMobileMenu();
+
+  }
 
 });
 
-
-document.getElementById(
-"wishlistPanel"
-).addEventListener(
-"click",
-function(event){
-
-if(event.target === this){
-
-closeWishlist();
-
-}
-
-});
-
-
-/* ================= ESCAPE ================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(event.key === "Escape"){
-
-closeProduct();
-
-closeCart();
-
-closeWishlist();
-
-}
-
-});
-
-
-/* ================= INITIAL ================= */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 updateCart();
-
 updateWishlist();
-
 updateWhatsApp();
 
 </script>

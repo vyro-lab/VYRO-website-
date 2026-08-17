@@ -5,7 +5,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VYRO — Wear Your Vision</title>
 <meta name="description" content="VYRO — Modern local clothing. Minimal design. Strong identity. Wear your vision.">
+/* =========================================================
+   VYRO — HERO UPGRADE
+   ========================================================= */
 
+.hero {
+  position: relative !important;
+  min-height: 88vh !important;
+  height: 88vh !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  display: flex !important;
+  align-items: center !important;
+  background: #050505 !important;
+}
+
+/* Dark cinematic overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.88) 0%,
+      rgba(0,0,0,.60) 38%,
+      rgba(0,0,0,.12) 72%,
+      rgba(0,0,0,.35) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0,0,0,.55) 0%,
+      transparent 35%,
+      rgba(0,0,0,.15) 100%
+    );
+  pointer-events: none;
+}
+
+/* Subtle premium frame */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Hero image */
+.hero img,
+.hero-image,
+.hero-bg {
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+  transform: scale(1.02);
+}
+
+.hero:hover img,
+.hero:hover .hero-image,
+.hero:hover .hero-bg {
+  transform: scale(1.055);
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 720px !important;
+  padding: 40px !important;
+}
+
+/* Small collection label */
+.hero-content::before {
+  content: "VYRO / SUMMER '26     •     DROP 01";
+  display: block;
+  margin-bottom: 24px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.75);
+}
+
+/* Main title */
+.hero h1 {
+  max-width: 700px !important;
+  margin: 0 0 22px !important;
+  font-size: clamp(52px, 8vw, 105px) !important;
+  line-height: .88 !important;
+  letter-spacing: -4px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  color: #fff !important;
+  text-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+/* Hero description */
+.hero p {
+  max-width: 470px !important;
+  margin: 0 0 30px !important;
+  color: rgba(255,255,255,.78) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  letter-spacing: .5px;
+}
+
+/* CTA */
+.hero a,
+.hero button {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 28px !important;
+  border: 1px solid #fff !important;
+  background: #fff !important;
+  color: #080808 !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  transition: .3s ease !important;
+}
+
+.hero a:hover,
+.hero button:hover {
+  background: transparent !important;
+  color: #fff !important;
+  transform: translateY(-3px);
+}
+
+/* Little arrow feeling */
+.hero a::after {
+  content: "  →";
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: 82vh !important;
+    height: 82vh !important;
+    align-items: flex-end !important;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,.18) 0%,
+        rgba(0,0,0,.25) 35%,
+        rgba(0,0,0,.90) 100%
+      );
+  }
+
+  .hero::after {
+    inset: 10px;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 28px 22px 48px !important;
+  }
+
+  .hero-content::before {
+    margin-bottom: 16px;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 15vw, 72px) !important;
+    line-height: .88 !important;
+    letter-spacing: -2.5px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hero p {
+    max-width: 320px !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .hero a,
+  .hero button {
+    width: 100%;
+    min-height: 52px;
+  }
+}
 <style>
 :root{
   --black:#080808;

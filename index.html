@@ -3,83 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VYRO — Wear Your Vision</title>
-<meta name="description" content="VYRO — Modern local clothing. Minimal design. Strong identity. Wear your vision.">
+
+<title>VYRO — Winter '26</title>
+
+<meta name="description" content="VYRO — Winter '26. Minimal design. Strong identity. Wear your vision.">
 
 <style>
 :root{
-  --black:#080808;
-  --dark:#111;
+  --black:#070707;
+  --dark:#0d0d0d;
+  --dark2:#151515;
   --white:#fff;
-  --cream:#f5f4f0;
+  --cream:#f4f3ef;
+  --soft:#ecebe6;
   --gray:#777;
-  --line:#e4e4e0;
+  --light-gray:#aaa;
+  --line:#deded8;
   --green:#25D366;
+  --red:#d93636;
   --transition:.35s cubic-bezier(.2,.7,.2,1);
 }
 
 *{
   box-sizing:border-box;
   margin:0;
-  padding:0
+  padding:0;
 }
 
 html{
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--cream);
   color:var(--black);
-  overflow-x:hidden
+  overflow-x:hidden;
 }
 
 body.no-scroll{
-  overflow:hidden
+  overflow:hidden;
 }
 
-button,input,textarea{
-  font:inherit
+button,
+input,
+textarea{
+  font:inherit;
 }
 
 button{
-  cursor:pointer
+  cursor:pointer;
 }
 
 img{
-  max-width:100%
+  max-width:100%;
 }
 
 a{
-  color:inherit
+  color:inherit;
 }
 
 ::selection{
   background:#111;
-  color:#fff
+  color:#fff;
 }
 
-/* =========================
-   TOP BAR
-========================= */
+/* =========================================================
+   PAGE LOADER
+========================================================= */
 
-.top-bar{
-  height:30px;
+.page-loader{
+  position:fixed;
+  inset:0;
+  z-index:999999;
   background:#080808;
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
+  flex-direction:column;
+  transition:opacity .7s ease,visibility .7s ease;
+}
+
+.page-loader.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.loader-logo{
+  font-size:32px;
+  font-weight:900;
+  letter-spacing:12px;
+  margin-left:12px;
+}
+
+.loader-line{
+  width:120px;
+  height:1px;
+  background:#333;
+  margin-top:25px;
+  overflow:hidden;
+}
+
+.loader-line span{
+  display:block;
+  width:100%;
+  height:100%;
+  background:#fff;
+  transform:translateX(-100%);
+  animation:loaderLine 1.2s ease forwards;
+}
+
+@keyframes loaderLine{
+  to{
+    transform:translateX(0);
+  }
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar{
+  min-height:30px;
+  background:#080808;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
   font-size:8px;
   font-weight:700;
   letter-spacing:3px;
-  text-transform:uppercase
+  text-transform:uppercase;
+  white-space:nowrap;
 }
 
-/* =========================
+.top-bar-track{
+  display:flex;
+  gap:45px;
+  animation:topTicker 22s linear infinite;
+}
+
+@keyframes topTicker{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar{
   height:74px;
@@ -87,13 +165,13 @@ a{
   top:0;
   z-index:1000;
   background:rgba(8,8,8,.96);
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(18px);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 5%;
-  border-bottom:1px solid rgba(255,255,255,.08)
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
@@ -101,12 +179,12 @@ a{
   text-decoration:none;
   font-size:27px;
   font-weight:900;
-  letter-spacing:8px
+  letter-spacing:8px;
 }
 
 .nav-links{
   display:flex;
-  gap:32px
+  gap:32px;
 }
 
 .nav-links a{
@@ -116,7 +194,7 @@ a{
   font-weight:700;
   letter-spacing:2px;
   text-transform:uppercase;
-  position:relative
+  position:relative;
 }
 
 .nav-links a:after{
@@ -127,17 +205,17 @@ a{
   width:0;
   height:1px;
   background:#fff;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .nav-links a:hover:after{
-  width:100%
+  width:100%;
 }
 
 .nav-actions{
   display:flex;
   gap:7px;
-  align-items:center
+  align-items:center;
 }
 
 .nav-icon{
@@ -151,29 +229,29 @@ a{
   justify-content:center;
   gap:5px;
   font-size:10px;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .nav-icon:hover{
   background:#fff;
-  color:#111
+  color:#111;
 }
 
 .nav-count{
-  font-size:8px
+  font-size:8px;
 }
 
 .mobile-menu-btn{
-  display:none
+  display:none;
 }
 
-/* =========================
-   HERO — PREMIUM V4
-========================= */
+/* =========================================================
+   HERO — WINTER 26
+========================================================= */
 
 .hero{
-  min-height:88vh;
-  height:88vh;
+  min-height:calc(100vh - 104px);
+  height:calc(100vh - 104px);
   position:relative;
   background:url("hero.jpg") center center/cover no-repeat;
   color:#fff;
@@ -182,7 +260,6 @@ a{
   padding:0 7%;
   overflow:hidden;
   isolation:isolate;
-  animation:heroImageZoom 12s ease-out both
 }
 
 .hero::before{
@@ -194,17 +271,17 @@ a{
   background:
     linear-gradient(
       90deg,
-      rgba(0,0,0,.92) 0%,
-      rgba(0,0,0,.70) 30%,
-      rgba(0,0,0,.28) 62%,
-      rgba(0,0,0,.18) 100%
+      rgba(0,0,0,.94) 0%,
+      rgba(0,0,0,.78) 28%,
+      rgba(0,0,0,.35) 60%,
+      rgba(0,0,0,.2) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(0,0,0,.72) 0%,
-      transparent 45%,
-      rgba(0,0,0,.18) 100%
-    )
+      rgba(0,0,0,.72),
+      transparent 55%,
+      rgba(0,0,0,.22)
+    );
 }
 
 .hero::after{
@@ -213,92 +290,100 @@ a{
   inset:18px;
   z-index:4;
   pointer-events:none;
-  border:1px solid rgba(255,255,255,.14)
+  border:1px solid rgba(255,255,255,.14);
 }
 
-@keyframes heroImageZoom{
-  from{
-    background-size:105%
-  }
-  to{
-    background-size:100%
-  }
+.hero-bg-number{
+  position:absolute;
+  right:-30px;
+  bottom:-90px;
+  z-index:1;
+  font-size:clamp(180px,30vw,500px);
+  line-height:.8;
+  font-weight:900;
+  color:rgba(255,255,255,.035);
+  letter-spacing:-25px;
+  user-select:none;
 }
 
 .hero-content{
   position:relative;
   z-index:5;
   width:100%;
-  max-width:850px;
+  max-width:900px;
   padding:40px 0;
-  animation:heroContentIn 1s cubic-bezier(.2,.7,.2,1) both
-}
-
-.hero-content::before{
-  content:"VYRO / WINTER '26     •     WINTER DROP 01";
-  display:block;
-  margin-bottom:28px;
-  color:rgba(255,255,255,.72);
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:4px
+  opacity:0;
+  transform:translateY(30px);
+  animation:heroContentIn 1s .25s cubic-bezier(.2,.7,.2,1) forwards;
 }
 
 @keyframes heroContentIn{
-  from{
-    opacity:0;
-    transform:translateY(35px)
-  }
-  to{
-    opacity:1;
-    transform:translateY(0)
-  }
-}
-
-.hero h1{
-  position:relative;
-  max-width:850px;
-  margin:0 0 25px;
-  font-size:clamp(72px,11vw,150px);
-  line-height:.78;
-  letter-spacing:-7px;
-  font-weight:900;
-  color:#fff;
-  text-transform:uppercase;
-  text-shadow:0 12px 45px rgba(0,0,0,.45);
-  animation:heroLogoIn 1.15s cubic-bezier(.2,.7,.2,1) both
-}
-
-@keyframes heroLogoIn{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-    letter-spacing:8px
-  }
   to{
     opacity:1;
     transform:translateY(0);
-    letter-spacing:-7px
+  }
+}
+
+.hero-kicker{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:25px;
+  color:rgba(255,255,255,.72);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:4px;
+}
+
+.hero-kicker span{
+  width:35px;
+  height:1px;
+  background:rgba(255,255,255,.6);
+}
+
+.hero-kicker strong{
+  color:#fff;
+}
+
+.hero h1{
+  margin:0 0 22px;
+  font-size:clamp(80px,13vw,175px);
+  line-height:.76;
+  letter-spacing:-9px;
+  font-weight:900;
+  color:#fff;
+  text-transform:uppercase;
+  text-shadow:0 15px 50px rgba(0,0,0,.5);
+  opacity:0;
+  transform:translateY(25px);
+  animation:heroTitleIn 1.1s .45s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+@keyframes heroTitleIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
 
 .hero-subtitle{
-  margin:0;
-  max-width:520px;
-  color:rgba(255,255,255,.82);
-  font-size:13px;
-  line-height:1.7;
+  color:rgba(255,255,255,.84);
+  font-size:12px;
+  line-height:1.8;
   font-weight:700;
-  letter-spacing:6px;
-  animation:heroFade 1.3s .15s ease both
+  letter-spacing:5px;
+  opacity:0;
+  animation:fadeIn 1s .75s ease forwards;
 }
 
-@keyframes heroFade{
-  from{
-    opacity:0
-  }
+.hero-subtitle span{
+  color:#777;
+  margin:0 7px;
+}
+
+@keyframes fadeIn{
   to{
-    opacity:1
+    opacity:1;
   }
 }
 
@@ -307,9 +392,10 @@ a{
   z-index:6;
   display:flex;
   gap:10px;
-  margin-top:36px;
+  margin-top:35px;
   flex-wrap:wrap;
-  animation:heroFade 1.3s .25s ease both
+  opacity:0;
+  animation:fadeIn 1s .95s ease forwards;
 }
 
 .hero-btn{
@@ -329,7 +415,7 @@ a{
   transition:
     transform .35s cubic-bezier(.2,.7,.2,1),
     background .35s ease,
-    color .35s ease
+    color .35s ease;
 }
 
 .hero-btn::before{
@@ -339,37 +425,50 @@ a{
   background:#fff;
   transform:translateX(-105%);
   transition:transform .45s cubic-bezier(.2,.7,.2,1);
-  z-index:-1
+  z-index:-1;
 }
 
 .hero-btn:hover::before{
-  transform:translateX(0)
+  transform:translateX(0);
 }
 
 .hero-btn.primary{
   background:#fff;
-  color:#080808
+  color:#080808;
 }
 
 .hero-btn.primary::before{
-  background:#111
+  background:#111;
 }
 
 .hero-btn.primary:hover{
   color:#fff;
-  transform:translateY(-4px)
+  transform:translateY(-4px);
 }
 
 .hero-btn.outline{
   background:rgba(0,0,0,.12);
   color:#fff;
   border-color:rgba(255,255,255,.55);
-  backdrop-filter:blur(8px)
+  backdrop-filter:blur(8px);
 }
 
 .hero-btn.outline:hover{
   color:#111;
-  transform:translateY(-4px)
+  transform:translateY(-4px);
+}
+
+.hero-meta{
+  position:absolute;
+  left:7%;
+  bottom:38px;
+  z-index:6;
+  display:flex;
+  gap:30px;
+  color:rgba(255,255,255,.5);
+  font-size:7px;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
 .hero-scroll{
@@ -385,44 +484,75 @@ a{
   font-weight:700;
   letter-spacing:3px;
   writing-mode:vertical-rl;
-  animation:
-    heroScrollFade 1.5s .6s ease both,
-    heroScrollMove 2.5s 1.5s ease-in-out infinite
+  animation:scrollMove 2.5s ease-in-out infinite;
 }
 
 .hero-scroll::before{
   content:"";
   width:1px;
   height:45px;
-  background:rgba(255,255,255,.5)
+  background:rgba(255,255,255,.5);
 }
 
-@keyframes heroScrollFade{
-  from{
-    opacity:0
-  }
-  to{
-    opacity:1
-  }
-}
-
-@keyframes heroScrollMove{
+@keyframes scrollMove{
   0%,100%{
-    transform:translateY(0)
+    transform:translateY(0);
   }
   50%{
-    transform:translateY(8px)
+    transform:translateY(8px);
   }
 }
 
-/* =========================
+/* =========================================================
+   WINTER TICKER
+========================================================= */
+
+.winter-ticker{
+  height:55px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  border-top:1px solid var(--line);
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+
+.winter-track{
+  display:flex;
+  width:max-content;
+  animation:winterTicker 28s linear infinite;
+}
+
+.winter-track span{
+  padding:0 28px;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:3px;
+  white-space:nowrap;
+}
+
+.winter-track i{
+  font-style:normal;
+  color:#aaa;
+}
+
+@keyframes winterTicker{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* =========================================================
    INTRO
-========================= */
+========================================================= */
 
 .intro{
   padding:110px 25px 90px;
   text-align:center;
-  background:var(--cream)
+  background:var(--cream);
 }
 
 .eyebrow{
@@ -430,13 +560,13 @@ a{
   font-weight:700;
   letter-spacing:4px;
   margin-bottom:17px;
-  color:#777
+  color:#777;
 }
 
 .intro h2{
   font-size:clamp(42px,6vw,70px);
   letter-spacing:-2px;
-  margin-bottom:24px
+  margin-bottom:24px;
 }
 
 .intro p{
@@ -444,24 +574,24 @@ a{
   margin:auto;
   color:#777;
   font-size:13px;
-  line-height:2
+  line-height:2;
 }
 
-/* =========================
+/* =========================================================
    DROP
-========================= */
+========================================================= */
 
 .drop{
   max-width:1400px;
   margin:auto;
-  padding:20px 25px 110px
+  padding:20px 25px 110px;
 }
 
 .section-head{
   display:flex;
   align-items:end;
   justify-content:space-between;
-  margin-bottom:35px
+  margin-bottom:35px;
 }
 
 .section-label{
@@ -469,12 +599,12 @@ a{
   font-weight:700;
   letter-spacing:4px;
   color:#777;
-  margin-bottom:9px
+  margin-bottom:9px;
 }
 
 .section-head h2{
   font-size:clamp(32px,4vw,48px);
-  letter-spacing:-1px
+  letter-spacing:-1px;
 }
 
 .view-all{
@@ -484,18 +614,23 @@ a{
   font-weight:700;
   letter-spacing:2px;
   border-bottom:1px solid #111;
-  padding-bottom:6px
+  padding-bottom:6px;
+  transition:var(--transition);
 }
 
-/* =========================
+.view-all:hover{
+  opacity:.5;
+}
+
+/* =========================================================
    FILTERS
-========================= */
+========================================================= */
 
 .filters{
   display:flex;
   gap:7px;
   flex-wrap:wrap;
-  margin:-12px 0 22px
+  margin:-12px 0 22px;
 }
 
 .filter-btn{
@@ -504,36 +639,47 @@ a{
   padding:10px 14px;
   font-size:8px;
   font-weight:700;
-  letter-spacing:1.5px
+  letter-spacing:1.5px;
+  transition:var(--transition);
 }
 
 .filter-btn.active,
 .filter-btn:hover{
   background:#111;
   color:#fff;
-  border-color:#111
+  border-color:#111;
 }
 
-/* =========================
+/* =========================================================
    PRODUCTS
-========================= */
+========================================================= */
 
 .products{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px
+  gap:14px;
 }
 
 .product{
   background:#fff;
   position:relative;
   overflow:hidden;
-  transition:var(--transition)
+  transition:var(--transition);
+  opacity:0;
+  transform:translateY(30px);
+  animation:productIn .7s cubic-bezier(.2,.7,.2,1) forwards;
 }
 
 .product:hover{
   transform:translateY(-7px);
-  box-shadow:0 20px 50px rgba(0,0,0,.09)
+  box-shadow:0 25px 60px rgba(0,0,0,.1);
+}
+
+@keyframes productIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .product-image{
@@ -541,7 +687,7 @@ a{
   position:relative;
   overflow:hidden;
   background:#ddd;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .product-image img{
@@ -549,21 +695,28 @@ a{
   height:100%;
   object-fit:cover;
   display:block;
-  transition:.7s cubic-bezier(.2,.7,.2,1)
+  transition:.7s cubic-bezier(.2,.7,.2,1);
+}
+
+.product-image .main-image{
+  transform:scale(1.001);
 }
 
 .product-image .second-image{
   position:absolute;
   inset:0;
-  opacity:0
+  opacity:0;
+  transform:scale(1.04);
 }
 
 .product:hover .product-image .main-image{
-  opacity:0
+  opacity:0;
+  transform:scale(1.04);
 }
 
 .product:hover .product-image .second-image{
-  opacity:1
+  opacity:1;
+  transform:scale(1);
 }
 
 .badge{
@@ -576,12 +729,12 @@ a{
   padding:8px 11px;
   font-size:7px;
   font-weight:700;
-  letter-spacing:2px
+  letter-spacing:2px;
 }
 
 .badge.limited{
   background:#fff;
-  color:#111
+  color:#111;
 }
 
 .wishlist-btn{
@@ -595,15 +748,15 @@ a{
   border-radius:50%;
   background:rgba(255,255,255,.94);
   font-size:17px;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .wishlist-btn:hover{
-  transform:scale(1.08)
+  transform:scale(1.08);
 }
 
 .wishlist-btn.active{
-  color:#e22
+  color:#e22;
 }
 
 .quick-add{
@@ -621,42 +774,42 @@ a{
   letter-spacing:2px;
   opacity:0;
   transform:translateY(10px);
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .product:hover .quick-add{
   opacity:1;
-  transform:translateY(0)
+  transform:translateY(0);
 }
 
 .product-info{
-  padding:20px 16px 18px
+  padding:20px 16px 18px;
 }
 
 .product-top{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
-  gap:10px
+  gap:10px;
 }
 
 .product-name{
   font-size:11px;
   font-weight:700;
   letter-spacing:1px;
-  margin-bottom:7px
+  margin-bottom:7px;
 }
 
 .product-type{
   color:#999;
   font-size:8px;
-  letter-spacing:1px
+  letter-spacing:1px;
 }
 
 .price{
   font-size:13px;
   font-weight:700;
-  white-space:nowrap
+  white-space:nowrap;
 }
 
 .option-title{
@@ -665,14 +818,14 @@ a{
   color:#777;
   font-size:7px;
   font-weight:700;
-  letter-spacing:2px
+  letter-spacing:2px;
 }
 
 .color-options,
 .size-options{
   display:flex;
   gap:5px;
-  flex-wrap:wrap
+  flex-wrap:wrap;
 }
 
 .color-btn,
@@ -680,30 +833,30 @@ a{
   border:1px solid #ddd;
   background:#fff;
   color:#111;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .color-btn{
   padding:8px 10px;
-  font-size:8px
+  font-size:8px;
 }
 
 .size-btn{
   width:34px;
   height:31px;
-  font-size:8px
+  font-size:8px;
 }
 
 .color-btn:hover,
 .size-btn:hover{
-  border-color:#111
+  border-color:#111;
 }
 
 .color-btn.selected,
 .size-btn.selected{
   background:#111;
   color:#fff;
-  border-color:#111
+  border-color:#111;
 }
 
 .quantity-row{
@@ -712,7 +865,7 @@ a{
   margin-top:14px;
   display:flex;
   align-items:center;
-  justify-content:space-between
+  justify-content:space-between;
 }
 
 .quantity-row button{
@@ -720,19 +873,19 @@ a{
   background:#f4f4f4;
   width:38px;
   height:100%;
-  font-size:16px
+  font-size:16px;
 }
 
 .quantity-row span{
   font-size:10px;
-  font-weight:700
+  font-weight:700;
 }
 
 .product-actions{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:6px;
-  margin-top:7px
+  margin-top:7px;
 }
 
 .product-actions button{
@@ -741,30 +894,30 @@ a{
   font-size:8px;
   font-weight:700;
   letter-spacing:1.5px;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .add-btn{
   background:#111;
-  color:#fff
+  color:#fff;
 }
 
 .add-btn:hover{
-  background:#333
+  background:#333;
 }
 
 .order-btn{
   background:var(--green);
-  color:#fff
+  color:#fff;
 }
 
 .order-btn:hover{
-  filter:brightness(.9)
+  filter:brightness(.9);
 }
 
-/* =========================
+/* =========================================================
    STATEMENT
-========================= */
+========================================================= */
 
 .statement{
   min-height:650px;
@@ -775,113 +928,129 @@ a{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:80px 25px
+  padding:80px 25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.statement::before{
+  content:"VYRO";
+  position:absolute;
+  font-size:30vw;
+  font-weight:900;
+  letter-spacing:-20px;
+  color:rgba(255,255,255,.025);
+  user-select:none;
 }
 
 .statement-small{
+  position:relative;
+  z-index:2;
   color:#777;
   font-size:9px;
   letter-spacing:5px;
-  margin-bottom:30px
+  margin-bottom:30px;
 }
 
 .statement h2{
+  position:relative;
+  z-index:2;
   font-size:clamp(45px,8vw,110px);
   line-height:.88;
-  letter-spacing:-3px
+  letter-spacing:-3px;
 }
 
 .statement h2 span{
-  color:#444
+  color:#444;
 }
 
-/* =========================
+/* =========================================================
    TRUST
-========================= */
+========================================================= */
 
 .trust{
   background:#fff;
-  padding:75px 25px
+  padding:75px 25px;
 }
 
 .trust-grid{
   max-width:1150px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(4,1fr)
+  grid-template-columns:repeat(4,1fr);
 }
 
 .trust-item{
   padding:20px 30px;
   text-align:center;
-  border-right:1px solid #e5e5e5
+  border-right:1px solid #e5e5e5;
 }
 
 .trust-item:last-child{
-  border-right:0
+  border-right:0;
 }
 
 .trust-icon{
   font-size:20px;
-  margin-bottom:15px
+  margin-bottom:15px;
 }
 
 .trust-item h3{
   font-size:9px;
   letter-spacing:2px;
-  margin-bottom:9px
+  margin-bottom:9px;
 }
 
 .trust-item p{
   color:#888;
   font-size:9px;
-  line-height:1.8
+  line-height:1.8;
 }
 
-/* =========================
+/* =========================================================
    STORY
-========================= */
+========================================================= */
 
 .story{
   display:grid;
   grid-template-columns:1.1fr .9fr;
   background:#111;
-  color:#fff
+  color:#fff;
 }
 
 .story-image{
   min-height:650px;
   background:
-    linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.35)),
-    url("IMG_8037.jpeg") center/cover no-repeat
+    linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,.4)),
+    url("IMG_8038.jpeg") center/cover no-repeat;
 }
 
 .story-content{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:80px
+  padding:80px;
 }
 
 .story-tag{
   color:#777;
   font-size:9px;
   letter-spacing:4px;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
 
 .story h2{
   font-size:clamp(45px,6vw,80px);
   line-height:.87;
   letter-spacing:-2px;
-  margin-bottom:30px
+  margin-bottom:30px;
 }
 
 .story p{
   color:#aaa;
   max-width:450px;
   font-size:13px;
-  line-height:2
+  line-height:2;
 }
 
 .story-btn{
@@ -893,22 +1062,28 @@ a{
   text-decoration:none;
   font-size:8px;
   font-weight:700;
-  letter-spacing:2px
+  letter-spacing:2px;
+  transition:var(--transition);
 }
 
-/* =========================
+.story-btn:hover{
+  background:#ddd;
+  transform:translateY(-3px);
+}
+
+/* =========================================================
    VALUES
-========================= */
+========================================================= */
 
 .values{
   background:#fff;
   padding:115px 25px;
-  text-align:center
+  text-align:center;
 }
 
 .values h2{
   font-size:clamp(38px,5vw,58px);
-  margin-bottom:60px
+  margin-bottom:60px;
 }
 
 .value-grid{
@@ -916,53 +1091,59 @@ a{
   margin:auto;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px
+  gap:18px;
 }
 
 .value{
   text-align:left;
   border-top:1px solid #ddd;
-  padding:28px 20px
+  padding:28px 20px;
+  transition:var(--transition);
+}
+
+.value:hover{
+  border-top-color:#111;
+  transform:translateY(-5px);
 }
 
 .value-number{
   color:#999;
   font-size:9px;
   letter-spacing:3px;
-  margin-bottom:23px
+  margin-bottom:23px;
 }
 
 .value h3{
   font-size:11px;
   letter-spacing:2px;
-  margin-bottom:13px
+  margin-bottom:13px;
 }
 
 .value p{
   color:#777;
   font-size:11px;
-  line-height:1.9
+  line-height:1.9;
 }
 
-/* =========================
+/* =========================================================
    SIZE
-========================= */
+========================================================= */
 
 .size-section{
   padding:105px 20px;
   background:var(--cream);
-  text-align:center
+  text-align:center;
 }
 
 .size-section h2{
   font-size:45px;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .size-section>p{
   color:#777;
   font-size:12px;
-  margin-bottom:35px
+  margin-bottom:35px;
 }
 
 .size-table{
@@ -970,47 +1151,51 @@ a{
   max-width:720px;
   margin:auto;
   border-collapse:collapse;
-  background:#fff
+  background:#fff;
 }
 
 .size-table th,
 .size-table td{
   border:1px solid #ddd;
   padding:15px;
-  font-size:10px
+  font-size:10px;
 }
 
 .size-table th{
   background:#111;
   color:#fff;
-  letter-spacing:1px
+  letter-spacing:1px;
 }
 
-/* =========================
+/* =========================================================
    FAQ
-========================= */
+========================================================= */
 
 .faq{
   background:#fff;
-  padding:105px 25px
+  padding:105px 25px;
 }
 
 .faq-inner{
   max-width:850px;
-  margin:auto
+  margin:auto;
 }
 
 .faq-title{
   text-align:center;
-  margin-bottom:50px
+  margin-bottom:50px;
 }
 
 .faq-title h2{
-  font-size:45px
+  font-size:45px;
 }
 
 .faq-item{
-  border-top:1px solid #ddd
+  border-top:1px solid #ddd;
+}
+
+.faq-item:last-child{
+  border-bottom:1px solid #ddd;
 }
 
 .faq-question{
@@ -1024,12 +1209,17 @@ a{
   text-align:left;
   font-size:11px;
   font-weight:700;
-  letter-spacing:1px
+  letter-spacing:1px;
 }
 
 .faq-question span{
   font-size:18px;
-  font-weight:400
+  font-weight:400;
+  transition:transform .3s ease;
+}
+
+.faq-item.open .faq-question span{
+  transform:rotate(180deg);
 }
 
 .faq-answer{
@@ -1037,27 +1227,27 @@ a{
   color:#777;
   font-size:11px;
   line-height:1.9;
-  padding:0 0 22px
+  padding:0 0 22px;
 }
 
 .faq-item.open .faq-answer{
-  display:block
+  display:block;
 }
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about{
   padding:110px 25px;
   text-align:center;
-  background:#f4f4f1
+  background:#f4f4f1;
 }
 
 .about h2{
   font-size:clamp(40px,6vw,70px);
   letter-spacing:-2px;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
 
 .about p{
@@ -1065,17 +1255,17 @@ a{
   margin:auto;
   color:#777;
   font-size:13px;
-  line-height:2
+  line-height:2;
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
   background:#0b0b0b;
   color:#777;
-  padding:70px 25px 35px
+  padding:70px 25px 35px;
 }
 
 .footer-inner{
@@ -1085,7 +1275,7 @@ footer{
   grid-template-columns:2fr 1fr 1fr;
   gap:60px;
   padding-bottom:50px;
-  border-bottom:1px solid #292929
+  border-bottom:1px solid #292929;
 }
 
 .footer-logo{
@@ -1093,20 +1283,20 @@ footer{
   font-size:30px;
   font-weight:900;
   letter-spacing:8px;
-  margin-bottom:17px
+  margin-bottom:17px;
 }
 
 .footer-brand p{
   max-width:300px;
   font-size:10px;
-  line-height:1.9
+  line-height:1.9;
 }
 
 .footer-col h3{
   color:#fff;
   font-size:9px;
   letter-spacing:2px;
-  margin-bottom:20px
+  margin-bottom:20px;
 }
 
 .footer-col a{
@@ -1114,11 +1304,11 @@ footer{
   color:#777;
   text-decoration:none;
   font-size:9px;
-  margin-bottom:12px
+  margin-bottom:12px;
 }
 
 .footer-col a:hover{
-  color:#fff
+  color:#fff;
 }
 
 .footer-bottom{
@@ -1127,12 +1317,12 @@ footer{
   display:flex;
   justify-content:space-between;
   font-size:8px;
-  letter-spacing:1.5px
+  letter-spacing:1.5px;
 }
 
-/* =========================
+/* =========================================================
    MODALS
-========================= */
+========================================================= */
 
 .overlay{
   display:none;
@@ -1141,11 +1331,11 @@ footer{
   z-index:3000;
   background:rgba(0,0,0,.78);
   padding:20px;
-  overflow:auto
+  overflow:auto;
 }
 
 .overlay.active{
-  display:block
+  display:block;
 }
 
 .modal-box{
@@ -1154,7 +1344,7 @@ footer{
   background:#fff;
   position:relative;
   display:grid;
-  grid-template-columns:1fr 1fr
+  grid-template-columns:1fr 1fr;
 }
 
 .modal-close{
@@ -1168,18 +1358,18 @@ footer{
   border-radius:50%;
   background:#111;
   color:#fff;
-  font-size:24px
+  font-size:24px;
 }
 
 .modal-gallery{
-  background:#eee
+  background:#eee;
 }
 
 .modal-main-image{
   width:100%;
   height:590px;
   object-fit:cover;
-  display:block
+  display:block;
 }
 
 .gallery-thumbs{
@@ -1187,7 +1377,7 @@ footer{
   display:flex;
   gap:7px;
   padding:8px;
-  overflow:auto
+  overflow:auto;
 }
 
 .gallery-thumb{
@@ -1195,67 +1385,67 @@ footer{
   height:70px;
   object-fit:cover;
   cursor:pointer;
-  border:2px solid transparent
+  border:2px solid transparent;
 }
 
 .gallery-thumb.active{
-  border-color:#111
+  border-color:#111;
 }
 
 .modal-info{
   padding:60px 50px;
   display:flex;
   flex-direction:column;
-  justify-content:center
+  justify-content:center;
 }
 
 .modal-label{
   color:#888;
   font-size:8px;
   letter-spacing:3px;
-  margin-bottom:13px
+  margin-bottom:13px;
 }
 
 .modal-info h2{
   font-size:34px;
-  margin-bottom:13px
+  margin-bottom:13px;
 }
 
 .modal-price{
   font-size:22px;
   font-weight:700;
-  margin-bottom:23px
+  margin-bottom:23px;
 }
 
 .modal-description{
   color:#777;
   font-size:12px;
   line-height:1.9;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
 
 .modal-option{
-  margin-bottom:17px
+  margin-bottom:17px;
 }
 
 .modal-option-title{
   font-size:8px;
   font-weight:700;
   letter-spacing:2px;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .modal-option button{
   padding:10px 13px;
   background:#fff;
   border:1px solid #ddd;
-  font-size:9px
+  font-size:9px;
 }
 
 .modal-option button.selected{
   background:#111;
   color:#fff;
-  border-color:#111
+  border-color:#111;
 }
 
 .modal-quantity{
@@ -1264,27 +1454,27 @@ footer{
   border:1px solid #ddd;
   display:flex;
   align-items:center;
-  margin-bottom:18px
+  margin-bottom:18px;
 }
 
 .modal-quantity button{
   width:40px;
   height:100%;
   border:0;
-  background:#f4f4f4
+  background:#f4f4f4;
 }
 
 .modal-quantity span{
   flex:1;
   text-align:center;
   font-size:11px;
-  font-weight:700
+  font-weight:700;
 }
 
 .modal-actions{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:7px
+  gap:7px;
 }
 
 .modal-actions button{
@@ -1292,29 +1482,29 @@ footer{
   border:0;
   font-size:8px;
   font-weight:700;
-  letter-spacing:1.5px
+  letter-spacing:1.5px;
 }
 
 .modal-add{
   background:#111;
-  color:#fff
+  color:#fff;
 }
 
 .modal-buy{
   background:#25D366;
-  color:#fff
+  color:#fff;
 }
 
-/* =========================
+/* =========================================================
    CART
-========================= */
+========================================================= */
 
 .cart-box{
   max-width:560px;
   margin:5vh auto;
   background:#fff;
   padding:30px;
-  position:relative
+  position:relative;
 }
 
 .cart-header{
@@ -1323,66 +1513,66 @@ footer{
   align-items:center;
   border-bottom:1px solid #ddd;
   padding-bottom:18px;
-  margin-bottom:5px
+  margin-bottom:5px;
 }
 
 .cart-header h2{
-  font-size:25px
+  font-size:25px;
 }
 
 .close-btn{
   border:0;
   background:none;
-  font-size:30px
+  font-size:30px;
 }
 
 .cart-empty{
   text-align:center;
   padding:45px 10px;
   color:#888;
-  font-size:12px
+  font-size:12px;
 }
 
 .cart-item{
   padding:18px 0;
-  border-bottom:1px solid #ddd
+  border-bottom:1px solid #ddd;
 }
 
 .cart-item-top{
   display:flex;
   justify-content:space-between;
-  gap:15px
+  gap:15px;
 }
 
 .cart-item-name{
   font-size:12px;
   font-weight:700;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .cart-item-details{
   color:#777;
   font-size:10px;
-  line-height:1.8
+  line-height:1.8;
 }
 
 .cart-item-price{
   font-size:12px;
   font-weight:700;
-  white-space:nowrap
+  white-space:nowrap;
 }
 
 .cart-controls{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-top:12px
+  margin-top:12px;
 }
 
 .quantity-box{
   display:flex;
   align-items:center;
-  gap:10px
+  gap:10px;
 }
 
 .quantity-box button{
@@ -1390,14 +1580,14 @@ footer{
   height:29px;
   border:0;
   background:#111;
-  color:#fff
+  color:#fff;
 }
 
 .quantity-box span{
   min-width:15px;
   text-align:center;
   font-size:11px;
-  font-weight:700
+  font-weight:700;
 }
 
 .remove-btn{
@@ -1405,35 +1595,35 @@ footer{
   background:#eee;
   padding:7px 10px;
   font-size:8px;
-  letter-spacing:1px
+  letter-spacing:1px;
 }
 
 .cart-summary{
-  padding:23px 0
+  padding:23px 0;
 }
 
 .summary-row{
   display:flex;
   justify-content:space-between;
   margin-bottom:9px;
-  font-size:11px
+  font-size:11px;
 }
 
 .summary-row.total{
   font-size:18px;
   font-weight:700;
   padding-top:12px;
-  border-top:1px solid #ddd
+  border-top:1px solid #ddd;
 }
 
 .checkout{
   border-top:1px solid #ddd;
-  padding-top:22px
+  padding-top:22px;
 }
 
 .checkout h3{
   font-size:15px;
-  margin-bottom:14px
+  margin-bottom:14px;
 }
 
 .checkout input,
@@ -1443,17 +1633,17 @@ footer{
   outline:none;
   padding:13px;
   margin-bottom:9px;
-  font-size:12px
+  font-size:12px;
 }
 
 .checkout input:focus,
 .checkout textarea:focus{
-  border-color:#111
+  border-color:#111;
 }
 
 .checkout textarea{
   height:85px;
-  resize:none
+  resize:none;
 }
 
 .whatsapp-btn{
@@ -1470,35 +1660,35 @@ footer{
   font-weight:700;
   letter-spacing:1.5px;
   margin-top:5px;
-  transition:var(--transition)
+  transition:var(--transition);
 }
 
 .whatsapp-btn:hover{
-  filter:brightness(.92)
+  filter:brightness(.92);
 }
 
 .whatsapp-btn.disabled{
   background:#aaa;
-  cursor:not-allowed
+  cursor:not-allowed;
 }
 
 .checkout-note{
   text-align:center;
   color:#999;
   font-size:8px;
-  margin-top:8px
+  margin-top:8px;
 }
 
-/* =========================
+/* =========================================================
    WISHLIST
-========================= */
+========================================================= */
 
 .wishlist-box{
   max-width:520px;
   margin:7vh auto;
   background:#fff;
   padding:28px;
-  position:relative
+  position:relative;
 }
 
 .wishlist-header{
@@ -1506,11 +1696,11 @@ footer{
   justify-content:space-between;
   align-items:center;
   padding-bottom:18px;
-  border-bottom:1px solid #ddd
+  border-bottom:1px solid #ddd;
 }
 
 .wishlist-header h2{
-  font-size:23px
+  font-size:23px;
 }
 
 .wishlist-item{
@@ -1518,40 +1708,40 @@ footer{
   gap:13px;
   align-items:center;
   padding:14px 0;
-  border-bottom:1px solid #ddd
+  border-bottom:1px solid #ddd;
 }
 
 .wishlist-item img{
   width:60px;
   height:70px;
-  object-fit:cover
+  object-fit:cover;
 }
 
 .wishlist-item-info{
-  flex:1
+  flex:1;
 }
 
 .wishlist-item-info strong{
   display:block;
   font-size:11px;
-  margin-bottom:5px
+  margin-bottom:5px;
 }
 
 .wishlist-item-info span{
   color:#777;
-  font-size:10px
+  font-size:10px;
 }
 
 .wishlist-remove{
   border:0;
   background:#eee;
   padding:8px;
-  font-size:8px
+  font-size:8px;
 }
 
-/* =========================
+/* =========================================================
    TOAST
-========================= */
+========================================================= */
 
 .toast{
   position:fixed;
@@ -1566,17 +1756,18 @@ footer{
   font-weight:700;
   opacity:0;
   pointer-events:none;
-  transition:.3s
+  transition:.3s;
+  white-space:nowrap;
 }
 
 .toast.show{
   opacity:1;
-  transform:translateX(-50%) translateY(0)
+  transform:translateX(-50%) translateY(0);
 }
 
-/* =========================
+/* =========================================================
    MOBILE MENU
-========================= */
+========================================================= */
 
 .mobile-menu{
   display:none;
@@ -1585,11 +1776,11 @@ footer{
   z-index:2000;
   background:#0b0b0b;
   color:#fff;
-  padding:100px 30px 30px
+  padding:100px 30px 30px;
 }
 
 .mobile-menu.active{
-  display:block
+  display:block;
 }
 
 .mobile-menu a{
@@ -1598,7 +1789,7 @@ footer{
   text-decoration:none;
   font-size:28px;
   font-weight:700;
-  margin-bottom:25px
+  margin-bottom:25px;
 }
 
 .mobile-menu-close{
@@ -1610,90 +1801,108 @@ footer{
   border:1px solid #444;
   background:#111;
   color:#fff;
-  font-size:25px
+  font-size:25px;
 }
 
-/* =========================
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media(max-width:1000px){
 
   .hero{
     min-height:82vh;
     height:82vh;
-    padding:0 6%
+    padding:0 6%;
   }
 
   .hero h1{
-    font-size:clamp(70px,12vw,120px)
+    font-size:clamp(70px,12vw,120px);
   }
 
   .products{
-    grid-template-columns:repeat(2,1fr)
+    grid-template-columns:repeat(2,1fr);
   }
 
   .product-image{
-    height:400px
+    height:400px;
   }
 
   .trust-grid{
-    grid-template-columns:repeat(2,1fr)
+    grid-template-columns:repeat(2,1fr);
   }
 
   .trust-item:nth-child(2){
-    border-right:0
+    border-right:0;
   }
 
   .trust-item{
-    border-bottom:1px solid #e5e5e5
+    border-bottom:1px solid #e5e5e5;
   }
 
   .story{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .story-image{
-    min-height:500px
+    min-height:500px;
   }
 
   .story-content{
-    padding:70px 40px
+    padding:70px 40px;
   }
 
   .modal-box{
     grid-template-columns:1fr;
-    max-width:650px
+    max-width:650px;
   }
 
   .modal-main-image{
-    height:500px
+    height:500px;
   }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:700px){
 
   .top-bar{
+    min-height:27px;
     font-size:6px;
-    letter-spacing:1.5px
+    letter-spacing:1.5px;
   }
 
   .navbar{
     height:64px;
-    padding:0 14px
+    padding:0 14px;
   }
 
   .logo{
     font-size:20px;
-    letter-spacing:5px
+    letter-spacing:5px;
   }
 
   .nav-links{
-    display:none
+    display:none;
   }
 
   .mobile-menu-btn{
@@ -1706,26 +1915,25 @@ footer{
     background:#151515;
     color:#fff;
     font-size:18px;
-    order:-1
+    order:-1;
   }
 
   .nav-actions{
-    margin-left:auto
+    margin-left:auto;
   }
 
   .nav-icon{
     min-width:38px;
     height:38px;
-    font-size:9px
+    font-size:9px;
   }
 
   .hero{
-    min-height:82vh;
-    height:82vh;
+    min-height:calc(100vh - 91px);
+    height:calc(100vh - 91px);
     padding:0 22px 55px;
     align-items:flex-end;
     background-position:center center;
-    animation:none
   }
 
   .hero::before{
@@ -1733,273 +1941,314 @@ footer{
       linear-gradient(
         180deg,
         rgba(0,0,0,.08) 0%,
-        rgba(0,0,0,.25) 35%,
-        rgba(0,0,0,.94) 100%
-      )
+        rgba(0,0,0,.3) 35%,
+        rgba(0,0,0,.95) 100%
+      );
   }
 
   .hero::after{
-    inset:10px
+    inset:10px;
+  }
+
+  .hero-bg-number{
+    font-size:180px;
+    right:-20px;
+    bottom:-20px;
   }
 
   .hero-content{
     width:100%;
     max-width:none;
     padding:0;
-    animation:heroContentIn .8s ease both
   }
 
-  .hero-content::before{
+  .hero-kicker{
     margin-bottom:17px;
     font-size:7px;
-    letter-spacing:2px
+    letter-spacing:2px;
+  }
+
+  .hero-kicker span{
+    width:22px;
   }
 
   .hero h1{
     margin:0 0 18px;
-    font-size:clamp(58px,18vw,82px);
+    font-size:clamp(62px,19vw,88px);
     line-height:.82;
-    letter-spacing:-3px;
-    animation:heroLogoIn .8s ease both
+    letter-spacing:-4px;
   }
 
   .hero-subtitle{
     max-width:330px;
     font-size:9px;
     line-height:1.7;
-    letter-spacing:3px
+    letter-spacing:3px;
   }
 
   .hero-actions{
     width:100%;
     margin-top:25px;
-    gap:8px
+    gap:8px;
   }
 
   .hero-btn{
     width:100%;
-    min-height:52px
+    min-height:52px;
+  }
+
+  .hero-meta{
+    display:none;
   }
 
   .hero-scroll{
-    display:none
+    display:none;
+  }
+
+  .winter-ticker{
+    height:47px;
+  }
+
+  .winter-track span{
+    font-size:7px;
+    padding:0 20px;
   }
 
   .intro{
-    padding:75px 20px 60px
+    padding:75px 20px 60px;
   }
 
   .intro h2{
-    font-size:35px
+    font-size:35px;
   }
 
   .drop{
-    padding:15px 10px 75px
+    padding:15px 10px 75px;
   }
 
   .section-head{
-    padding:0 10px
+    padding:0 10px;
   }
 
   .section-head h2{
-    font-size:28px
+    font-size:28px;
   }
 
   .filters{
     padding:0 10px;
     overflow:auto;
-    flex-wrap:nowrap
+    flex-wrap:nowrap;
   }
 
   .filter-btn{
-    white-space:nowrap
+    white-space:nowrap;
   }
 
   .products{
     grid-template-columns:1fr 1fr;
-    gap:7px
+    gap:7px;
   }
 
   .product-image{
-    height:245px
+    height:245px;
   }
 
   .quick-add{
-    display:none
+    display:none;
   }
 
   .product-info{
-    padding:13px 9px 12px
+    padding:13px 9px 12px;
   }
 
   .product-name{
-    font-size:9px
+    font-size:9px;
   }
 
   .product-type{
-    font-size:7px
+    font-size:7px;
   }
 
   .price{
-    font-size:11px
+    font-size:11px;
   }
 
   .color-btn{
     padding:6px 6px;
-    font-size:7px
+    font-size:7px;
   }
 
   .size-btn{
     width:28px;
     height:28px;
-    font-size:7px
+    font-size:7px;
   }
 
   .product-actions{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .product-actions button{
-    min-height:39px
+    min-height:39px;
   }
 
   .statement{
-    min-height:520px
+    min-height:520px;
   }
 
   .statement h2{
-    font-size:42px
+    font-size:42px;
   }
 
   .trust-grid{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   .trust-item{
-    padding:18px 10px
+    padding:18px 10px;
   }
 
   .story-image{
-    min-height:350px
+    min-height:350px;
   }
 
   .story-content{
-    padding:55px 25px
+    padding:55px 25px;
   }
 
   .value-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .values{
-    padding:75px 20px
+    padding:75px 20px;
   }
 
   .size-section{
     padding:75px 12px;
-    overflow-x:auto
+    overflow-x:auto;
   }
 
   .size-table{
-    min-width:540px
+    min-width:540px;
   }
 
   .faq{
-    padding:75px 20px
+    padding:75px 20px;
   }
 
   .faq-title h2{
-    font-size:35px
+    font-size:35px;
   }
 
   .about{
-    padding:80px 20px
+    padding:80px 20px;
   }
 
   .footer-inner{
     grid-template-columns:1fr 1fr;
-    gap:35px
+    gap:35px;
   }
 
   .footer-brand{
-    grid-column:1/-1
+    grid-column:1/-1;
   }
 
   .footer-bottom{
     flex-direction:column;
     text-align:center;
-    gap:10px
+    gap:10px;
   }
 
   .modal-info{
-    padding:30px 22px
+    padding:30px 22px;
   }
 
   .modal-main-image{
-    height:390px
+    height:390px;
   }
 
   .modal-actions{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .cart-box,
   .wishlist-box{
     margin:15px auto;
-    padding:22px
+    padding:22px;
+  }
+
+  .toast{
+    max-width:90%;
+    text-align:center;
+    white-space:normal;
   }
 }
 
-/* =========================
+/* =========================================================
    SMALL MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:400px){
 
   .nav-icon{
     min-width:34px;
-    padding:0 6px
+    padding:0 6px;
   }
 
   .hero{
-    min-height:80vh;
-    height:80vh;
     padding-left:18px;
     padding-right:18px;
-    padding-bottom:45px
+    padding-bottom:45px;
   }
 
   .hero h1{
     font-size:58px;
-    letter-spacing:-2px
+    letter-spacing:-2px;
   }
 
-  .hero-content::before{
+  .hero-kicker{
     font-size:6px;
-    letter-spacing:1.5px
+    letter-spacing:1.5px;
   }
 
   .hero-subtitle{
     font-size:8px;
-    letter-spacing:2.5px
+    letter-spacing:2.5px;
   }
 
   .products{
-    gap:5px
+    gap:5px;
   }
 
   .product-image{
-    height:220px
+    height:220px;
   }
 
   .product-info{
-    padding:11px 7px
+    padding:11px 7px;
   }
 
   .wishlist-btn{
     width:33px;
     height:33px;
-    font-size:15px
+    font-size:15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition-duration:.01ms !important;
   }
 }
 </style>
@@ -2007,9 +2256,53 @@ footer{
 
 <body>
 
-<div class="top-bar">
-  FREE DELIVERY ON SELECTED ORDERS • VYRO DROP 01
+<!-- =======================================================
+     LOADER
+======================================================= -->
+
+<div class="page-loader" id="pageLoader">
+
+  <div class="loader-logo">
+    VYRO
+  </div>
+
+  <div class="loader-line">
+    <span></span>
+  </div>
+
 </div>
+
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
+
+<div class="top-bar">
+
+  <div class="top-bar-track">
+
+    <span>VYRO WINTER '26</span>
+    <span>•</span>
+    <span>DROP 01</span>
+    <span>•</span>
+    <span>WEAR YOUR VISION</span>
+    <span>•</span>
+    <span>FREE DELIVERY ON SELECTED ORDERS</span>
+
+    <span>VYRO WINTER '26</span>
+    <span>•</span>
+    <span>DROP 01</span>
+    <span>•</span>
+    <span>WEAR YOUR VISION</span>
+    <span>•</span>
+    <span>FREE DELIVERY ON SELECTED ORDERS</span>
+
+  </div>
+
+</div>
+
+<!-- =======================================================
+     NAVBAR
+======================================================= -->
 
 <nav class="navbar">
 
@@ -2017,15 +2310,22 @@ footer{
     class="mobile-menu-btn"
     type="button"
     onclick="openMobileMenu()"
-  >☰</button>
+    aria-label="Open menu"
+  >
+    ☰
+  </button>
 
-  <a href="#home" class="logo">VYRO</a>
+  <a href="#home" class="logo">
+    VYRO
+  </a>
 
   <div class="nav-links">
+
     <a href="#home">Home</a>
     <a href="#drop">Shop</a>
     <a href="#story">Story</a>
     <a href="#about">About</a>
+
   </div>
 
   <div class="nav-actions">
@@ -2034,21 +2334,29 @@ footer{
       class="nav-icon"
       type="button"
       onclick="openWishlist()"
+      aria-label="Wishlist"
     >
-      ♡ <span id="wishlistCount" class="nav-count">0</span>
+      ♡
+      <span id="wishlistCount" class="nav-count">0</span>
     </button>
 
     <button
       class="nav-icon"
       type="button"
       onclick="openCart()"
+      aria-label="Cart"
     >
-      🛒 <span id="navCartCount" class="nav-count">0</span>
+      🛒
+      <span id="navCartCount" class="nav-count">0</span>
     </button>
 
   </div>
 
 </nav>
+
+<!-- =======================================================
+     MOBILE MENU
+======================================================= -->
 
 <div class="mobile-menu" id="mobileMenu">
 
@@ -2056,7 +2364,9 @@ footer{
     class="mobile-menu-close"
     type="button"
     onclick="closeMobileMenu()"
-  >×</button>
+  >
+    ×
+  </button>
 
   <a href="#home" onclick="closeMobileMenu()">HOME</a>
   <a href="#drop" onclick="closeMobileMenu()">SHOP</a>
@@ -2065,32 +2375,58 @@ footer{
 
 </div>
 
+<!-- =======================================================
+     HERO
+======================================================= -->
+
 <section class="hero" id="home">
+
+  <div class="hero-bg-number">
+    26
+  </div>
 
   <div class="hero-content">
 
     <div class="hero-kicker">
       <span></span>
-     VYRO / WINTER '26
+      VYRO / <strong>WINTER '26</strong>
     </div>
 
-    <h1>VYRO</h1>
+    <h1>
+      VYRO
+    </h1>
 
     <div class="hero-subtitle">
+      WINTER DROP 01
+      <span>—</span>
       WEAR YOUR VISION
     </div>
 
     <div class="hero-actions">
 
-      <a href="#drop" class="hero-btn primary">
+      <a
+        href="#drop"
+        class="hero-btn primary"
+      >
         SHOP THE DROP →
       </a>
 
-      <a href="#story" class="hero-btn outline">
+      <a
+        href="#story"
+        class="hero-btn outline"
+      >
         EXPLORE VYRO
       </a>
 
     </div>
+
+  </div>
+
+  <div class="hero-meta">
+
+    <span>EGYPT</span>
+    <span>EST. 2026</span>
+    <span>DROP 01</span>
 
   </div>
 
@@ -2100,43 +2436,82 @@ footer{
 
 </section>
 
-<section class="intro">
+<!-- =======================================================
+     WINTER TICKER
+======================================================= -->
+
+<div class="winter-ticker">
+
+  <div class="winter-track">
+
+    <span>WINTER '26 <i>✦</i></span>
+    <span>VYRO DROP 01 <i>✦</i></span>
+    <span>MINIMAL DESIGN <i>✦</i></span>
+    <span>STRONG IDENTITY <i>✦</i></span>
+    <span>WEAR YOUR VISION <i>✦</i></span>
+
+    <span>WINTER '26 <i>✦</i></span>
+    <span>VYRO DROP 01 <i>✦</i></span>
+    <span>MINIMAL DESIGN <i>✦</i></span>
+    <span>STRONG IDENTITY <i>✦</i></span>
+    <span>WEAR YOUR VISION <i>✦</i></span>
+
+  </div>
+
+</div>
+
+<!-- =======================================================
+     INTRO
+======================================================= -->
+
+<section class="intro reveal">
 
   <div class="eyebrow">
-    NEW COLLECTION
+    NEW SEASON
   </div>
 
   <h2>
-    THE LATEST DROP
+    THE WINTER DROP
   </h2>
 
   <p>
-    Minimal pieces. Strong identity. Designed for everyday movement and created for people who wear their vision.
+    Built for colder days. Designed for everyday movement.
+    Winter '26 brings VYRO's cleanest silhouettes together with
+    a stronger identity and a heavier feel.
   </p>
 
 </section>
 
+<!-- =======================================================
+     PRODUCTS
+======================================================= -->
+
 <section class="drop" id="drop">
 
-  <div class="section-head">
+  <div class="section-head reveal">
 
     <div>
+
       <div class="section-label">
-        VYRO / DROP 01
+        VYRO / WINTER '26
       </div>
 
       <h2>
         Latest Drop
       </h2>
+
     </div>
 
-    <a href="#drop" class="view-all">
+    <a
+      href="#drop"
+      class="view-all"
+    >
       SHOP ALL
     </a>
 
   </div>
 
-  <div class="filters">
+  <div class="filters reveal">
 
     <button
       class="filter-btn active"
@@ -2161,11 +2536,18 @@ footer{
 
   </div>
 
-  <div class="products" id="productsGrid"></div>
+  <div
+    class="products"
+    id="productsGrid"
+  ></div>
 
 </section>
 
-<section class="statement">
+<!-- =======================================================
+     STATEMENT
+======================================================= -->
+
+<section class="statement reveal">
 
   <div class="statement-small">
     VYRO PHILOSOPHY
@@ -2179,47 +2561,90 @@ footer{
 
 </section>
 
-<section class="trust">
+<!-- =======================================================
+     TRUST
+======================================================= -->
+
+<section class="trust reveal">
 
   <div class="trust-grid">
 
     <div class="trust-item">
-      <div class="trust-icon">✦</div>
-      <h3>QUALITY FIRST</h3>
+
+      <div class="trust-icon">
+        ✦
+      </div>
+
+      <h3>
+        QUALITY FIRST
+      </h3>
+
       <p>
         Selected materials and attention to the details that matter.
       </p>
+
     </div>
 
     <div class="trust-item">
-      <div class="trust-icon">↗</div>
-      <h3>FAST DELIVERY</h3>
+
+      <div class="trust-icon">
+        ↗
+      </div>
+
+      <h3>
+        FAST DELIVERY
+      </h3>
+
       <p>
         Simple ordering and delivery across Egypt.
       </p>
+
     </div>
 
     <div class="trust-item">
-      <div class="trust-icon">↻</div>
-      <h3>EASY EXCHANGE</h3>
+
+      <div class="trust-icon">
+        ↻
+      </div>
+
+      <h3>
+        EASY EXCHANGE
+      </h3>
+
       <p>
         We want you to feel right in every VYRO piece.
       </p>
+
     </div>
 
     <div class="trust-item">
-      <div class="trust-icon">◆</div>
-      <h3>LOCAL BRAND</h3>
+
+      <div class="trust-icon">
+        ◆
+      </div>
+
+      <h3>
+        LOCAL BRAND
+      </h3>
+
       <p>
         Built locally with a modern vision and strong identity.
       </p>
+
     </div>
 
   </div>
 
 </section>
 
-<section class="story" id="story">
+<!-- =======================================================
+     STORY
+======================================================= -->
+
+<section
+  class="story reveal"
+  id="story"
+>
 
   <div class="story-image"></div>
 
@@ -2236,12 +2661,16 @@ footer{
     </h2>
 
     <p>
-      VYRO was created around one simple idea: clothing should feel like an extension of your identity.
+      VYRO was created around one simple idea:
+      clothing should feel like an extension of your identity.
       <br><br>
       Minimal design. Strong presence. No unnecessary noise.
     </p>
 
-    <a href="#about" class="story-btn">
+    <a
+      href="#about"
+      class="story-btn"
+    >
       DISCOVER VYRO
     </a>
 
@@ -2249,7 +2678,11 @@ footer{
 
 </section>
 
-<section class="values">
+<!-- =======================================================
+     VALUES
+======================================================= -->
+
+<section class="values reveal">
 
   <h2>
     WHY VYRO?
@@ -2300,7 +2733,8 @@ footer{
       </h3>
 
       <p>
-        VYRO isn't about following everyone. It's about wearing your own vision.
+        VYRO isn't about following everyone.
+        It's about wearing your own vision.
       </p>
 
     </div>
@@ -2309,7 +2743,11 @@ footer{
 
 </section>
 
-<section class="size-section">
+<!-- =======================================================
+     SIZE GUIDE
+======================================================= -->
+
+<section class="size-section reveal">
 
   <div class="eyebrow">
     FIND YOUR FIT
@@ -2371,7 +2809,11 @@ footer{
 
 </section>
 
-<section class="faq">
+<!-- =======================================================
+     FAQ
+======================================================= -->
+
+<section class="faq reveal">
 
   <div class="faq-inner">
 
@@ -2390,12 +2832,19 @@ footer{
     <div class="faq-item">
 
       <button class="faq-question">
+
         HOW DO I ORDER?
+
         <span>+</span>
+
       </button>
 
       <div class="faq-answer">
-        Choose your product, select your color and size, then click ORDER NOW or add it to your cart. Cart orders can be sent directly to VYRO through WhatsApp.
+
+        Choose your product, select your color and size,
+        then click ORDER NOW or add it to your cart.
+        Cart orders can be sent directly to VYRO through WhatsApp.
+
       </div>
 
     </div>
@@ -2403,12 +2852,19 @@ footer{
     <div class="faq-item">
 
       <button class="faq-question">
+
         DO YOU DELIVER ACROSS EGYPT?
+
         <span>+</span>
+
       </button>
 
       <div class="faq-answer">
-        Yes. VYRO delivers across Egypt. Delivery details can be confirmed with you through WhatsApp after placing the order.
+
+        Yes. VYRO delivers across Egypt.
+        Delivery details can be confirmed with you through WhatsApp
+        after placing the order.
+
       </div>
 
     </div>
@@ -2416,12 +2872,18 @@ footer{
     <div class="faq-item">
 
       <button class="faq-question">
+
         CAN I EXCHANGE MY ORDER?
+
         <span>+</span>
+
       </button>
 
       <div class="faq-answer">
-        Yes. Exchange requests can be discussed with the VYRO team through WhatsApp so we can help you with the next steps.
+
+        Yes. Exchange requests can be discussed with the VYRO team
+        through WhatsApp so we can help you with the next steps.
+
       </div>
 
     </div>
@@ -2429,12 +2891,18 @@ footer{
     <div class="faq-item">
 
       <button class="faq-question">
+
         HOW CAN I CONTACT VYRO?
+
         <span>+</span>
+
       </button>
 
       <div class="faq-answer">
-        You can contact VYRO directly through WhatsApp or the WhatsApp contact in the footer.
+
+        You can contact VYRO directly through WhatsApp
+        or the WhatsApp contact in the footer.
+
       </div>
 
     </div>
@@ -2443,7 +2911,14 @@ footer{
 
 </section>
 
-<section class="about" id="about">
+<!-- =======================================================
+     ABOUT
+======================================================= -->
+
+<section
+  class="about reveal"
+  id="about"
+>
 
   <div class="eyebrow">
     ABOUT VYRO
@@ -2454,21 +2929,31 @@ footer{
   </h2>
 
   <p>
-    VYRO is a modern local clothing brand built for people who believe style is more than just what you wear.
+    VYRO is a modern local clothing brand built for people
+    who believe style is more than just what you wear.
     <br><br>
     Minimal design. Strong identity. Everyday pieces.
   </p>
 
 </section>
 
-<div class="overlay" id="productModal">
+<!-- =======================================================
+     PRODUCT MODAL
+======================================================= -->
+
+<div
+  class="overlay"
+  id="productModal"
+>
 
   <div class="modal-box">
 
     <button
       class="modal-close"
       onclick="closeProduct()"
-    >×</button>
+    >
+      ×
+    </button>
 
     <div class="modal-gallery">
 
@@ -2516,7 +3001,8 @@ footer{
       </div>
 
       <p class="modal-description">
-        A VYRO piece designed with a clean silhouette, everyday comfort and our signature identity.
+        A VYRO piece designed with a clean silhouette,
+        everyday comfort and our signature identity.
       </p>
 
       <div class="modal-option">
@@ -2589,7 +3075,14 @@ footer{
 
 </div>
 
-<div class="overlay" id="cart">
+<!-- =======================================================
+     CART
+======================================================= -->
+
+<div
+  class="overlay"
+  id="cart"
+>
 
   <div class="cart-box">
 
@@ -2602,7 +3095,9 @@ footer{
       <button
         class="close-btn"
         onclick="closeCart()"
-      >×</button>
+      >
+        ×
+      </button>
 
     </div>
 
@@ -2611,24 +3106,39 @@ footer{
     <div class="cart-summary">
 
       <div class="summary-row">
-        <span>SUBTOTAL</span>
+
+        <span>
+          SUBTOTAL
+        </span>
+
         <strong>
           <span id="cartSubtotal">0</span> EGP
         </strong>
+
       </div>
 
       <div class="summary-row">
-        <span>DELIVERY</span>
+
+        <span>
+          DELIVERY
+        </span>
+
         <strong>
           CONFIRM VIA WHATSAPP
         </strong>
+
       </div>
 
       <div class="summary-row total">
-        <span>TOTAL</span>
+
+        <span>
+          TOTAL
+        </span>
+
         <strong>
           <span id="cartTotal">0</span> EGP
         </strong>
+
       </div>
 
     </div>
@@ -2678,7 +3188,14 @@ footer{
 
 </div>
 
-<div class="overlay" id="wishlistPanel">
+<!-- =======================================================
+     WISHLIST
+======================================================= -->
+
+<div
+  class="overlay"
+  id="wishlistPanel"
+>
 
   <div class="wishlist-box">
 
@@ -2691,7 +3208,9 @@ footer{
       <button
         class="close-btn"
         onclick="closeWishlist()"
-      >×</button>
+      >
+        ×
+      </button>
 
     </div>
 
@@ -2701,7 +3220,18 @@ footer{
 
 </div>
 
-<div class="toast" id="toast"></div>
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer>
 
@@ -2790,6 +3320,11 @@ footer{
 </footer>
 
 <script>
+
+/* =========================================================
+   CONFIG
+========================================================= */
+
 const WHATSAPP_NUMBER="201129327133";
 
 const STORAGE_CART="vyro_cart_v3";
@@ -2803,12 +3338,20 @@ let wishlist=JSON.parse(
   localStorage.getItem(STORAGE_WISH)||"[]"
 );
 
+/* =========================================================
+   PRODUCT STATE
+========================================================= */
+
 let productState=[
   {color:"Black",size:"S",quantity:1},
   {color:"Black",size:"S",quantity:1},
   {color:"Black",size:"S",quantity:1},
   {color:"Black",size:"S",quantity:1}
 ];
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
 
 const products=[
 
@@ -2819,9 +3362,22 @@ const products=[
     category:"tee",
     price:400,
     image:"IMG_8035.jpeg",
-    images:["IMG_8035.jpeg","IMG_8036.jpeg"],
-    colors:["Black","White","Grey"],
-    sizes:["S","M","L","XL","XXL"],
+    images:[
+      "IMG_8035.jpeg",
+      "IMG_8036.jpeg"
+    ],
+    colors:[
+      "Black",
+      "White",
+      "Grey"
+    ],
+    sizes:[
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
     badge:"NEW"
   },
 
@@ -2832,9 +3388,22 @@ const products=[
     category:"tee",
     price:450,
     image:"IMG_8036.jpeg",
-    images:["IMG_8036.jpeg","IMG_8035.jpeg"],
-    colors:["Black","White","Beige"],
-    sizes:["S","M","L","XL","XXL"],
+    images:[
+      "IMG_8036.jpeg",
+      "IMG_8035.jpeg"
+    ],
+    colors:[
+      "Black",
+      "White",
+      "Beige"
+    ],
+    sizes:[
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
     badge:"NEW"
   },
 
@@ -2845,9 +3414,22 @@ const products=[
     category:"tee",
     price:450,
     image:"IMG_8037.jpeg",
-    images:["IMG_8037.jpeg","IMG_8035.jpeg"],
-    colors:["Black","Grey","Off White"],
-    sizes:["S","M","L","XL","XXL"],
+    images:[
+      "IMG_8037.jpeg",
+      "IMG_8035.jpeg"
+    ],
+    colors:[
+      "Black",
+      "Grey",
+      "Off White"
+    ],
+    sizes:[
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
     badge:"LIMITED"
   },
 
@@ -2858,13 +3440,30 @@ const products=[
     category:"hoodie",
     price:750,
     image:"IMG_8038.jpeg",
-    images:["IMG_8038.jpeg","IMG_8037.jpeg"],
-    colors:["Black","Grey","Off White"],
-    sizes:["S","M","L","XL","XXL"],
+    images:[
+      "IMG_8038.jpeg",
+      "IMG_8037.jpeg"
+    ],
+    colors:[
+      "Black",
+      "Grey",
+      "Off White"
+    ],
+    sizes:[
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
     badge:"NEW"
   }
 
 ];
+
+/* =========================================================
+   STORAGE
+========================================================= */
 
 function saveData(){
 
@@ -2880,9 +3479,14 @@ function saveData(){
 
 }
 
+/* =========================================================
+   TOAST
+========================================================= */
+
 function showToast(message){
 
-  const toast=document.getElementById("toast");
+  const toast=
+    document.getElementById("toast");
 
   toast.innerText=message;
 
@@ -2891,177 +3495,260 @@ function showToast(message){
   clearTimeout(window.toastTimer);
 
   window.toastTimer=setTimeout(
-    ()=>toast.classList.remove("show"),
-    2000
+    ()=>{
+      toast.classList.remove("show");
+    },
+    2200
   );
 
 }
 
+/* =========================================================
+   PRODUCTS RENDER
+========================================================= */
+
 function renderProducts(filter="all"){
 
-  const grid=document.getElementById("productsGrid");
+  const grid=
+    document.getElementById("productsGrid");
 
   const list=products
     .map((p,i)=>({p,i}))
     .filter(
-      x=>filter==="all"||x.p.category===filter
+      x=>
+        filter==="all"||
+        x.p.category===filter
     );
 
-  grid.innerHTML=list.map(({p,i})=>`
-
-    <div class="product">
+  grid.innerHTML=list
+    .map(({p,i},visualIndex)=>`
 
       <div
-        class="product-image"
-        onclick="openProduct(${i})"
+        class="product"
+        style="animation-delay:${visualIndex*.08}s"
       >
 
-        <div class="badge ${p.badge==="LIMITED"?"limited":""}">
-          ${p.badge}
+        <div
+          class="product-image"
+          onclick="openProduct(${i})"
+        >
+
+          <div class="badge ${
+            p.badge==="LIMITED"
+            ?"limited"
+            :""
+          }">
+
+            ${p.badge}
+
+          </div>
+
+          <button
+            class="wishlist-btn ${
+              wishlist.some(
+                x=>x.name===p.name
+              )
+              ?"active"
+              :""
+            }"
+            id="wishBtn${i}"
+            onclick="
+              event.stopPropagation();
+              toggleWishlist(${i})
+            "
+            aria-label="Add to wishlist"
+          >
+
+            ${
+              wishlist.some(
+                x=>x.name===p.name
+              )
+              ?"♥"
+              :"♡"
+            }
+
+          </button>
+
+          <img
+            class="main-image"
+            src="${p.images[0]}"
+            alt="${p.name}"
+            loading="lazy"
+          >
+
+          <img
+            class="second-image"
+            src="${p.images[1]||p.images[0]}"
+            alt="${p.name}"
+            loading="lazy"
+          >
+
+          <button
+            class="quick-add"
+            onclick="
+              event.stopPropagation();
+              openProduct(${i})
+            "
+          >
+            QUICK VIEW
+          </button>
+
         </div>
 
-        <button
-          class="wishlist-btn ${wishlist.some(x=>x.name===p.name)?"active":""}"
-          id="wishBtn${i}"
-          onclick="event.stopPropagation();toggleWishlist(${i})"
-        >
-          ${wishlist.some(x=>x.name===p.name)?"♥":"♡"}
-        </button>
+        <div class="product-info">
 
-        <img
-          class="main-image"
-          src="${p.images[0]}"
-          alt="${p.name}"
-        >
+          <div class="product-top">
 
-        <img
-          class="second-image"
-          src="${p.images[1]||p.images[0]}"
-          alt="${p.name}"
-        >
+            <div>
 
-        <button
-          class="quick-add"
-          onclick="event.stopPropagation();openProduct(${i})"
-        >
-          QUICK VIEW
-        </button>
+              <div class="product-name">
+                ${p.short}
+              </div>
 
-      </div>
+              <div class="product-type">
+                ${p.type}
+              </div>
 
-      <div class="product-info">
-
-        <div class="product-top">
-
-          <div>
-
-            <div class="product-name">
-              ${p.short}
             </div>
 
-            <div class="product-type">
-              ${p.type}
+            <div class="price">
+              ${p.price} EGP
             </div>
 
           </div>
 
-          <div class="price">
-            ${p.price} EGP
+          <div class="option-title">
+            COLOR
           </div>
 
-        </div>
+          <div class="color-options">
 
-        <div class="option-title">
-          COLOR
-        </div>
+            ${p.colors.map((c,j)=>`
 
-        <div class="color-options">
+              <button
+                class="color-btn ${
+                  productState[i].color===c
+                  ?"selected"
+                  :j===0 &&
+                    !p.colors.includes(
+                      productState[i].color
+                    )
+                  ?"selected"
+                  :""
+                }"
+                onclick="
+                  selectColor(
+                    ${i},
+                    this,
+                    '${c}'
+                  )
+                "
+              >
+                ${c}
+              </button>
 
-          ${p.colors.map((c,j)=>`
+            `).join("")}
+
+          </div>
+
+          <div class="option-title">
+            SIZE
+          </div>
+
+          <div class="size-options">
+
+            ${p.sizes.map((s,j)=>`
+
+              <button
+                class="size-btn ${
+                  productState[i].size===s
+                  ?"selected"
+                  :j===0 &&
+                    !p.sizes.includes(
+                      productState[i].size
+                    )
+                  ?"selected"
+                  :""
+                }"
+                onclick="
+                  selectSize(
+                    ${i},
+                    this,
+                    '${s}'
+                  )
+                "
+              >
+                ${s}
+              </button>
+
+            `).join("")}
+
+          </div>
+
+          <div class="quantity-row">
 
             <button
-              class="color-btn ${
-                productState[i].color===c
-                ?"selected"
-                :j===0&&!p.colors.includes(productState[i].color)
-                ?"selected"
-                :""
-              }"
-              onclick="selectColor(${i},this,'${c}')"
+              onclick="
+                changeProductQuantity(
+                  ${i},
+                  -1
+                )
+              "
             >
-              ${c}
+              −
             </button>
 
-          `).join("")}
-
-        </div>
-
-        <div class="option-title">
-          SIZE
-        </div>
-
-        <div class="size-options">
-
-          ${p.sizes.map((s,j)=>`
+            <span id="qty${i}">
+              ${productState[i].quantity}
+            </span>
 
             <button
-              class="size-btn ${
-                productState[i].size===s
-                ?"selected"
-                :j===0&&!p.sizes.includes(productState[i].size)
-                ?"selected"
-                :""
-              }"
-              onclick="selectSize(${i},this,'${s}')"
+              onclick="
+                changeProductQuantity(
+                  ${i},
+                  1
+                )
+              "
             >
-              ${s}
+              +
             </button>
 
-          `).join("")}
+          </div>
 
-        </div>
+          <div class="product-actions">
 
-        <div class="quantity-row">
+            <button
+              class="add-btn"
+              onclick="
+                addSelectedToCart(${i})
+              "
+            >
+              ADD TO CART
+            </button>
 
-          <button onclick="changeProductQuantity(${i},-1)">
-            −
-          </button>
+            <button
+              class="order-btn"
+              onclick="
+                buySelectedNow(${i})
+              "
+            >
+              ORDER NOW
+            </button>
 
-          <span id="qty${i}">
-            ${productState[i].quantity}
-          </span>
-
-          <button onclick="changeProductQuantity(${i},1)">
-            +
-          </button>
-
-        </div>
-
-        <div class="product-actions">
-
-          <button
-            class="add-btn"
-            onclick="addSelectedToCart(${i})"
-          >
-            ADD TO CART
-          </button>
-
-          <button
-            class="order-btn"
-            onclick="buySelectedNow(${i})"
-          >
-            ORDER NOW
-          </button>
+          </div>
 
         </div>
 
       </div>
 
-    </div>
-
-  `).join("");
+    `)
+    .join("");
 
 }
+
+/* =========================================================
+   FILTER
+========================================================= */
 
 function filterProducts(filter,button){
 
@@ -3077,7 +3764,15 @@ function filterProducts(filter,button){
 
 }
 
-function selectColor(i,button,color){
+/* =========================================================
+   COLOR / SIZE
+========================================================= */
+
+function selectColor(
+  i,
+  button,
+  color
+){
 
   productState[i].color=color;
 
@@ -3091,7 +3786,11 @@ function selectColor(i,button,color){
 
 }
 
-function selectSize(i,button,size){
+function selectSize(
+  i,
+  button,
+  size
+){
 
   productState[i].size=size;
 
@@ -3105,19 +3804,31 @@ function selectSize(i,button,size){
 
 }
 
-function changeProductQuantity(i,amount){
+/* =========================================================
+   PRODUCT QUANTITY
+========================================================= */
+
+function changeProductQuantity(
+  i,
+  amount
+){
 
   let q=Math.max(
     1,
     Math.min(
       20,
-      (Number(productState[i].quantity)||1)+amount
+      (Number(
+        productState[i].quantity
+      )||1)+amount
     )
   );
 
   productState[i].quantity=q;
 
-  const el=document.getElementById("qty"+i);
+  const el=
+    document.getElementById(
+      "qty"+i
+    );
 
   if(el){
     el.innerText=q;
@@ -3125,10 +3836,17 @@ function changeProductQuantity(i,amount){
 
 }
 
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
 function addSelectedToCart(i){
 
-  const s=productState[i];
-  const p=products[i];
+  const s=
+    productState[i];
+
+  const p=
+    products[i];
 
   addProductToCart(
     p,
@@ -3154,12 +3872,13 @@ function addProductToCart(
     )
   );
 
-  const existing=cart.find(
-    x=>
-      x.name===product.name &&
-      x.color===color &&
-      x.size===size
-  );
+  const existing=
+    cart.find(
+      x=>
+        x.name===product.name &&
+        x.color===color &&
+        x.size===size
+    );
 
   if(existing){
 
@@ -3171,12 +3890,19 @@ function addProductToCart(
   }else{
 
     cart.push({
+
       name:product.name,
+
       price:product.price,
+
       image:product.image,
+
       color,
+
       size,
+
       quantity
+
     });
 
   }
@@ -3186,15 +3912,23 @@ function addProductToCart(
   updateCart();
 
   showToast(
-    product.name+" added to cart ✓"
+    product.name+
+    " added to cart ✓"
   );
 
 }
 
+/* =========================================================
+   BUY NOW
+========================================================= */
+
 function buySelectedNow(i){
 
-  const s=productState[i];
-  const p=products[i];
+  const s=
+    productState[i];
+
+  const p=
+    products[i];
 
   buyDirect(
     p,
@@ -3212,7 +3946,8 @@ function buyDirect(
   quantity
 ){
 
-  const total=product.price*quantity;
+  const total=
+    product.price*quantity;
 
   const message=`Hello VYRO! 👋
 
@@ -3245,23 +3980,29 @@ function openWhatsApp(message){
 
 }
 
-/* =========================
+/* =========================================================
    PRODUCT MODAL
-========================= */
+========================================================= */
 
 let currentProductIndex=0;
+
 let modalColor="Black";
+
 let modalSize="S";
+
 let modalQuantity=1;
 
 function openProduct(i){
 
-  const p=products[i];
+  const p=
+    products[i];
 
   currentProductIndex=i;
 
   modalColor=p.colors[0];
+
   modalSize=p.sizes[0];
+
   modalQuantity=1;
 
   document.getElementById(
@@ -3282,117 +4023,177 @@ function openProduct(i){
 
   document.getElementById(
     "thumb2"
-  ).src=p.images[1]||p.images[0];
+  ).src=
+    p.images[1]||
+    p.images[0];
 
   document.getElementById(
     "modalQty"
   ).innerText="1";
 
   const colors=
-    document.getElementById("modalColors");
+    document.getElementById(
+      "modalColors"
+    );
 
   colors.innerHTML="";
 
-  p.colors.forEach((c,j)=>{
+  p.colors.forEach(
+    (c,j)=>{
 
-    const b=document.createElement("button");
-
-    b.innerText=c;
-    b.type="button";
-
-    if(j===0){
-      b.classList.add("selected");
-    }
-
-    b.onclick=()=>{
-
-      modalColor=c;
-
-      colors
-        .querySelectorAll("button")
-        .forEach(
-          x=>x.classList.remove("selected")
+      const b=
+        document.createElement(
+          "button"
         );
 
-      b.classList.add("selected");
+      b.innerText=c;
 
-    };
+      b.type="button";
 
-    colors.appendChild(b);
+      if(j===0){
+        b.classList.add(
+          "selected"
+        );
+      }
 
-  });
+      b.onclick=()=>{
+
+        modalColor=c;
+
+        colors
+          .querySelectorAll(
+            "button"
+          )
+          .forEach(
+            x=>
+              x.classList.remove(
+                "selected"
+              )
+          );
+
+        b.classList.add(
+          "selected"
+        );
+
+      };
+
+      colors.appendChild(b);
+
+    }
+  );
 
   const sizes=
-    document.getElementById("modalSizes");
+    document.getElementById(
+      "modalSizes"
+    );
 
   sizes.innerHTML="";
 
-  p.sizes.forEach((s,j)=>{
+  p.sizes.forEach(
+    (s,j)=>{
 
-    const b=document.createElement("button");
-
-    b.innerText=s;
-    b.type="button";
-
-    if(j===0){
-      b.classList.add("selected");
-    }
-
-    b.onclick=()=>{
-
-      modalSize=s;
-
-      sizes
-        .querySelectorAll("button")
-        .forEach(
-          x=>x.classList.remove("selected")
+      const b=
+        document.createElement(
+          "button"
         );
 
-      b.classList.add("selected");
+      b.innerText=s;
 
-    };
+      b.type="button";
 
-    sizes.appendChild(b);
+      if(j===0){
+        b.classList.add(
+          "selected"
+        );
+      }
 
-  });
+      b.onclick=()=>{
+
+        modalSize=s;
+
+        sizes
+          .querySelectorAll(
+            "button"
+          )
+          .forEach(
+            x=>
+              x.classList.remove(
+                "selected"
+              )
+          );
+
+        b.classList.add(
+          "selected"
+        );
+
+      };
+
+      sizes.appendChild(b);
+
+    }
+  );
 
   document
-    .getElementById("productModal")
+    .getElementById(
+      "productModal"
+    )
     .classList.add("active");
 
-  document.body.classList.add("no-scroll");
+  document.body
+    .classList.add(
+      "no-scroll"
+    );
 
 }
 
 function closeProduct(){
 
   document
-    .getElementById("productModal")
-    .classList.remove("active");
+    .getElementById(
+      "productModal"
+    )
+    .classList.remove(
+      "active"
+    );
 
-  document.body.classList.remove("no-scroll");
+  document.body
+    .classList.remove(
+      "no-scroll"
+    );
 
 }
 
-function changeModalImage(src,thumb){
+function changeModalImage(
+  src,
+  thumb
+){
 
   document.getElementById(
     "productModalImage"
   ).src=src;
 
   document
-    .querySelectorAll(".gallery-thumb")
+    .querySelectorAll(
+      ".gallery-thumb"
+    )
     .forEach(
-      x=>x.classList.remove("active")
+      x=>
+        x.classList.remove(
+          "active"
+        )
     );
 
   if(thumb){
-    thumb.classList.add("active");
+    thumb.classList.add(
+      "active"
+    );
   }
 
 }
 
-function changeModalQuantity(amount){
+function changeModalQuantity(
+  amount
+){
 
   modalQuantity=Math.max(
     1,
@@ -3404,13 +4205,15 @@ function changeModalQuantity(amount){
 
   document.getElementById(
     "modalQty"
-  ).innerText=modalQuantity;
+  ).innerText=
+    modalQuantity;
 
 }
 
 function addModalToCart(){
 
-  const p=products[currentProductIndex];
+  const p=
+    products[currentProductIndex];
 
   addProductToCart(
     p,
@@ -3427,7 +4230,8 @@ function addModalToCart(){
 
 function buyModalNow(){
 
-  const p=products[currentProductIndex];
+  const p=
+    products[currentProductIndex];
 
   buyDirect(
     p,
@@ -3438,45 +4242,63 @@ function buyModalNow(){
 
 }
 
-/* =========================
+/* =========================================================
    CART
-========================= */
+========================================================= */
 
 function updateCart(){
 
   const items=
-    document.getElementById("cartItems");
+    document.getElementById(
+      "cartItems"
+    );
 
   let total=0;
+
   let count=0;
 
-  cart.forEach(x=>{
+  cart.forEach(
+    x=>{
 
-    total+=x.price*x.quantity;
-    count+=x.quantity;
+      total+=
+        x.price*x.quantity;
 
-  });
+      count+=
+        x.quantity;
+
+    }
+  );
 
   document.getElementById(
     "navCartCount"
-  ).innerText=count;
+  ).innerText=
+    count;
 
   document.getElementById(
     "cartSubtotal"
-  ).innerText=total;
+  ).innerText=
+    total;
 
   document.getElementById(
     "cartTotal"
-  ).innerText=total;
+  ).innerText=
+    total;
 
   if(!cart.length){
 
     items.innerHTML=`
+
       <div class="cart-empty">
+
         Your cart is empty.
+
         <br><br>
-        Add something from the VYRO drop.
+
+        Add something from
+        the VYRO drop.
+
       </div>
+
     `;
 
     updateWhatsApp();
@@ -3485,64 +4307,90 @@ function updateCart(){
 
   }
 
-  items.innerHTML=cart.map((item,i)=>`
+  items.innerHTML=
+    cart.map(
+      (item,i)=>`
 
-    <div class="cart-item">
+        <div class="cart-item">
 
-      <div class="cart-item-top">
+          <div class="cart-item-top">
 
-        <div>
+            <div>
 
-          <div class="cart-item-name">
-            ${item.name}
+              <div class="cart-item-name">
+                ${item.name}
+              </div>
+
+              <div class="cart-item-details">
+
+                Color:
+                ${item.color}
+
+                <br>
+
+                Size:
+                ${item.size}
+
+                <br>
+
+                Unit Price:
+                ${item.price} EGP
+
+              </div>
+
+            </div>
+
+            <div class="cart-item-price">
+
+              ${item.price*item.quantity}
+              EGP
+
+            </div>
+
           </div>
 
-          <div class="cart-item-details">
-            Color: ${item.color}
-            <br>
-            Size: ${item.size}
-            <br>
-            Unit Price: ${item.price} EGP
+          <div class="cart-controls">
+
+            <div class="quantity-box">
+
+              <button
+                onclick="
+                  decreaseQuantity(${i})
+                "
+              >
+                −
+              </button>
+
+              <span>
+                ${item.quantity}
+              </span>
+
+              <button
+                onclick="
+                  increaseQuantity(${i})
+                "
+              >
+                +
+              </button>
+
+            </div>
+
+            <button
+              class="remove-btn"
+              onclick="
+                removeItem(${i})
+              "
+            >
+              REMOVE
+            </button>
+
           </div>
 
         </div>
 
-        <div class="cart-item-price">
-          ${item.price*item.quantity} EGP
-        </div>
-
-      </div>
-
-      <div class="cart-controls">
-
-        <div class="quantity-box">
-
-          <button onclick="decreaseQuantity(${i})">
-            −
-          </button>
-
-          <span>
-            ${item.quantity}
-          </span>
-
-          <button onclick="increaseQuantity(${i})">
-            +
-          </button>
-
-        </div>
-
-        <button
-          class="remove-btn"
-          onclick="removeItem(${i})"
-        >
-          REMOVE
-        </button>
-
-      </div>
-
-    </div>
-
-  `).join("");
+      `
+    )
+    .join("");
 
   updateWhatsApp();
 
@@ -3571,7 +4419,9 @@ function decreaseQuantity(i){
     return;
   }
 
-  if(cart[i].quantity>1){
+  if(
+    cart[i].quantity>1
+  ){
 
     cart[i].quantity--;
 
@@ -3599,7 +4449,9 @@ function removeItem(i){
 
   updateCart();
 
-  showToast("Item removed");
+  showToast(
+    "Item removed"
+  );
 
 }
 
@@ -3607,9 +4459,14 @@ function openCart(){
 
   document
     .getElementById("cart")
-    .classList.add("active");
+    .classList.add(
+      "active"
+    );
 
-  document.body.classList.add("no-scroll");
+  document.body
+    .classList.add(
+      "no-scroll"
+    );
 
   updateCart();
 
@@ -3619,20 +4476,27 @@ function closeCart(){
 
   document
     .getElementById("cart")
-    .classList.remove("active");
+    .classList.remove(
+      "active"
+    );
 
-  document.body.classList.remove("no-scroll");
+  document.body
+    .classList.remove(
+      "no-scroll"
+    );
 
 }
 
-/* =========================
+/* =========================================================
    WHATSAPP CHECKOUT
-========================= */
+========================================================= */
 
 function updateWhatsApp(){
 
   const btn=
-    document.getElementById("whatsappBtn");
+    document.getElementById(
+      "whatsappBtn"
+    );
 
   if(!btn){
     return;
@@ -3640,7 +4504,10 @@ function updateWhatsApp(){
 
   if(!cart.length){
 
-    btn.classList.add("disabled");
+    btn.classList.add(
+      "disabled"
+    );
+
     btn.href="#";
 
     return;
@@ -3663,12 +4530,15 @@ function updateWhatsApp(){
     ).value.trim();
 
   if(
-    !name ||
-    !phone ||
+    !name||
+    !phone||
     !address
   ){
 
-    btn.classList.add("disabled");
+    btn.classList.add(
+      "disabled"
+    );
+
     btn.href="#";
 
     return;
@@ -3693,14 +4563,16 @@ ORDER DETAILS
 
 `;
 
-  cart.forEach((item,i)=>{
+  cart.forEach(
+    (item,i)=>{
 
-    const itemTotal=
-      item.price*item.quantity;
+      const itemTotal=
+        item.price*
+        item.quantity;
 
-    total+=itemTotal;
+      total+=itemTotal;
 
-    message+=`${i+1}. ${item.name}
+      message+=`${i+1}. ${item.name}
 Color: ${item.color}
 Size: ${item.size}
 Quantity: ${item.quantity}
@@ -3709,7 +4581,8 @@ Item Total: ${itemTotal} EGP
 
 `;
 
-  });
+    }
+  );
 
   message+=`====================
 
@@ -3723,9 +4596,13 @@ Thank you, VYRO! 🖤`;
     "https://wa.me/"+
     WHATSAPP_NUMBER+
     "?text="+
-    encodeURIComponent(message);
+    encodeURIComponent(
+      message
+    );
 
-  btn.classList.remove("disabled");
+  btn.classList.remove(
+    "disabled"
+  );
 
 }
 
@@ -3737,8 +4614,10 @@ function handleWhatsAppClick(e){
     );
 
   if(
-    cart.length===0 ||
-    btn.classList.contains("disabled")
+    cart.length===0||
+    btn.classList.contains(
+      "disabled"
+    )
   ){
 
     e.preventDefault();
@@ -3757,13 +4636,14 @@ function handleWhatsAppClick(e){
 
 }
 
-/* =========================
+/* =========================================================
    WISHLIST
-========================= */
+========================================================= */
 
 function toggleWishlist(i){
 
-  const p=products[i];
+  const p=
+    products[i];
 
   const idx=
     wishlist.findIndex(
@@ -3772,7 +4652,10 @@ function toggleWishlist(i){
 
   if(idx>=0){
 
-    wishlist.splice(idx,1);
+    wishlist.splice(
+      idx,
+      1
+    );
 
     showToast(
       "Removed from wishlist."
@@ -3800,7 +4683,8 @@ function updateWishlist(){
 
   document.getElementById(
     "wishlistCount"
-  ).innerText=wishlist.length;
+  ).innerText=
+    wishlist.length;
 
   const box=
     document.getElementById(
@@ -3810,9 +4694,11 @@ function updateWishlist(){
   if(!wishlist.length){
 
     box.innerHTML=`
+
       <div class="cart-empty">
         Your wishlist is empty.
       </div>
+
     `;
 
     return;
@@ -3820,52 +4706,66 @@ function updateWishlist(){
   }
 
   box.innerHTML=
-    wishlist.map((p,i)=>{
+    wishlist.map(
+      (p,i)=>{
 
-      const original=
-        products.findIndex(
-          x=>x.name===p.name
-        );
+        const original=
+          products.findIndex(
+            x=>x.name===p.name
+          );
 
-      return `
+        return `
 
-        <div class="wishlist-item">
+          <div class="wishlist-item">
 
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-          >
+            <img
+              src="${p.image}"
+              alt="${p.name}"
+            >
 
-          <div class="wishlist-item-info">
+            <div class="wishlist-item-info">
 
-            <strong>
-              ${p.name}
-            </strong>
+              <strong>
+                ${p.name}
+              </strong>
 
-            <span>
-              ${p.price} EGP
-            </span>
+              <span>
+                ${p.price} EGP
+              </span>
+
+            </div>
+
+            <button
+              class="wishlist-remove"
+              onclick="
+                removeWishlist(
+                  ${i},
+                  ${original}
+                )
+              "
+            >
+              REMOVE
+            </button>
 
           </div>
 
-          <button
-            class="wishlist-remove"
-            onclick="removeWishlist(${i},${original})"
-          >
-            REMOVE
-          </button>
+        `;
 
-        </div>
-
-      `;
-
-    }).join("");
+      }
+    )
+    .join("");
 
 }
 
-function removeWishlist(i,pi){
+function removeWishlist(
+  i,
+  pi
+){
 
-  wishlist.splice(i,1);
+  wishlist.splice(
+    i,
+    1
+  );
 
   saveData();
 
@@ -3882,10 +4782,17 @@ function removeWishlist(i,pi){
 function openWishlist(){
 
   document
-    .getElementById("wishlistPanel")
-    .classList.add("active");
+    .getElementById(
+      "wishlistPanel"
+    )
+    .classList.add(
+      "active"
+    );
 
-  document.body.classList.add("no-scroll");
+  document.body
+    .classList.add(
+      "no-scroll"
+    );
 
   updateWishlist();
 
@@ -3894,149 +4801,194 @@ function openWishlist(){
 function closeWishlist(){
 
   document
-    .getElementById("wishlistPanel")
-    .classList.remove("active");
+    .getElementById(
+      "wishlistPanel"
+    )
+    .classList.remove(
+      "active"
+    );
 
-  document.body.classList.remove("no-scroll");
+  document.body
+    .classList.remove(
+      "no-scroll"
+    );
 
 }
 
-/* =========================
+/* =========================================================
    MOBILE MENU
-========================= */
+========================================================= */
 
 function openMobileMenu(){
 
   document
-    .getElementById("mobileMenu")
-    .classList.add("active");
+    .getElementById(
+      "mobileMenu"
+    )
+    .classList.add(
+      "active"
+    );
 
-  document.body.classList.add("no-scroll");
+  document.body
+    .classList.add(
+      "no-scroll"
+    );
 
 }
 
 function closeMobileMenu(){
 
   document
-    .getElementById("mobileMenu")
-    .classList.remove("active");
+    .getElementById(
+      "mobileMenu"
+    )
+    .classList.remove(
+      "active"
+    );
 
-  document.body.classList.remove("no-scroll");
+  document.body
+    .classList.remove(
+      "no-scroll"
+    );
 
 }
 
-/* =========================
+/* =========================================================
    FAQ
-========================= */
+========================================================= */
 
 document
-  .querySelectorAll(".faq-question")
-  .forEach(btn=>{
+  .querySelectorAll(
+    ".faq-question"
+  )
+  .forEach(
+    btn=>{
 
-    btn.addEventListener(
-      "click",
-      ()=>{
+      btn.addEventListener(
+        "click",
+        ()=>{
 
-        const item=
-          btn.parentElement;
+          const item=
+            btn.parentElement;
 
-        const open=
-          item.classList.contains("open");
+          const open=
+            item.classList.contains(
+              "open"
+            );
 
-        document
-          .querySelectorAll(".faq-item")
-          .forEach(x=>{
+          document
+            .querySelectorAll(
+              ".faq-item"
+            )
+            .forEach(
+              x=>{
 
-            x.classList.remove("open");
+                x.classList.remove(
+                  "open"
+                );
 
-            const s=
-              x.querySelector(
-                ".faq-question span"
-              );
+                const s=
+                  x.querySelector(
+                    ".faq-question span"
+                  );
 
-            if(s){
-              s.innerText="+";
-            }
+                if(s){
+                  s.innerText="+";
+                }
 
-          });
+              }
+            );
 
-        if(!open){
+          if(!open){
 
-          item.classList.add("open");
+            item.classList.add(
+              "open"
+            );
 
-          btn.querySelector(
-            "span"
-          ).innerText="−";
+            btn.querySelector(
+              "span"
+            ).innerText="−";
+
+          }
 
         }
+      );
 
-      }
-    );
+    }
+  );
 
-  });
-
-/* =========================
+/* =========================================================
    CUSTOMER INPUTS
-========================= */
+========================================================= */
 
 [
   "customerName",
   "customerPhone",
   "customerAddress"
-].forEach(id=>{
+].forEach(
+  id=>{
 
-  document
-    .getElementById(id)
-    .addEventListener(
-      "input",
-      updateWhatsApp
-    );
+    document
+      .getElementById(id)
+      .addEventListener(
+        "input",
+        updateWhatsApp
+      );
 
-});
+  }
+);
 
-/* =========================
+/* =========================================================
    MODAL OUTSIDE CLICK
-========================= */
+========================================================= */
 
 [
   "productModal",
   "cart",
   "wishlistPanel"
-].forEach(id=>{
+].forEach(
+  id=>{
 
-  document
-    .getElementById(id)
-    .addEventListener(
-      "click",
-      e=>{
+    document
+      .getElementById(id)
+      .addEventListener(
+        "click",
+        e=>{
 
-        if(
-          e.target===
-          document.getElementById(id)
-        ){
+          if(
+            e.target===
+            document.getElementById(id)
+          ){
 
-          if(id==="productModal"){
-            closeProduct();
-          }
+            if(
+              id==="productModal"
+            ){
+              closeProduct();
+            }
 
-          if(id==="cart"){
-            closeCart();
-          }
+            if(
+              id==="cart"
+            ){
+              closeCart();
+            }
 
-          if(id==="wishlistPanel"){
-            closeWishlist();
+            if(
+              id==="wishlistPanel"
+            ){
+              closeWishlist();
+            }
+
           }
 
         }
+      );
 
-      }
-    );
+  }
+);
 
-});
-
-/* =========================
+/* =========================================================
    ESCAPE KEY
-========================= */
+========================================================= */
 
 document.addEventListener(
   "keydown",
@@ -4045,8 +4997,11 @@ document.addEventListener(
     if(e.key==="Escape"){
 
       closeProduct();
+
       closeCart();
+
       closeWishlist();
+
       closeMobileMenu();
 
     }
@@ -4054,14 +5009,108 @@ document.addEventListener(
   }
 );
 
-/* =========================
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+function initReveal(){
+
+  const elements=
+    document.querySelectorAll(
+      ".reveal"
+    );
+
+  if(
+    !("IntersectionObserver" in window)
+  ){
+
+    elements.forEach(
+      el=>
+        el.classList.add(
+          "visible"
+        )
+    );
+
+    return;
+
+  }
+
+  const observer=
+    new IntersectionObserver(
+      entries=>{
+
+        entries.forEach(
+          entry=>{
+
+            if(
+              entry.isIntersecting
+            ){
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          }
+        );
+
+      },
+      {
+        threshold:.12
+      }
+    );
+
+  elements.forEach(
+    el=>
+      observer.observe(el)
+  );
+
+}
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.addEventListener(
+  "load",
+  ()=>{
+
+    setTimeout(
+      ()=>{
+
+        document
+          .getElementById(
+            "pageLoader"
+          )
+          .classList.add(
+            "hidden"
+          );
+
+      },
+      600
+    );
+
+  }
+);
+
+/* =========================================================
    INITIALIZE
-========================= */
+========================================================= */
 
 renderProducts();
+
 updateCart();
+
 updateWishlist();
+
 updateWhatsApp();
+
+initReveal();
 
 </script>
 

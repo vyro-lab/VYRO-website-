@@ -3101,25 +3101,7 @@ footer{
         alt="VYRO Product"
       >
 
-      <div class="gallery-thumbs">
-
-        <img
-          class="gallery-thumb active"
-          id="thumb1"
-          src=""
-          onclick="changeModalImage(this.src,this)"
-          alt=""
-        >
-
-        <img
-          class="gallery-thumb"
-          id="thumb2"
-          src=""
-          onclick="changeModalImage(this.src,this)"
-          alt=""
-        >
-
-      </div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
 
     </div>
 
@@ -4214,15 +4196,38 @@ function openProduct(i){
     "productModalImage"
   ).src=p.images[0];
 
-  document.getElementById(
-    "thumb1"
-  ).src=p.images[0];
+  const gallery =
+  document.getElementById("galleryThumbs");
 
-  document.getElementById(
-    "thumb2"
-  ).src=
-    p.images[1]||
-    p.images[0];
+gallery.innerHTML = "";
+
+p.images.forEach((image, index) => {
+
+  const thumb =
+    document.createElement("img");
+
+  thumb.className =
+    "gallery-thumb" +
+    (index === 0 ? " active" : "");
+
+  thumb.src = image;
+
+  thumb.alt = p.name;
+
+  thumb.loading = "lazy";
+
+  thumb.onclick = () => {
+
+    changeModalImage(
+      image,
+      thumb
+    );
+
+  };
+
+  gallery.appendChild(thumb);
+
+});
 
   document.getElementById(
     "modalQty"

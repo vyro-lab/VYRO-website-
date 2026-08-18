@@ -7,11 +7,12 @@
 <title>VYRO — Winter '26</title>
 
 <meta name="description" content="VYRO — Winter '26. Minimal design. Strong identity. Wear your vision.">
+<meta name="theme-color" content="#080808">
 
 <style>
 :root{
   --black:#070707;
-  --dark:#0d0d0d;
+  --dark:#0b0b0b;
   --dark2:#151515;
   --white:#fff;
   --cream:#f4f3ef;
@@ -116,9 +117,7 @@ a{
 }
 
 @keyframes loaderLine{
-  to{
-    transform:translateX(0);
-  }
+  to{transform:translateX(0);}
 }
 
 /* =========================================================
@@ -143,73 +142,130 @@ a{
 .top-bar-track{
   display:flex;
   gap:45px;
-  animation:topTicker 22s linear infinite;
+  width:max-content;
+  animation:topTicker 24s linear infinite;
 }
 
 @keyframes topTicker{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(-50%);
-  }
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
 
 /* =========================================================
-   NAVBAR
+   PREMIUM NAVBAR
 ========================================================= */
 
 .navbar{
-  height:74px;
+  height:78px;
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(8,8,8,.96);
-  backdrop-filter:blur(18px);
+  background:rgba(8,8,8,.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 5%;
   border-bottom:1px solid rgba(255,255,255,.08);
+  transition:
+    height .35s ease,
+    background .35s ease,
+    box-shadow .35s ease;
+}
+
+.navbar.scrolled{
+  height:64px;
+  background:rgba(5,5,5,.97);
+  box-shadow:0 10px 35px rgba(0,0,0,.22);
 }
 
 .logo{
   color:#fff;
   text-decoration:none;
-  font-size:27px;
+  font-size:28px;
   font-weight:900;
   letter-spacing:8px;
+  line-height:1;
+  position:relative;
+  transition:.3s ease;
+}
+
+.logo::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-9px;
+  width:0;
+  height:1px;
+  background:#fff;
+  transition:.35s ease;
+}
+
+.logo:hover::after{
+  width:100%;
+}
+
+.logo:hover{
+  letter-spacing:10px;
 }
 
 .nav-links{
   display:flex;
-  gap:32px;
+  align-items:center;
+  gap:38px;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 .nav-links a{
-  color:#fff;
+  color:rgba(255,255,255,.7);
   text-decoration:none;
-  font-size:9px;
+  font-size:8px;
   font-weight:700;
-  letter-spacing:2px;
+  letter-spacing:2.5px;
   text-transform:uppercase;
   position:relative;
+  padding:10px 0;
+  transition:.3s ease;
 }
 
-.nav-links a:after{
+.nav-links a::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#fff;
+  transform:translateX(-50%) scale(0);
+  transition:.3s ease;
+}
+
+.nav-links a::after{
   content:"";
   position:absolute;
   left:0;
-  bottom:-7px;
+  bottom:-1px;
   width:0;
   height:1px;
   background:#fff;
-  transition:var(--transition);
+  transition:.35s cubic-bezier(.2,.7,.2,1);
 }
 
-.nav-links a:hover:after{
+.nav-links a:hover{
+  color:#fff;
+}
+
+.nav-links a:hover::after{
   width:100%;
+}
+
+.nav-links a:hover::before{
+  transform:translateX(-50%) scale(1);
 }
 
 .nav-actions{
@@ -219,26 +275,38 @@ a{
 }
 
 .nav-icon{
-  min-width:43px;
+  min-width:44px;
   height:40px;
   border:1px solid #333;
-  background:#151515;
+  background:rgba(255,255,255,.04);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:5px;
-  font-size:10px;
+  gap:6px;
+  font-size:14px;
   transition:var(--transition);
+  position:relative;
 }
 
 .nav-icon:hover{
   background:#fff;
   color:#111;
+  border-color:#fff;
+  transform:translateY(-2px);
 }
 
 .nav-count{
-  font-size:8px;
+  min-width:15px;
+  height:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:7px;
+  border-radius:50%;
+  background:#fff;
+  color:#111;
+  font-weight:800;
 }
 
 .mobile-menu-btn{
@@ -246,12 +314,12 @@ a{
 }
 
 /* =========================================================
-   HERO — WINTER 26
+   PREMIUM HERO
 ========================================================= */
 
 .hero{
-  min-height:calc(100vh - 104px);
-  height:calc(100vh - 104px);
+  min-height:calc(100vh - 108px);
+  height:calc(100vh - 108px);
   position:relative;
   background:url("hero.jpg") center center/cover no-repeat;
   color:#fff;
@@ -271,15 +339,15 @@ a{
   background:
     linear-gradient(
       90deg,
-      rgba(0,0,0,.94) 0%,
-      rgba(0,0,0,.78) 28%,
-      rgba(0,0,0,.35) 60%,
-      rgba(0,0,0,.2) 100%
+      rgba(0,0,0,.96) 0%,
+      rgba(0,0,0,.78) 25%,
+      rgba(0,0,0,.34) 62%,
+      rgba(0,0,0,.12) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(0,0,0,.72),
-      transparent 55%,
+      rgba(0,0,0,.82),
+      transparent 50%,
       rgba(0,0,0,.22)
     );
 }
@@ -296,7 +364,7 @@ a{
 .hero-bg-number{
   position:absolute;
   right:-30px;
-  bottom:-90px;
+  bottom:-100px;
   z-index:1;
   font-size:clamp(180px,30vw,500px);
   line-height:.8;
@@ -304,6 +372,17 @@ a{
   color:rgba(255,255,255,.035);
   letter-spacing:-25px;
   user-select:none;
+  transition:transform .1s linear;
+}
+
+.hero-noise{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.08;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
 }
 
 .hero-content{
@@ -314,7 +393,7 @@ a{
   padding:40px 0;
   opacity:0;
   transform:translateY(30px);
-  animation:heroContentIn 1s .25s cubic-bezier(.2,.7,.2,1) forwards;
+  animation:heroContentIn 1s .2s cubic-bezier(.2,.7,.2,1) forwards;
 }
 
 @keyframes heroContentIn{
@@ -329,14 +408,14 @@ a{
   align-items:center;
   gap:12px;
   margin-bottom:25px;
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.7);
   font-size:9px;
   font-weight:700;
   letter-spacing:4px;
 }
 
 .hero-kicker span{
-  width:35px;
+  width:38px;
   height:1px;
   background:rgba(255,255,255,.6);
 }
@@ -346,17 +425,17 @@ a{
 }
 
 .hero h1{
-  margin:0 0 22px;
-  font-size:clamp(80px,13vw,175px);
-  line-height:.76;
-  letter-spacing:-9px;
+  margin:0 0 24px;
+  font-size:clamp(90px,14vw,185px);
+  line-height:.74;
+  letter-spacing:-11px;
   font-weight:900;
   color:#fff;
   text-transform:uppercase;
-  text-shadow:0 15px 50px rgba(0,0,0,.5);
+  text-shadow:0 20px 60px rgba(0,0,0,.5);
   opacity:0;
   transform:translateY(25px);
-  animation:heroTitleIn 1.1s .45s cubic-bezier(.2,.7,.2,1) forwards;
+  animation:heroTitleIn 1.1s .4s cubic-bezier(.2,.7,.2,1) forwards;
 }
 
 @keyframes heroTitleIn{
@@ -367,24 +446,18 @@ a{
 }
 
 .hero-subtitle{
-  color:rgba(255,255,255,.84);
-  font-size:12px;
+  color:rgba(255,255,255,.8);
+  font-size:10px;
   line-height:1.8;
   font-weight:700;
   letter-spacing:5px;
   opacity:0;
-  animation:fadeIn 1s .75s ease forwards;
+  animation:fadeIn 1s .7s ease forwards;
 }
 
 .hero-subtitle span{
   color:#777;
   margin:0 7px;
-}
-
-@keyframes fadeIn{
-  to{
-    opacity:1;
-  }
 }
 
 .hero-actions{
@@ -395,7 +468,7 @@ a{
   margin-top:35px;
   flex-wrap:wrap;
   opacity:0;
-  animation:fadeIn 1s .95s ease forwards;
+  animation:fadeIn 1s .9s ease forwards;
 }
 
 .hero-btn{
@@ -415,7 +488,8 @@ a{
   transition:
     transform .35s cubic-bezier(.2,.7,.2,1),
     background .35s ease,
-    color .35s ease;
+    color .35s ease,
+    border-color .35s ease;
 }
 
 .hero-btn::before{
@@ -449,12 +523,14 @@ a{
 .hero-btn.outline{
   background:rgba(0,0,0,.12);
   color:#fff;
-  border-color:rgba(255,255,255,.55);
+  border-color:rgba(255,255,255,.5);
   backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
 }
 
 .hero-btn.outline:hover{
   color:#111;
+  border-color:#fff;
   transform:translateY(-4px);
 }
 
@@ -495,12 +571,24 @@ a{
 }
 
 @keyframes scrollMove{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(8px);
-  }
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(8px);}
+}
+
+.hero-index{
+  position:absolute;
+  right:7%;
+  top:50%;
+  z-index:5;
+  transform:translateY(-50%);
+  color:rgba(255,255,255,.45);
+  font-size:8px;
+  letter-spacing:3px;
+  writing-mode:vertical-rl;
+}
+
+.hero-index strong{
+  color:#fff;
 }
 
 /* =========================================================
@@ -537,12 +625,8 @@ a{
 }
 
 @keyframes winterTicker{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(-50%);
-  }
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
 
 /* =========================================================
@@ -1776,20 +1860,41 @@ footer{
   z-index:2000;
   background:#0b0b0b;
   color:#fff;
-  padding:100px 30px 30px;
+  padding:110px 30px 30px;
 }
 
 .mobile-menu.active{
   display:block;
 }
 
+.mobile-menu::before{
+  content:"VYRO";
+  position:absolute;
+  right:-20px;
+  bottom:-25px;
+  font-size:150px;
+  font-weight:900;
+  letter-spacing:-10px;
+  color:rgba(255,255,255,.025);
+}
+
 .mobile-menu a{
   display:block;
   color:#fff;
   text-decoration:none;
-  font-size:28px;
+  font-size:31px;
   font-weight:700;
+  letter-spacing:-1px;
   margin-bottom:25px;
+  position:relative;
+  z-index:2;
+}
+
+.mobile-menu a::after{
+  content:"↗";
+  font-size:15px;
+  margin-left:10px;
+  opacity:.35;
 }
 
 .mobile-menu-close{
@@ -1827,6 +1932,10 @@ footer{
 
 @media(max-width:1000px){
 
+  .nav-links{
+    gap:20px;
+  }
+
   .hero{
     min-height:82vh;
     height:82vh;
@@ -1835,6 +1944,10 @@ footer{
 
   .hero h1{
     font-size:clamp(70px,12vw,120px);
+  }
+
+  .hero-index{
+    display:none;
   }
 
   .products{
@@ -1896,8 +2009,16 @@ footer{
     padding:0 14px;
   }
 
+  .navbar.scrolled{
+    height:58px;
+  }
+
   .logo{
     font-size:20px;
+    letter-spacing:5px;
+  }
+
+  .logo:hover{
     letter-spacing:5px;
   }
 
@@ -1925,7 +2046,13 @@ footer{
   .nav-icon{
     min-width:38px;
     height:38px;
-    font-size:9px;
+    font-size:13px;
+  }
+
+  .nav-count{
+    min-width:13px;
+    height:13px;
+    font-size:6px;
   }
 
   .hero{
@@ -2002,6 +2129,10 @@ footer{
   }
 
   .hero-scroll{
+    display:none;
+  }
+
+  .hero-index{
     display:none;
   }
 
@@ -2304,7 +2435,7 @@ footer{
      NAVBAR
 ======================================================= -->
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
 
   <button
     class="mobile-menu-btn"
@@ -2381,8 +2512,14 @@ footer{
 
 <section class="hero" id="home">
 
-  <div class="hero-bg-number">
+  <div class="hero-noise"></div>
+
+  <div class="hero-bg-number" id="heroNumber">
     26
+  </div>
+
+  <div class="hero-index">
+    COLLECTION / <strong>01</strong>
   </div>
 
   <div class="hero-content">
@@ -3502,6 +3639,43 @@ function showToast(message){
   );
 
 }
+
+/* =========================================================
+   PREMIUM NAVBAR SCROLL
+========================================================= */
+
+const navbar=
+  document.getElementById("navbar");
+
+const heroNumber=
+  document.getElementById("heroNumber");
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    if(window.scrollY>30){
+      navbar.classList.add("scrolled");
+    }else{
+      navbar.classList.remove("scrolled");
+    }
+
+    if(heroNumber){
+
+      const move=
+        Math.min(
+          window.scrollY*.18,
+          90
+        );
+
+      heroNumber.style.transform=
+        `translateY(${move}px)`;
+
+    }
+
+  },
+  {passive:true}
+);
 
 /* =========================================================
    PRODUCTS RENDER

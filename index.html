@@ -2382,6 +2382,78 @@ footer{
     transition-duration:.01ms !important;
   }
 }
+  /* =========================================================
+   PREMIUM PRODUCT GALLERY
+========================================================= */
+
+.modal-image-wrap{
+  position:relative;
+  width:100%;
+}
+
+.gallery-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+
+  width:42px;
+  height:42px;
+
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(0,0,0,.55);
+  color:#fff;
+
+  font-size:28px;
+  line-height:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+.gallery-arrow:hover{
+  background:#fff;
+  color:#000;
+  border-color:#fff;
+}
+
+.gallery-prev{
+  left:15px;
+}
+
+.gallery-next{
+  right:15px;
+}
+
+.gallery-arrow:active{
+  transform:translateY(-50%) scale(.94);
+}
+
+@media(max-width:600px){
+
+  .gallery-arrow{
+    width:36px;
+    height:36px;
+    font-size:24px;
+  }
+
+  .gallery-prev{
+    left:8px;
+  }
+
+  .gallery-next{
+    right:8px;
+  }
+
+}
 </style>
 </head>
 
@@ -3095,11 +3167,34 @@ footer{
     <div class="modal-gallery">
 
       <img
-        class="modal-main-image"
-        id="productModalImage"
-        src=""
-        alt="VYRO Product"
-      >
+        <div class="modal-image-wrap">
+
+  <button
+    class="gallery-arrow gallery-prev"
+    type="button"
+    onclick="changeGalleryImage(-1)"
+    aria-label="Previous image"
+  >
+    ‹
+  </button>
+
+  <img
+    class="modal-main-image"
+    id="productModalImage"
+    src=""
+    alt="VYRO Product"
+  >
+
+  <button
+    class="gallery-arrow gallery-next"
+    type="button"
+    onclick="changeGalleryImage(1)"
+    aria-label="Next image"
+  >
+    ›
+  </button>
+
+</div>
 
       <div class="gallery-thumbs" id="galleryThumbs"></div>
 
@@ -4177,7 +4272,7 @@ function openProduct(i){
     products[i];
 
   currentProductIndex=i;
-
+  currentGalleryIndex = 0;
   modalColor=p.colors[0];
 
   modalSize=p.sizes[0];
@@ -4364,7 +4459,53 @@ function closeProduct(){
     );
 
 }
+let currentGalleryIndex = 0;
 
+function changeGalleryImage(direction){
+
+  const product =
+    products[currentProductIndex];
+
+  if(!product || !product.images.length){
+    return;
+  }
+
+  currentGalleryIndex += direction;
+
+  if(currentGalleryIndex < 0){
+    currentGalleryIndex =
+      product.images.length - 1;
+  }
+
+  if(
+    currentGalleryIndex >=
+    product.images.length
+  ){
+    currentGalleryIndex = 0;
+  }
+
+  const image =
+    product.images[currentGalleryIndex];
+
+  const mainImage =
+    document.getElementById(
+      "productModalImage"
+    );
+
+  mainImage.src = image;
+
+  document
+    .querySelectorAll(".gallery-thumb")
+    .forEach((thumb,index)=>{
+
+      thumb.classList.toggle(
+        "active",
+        index === currentGalleryIndex
+      );
+
+    });
+
+}
 function changeModalImage(
   src,
   thumb

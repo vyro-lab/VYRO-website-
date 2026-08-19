@@ -4553,6 +4553,43 @@ let modalQuantity=1;
   
 let currentGalleryIndex=0;
   
+function changeGalleryImage(direction){
+
+  const p = products[currentProductIndex];
+
+  if(!p || !p.images || !p.images.length){
+    return;
+  }
+
+  currentGalleryIndex += direction;
+
+  if(currentGalleryIndex < 0){
+    currentGalleryIndex = p.images.length - 1;
+  }
+
+  if(currentGalleryIndex >= p.images.length){
+    currentGalleryIndex = 0;
+  }
+
+  const image = p.images[currentGalleryIndex];
+
+  document.getElementById(
+    "productModalImage"
+  ).src = image;
+
+  const thumbs =
+    document.querySelectorAll(
+      ".gallery-thumb"
+    );
+
+  thumbs.forEach((thumb,index)=>{
+    thumb.classList.toggle(
+      "active",
+      index === currentGalleryIndex
+    );
+  });
+
+}  
 function openProduct(i){
 
   const p=

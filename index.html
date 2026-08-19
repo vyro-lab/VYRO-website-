@@ -4462,7 +4462,59 @@ function closeProduct(){
 let currentGalleryIndex = 0;
 
 function changeGalleryImage(direction){
+/* =========================================================
+   MOBILE GALLERY SWIPE
+========================================================= */
 
+let galleryTouchStartX = 0;
+let galleryTouchEndX = 0;
+
+const galleryImage =
+  document.getElementById("productModalImage");
+
+if(galleryImage){
+
+  galleryImage.addEventListener(
+    "touchstart",
+    function(e){
+
+      galleryTouchStartX =
+        e.changedTouches[0].screenX;
+
+    },
+    {passive:true}
+  );
+
+  galleryImage.addEventListener(
+    "touchend",
+    function(e){
+
+      galleryTouchEndX =
+        e.changedTouches[0].screenX;
+
+      const distance =
+        galleryTouchEndX -
+        galleryTouchStartX;
+
+      if(Math.abs(distance) < 50){
+        return;
+      }
+
+      if(distance < 0){
+
+        changeGalleryImage(1);
+
+      }else{
+
+        changeGalleryImage(-1);
+
+      }
+
+    },
+    {passive:true}
+  );
+
+}
   const product =
     products[currentProductIndex];
 

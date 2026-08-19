@@ -2454,6 +2454,287 @@ footer{
   }
 
 }
+ /* =========================================================
+   VYRO PREMIUM CART
+========================================================= */
+
+.cart-box{
+  width:min(620px,94%);
+  max-height:92vh;
+  overflow-y:auto;
+  background:#0d0d0d;
+  border:1px solid #292929;
+  padding:30px;
+  box-shadow:0 30px 100px rgba(0,0,0,.65);
+}
+
+.cart-header{
+  position:sticky;
+  top:-30px;
+  z-index:10;
+  background:#0d0d0d;
+  padding:5px 0 20px;
+  border-bottom:1px solid #222;
+}
+
+.cart-header h2{
+  font-size:26px;
+  letter-spacing:-.5px;
+}
+
+.cart-item{
+  padding:20px 0;
+  border-bottom:1px solid #222;
+}
+
+.cart-item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.cart-item-name{
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.5px;
+}
+
+.cart-item-details{
+  margin-top:8px;
+  color:#888;
+  font-size:10px;
+  line-height:1.8;
+  letter-spacing:.5px;
+}
+
+.cart-item-price{
+  white-space:nowrap;
+  font-size:14px;
+  font-weight:700;
+}
+
+.cart-controls{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.quantity-box{
+  display:flex;
+  align-items:center;
+  border:1px solid #333;
+}
+
+.quantity-box button{
+  width:35px;
+  height:35px;
+  border:0;
+  background:#171717;
+  color:#fff;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.quantity-box span{
+  width:38px;
+  text-align:center;
+  font-size:11px;
+}
+
+.remove-btn{
+  border:1px solid #333;
+  background:transparent;
+  color:#aaa;
+  padding:10px 14px;
+  font-size:8px;
+  letter-spacing:1.5px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.remove-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+.cart-summary{
+  margin-top:22px;
+  padding:20px 0;
+  border-top:1px solid #333;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:8px 0;
+  color:#888;
+  font-size:9px;
+  letter-spacing:1px;
+}
+
+.summary-row strong{
+  color:#fff;
+}
+
+.summary-row.total{
+  margin-top:10px;
+  padding-top:18px;
+  border-top:1px solid #333;
+  color:#fff;
+  font-size:11px;
+}
+
+.checkout{
+  margin-top:15px;
+  padding-top:25px;
+  border-top:1px solid #222;
+}
+
+.checkout h3{
+  margin-bottom:18px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.checkout input,
+.checkout textarea{
+  width:100%;
+  box-sizing:border-box;
+  margin-bottom:9px;
+  padding:14px;
+  border:1px solid #292929;
+  outline:none;
+  background:#151515;
+  color:#fff;
+  font-family:inherit;
+  font-size:11px;
+  transition:border-color .2s ease;
+}
+
+.checkout textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.checkout input:focus,
+.checkout textarea:focus{
+  border-color:#666;
+}
+
+.whatsapp-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  margin-top:5px;
+  background:#25D366;
+  color:#000;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  transition:.2s ease;
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.05);
+}
+
+.whatsapp-btn.disabled{
+  opacity:.35;
+  pointer-events:auto;
+  cursor:not-allowed;
+}
+
+.checkout-note{
+  margin-top:12px;
+  color:#666;
+  text-align:center;
+  font-size:8px;
+  line-height:1.6;
+}
+
+.cart-empty{
+  padding:45px 15px;
+  text-align:center;
+  color:#777;
+  font-size:10px;
+  line-height:1.8;
+}
+
+
+/* =========================================================
+   CART MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+  .cart-box{
+    width:calc(100% - 20px);
+    max-height:94vh;
+    padding:20px;
+  }
+
+  .cart-header{
+    top:-20px;
+    padding-top:3px;
+  }
+
+  .cart-header h2{
+    font-size:22px;
+  }
+
+  .cart-item{
+    padding:17px 0;
+  }
+
+  .cart-item-top{
+    gap:10px;
+  }
+
+  .cart-item-name{
+    font-size:11px;
+  }
+
+  .cart-item-details{
+    font-size:8px;
+  }
+
+  .cart-item-price{
+    font-size:11px;
+  }
+
+  .cart-controls{
+    margin-top:13px;
+  }
+
+  .quantity-box button{
+    width:32px;
+    height:32px;
+  }
+
+  .quantity-box span{
+    width:32px;
+  }
+
+  .remove-btn{
+    padding:8px 10px;
+    font-size:7px;
+  }
+
+  .summary-row{
+    font-size:8px;
+  }
+
+  .checkout h3{
+    font-size:9px;
+  }
+
+} 
 </style>
 </head>
 

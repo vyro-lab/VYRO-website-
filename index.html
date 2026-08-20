@@ -5118,49 +5118,7 @@ if(galleryImage){
   );
 
 }
-  const product =
-    products[currentProductIndex];
-
-  if(!product || !product.images.length){
-    return;
-  }
-
-  currentGalleryIndex += direction;
-
-  if(currentGalleryIndex < 0){
-    currentGalleryIndex =
-      product.images.length - 1;
-  }
-
-  if(
-    currentGalleryIndex >=
-    product.images.length
-  ){
-    currentGalleryIndex = 0;
-  }
-
-  const image =
-    product.images[currentGalleryIndex];
-
-  const mainImage =
-    document.getElementById(
-      "productModalImage"
-    );
-
-  mainImage.src = image;
-
-  document
-    .querySelectorAll(".gallery-thumb")
-    .forEach((thumb,index)=>{
-
-      thumb.classList.toggle(
-        "active",
-        index === currentGalleryIndex
-      );
-
-    });
-
-}
+  
 function changeModalImage(
   src,
   thumb
